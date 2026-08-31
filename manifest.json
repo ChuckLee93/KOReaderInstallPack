@@ -1,0 +1,3956 @@
+{
+  "generated": "2026-08-31T12:06:13.973Z",
+  "file_count": 790,
+  "files": [
+    {
+      "path": "0、必装核心/defaults.custom.lua",
+      "size": 157,
+      "md5": "a623c5c37f75f86db246b2979c3ef626"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-chengyuda-2.4.2/chengyuda.dict.dz",
+      "size": 8772940,
+      "md5": "d7da0a362828d9f2e9284f9609fb37c8"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-chengyuda-2.4.2/chengyuda.idx",
+      "size": 1071393,
+      "md5": "14f31aeb7ff957f70f34520ec53670b5"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-chengyuda-2.4.2/chengyuda.ifo",
+      "size": 129,
+      "md5": "fa7d6a07156f9773a44c6fc6ee12a1a1"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-chibigenc-2.4.2/chibigenc.dict.dz",
+      "size": 68354327,
+      "md5": "a3b66c9974efbcd08c5aa5e0a7580a0e"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-chibigenc-2.4.2/chibigenc.idx",
+      "size": 5511638,
+      "md5": "488ef670d03f30143c2c02100a1ee2c6"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-chibigenc-2.4.2/chibigenc.ifo",
+      "size": 150,
+      "md5": "93af4721dd5c826e8256099afa29eac7"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-chibigenc-2.4.2/chibigenc.syn",
+      "size": 2493130,
+      "md5": "58a0eb6e5a0a9d8041543e5e6cae2e9a"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-foguangdacidian-2.4.2/foguangdacidian.dict.dz",
+      "size": 7806573,
+      "md5": "ee36230894f31057b4135f6515ca48aa"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-foguangdacidian-2.4.2/foguangdacidian.idx",
+      "size": 431228,
+      "md5": "d564259b0ecd3bb079c84a5ef4999bc7"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-foguangdacidian-2.4.2/foguangdacidian.ifo",
+      "size": 162,
+      "md5": "b8eb5160af448cf99b568d939cb4ef48"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-ghycyzzd-2.4.2/ghycyzzd.dict.dz",
+      "size": 781574,
+      "md5": "b15e01a2dfa4123b87188cc63ee6b32c"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-ghycyzzd-2.4.2/ghycyzzd.idx",
+      "size": 47199,
+      "md5": "728fbd5113e2e4e4cd91096b2b1adfd8"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-ghycyzzd-2.4.2/ghycyzzd.ifo",
+      "size": 125,
+      "md5": "e78bc4b377801dec1850c0b2e3c0fa81"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-guangyun-2.4.2/guangyun.dict.dz",
+      "size": 132940,
+      "md5": "80ec3d0546b1cb56327b1c2608bbbf8c"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-guangyun-2.4.2/guangyun.idx",
+      "size": 51707,
+      "md5": "68ec2095c2f0fb03763dc4edf04bdcae"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-guangyun-2.4.2/guangyun.ifo",
+      "size": 141,
+      "md5": "6cf76aaeaeb563099a8df228bdd51fd2"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-gyfancha-2.4.2/gyfancha.dict.dz",
+      "size": 56113,
+      "md5": "9a84bd602a5eb2a075c2fd69f365d53b"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-gyfancha-2.4.2/gyfancha.idx",
+      "size": 247569,
+      "md5": "e1ef7f70ef148b3a2d5e991cf78bceb2"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-gyfancha-2.4.2/gyfancha.ifo",
+      "size": 149,
+      "md5": "d0911f33ef51f08e1d80f3cd8c8cc90d"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-kangxitext-2.4.2/kangxitext.dict.dz",
+      "size": 3940344,
+      "md5": "c8ab3cb7663caa1b8db5e7afc8bdc18e"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-kangxitext-2.4.2/kangxitext.idx",
+      "size": 586231,
+      "md5": "c83a0413749573259b2ad7d102fa1ddf"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-kangxitext-2.4.2/kangxitext.ifo",
+      "size": 153,
+      "md5": "73f677d0eb724c25e51a844903920389"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-langdao-ce-gb-2.4.2/langdao-ce-gb.dict.dz",
+      "size": 3940360,
+      "md5": "1f98670412dc49a1ea36fac18d7c048a"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-langdao-ce-gb-2.4.2/langdao-ce-gb.idx",
+      "size": 8918534,
+      "md5": "583f682199e947862237432491462213"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-langdao-ce-gb-2.4.2/langdao-ce-gb.ifo",
+      "size": 262,
+      "md5": "83a0a145eb01324b75f7fe74307764e7"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-langdao-ec-gb-2.4.2/langdao-ec-gb.dict.dz",
+      "size": 5025383,
+      "md5": "37a4b1c5e79caa6e281bbf1a7addfe7d"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-langdao-ec-gb-2.4.2/langdao-ec-gb.idx",
+      "size": 10651674,
+      "md5": "8d7fb5af0ce8194c9ecd4af837e8ee83"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-langdao-ec-gb-2.4.2/langdao-ec-gb.ifo",
+      "size": 263,
+      "md5": "78c577ffe9513ac25608e9ecdce15ab8"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-oxford-gb-2.4.2/oxford-gb.dict.dz",
+      "size": 7282102,
+      "md5": "280cc3bfbda4bc4b8d9445180ffc3a40"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-oxford-gb-2.4.2/oxford-gb.idx",
+      "size": 721264,
+      "md5": "2992367d51ed9b418f1a04d431f2216e"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-oxford-gb-2.4.2/oxford-gb.idx.oft",
+      "size": 4970,
+      "md5": "05cb3157a4ad5e9a44f21348bc38d6d8"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-oxford-gb-2.4.2/oxford-gb.ifo",
+      "size": 337,
+      "md5": "b917af935b8cc926cb5a6d8c4f0ec082"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-oxford-gb-2.4.2/stardict-oxford-gb-2.4.2/oxford-gb.dict.dz",
+      "size": 7282102,
+      "md5": "280cc3bfbda4bc4b8d9445180ffc3a40"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-oxford-gb-2.4.2/stardict-oxford-gb-2.4.2/oxford-gb.idx",
+      "size": 721264,
+      "md5": "2992367d51ed9b418f1a04d431f2216e"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-oxford-gb-2.4.2/stardict-oxford-gb-2.4.2/oxford-gb.ifo",
+      "size": 337,
+      "md5": "b917af935b8cc926cb5a6d8c4f0ec082"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-poemstory-2.4.2/poemstory.dict.dz",
+      "size": 366879,
+      "md5": "551e40d9d03b0b8392430974ba3806fb"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-poemstory-2.4.2/poemstory.idx",
+      "size": 51971,
+      "md5": "6a05c9c883a30d01e6134944fa7014e7"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-poemstory-2.4.2/poemstory.ifo",
+      "size": 119,
+      "md5": "2a456528879fe1a03c3c7b5a0175e247"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-xiandaihanyucidian_fix-2.4.2/stardict-xiandaihanyucidian_fix-2.4.2/xiandaihanyucidian_fix.dict.dz",
+      "size": 2775540,
+      "md5": "89130ea60bcb256a1cec37b486ac9044"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-xiandaihanyucidian_fix-2.4.2/stardict-xiandaihanyucidian_fix-2.4.2/xiandaihanyucidian_fix.idx",
+      "size": 891609,
+      "md5": "6b98078e8945f766ca55e4a55a9f6031"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-xiandaihanyucidian_fix-2.4.2/stardict-xiandaihanyucidian_fix-2.4.2/xiandaihanyucidian_fix.ifo",
+      "size": 189,
+      "md5": "b7baed9eecfceb9e3455d08ceb1790ff"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-xiandaihanyucidian_fix-2.4.2/xiandaihanyucidian_fix.dict.dz",
+      "size": 2775540,
+      "md5": "89130ea60bcb256a1cec37b486ac9044"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-xiandaihanyucidian_fix-2.4.2/xiandaihanyucidian_fix.idx",
+      "size": 891609,
+      "md5": "6b98078e8945f766ca55e4a55a9f6031"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-xiandaihanyucidian_fix-2.4.2/xiandaihanyucidian_fix.idx.oft",
+      "size": 7250,
+      "md5": "2e65c174e2c32f59420d192ac603b67f"
+    },
+    {
+      "path": "0、必装核心/dicts/stardict-xiandaihanyucidian_fix-2.4.2/xiandaihanyucidian_fix.ifo",
+      "size": 189,
+      "md5": "b7baed9eecfceb9e3455d08ceb1790ff"
+    },
+    {
+      "path": "0、必装核心/dicts/使用说明.txt",
+      "size": 219,
+      "md5": "55236b617f686aa725bab37e0f6508a2"
+    },
+    {
+      "path": "0、必装核心/frontend/ui/elements/menu_activate.lua",
+      "size": 1977,
+      "md5": "3b46eac7d8da9b8e752ca3b3553959fb"
+    },
+    {
+      "path": "0、必装核心/frontend/ui/widget/touchmenu.lua",
+      "size": 50290,
+      "md5": "b5829072c9490e830015b48b96e81c73"
+    },
+    {
+      "path": "0、必装核心/patches/2--disable-all-CB-widgets.lua",
+      "size": 2778,
+      "md5": "122395c44bc3155c47c1b335bf14db5b"
+    },
+    {
+      "path": "0、必装核心/patches/2-book-receipt-shortcut-and-lockscreen.lua",
+      "size": 53063,
+      "md5": "12f12538fa4464d1146d8519b757467f"
+    },
+    {
+      "path": "0、必装核心/patches/2-diag-probe.lua",
+      "size": 6199,
+      "md5": "90d2c250cc2dba382196a90477b32ff5"
+    },
+    {
+      "path": "0、必装核心/patches/2-disable-wikipedia.lua",
+      "size": 3236,
+      "md5": "51201dcf7b602915f43a8ed9c8e6b394"
+    },
+    {
+      "path": "0、必装核心/patches/2-menu-activation-split.lua",
+      "size": 2644,
+      "md5": "a8ed6acfecb4a95fa986df337c82445b"
+    },
+    {
+      "path": "0、必装核心/patches/2-quick-settings-v9.lua",
+      "size": 39802,
+      "md5": "cdf6edd718179e70e894655f5a66d58e"
+    },
+    {
+      "path": "0、必装核心/patches/2-reader-covermode-V3.lua",
+      "size": 18787,
+      "md5": "f61906d5e00f32b81805b4bbb5918c65"
+    },
+    {
+      "path": "0、必装核心/patches/2-reading-insights-popup.lua",
+      "size": 69684,
+      "md5": "5d9e5445e204bcf912c0276d900cb4bf"
+    },
+    {
+      "path": "0、必装核心/patches/2-reading-stats-popup.lua",
+      "size": 28656,
+      "md5": "39eb36d6ab8bf990abbba06916acb7e6"
+    },
+    {
+      "path": "0、必装核心/patches/2-restart-diag.lua",
+      "size": 2397,
+      "md5": "9f9f1f2e25b5982407e000649461890d"
+    },
+    {
+      "path": "0、必装核心/plugins/keepalive.koplugin/_meta.lua",
+      "size": 161,
+      "md5": "97ca06232d82b76ec673dca9a3f8361c"
+    },
+    {
+      "path": "0、必装核心/plugins/keepalive.koplugin/main.lua",
+      "size": 11444,
+      "md5": "735ff35088239b46c975fa64c7f33b12"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE",
+      "size": 34520,
+      "md5": "73f1eb20517c55bf9493b7dd6e480788"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.cc-by-sa-4.0",
+      "size": 20138,
+      "md5": "b296faaab9c17d5874fd17967df54736"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.jieba",
+      "size": 1076,
+      "md5": "5fd71a086f0976a888e3221c666fe4e7"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.rime-double-pinyin",
+      "size": 35147,
+      "md5": "d32239bcb673463ab874e80d47fae504"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.rime-frost",
+      "size": 35149,
+      "md5": "1ebbd3e34237af26da5dc08a4e440464"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.rime-ice",
+      "size": 438,
+      "md5": "086e9a8d9426072f665497a686e8c4ec"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.rime-pinyin-simp",
+      "size": 11358,
+      "md5": "3b83ef96387f14655fc854ddc3c6bd57"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.thuocl",
+      "size": 1063,
+      "md5": "92e03ce751eb8377977076662120bf62"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/LICENSE.wanxiang",
+      "size": 18656,
+      "md5": "527dc6cad772ccb187d5bfe5af738204"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/README.md",
+      "size": 12382,
+      "md5": "c9d326c7f38b1f0b85aac78d9f95e523"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/SUPPORT.md",
+      "size": 1918,
+      "md5": "fccbe7d0d1a18d0912bfd0329ab3ed0b"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/THIRD_PARTY_NOTICES.md",
+      "size": 21410,
+      "md5": "3bed1b6b93dc7456d0e8999500bbf92e"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/_meta.lua",
+      "size": 465,
+      "md5": "a4b205cc814763de03de770491d14892"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/academic_supplement.sqlite3",
+      "size": 54235136,
+      "md5": "8bc0767140c2937c47342574efac9349"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/compact_static_reranker.bin",
+      "size": 212675,
+      "md5": "43ae86642f8eb42e59622289b98dd85f"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/dense_sbt_capability_reranker.bin",
+      "size": 3202548,
+      "md5": "38fa80c0979e606f48a4665663d9dc34"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/dense_sbt_reranker.bin",
+      "size": 3011264,
+      "md5": "6c3935cf6dbab839c60d320ae247a889"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/direct_strong_bigram_reranker.bin",
+      "size": 474576,
+      "md5": "a7abec38ea5511653038bdb1c87bcdef"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/mixed_head.bloom",
+      "size": 262144,
+      "md5": "f84c762cb3137dab0300b4898a37e5bf"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/pair_routed_bigram_reranker.bin",
+      "size": 1325,
+      "md5": "a0a1ecdad29fcf887ddb6adddc0609f6"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/phrase_overlay.lua",
+      "size": 623461,
+      "md5": "14bda7f3a34b9f09d51aa41ef9ef8fa0"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/pinyin_abbr_data.lua",
+      "size": 422690,
+      "md5": "8c3185db46281c955967eb481a4dd97c"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/pinyin_corrections.lua",
+      "size": 161049,
+      "md5": "906b7ab0f3be18d28dd7edb840cc65e3"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/pinyin_data.lua",
+      "size": 910587,
+      "md5": "10ddca8f2c789001ca6d72f58d4d6d9d"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/pinyin_syllables.lua",
+      "size": 2048,
+      "md5": "a812918950910683b4840f729640cecf"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/shuangpin_common.lua",
+      "size": 21210,
+      "md5": "d6bc5b45a6132a1b72fe234f6919eea4"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/shuangpin_flypy.lua",
+      "size": 21345,
+      "md5": "c357060e7f0b3decbd1eba6bc6ef0ae1"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/shuangpin_pinyin_jiajia.lua",
+      "size": 21216,
+      "md5": "101db86c67c60f122e8bc16eb011e8ae"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/shuangpin_sogou_microsoft.lua",
+      "size": 21245,
+      "md5": "7506c485c8490edf4d61615b7de750d4"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/sparse_bigram_reranker.bin",
+      "size": 37764,
+      "md5": "df9ad870f1fe7d33bd93b56785e6919f"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/data/wanxiang.sqlite3",
+      "size": 113631232,
+      "md5": "12ca1434ca48c8702074f3ac5bc5aee0"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/icons/candidates.collapse.svg",
+      "size": 234,
+      "md5": "d9fc001e284ddb9d9a5bb15c5693709f"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/icons/candidates.expand.svg",
+      "size": 235,
+      "md5": "f84e7ff4db572253cb7b1d3bcb5790cc"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/compact_static_reranker.lua",
+      "size": 20728,
+      "md5": "80d0fd9c04e0174aca0db66b3e5d061f"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/dense_sbt_reranker.lua",
+      "size": 26145,
+      "md5": "501c698e25228cea754e392a7889aa24"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/direct_strong_bigram_reranker.lua",
+      "size": 16573,
+      "md5": "3c2a8c489cc64fb990f644b9a68121b6"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/input_schemes.lua",
+      "size": 2543,
+      "md5": "86a8dcb4afed1e3da9654e0d2415e80f"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/koreader_compat.lua",
+      "size": 4869,
+      "md5": "44ac9fa0d6359676910b2ff7d2f208f2"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/learning_writer.lua",
+      "size": 9811,
+      "md5": "db643076b1c4670a06d584b7967ae867"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/pair_routed_bigram_reranker.lua",
+      "size": 5199,
+      "md5": "2d6dfd2515f287eb2dbb24daa1010586"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/pinyinime.lua",
+      "size": 96698,
+      "md5": "a63da48464d42e9eeba57e3551ef5f95"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/plugin_version.lua",
+      "size": 16,
+      "md5": "b5c2b8aa50041da0b833805de259b918"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/release_adapter.lua",
+      "size": 66085,
+      "md5": "186e255bda9bb9e4668867df4f8083ee"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/runtime.lua",
+      "size": 52663,
+      "md5": "645111bd96454cf2ef516a679d475aea"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/sentence_decoder.lua",
+      "size": 21257,
+      "md5": "e27e4bf11db4c5909c203684bdf77e59"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/settings.lua",
+      "size": 30054,
+      "md5": "e24d18373ac58111568a3e5ee8bce1ad"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/shuangpin_decoder.lua",
+      "size": 6095,
+      "md5": "fb082a65fab9e40012afdd970d744e9c"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/sparse_bigram_reranker.lua",
+      "size": 12526,
+      "md5": "be4f7e44a43b52d5e499491590c0f7c0"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/lib/wanxiang_lexicon.lua",
+      "size": 56244,
+      "md5": "b2def6ef6b5f5c2e7c149b05a02bf2f4"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/main.lua",
+      "size": 6154,
+      "md5": "08043c69d17f9d4c68a18059f9321a5b"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/widgets/candidatebar.lua",
+      "size": 27000,
+      "md5": "b53558dfe118b4e0d6e36b39ff6d687d"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/widgets/candidatepanel.lua",
+      "size": 7068,
+      "md5": "290b745c456d4d14005369262d0b41be"
+    },
+    {
+      "path": "0、必装核心/plugins/pinyinime.koplugin/widgets/inputschemedialog.lua",
+      "size": 1493,
+      "md5": "65c8fa8060ada974e70b4a6c599837bf"
+    },
+    {
+      "path": "0、必装核心/plugins/vocabbuilder.koplugin/_meta.lua",
+      "size": 211,
+      "md5": "d3fe3e1cc01fc21d53c49e732346f168"
+    },
+    {
+      "path": "0、必装核心/plugins/vocabbuilder.koplugin/db.lua",
+      "size": 20430,
+      "md5": "042fe077b88ef5e3506156207f858e58"
+    },
+    {
+      "path": "0、必装核心/plugins/vocabbuilder.koplugin/main.lua",
+      "size": 74778,
+      "md5": "7d963a1a515db6b8ca2266d0a642dc01"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/CHANGELOG.md",
+      "size": 13150,
+      "md5": "208f2f6c01d1c430fb25d0a8a710c6b8"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/CONTRIBUTING.md",
+      "size": 720,
+      "md5": "f8a63fb23358d2f7ef0d0f126077dce3"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/LICENSE",
+      "size": 34520,
+      "md5": "73f1eb20517c55bf9493b7dd6e480788"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/README.md",
+      "size": 4001,
+      "md5": "c2bf056896e1849a706a371aeaeb872e"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/README.zh-CN.md",
+      "size": 4062,
+      "md5": "87b67d65da46c20d308bd6ef5de04dce"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/_meta.lua",
+      "size": 186,
+      "md5": "aec8a11a2eb74acad9f94bf58e0a45d8"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/README.md",
+      "size": 1399,
+      "md5": "44b148c61b1f521df0c8b0b4066af2dd"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ar/koreader.mo",
+      "size": 32845,
+      "md5": "16d55446d7915b0487a0a85ca19404a2"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ar/koreader.po",
+      "size": 38120,
+      "md5": "f41fc94953c27e68dd3a7aaa66bece0f"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/bg_BG/koreader.mo",
+      "size": 37848,
+      "md5": "c328e01dbcdde2abe4c5f49aa20919ce"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/bg_BG/koreader.po",
+      "size": 42615,
+      "md5": "cdda9eebb470024cda3d6d81275507aa"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/de/koreader.mo",
+      "size": 29484,
+      "md5": "1e739d1bd4d0527897d093920daa8635"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/de/koreader.po",
+      "size": 34143,
+      "md5": "54f21db9152cce11d67b0810de1808f6"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/es/koreader.mo",
+      "size": 29405,
+      "md5": "4b35992ee4844192f29bbb64d38c33f6"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/es/koreader.po",
+      "size": 33894,
+      "md5": "0670892807b4a883a35ffd10f0ed9934"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/fr/koreader.mo",
+      "size": 30408,
+      "md5": "c8411fc2bc30c16ddb98f9cedda71601"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/fr/koreader.po",
+      "size": 34995,
+      "md5": "f1879b1ad1342fc831fa2b4028aa3cff"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/it_IT/koreader.mo",
+      "size": 28655,
+      "md5": "235ca14f948aa096324d7ebd7209bd38"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/it_IT/koreader.po",
+      "size": 32948,
+      "md5": "e57a181c208a6df91bc8b305e2b48a7e"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ja/koreader.mo",
+      "size": 32575,
+      "md5": "a65bc869c4c0bbbe7c2009f7416e4910"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ja/koreader.po",
+      "size": 37436,
+      "md5": "af28090609baa65fba6b0f89cf94f352"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ko_KR/koreader.mo",
+      "size": 30486,
+      "md5": "03fede3df2fe792ebacf9743f7048dc8"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ko_KR/koreader.po",
+      "size": 35223,
+      "md5": "25100c21c43c5f5ab013d0abfacc2310"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/koreader.pot",
+      "size": 27822,
+      "md5": "e329b745ca430d201d76e2dfce5de7eb"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/nl_NL/koreader.mo",
+      "size": 27861,
+      "md5": "61d746b4752280e447f37a5e497f5b33"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/nl_NL/koreader.po",
+      "size": 32232,
+      "md5": "252d002e76928295f1b4793b18054725"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/pl/koreader.mo",
+      "size": 29367,
+      "md5": "64a6de432a5f55fd1e87fa1fe920037e"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/pl/koreader.po",
+      "size": 33828,
+      "md5": "1201fc6364163fa6a5ccaf1719357e41"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/pt_BR/koreader.mo",
+      "size": 28659,
+      "md5": "e931dd53a230f5969d01393db3532335"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/pt_BR/koreader.po",
+      "size": 33103,
+      "md5": "7622cc714c735a93fabeb32880806446"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/pt_PT/koreader.mo",
+      "size": 29633,
+      "md5": "0c832aa0dbc0cbe25069b0e95d77ec33"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/pt_PT/koreader.po",
+      "size": 29395,
+      "md5": "a72a30c3acebb57cc2cbb14eace3890b"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ru/koreader.mo",
+      "size": 36296,
+      "md5": "878b1b84e4523a1b10bae0304474dd70"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/ru/koreader.po",
+      "size": 41951,
+      "md5": "a1d995e7bdc3745a6617c120165bef26"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/zh_CN/koreader.mo",
+      "size": 25658,
+      "md5": "e7ba774b42f93717f1868b45cb15188a"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/zh_CN/koreader.po",
+      "size": 30560,
+      "md5": "bbfc24e2926d2650c2478bc8aa755030"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/zh_TW/koreader.mo",
+      "size": 25596,
+      "md5": "087a85d6a2d16bd7a8c824dfe5b88cd3"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/l10n/zh_TW/koreader.po",
+      "size": 29462,
+      "md5": "c4f9249f87ab78c553422d6987f062b8"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/main.lua",
+      "size": 66918,
+      "md5": "d640c6b3b53cb98e9c3f1fc5d59f0fb1"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/api.lua",
+      "size": 79275,
+      "md5": "c8a9493d3254975f07b7971b52ce5d20"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/async_helper.lua",
+      "size": 24286,
+      "md5": "70e40b705a7aa0b797d04615648ad74c"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/bookdetails_dialog.lua",
+      "size": 40649,
+      "md5": "5b60ebf2cdf0d0ecece63699b51882d3"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/cache.lua",
+      "size": 11570,
+      "md5": "f9197e4b6ff34ee2fe6ea00ae2e7b8c7"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/config.lua",
+      "size": 50650,
+      "md5": "aecfab0b467ad55a5f84c6164bb53a6f"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/dialog_manager.lua",
+      "size": 6057,
+      "md5": "ebb7f55d202c66acce9e986a143925ea"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/discovery.lua",
+      "size": 23328,
+      "md5": "7396f8446663617c791c72f55c2d5076"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/download.lua",
+      "size": 23066,
+      "md5": "4bf580e1f024f786fb1405a8f863a3d7"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/gettext.lua",
+      "size": 8112,
+      "md5": "c7e7852fbd578799ba62a13e3b770093"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/menu.lua",
+      "size": 9852,
+      "md5": "bf4ddc6339380627f4e5a5b4811c47e3"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/multisearch_dialog.lua",
+      "size": 21964,
+      "md5": "e3c052fc5fd3281c333b48b33975cae7"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/ota.lua",
+      "size": 19453,
+      "md5": "cbad584551072a999cb5429ebca296a3"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/preloader.lua",
+      "size": 10284,
+      "md5": "4f72f2643f2ef5e7448463aea8984c0c"
+    },
+    {
+      "path": "0、必装核心/plugins/zlibrary.koplugin/zlibrary/ui.lua",
+      "size": 73054,
+      "md5": "4c72eecd56460c6a9b15517d083c1bed"
+    },
+    {
+      "path": "0、必装核心/remove-plugins.txt",
+      "size": 1031,
+      "md5": "032053a44611348703569c91d50cce38"
+    },
+    {
+      "path": "0、必装核心/settings/gestures.lua",
+      "size": 5629,
+      "md5": "d6ae7d6004e27e5d087ba4babff59a34"
+    },
+    {
+      "path": "0、必装核心/settings/settings-preset-core.lua",
+      "size": 13878,
+      "md5": "739b4ad3fbab00b02359f7a7738df9c3"
+    },
+    {
+      "path": "10、AI 伴读/KOAI_settings.json",
+      "size": 3261,
+      "md5": "eb08c597c49d7126c9d7e50500281775"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/LICENSE",
+      "size": 35129,
+      "md5": "406bb7be9b57d4b3f963f9ffdbced466"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/_meta.lua",
+      "size": 434,
+      "md5": "7cef9262adcd6f6844ac1be3e9eb5fff"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/ai_dictionary.lua",
+      "size": 1488,
+      "md5": "36f6b7fef7b4f3ac154834059b77d92f"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/ai_query.lua",
+      "size": 4745,
+      "md5": "d58e2024a8948e00f2e7bb930a5c1215"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/aicompanionviewer.lua",
+      "size": 17240,
+      "md5": "85e4af617e8ab7d9d8f69ea545ad744f"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/companion_logic.lua",
+      "size": 58664,
+      "md5": "917a2816b82a89f3f66985b221c3bbbb"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/companion_storage.lua",
+      "size": 76256,
+      "md5": "bbf0e0a3e28979d04073bf6899a91498"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/configuration.lua",
+      "size": 5114,
+      "md5": "878f55b522ab1486974c3b178211a0f6"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/conversation_handler.lua",
+      "size": 4961,
+      "md5": "766568691e57d708ea415cb801ea7603"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/history_manager.lua",
+      "size": 2956,
+      "md5": "d33b67763c7eab52ed96fa4b08571a0f"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/history_viewer.lua",
+      "size": 4526,
+      "md5": "dc7897bbebb03b071774566a3444bbd8"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/main.lua",
+      "size": 19363,
+      "md5": "4a45b22a3a64e54ab0af3b2dd278c032"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/richtext_formatter.lua",
+      "size": 18951,
+      "md5": "3760ecd0bdd2f8daff10811a447399a1"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/settings_menu.lua",
+      "size": 13697,
+      "md5": "121bf3991401561a846f3999ec8fc967"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/settings_storage.lua",
+      "size": 4941,
+      "md5": "085cabccb17e17f4267c98c09ee57677"
+    },
+    {
+      "path": "10、AI 伴读/koai.koplugin/utils.lua",
+      "size": 8905,
+      "md5": "9b7e32a0f27957ea866e34ef46137da4"
+    },
+    {
+      "path": "11、翻页动画/native/2-pdf-animation.lua",
+      "size": 1212,
+      "md5": "ffe6003dbf09da7c90c308c49789da30"
+    },
+    {
+      "path": "11、翻页动画/software/frontend/ui/uimanager.lua",
+      "size": 74955,
+      "md5": "6610b3455e466141a6f3373e845fbd0b"
+    },
+    {
+      "path": "11、翻页动画/software/patches/2-pdf-animation.lua",
+      "size": 1212,
+      "md5": "ffe6003dbf09da7c90c308c49789da30"
+    },
+    {
+      "path": "11、翻页动画/software/patches/2-swipe-animation-core.lua",
+      "size": 16508,
+      "md5": "70b663d086922c58d15ed5a3e8680268"
+    },
+    {
+      "path": "11、翻页动画/software/patches/2-swipe-animation-settings.lua",
+      "size": 20278,
+      "md5": "6d155f9c9b001ee2ccfe66d4975632fd"
+    },
+    {
+      "path": "11、翻页动画/software/settings-preset-animation.lua",
+      "size": 622,
+      "md5": "e11ed1abec063e1de1591208e6d4c7b9"
+    },
+    {
+      "path": "12、蓝牙外接键盘/SSH.koplugin/_meta.lua",
+      "size": 143,
+      "md5": "46fb91c1b834a47a463812169898c4af"
+    },
+    {
+      "path": "12、蓝牙外接键盘/SSH.koplugin/main.lua",
+      "size": 12687,
+      "md5": "3f7eac21893e43f0b5801f54efe2e7e5"
+    },
+    {
+      "path": "12、蓝牙外接键盘/externalkeyboard.koplugin/_meta.lua",
+      "size": 146,
+      "md5": "db738e6b9752c2499ca0690de9cf7622"
+    },
+    {
+      "path": "12、蓝牙外接键盘/externalkeyboard.koplugin/event_map_keyboard.lua",
+      "size": 1918,
+      "md5": "16d897fbf6656fae496f46ea5c03cab7"
+    },
+    {
+      "path": "12、蓝牙外接键盘/externalkeyboard.koplugin/find-keyboard.lua",
+      "size": 3395,
+      "md5": "72503d624c76fbf18312ec24c413aca8"
+    },
+    {
+      "path": "12、蓝牙外接键盘/externalkeyboard.koplugin/main.lua",
+      "size": 16804,
+      "md5": "f327953c833822d3835de080fd671c72"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/LICENSE",
+      "size": 34520,
+      "md5": "73f1eb20517c55bf9493b7dd6e480788"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/NOTICE",
+      "size": 988,
+      "md5": "b83f80df2da61cd0013b33cd90dc0f6e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/THIRD_PARTY_NOTICES",
+      "size": 719,
+      "md5": "1f0d22ca8f5fab90e2bf97d840515c11"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/_meta.lua",
+      "size": 188,
+      "md5": "3840f1b3d7c4f913fa4febfaa318f256"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/libs/cervantes/libmiucodec.so",
+      "size": 13732,
+      "md5": "085868d9d60600560e1df4d3a8a2d4f1"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/libs/kindle/libmiucodec.so",
+      "size": 17864,
+      "md5": "53e6b7fbb686a637b1014ffcb9811149"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/libs/kindle5/libmiucodec.so",
+      "size": 13732,
+      "md5": "47fde55cae10ab1067f84c04e377ca6c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/libs/kindlehf/libmiucodec.so",
+      "size": 13736,
+      "md5": "2579616c896c354a745dfc48ff77123d"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/libs/kindlepw2/libmiucodec.so",
+      "size": 13736,
+      "md5": "1f4ce1860b92b6fe76c8980920844771"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/libs/kobo/libmiucodec.so",
+      "size": 13736,
+      "md5": "349de891ef9fe3f04ac5c1549d6f403b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/libs/osx/libmiucodec.dylib",
+      "size": 37344,
+      "md5": "776456b45996b0bcdb423d6adcbe1583"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/main.lua",
+      "size": 1360697,
+      "md5": "2aeeb55929ccb9273fa23ec92e314df0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/access.lua",
+      "size": 4460,
+      "md5": "23f444050a5b6fc02cc4e50d9166715d"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/action_sheet.lua",
+      "size": 26571,
+      "md5": "d8719f70f4bb2c3474cc7240622f666f"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/actions.lua",
+      "size": 1955,
+      "md5": "030ea78cf95da215599daa6628f81a0c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/annotation_coord.lua",
+      "size": 3967,
+      "md5": "6d143d77b5054056c16a9fa93a865891"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/annotation_style.lua",
+      "size": 7887,
+      "md5": "d5476cef5e0091e2802d2d2d360662ef"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/annotation_sync.lua",
+      "size": 69538,
+      "md5": "ec50ac11c683987308c23931f0705822"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/annotations.lua",
+      "size": 41933,
+      "md5": "75de827e2917143abbac5dddbfbb09f9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/annotations/posmap.lua",
+      "size": 24285,
+      "md5": "77f5d83840460056eb7b77bc697195ce"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/annotations/range.lua",
+      "size": 4383,
+      "md5": "2634a11b4e200e1091916a300d728fd4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/annotations/runes.lua",
+      "size": 2121,
+      "md5": "337ab03a156a4679756d01c0a5e941da"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/api.lua",
+      "size": 24493,
+      "md5": "4ec7bf75a02d0775b545409ecb422310"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/async.lua",
+      "size": 4017,
+      "md5": "18430274244e7908852f029d9bb725c0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/auth.lua",
+      "size": 21058,
+      "md5": "1032f382e6432013229ef234bb8e6467"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/background_power/controller.lua",
+      "size": 4140,
+      "md5": "f8bf2e7ef396047ec3254872e91e25a9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/background_power/kindle.lua",
+      "size": 14418,
+      "md5": "aab30d2f3b02cc7f214cbffb99b8d525"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/background_power/kobo_legacy.lua",
+      "size": 47573,
+      "md5": "b554380d7846bd1495e655304cfd38c0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/background_scheduler.lua",
+      "size": 8943,
+      "md5": "464df6d700025f02ee2151cce8b2d51e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/bluetooth.lua",
+      "size": 16399,
+      "md5": "83ee54c35eb4c584c84029b408eefa28"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card.lua",
+      "size": 622,
+      "md5": "1c9e074306625876f53e3c5a037640a9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets.lua",
+      "size": 10131,
+      "md5": "b00a0ec24e7e7660b22be1a68318122c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/inkwhite/icon_line_bottom.png",
+      "size": 3435,
+      "md5": "1af6df6af0eac6ba968623a38d2a991a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/inkwhite/icon_line_footer.png",
+      "size": 46023,
+      "md5": "ae585c9b86afb4e1f4d5b08eea3e1be7"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/inkwhite/icon_line_header.png",
+      "size": 46371,
+      "md5": "21efd4fcc9de7152b3fa81be54b8e0e2"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/inkwhite/icon_line_left.png",
+      "size": 3613,
+      "md5": "28f425a7bcab091214dd0b16a38951a9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/inkwhite/icon_line_middle.png",
+      "size": 3392,
+      "md5": "7aec4ffe73434d3d190d3609f0316466"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/inkwhite/icon_line_right.png",
+      "size": 3342,
+      "md5": "7338f0f05c7b33596c45b06341e279c4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_1.jpg",
+      "size": 30064,
+      "md5": "eceb95507f3a1f66b6f7a747e4354e07"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_10.jpg",
+      "size": 23620,
+      "md5": "46580a443f5619c60cdebc4789f3e4b8"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_2.jpg",
+      "size": 210562,
+      "md5": "80ae0095c2db20d8baa9f9c8444d0f15"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_3.jpg",
+      "size": 5534,
+      "md5": "86e847a5270cac8239f4b152896bd71f"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_4.jpg",
+      "size": 24166,
+      "md5": "6883d2c858289eec4e841c17b62a01f9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_5.jpg",
+      "size": 223354,
+      "md5": "6f9eaa8e516bf18feaf36747051e09bc"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_6.jpg",
+      "size": 109322,
+      "md5": "a74913f5b5191842dcb26eda63ff9cd3"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_7.jpg",
+      "size": 3608,
+      "md5": "6b311c763047db03163abf644ef1f8ff"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_8.jpg",
+      "size": 9448,
+      "md5": "1bf6b73f1574f40062058596f2d9375d"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/assets/cards/stillness/bg_9.jpg",
+      "size": 61186,
+      "md5": "31e45899ea0139d7284b9a0cb74dce7b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/config.lua",
+      "size": 1421,
+      "md5": "6e84389aeffd9868c6323cdf6801d2fe"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/device.lua",
+      "size": 3888,
+      "md5": "cf79eed1b791c0691ec6c2a55f5e4b7a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/draw.lua",
+      "size": 7909,
+      "md5": "c0a14448f441c74f6ef292243c8f8560"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/fonts.lua",
+      "size": 4129,
+      "md5": "23919dcf306a911ed39dbecd117520e4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/init.lua",
+      "size": 3447,
+      "md5": "9bbae2b908a33dbdde77a7809e25fc44"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/render.lua",
+      "size": 40569,
+      "md5": "8d91abe9c34aa8fcf6eaefab881294db"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/rgb32.lua",
+      "size": 3302,
+      "md5": "8baddb5bc22341f4b4564b1d8ae8d81c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/runes.lua",
+      "size": 652,
+      "md5": "f045706875ea437b0b0fc71ca892408c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/templates.lua",
+      "size": 9578,
+      "md5": "d94de38e29af1a627a3fc3b69e5d0542"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/text.lua",
+      "size": 7578,
+      "md5": "e34f75d106bea1c2982960ee7c03349c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_card/vertical.lua",
+      "size": 14093,
+      "md5": "9396ccade8a8f46458845b941f851442"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_dialog.lua",
+      "size": 31799,
+      "md5": "fb833e50e679430d16a78cba45b9fe60"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_excerpt_transfer.lua",
+      "size": 18453,
+      "md5": "cad749a92e87282fd9b09f2a3b73c1e4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/book_integrity.lua",
+      "size": 12801,
+      "md5": "b5ea13cba5053b10336327093478b9f2"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/cache_cleanup_task.lua",
+      "size": 14264,
+      "md5": "27ea2a30a0d0e2367d2788bbb8905075"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/codec.lua",
+      "size": 21359,
+      "md5": "27336c1f4b3fc8ad7230043c85afa478"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/config.lua",
+      "size": 13884,
+      "md5": "b6b89b3a7104a63805c8ea6ef0549f90"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/cookies.lua",
+      "size": 7047,
+      "md5": "2a4cc1014c01a76c534d3bcdea4ce38b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/cover_render.lua",
+      "size": 10845,
+      "md5": "d8b70fad19573acc2407195c914309d5"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/data_migration.lua",
+      "size": 13018,
+      "md5": "ff3538d343dd76ccb34498b181b29d41"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/digests.lua",
+      "size": 4184,
+      "md5": "1c09e62a1e25e3d64cd515f16651312d"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/download_database.lua",
+      "size": 9897,
+      "md5": "14dbb794b6cd66e93c5e2e7405526eb3"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/download_plan.lua",
+      "size": 2889,
+      "md5": "b2633615cb30800e02b5f341c9657a2b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/download_progress.lua",
+      "size": 10481,
+      "md5": "8354571174335bd7a6a24f916b5581ed"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/download_result.lua",
+      "size": 2710,
+      "md5": "e04cb9f3be61a05485425059415194d9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/download_task.lua",
+      "size": 106002,
+      "md5": "a12ef456c0d08e59b3db177bc7b0d88e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/downloader.lua",
+      "size": 115557,
+      "md5": "b285088c5e5b13e28e4053c7b34fb178"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/epub.lua",
+      "size": 13631,
+      "md5": "fcb3279b0a7ae6b1c7c0a9685747e4d3"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/epub_installer.lua",
+      "size": 17320,
+      "md5": "43650b110ff61ba511de0a3b8b5a7ed6"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/footnotes.lua",
+      "size": 36565,
+      "md5": "cbdabef0f7367fefaf5ca684b0f85ea6"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/frontlight_controller.lua",
+      "size": 8235,
+      "md5": "2c7c0a7f124e89353891be6300afecd0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/full_shelf_view.lua",
+      "size": 20635,
+      "md5": "f60ecf560f24ed90f812f6d0352c29ae"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/gesture_bridge.lua",
+      "size": 6907,
+      "md5": "8a59b3063cf519b632f7a4e9538c8bd4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/highlight_menu.lua",
+      "size": 7404,
+      "md5": "d3f5aeebc7cc5e2fc626d05317c1c1fe"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/home_data.lua",
+      "size": 29202,
+      "md5": "0ef28ba11806b6f653a11fdfa138e2d0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/home_quick_panel.lua",
+      "size": 33413,
+      "md5": "a534520fda5db3bb15e183c084cd31a1"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/home_view.lua",
+      "size": 109621,
+      "md5": "2005300faf5a8da751b09bec5749e22b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/http.lua",
+      "size": 40667,
+      "md5": "3a672ad1b3211d417f7422cc8e9a5542"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/icon_registry.lua",
+      "size": 4144,
+      "md5": "35f82846bcbad966a0904f16d8d71bce"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/internal_links.lua",
+      "size": 29285,
+      "md5": "004a568aaaedc353525b79c30e611538"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/json.lua",
+      "size": 573,
+      "md5": "cc063ef8ca8610131b197c886656ae0e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/legacy/client.lua",
+      "size": 27560,
+      "md5": "a1e9b661cd7310512d1792cb8f7f0869"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/legacy/content.lua",
+      "size": 3855,
+      "md5": "9264b746ba6a59a8f14e17ef1bf68ab2"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/legacy/cookie.lua",
+      "size": 1954,
+      "md5": "178191f496787f93112d2ad92e664165"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/legacy/crypto.lua",
+      "size": 5944,
+      "md5": "97b6d72196be8ad32231d87f4a871200"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/legacy/read_report_worker.lua",
+      "size": 28452,
+      "md5": "530597a4b170b4cb31d13dd63489afc4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/legacy/weread.lua",
+      "size": 5702,
+      "md5": "7c59de049530f4eee5149ac192c88a8e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/legacy_adapter_worker.lua",
+      "size": 6421,
+      "md5": "b3112b5492e8b8bc837da79572f80243"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/library.lua",
+      "size": 35140,
+      "md5": "f313209320d08669583bcc6b4ad2fbf4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/local_annotation_database.lua",
+      "size": 43551,
+      "md5": "379a199b874da504497c8c9147d4c52b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/local_browser_view.lua",
+      "size": 21844,
+      "md5": "cd1496f325c07922708d7620bfe39a5a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/local_library.lua",
+      "size": 9773,
+      "md5": "abb20f318707b3a41e1083e6bce7ec92"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/local_metadata.lua",
+      "size": 21305,
+      "md5": "1e806de208f5a392f9b8931bccafbacf"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/memory_mode.lua",
+      "size": 7044,
+      "md5": "157a5e06c0de1f7f2105237c0245ee11"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/migration_progress.lua",
+      "size": 5177,
+      "md5": "7bb3f346c2b0f2f2ce81f3288796bbe3"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/mp.lua",
+      "size": 27616,
+      "md5": "10ddb946d81b6f9228adebddb3a56f37"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/network_metadata.lua",
+      "size": 7572,
+      "md5": "069c50d3ecc267e5e3ab6f55677753de"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/network_policy.lua",
+      "size": 4978,
+      "md5": "170aec002512acaa2c158d8493b44635"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/orientation_controller.lua",
+      "size": 7798,
+      "md5": "e389873efa19599aff6805171a7f37cf"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/performance_mode.lua",
+      "size": 7776,
+      "md5": "cabbd98257678b7156d9ffbfbccfe4c2"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/plugin_menu.lua",
+      "size": 3227,
+      "md5": "a0ffd26367fd75e9808f00c63e5410a8"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/plugin_settings.lua",
+      "size": 6331,
+      "md5": "308e1d23a42d4746f716e7b62db635e0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/power_state.lua",
+      "size": 2649,
+      "md5": "15ca48c2aa28f293607d75510c0e961a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/precise_position.lua",
+      "size": 18824,
+      "md5": "7de38ba2873b5f4df3fd05af590dc995"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/protocol.lua",
+      "size": 4647,
+      "md5": "6664af03714332fee694e87259780544"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/pseudo_lockscreen.lua",
+      "size": 130,
+      "md5": "e0bffb7041b29980caadd55561bab8e9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/read_report_service.lua",
+      "size": 26361,
+      "md5": "1c270ed21211d4ff1ac77de96b7813d5"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader.lua",
+      "size": 60428,
+      "md5": "14074f0122b1ef1276a3e147f549b270"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_control_center.lua",
+      "size": 17902,
+      "md5": "1cc16058ad4f77811d9a4d60143d7150"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_frontlight_dialog.lua",
+      "size": 22228,
+      "md5": "d7a11b2e5b1b4c035a54ef4efe4e3013"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_list_dialog.lua",
+      "size": 24056,
+      "md5": "f77c41f62b7191995e600934c7f162df"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_progress_dialog.lua",
+      "size": 15848,
+      "md5": "a1e93f76a36669fd57a52afadb746263"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_settings_dialog.lua",
+      "size": 19186,
+      "md5": "b2101e82bd032ad4355de30f7d60c566"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_skin.lua",
+      "size": 3540,
+      "md5": "9097b40d1b9ca40341fb30e44e20d795"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_toc_dialog.lua",
+      "size": 14817,
+      "md5": "272fbdffdf981b345d49fb2c8000e196"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_toolbar.lua",
+      "size": 43376,
+      "md5": "31844b4b2b1fe42b1050234be396fc2a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_transition_guard.lua",
+      "size": 3057,
+      "md5": "3c7e3cf7cb1ed8438db8ba39c08a41fc"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reader_typography_dialog.lua",
+      "size": 18161,
+      "md5": "fe2c6b9facd909b8a3a1293c94b35634"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/reading_stats_dialog.lua",
+      "size": 29870,
+      "md5": "8a90af2b46a74670900f545daa8947a1"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/resource_refs.lua",
+      "size": 16346,
+      "md5": "704f68231e863e17bbb2f6674951db89"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/runtime_pressure.lua",
+      "size": 7213,
+      "md5": "6facbfd106342b05b0b55c09debfb9e3"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/screenshot_mode.lua",
+      "size": 3267,
+      "md5": "4c181a907497fca5a1ea07d18d5bf7e2"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/shelf_view.lua",
+      "size": 15576,
+      "md5": "8be37c299ead4bc91b92bc95a7fd38eb"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/source_position.lua",
+      "size": 17159,
+      "md5": "dc50f2d77c1ad01f3dfce17e8b3e5467"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/sqlite_store.lua",
+      "size": 4988,
+      "md5": "5534afcbe5d8cca04f1ce8256f550612"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/status_toast.lua",
+      "size": 5198,
+      "md5": "60653362865603e01159be981f678d8f"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/store.lua",
+      "size": 140332,
+      "md5": "7d911c66a4ba7935f82f28a249e5ce53"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/suspend_work_lease.lua",
+      "size": 4812,
+      "md5": "9cbbda7a14b96bae77d8bd012723e9fc"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/sync.lua",
+      "size": 198763,
+      "md5": "039bd9eed6985dddcc87953c4e04b340"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/text.lua",
+      "size": 5529,
+      "md5": "04b73bf5c34058d05cd700ad1efc24c4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/thought_database.lua",
+      "size": 21276,
+      "md5": "e40e3c6c1d4a24c668c29da7ee41e7b0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/thought_face_factory.lua",
+      "size": 11121,
+      "md5": "afc5a2d770b01a75480d08e64ba07edd"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/thought_native_popup.lua",
+      "size": 57707,
+      "md5": "3dab3a6b5d500cad1e056ef9d6219e62"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/thoughts.lua",
+      "size": 25051,
+      "md5": "f25e940d80a355a7e5fb17443b0de458"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/timezone.lua",
+      "size": 8781,
+      "md5": "cf0e8dcc5d59987d8e8436ff93cdd0d5"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/transient_guard.lua",
+      "size": 1303,
+      "md5": "0d5af5f0c45a11f8433a79f26dcbad14"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/ui_components.lua",
+      "size": 2891,
+      "md5": "85a50b64ab54bdac308079e3c8471cc8"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/ui_scale.lua",
+      "size": 5663,
+      "md5": "db757d19dfe0842a6158ea641d0a4b2b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/updater.lua",
+      "size": 26269,
+      "md5": "a8c3cf41221df27a74585b95d417f2bb"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/util.lua",
+      "size": 18297,
+      "md5": "0075cf76b4ca676b1ad063a07d19aade"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/miuread/wr_co.lua",
+      "size": 3958,
+      "md5": "4168760a730ebbe90b53823557f895a3"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/native/build.sh",
+      "size": 3896,
+      "md5": "687c421271225b44dfe0818f156b72c0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/native/miucodec.cpp",
+      "size": 13565,
+      "md5": "c8399f15303b1d02f4a72213094ca9b0"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/native/miucodec.h",
+      "size": 924,
+      "md5": "029e5c34ecd16891e46c6ff2185ed00d"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/native/miucodec.map",
+      "size": 43,
+      "md5": "94073e2e4fce23621e62779e37151675"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/back.svg",
+      "size": 192,
+      "md5": "17e1eff4ec9236dda137b62f57b3f752"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/battery.svg",
+      "size": 315,
+      "md5": "756e8b8fdb7997900228b0643d30b479"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/bluetooth.svg",
+      "size": 217,
+      "md5": "b28dac662fe5f74c73b2732259f5cb4a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/book.svg",
+      "size": 305,
+      "md5": "af8a1fd2f3f32c41c21c55a4b1e94c29"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/bookmark.svg",
+      "size": 198,
+      "md5": "d77ee7a7bf909d85d12bd01f8e57f1dd"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/chevron-right.svg",
+      "size": 190,
+      "md5": "d718ffe143ffb8ffa095f910c7180987"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/close.svg",
+      "size": 198,
+      "md5": "9252c9b721cfdad0000e466631647909"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/comment.svg",
+      "size": 308,
+      "md5": "63d0e2fc5130c9a06a1e8e6af05dc174"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/current-book.svg",
+      "size": 276,
+      "md5": "deebce3586204726ce40477ee0a037bd"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/device.svg",
+      "size": 237,
+      "md5": "dd3619767b079805615b662c8c744089"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/diagnostics.svg",
+      "size": 270,
+      "md5": "548fc49875a11df45549815624b5a81e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/display.svg",
+      "size": 246,
+      "md5": "a3a6bf21047ea5ee4b06e17c69f5aa41"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/download.svg",
+      "size": 219,
+      "md5": "e23783b409a4cf2ad5f31bfd23787a02"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/edge-guard-off.svg",
+      "size": 305,
+      "md5": "86d0d57e6f4844ba00c6f57f1e202b80"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/edge-guard.svg",
+      "size": 287,
+      "md5": "153484b95419540f960016347b004a3c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/file-manager.svg",
+      "size": 231,
+      "md5": "0d929a553cced4a9666c48e5f1268212"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/folder.svg",
+      "size": 269,
+      "md5": "aa7b0c307a71dca029c578cea41c2452"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/font.svg",
+      "size": 234,
+      "md5": "a1a684deb4b3d419e8f85e35c2d44900"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/frontlight.svg",
+      "size": 319,
+      "md5": "71396b5ab22669082ae1695ac2f1d9ab"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/full-refresh.svg",
+      "size": 271,
+      "md5": "7f43f6569740018eb90372fc365c7ed9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/grid.svg",
+      "size": 330,
+      "md5": "dee3bd9147a0ff17688b8f26684f1698"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/highlight.svg",
+      "size": 265,
+      "md5": "5f55429163b9aed2ae7989d885829cb4"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/history.svg",
+      "size": 241,
+      "md5": "9390e1074285f9a35824304305338eb5"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/home.svg",
+      "size": 253,
+      "md5": "10a6d1b3c06ad1c8896ff54c9fc0ca78"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/image.svg",
+      "size": 299,
+      "md5": "a25aba09d495599d0408435bafbf3057"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/info.svg",
+      "size": 273,
+      "md5": "fae0dd18a98e29bb22b656f419342af2"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/ko-reader.svg",
+      "size": 296,
+      "md5": "98aa4cf7f6576d1d53e2f070390c3867"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/line-spacing.svg",
+      "size": 308,
+      "md5": "82663acbc0c15c8ef846c3935aaead86"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/menu.svg",
+      "size": 201,
+      "md5": "46d6939acba4509890414c050007702e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/minus.svg",
+      "size": 186,
+      "md5": "922ebe063b46226a844e7220756d1e55"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/more.svg",
+      "size": 342,
+      "md5": "74037bfa9e5e19b91a5e64a068000a95"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/night.svg",
+      "size": 252,
+      "md5": "981b2219359023654fbfe02b462d38b5"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/orientation-auto.svg",
+      "size": 373,
+      "md5": "0343b1f4b618f0ff2f4eaddab1b74bbc"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/orientation-lock.svg",
+      "size": 338,
+      "md5": "c8a609297df6b5fbe8e2a006be686410"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/page-jump.svg",
+      "size": 199,
+      "md5": "ecb85dbdd72640ebd169b62df2ec04d7"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/play.svg",
+      "size": 193,
+      "md5": "c875cd86dd6c1ae882fca78dc2f45f73"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/plus.svg",
+      "size": 194,
+      "md5": "02049cd72d9666945dce29ce6dcc8aa5"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/power.svg",
+      "size": 219,
+      "md5": "bb6f04e93f1c5449bff17a1229825b74"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/progress.svg",
+      "size": 239,
+      "md5": "1c2ec3cfbb597ae09476599a0e732220"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/refresh.svg",
+      "size": 218,
+      "md5": "39b97539b298b3697f2e52742ecf8ed9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/repair.svg",
+      "size": 239,
+      "md5": "d01d24918010bbc1c369bc3542a04a88"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/restart.svg",
+      "size": 241,
+      "md5": "5d660998a3464315b61cf924e72dd3d7"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/return.svg",
+      "size": 224,
+      "md5": "f690496e79966786ee601112d174c9f9"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/rotate.svg",
+      "size": 270,
+      "md5": "eb5948c0928cb107d1e630e1bdc47046"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/screenshot.svg",
+      "size": 279,
+      "md5": "0aaf42ed016a653421f970a71d5e204c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/search.svg",
+      "size": 235,
+      "md5": "959691c415cdd376baa59cfa55327935"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/settings.svg",
+      "size": 336,
+      "md5": "9273f1ab9fa7b0055fa8119432d69b1a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/sleep.svg",
+      "size": 223,
+      "md5": "440b19e6b3f0c85f43d5c5ed6692a77b"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/sync.svg",
+      "size": 249,
+      "md5": "043639ec609a70cab231ebf84d1edea5"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/thought.svg",
+      "size": 376,
+      "md5": "1399ac80ab832b6246c89db9178a654e"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/toc.svg",
+      "size": 377,
+      "md5": "f6149a2c2ebff0eb426029146930c2ec"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/tools.svg",
+      "size": 239,
+      "md5": "d01d24918010bbc1c369bc3542a04a88"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/undo.svg",
+      "size": 232,
+      "md5": "bdcf0b8b8da7700126c6a0e01b3c6817"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/upload.svg",
+      "size": 218,
+      "md5": "7939d5783c323849383688f6b4ed33fc"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/warmth.svg",
+      "size": 281,
+      "md5": "65753dc72191488c3b75f7da868c6b9a"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/warning.svg",
+      "size": 268,
+      "md5": "7777c0d5fc864ccd5befdd019658495c"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/icons/miuread/wifi.svg",
+      "size": 290,
+      "md5": "b16e309f01ebfb9f4ed3b2f2673ea139"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/wifi-connected.svg",
+      "size": 357,
+      "md5": "58c28c722427f9178b3ca56a5c5c788d"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/wifi-disconnected.svg",
+      "size": 492,
+      "md5": "667aa192bc206c7648ee36078fdb9752"
+    },
+    {
+      "path": "13、觅阅·微信读书/miuread.koplugin/resources/wifi-off.svg",
+      "size": 396,
+      "md5": "2fbf31007cbfaa559bf82da4923e946f"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/README.md",
+      "size": 17416,
+      "md5": "9065bd056dd53db8f65bec610c76f217"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/_meta.lua",
+      "size": 710,
+      "md5": "f22bf4bdae3732841638da538cda0d84"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/config.example.lua",
+      "size": 4299,
+      "md5": "09d13a632fe98cb8dea1287594de0123"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/async.lua",
+      "size": 10219,
+      "md5": "63cd58ebc80b188deb820de0e350fe19"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/bookshelf.lua",
+      "size": 26028,
+      "md5": "4248d25abf4a18a7aaf456e97531240e"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/client.lua",
+      "size": 69136,
+      "md5": "f6cb1055557eacd9a2c2215d1b9dd7e8"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/content.lua",
+      "size": 66302,
+      "md5": "7c877bcf554e82d9d31bc72b956f0d4d"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/cookie.lua",
+      "size": 3810,
+      "md5": "5c257b5deb4854c7e53bbec7640276f5"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/crypto.lua",
+      "size": 7028,
+      "md5": "6361ebc87b60c1f160dd16e21317353d"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/download.lua",
+      "size": 21179,
+      "md5": "9da89489c27125bd65a4e4b81af47515"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/download_progress.lua",
+      "size": 6907,
+      "md5": "152915194c94b4e778e66d381f2795eb"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/fanqie.lua",
+      "size": 2052,
+      "md5": "bc8b5dd8775e6e3e1ea42aad69cd4c56"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/helper.lua",
+      "size": 2889,
+      "md5": "c3dbd72fde1a1e8b950751b56b9dae5b"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/i18n.lua",
+      "size": 11321,
+      "md5": "8343b8c78a6bf8cf19cbdccd8836e4a8"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/info.lua",
+      "size": 2135,
+      "md5": "fd3213de10b76514ec45dfc5da27880b"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/logger.lua",
+      "size": 3228,
+      "md5": "b5862ebe840f66d2a18bbbeddada7555"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/qrlogin.lua",
+      "size": 23265,
+      "md5": "daf36d4d21f49ec18875a4c8f5f2e152"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/reader_navigation.lua",
+      "size": 21295,
+      "md5": "be177b95a0e282afc9c6a43b5095b1e5"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/settings.lua",
+      "size": 23019,
+      "md5": "38fb7d2f8732eb6ade965579817e83ed"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/shelf_view.lua",
+      "size": 11066,
+      "md5": "9e099065918c2f4728c49e4d17c443c5"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/sources.lua",
+      "size": 6699,
+      "md5": "cc68899375e7d6786a938cf2860a0d4f"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/fanqie/state.lua",
+      "size": 10274,
+      "md5": "6640590e9f997d7e959536f985ec5dae"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/main.lua",
+      "size": 143750,
+      "md5": "7c9ddceee8c9638578d327a05c2d2ba8"
+    },
+    {
+      "path": "14、番茄阅读/fanqie.koplugin/patches/core.lua",
+      "size": 7248,
+      "md5": "c988442b79c162d2c6a475213a24283c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/_meta.lua",
+      "size": 379,
+      "md5": "f1c8146cf16f172abd549a1ce2e290cb"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_colourwheelwidget.lua",
+      "size": 18579,
+      "md5": "4fa5a60ddd3a4237c15668b2c705d15a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_config.lua",
+      "size": 11816,
+      "md5": "7ae06a2fbdbf4ca42bd334e780ed3d9a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_custom_quotes.lua",
+      "size": 2031,
+      "md5": "242ecd5676a875f93a852701405e5f40"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_infobox.lua",
+      "size": 615,
+      "md5": "21d0317eedb4d14fd18ed17dea351110"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_infobox_background.lua",
+      "size": 10279,
+      "md5": "239fe410678a6a0b68abd2f5c588a5f4"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_infobox_bookdata.lua",
+      "size": 14936,
+      "md5": "58970810cd990fc096ab010641421549"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_infobox_layout.lua",
+      "size": 11536,
+      "md5": "82f9f0e5cd9dfa5507b2997c36433227"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_infobox_render.lua",
+      "size": 13828,
+      "md5": "a4129fb2ab00d4278ae9f901dc4fe6ce"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_infobox_sections.lua",
+      "size": 52752,
+      "md5": "ba5a7cf5393b3bfacae5a72c8b93a7e2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_l10n.lua",
+      "size": 9232,
+      "md5": "cdcf19f7e155c44e95f79826f0dbc350"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_menu.lua",
+      "size": 16728,
+      "md5": "9d0804d250ded3144d7cd685de945dec"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_menu_appearance.lua",
+      "size": 43811,
+      "md5": "5e2da64ab016fa90fafb75115e112d3f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_menu_helpers.lua",
+      "size": 12757,
+      "md5": "d5c43d1007f5c73be164b3d4bf4204b6"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_menu_presets.lua",
+      "size": 10210,
+      "md5": "b4309ff9684e6a1faa8faaa7df002bb0"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_menu_sections.lua",
+      "size": 24869,
+      "md5": "d504273f7d99629a112f650aa41c4d6d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_presets.lua",
+      "size": 20731,
+      "md5": "9afec9aa96ffa15551f0e227990853a5"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_settings.lua",
+      "size": 970,
+      "md5": "e5d4572c0ae35655349fbe7f9c3febfa"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/css_stats.lua",
+      "size": 10666,
+      "md5": "547660c13059e10349cfbc63c3bfa90a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Regular.ttf",
+      "size": 48064,
+      "md5": "86635252a71fd7c43fd5b0c41bdc5d54"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Bangers/Bangers-Regular.ttf",
+      "size": 92468,
+      "md5": "8cee4a94bda9252a471aa7ccbba3f1aa"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Caveat/Caveat-Regular.ttf",
+      "size": 256968,
+      "md5": "1cfb4c8cf0a71e368be08b7b254e5a82"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Google_Sans/GoogleSans-Regular.ttf",
+      "size": 2030532,
+      "md5": "a93fc7148f22be8122ab3fa78c9796ea"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Jost/Jost-Regular.ttf",
+      "size": 61524,
+      "md5": "3ccf189874e82464a4233d9dccd41c97"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Literata/Literata-Regular.ttf",
+      "size": 255252,
+      "md5": "618ebf4b50ba721ead138e34816bd690"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Pixelify_Sans/PixelifySans-Regular.ttf",
+      "size": 51312,
+      "md5": "b7abe24a80a8ac7e30d0e142874665d2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Poppins/Poppins-Regular.ttf",
+      "size": 158240,
+      "md5": "093ee89be9ede30383f39a899c485a82"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/fonts/Zilla_Slab/ZillaSlab-Regular.ttf",
+      "size": 244756,
+      "md5": "0dc149380f37b6691a4b4e36c2cf1002"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_battery_charging.svg",
+      "size": 1835,
+      "md5": "8793af9d497853662829f3e270866b09"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_battery_high.svg",
+      "size": 1789,
+      "md5": "b6afb14e9408487c246ffb245e32310a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_battery_low.svg",
+      "size": 1744,
+      "md5": "47fb96f141c2935881047b1d8c22fb28"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_battery_mid.svg",
+      "size": 1766,
+      "md5": "f0853b4b8ee711b27932ca806fc20bbb"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_book.svg",
+      "size": 4502,
+      "md5": "879de719ae3ab61d3c2f26842b4ab223"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_chapter.svg",
+      "size": 1589,
+      "md5": "e617a0a44d8e997ef763f79a7b3c2ea0"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_goal.svg",
+      "size": 3850,
+      "md5": "6a2225415b8bedc59d1ac35e4271cdc0"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_message.svg",
+      "size": 2760,
+      "md5": "06c1047ab5e4d88841a4342268e78a94"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Circle/custom_trophy.svg",
+      "size": 2329,
+      "md5": "67332b23cc44e0903e66dfbb918f2c72"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_battery_charging.svg",
+      "size": 566478,
+      "md5": "6c8cd8f7997542b21317f3628382ac5b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_battery_high.svg",
+      "size": 565655,
+      "md5": "f98566214184bed060c2fd4bf92e8e87"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_battery_low.svg",
+      "size": 564314,
+      "md5": "cab0247051ee23900f1e3a4b6db5d900"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_battery_mid.svg",
+      "size": 564843,
+      "md5": "1a1033993c16e33a0d45fddc066b62db"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_book.svg",
+      "size": 576137,
+      "md5": "93c4941989f749451dcd4d81df0974dc"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_chapter.svg",
+      "size": 564542,
+      "md5": "3b8e32c6c851b6055023cc53a6dda2c1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_goal.svg",
+      "size": 567519,
+      "md5": "eab6d71c6a757225b0cbfe3147ba22fb"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_message.svg",
+      "size": 564408,
+      "md5": "60c7504882bd4ff1f4a662712aec5d12"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Comic/custom_trophy.svg",
+      "size": 574438,
+      "md5": "0c91cddfd37abd23647c3c545bcd8aac"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_battery_charging.svg",
+      "size": 667,
+      "md5": "b398d1424184476669e047ef6792d5b2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_battery_high.svg",
+      "size": 1455,
+      "md5": "375eb30409b765680ec884a0fe084b40"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_battery_low.svg",
+      "size": 930,
+      "md5": "578941f6143c648ebfe6c535a1fde684"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_battery_mid.svg",
+      "size": 1139,
+      "md5": "c17d812ddf166f78a2b25310c7073bb1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_book.svg",
+      "size": 761,
+      "md5": "bba62ac16196be6a649e0bec418541a1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_chapter.svg",
+      "size": 552,
+      "md5": "fd31fcc0965727de7c6ccc83e033f421"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_goal.svg",
+      "size": 1107,
+      "md5": "ce5830e2a7a80a745c6107708a4d214b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_message.svg",
+      "size": 764,
+      "md5": "954e31c4a3693fb6740c12c48d4dd072"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Default/custom_trophy.svg",
+      "size": 1208,
+      "md5": "04b1a9821a4084594a1ead61356014c7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_battery_charging.svg",
+      "size": 2027,
+      "md5": "608821556e2a8248883b8af7a2739d16"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_battery_high.svg",
+      "size": 1968,
+      "md5": "a29cd92dd2448eb835ef093372d05f28"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_battery_low.svg",
+      "size": 1231,
+      "md5": "4cdfec788ccb18ff07acfa107d81b744"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_battery_mid.svg",
+      "size": 1489,
+      "md5": "776813954656ced30d038978fca0b3b3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_book.svg",
+      "size": 1338,
+      "md5": "b3b5f1e0bd5dd20e5d7f61ec2d1e3792"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_chapter.svg",
+      "size": 798,
+      "md5": "4e726d5a104bdd6f1a43bffffe434d1e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_goal.svg",
+      "size": 2472,
+      "md5": "3cdd2011b17e241ee8f53a67a7b4db95"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_message.svg",
+      "size": 1574,
+      "md5": "7ec3d772b48a93fc1f5cc6ff0a3c33cd"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Doodle/custom_trophy.svg",
+      "size": 1941,
+      "md5": "71018c02013df477baf2faba82a52bd7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_battery_charging.svg",
+      "size": 850,
+      "md5": "61d6f10c32495aa1ee5466f9e5dd5cc5"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_battery_high.svg",
+      "size": 800,
+      "md5": "366d1964306725c1a4d82aa5899e94b3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_battery_low.svg",
+      "size": 733,
+      "md5": "3795f7677bf255ad0eb555b72cc6ad0b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_battery_mid.svg",
+      "size": 733,
+      "md5": "6c45e28f999cec571fc1ea34d2e2ed97"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_book.svg",
+      "size": 1100,
+      "md5": "47d64ffc5ffc44cc2239be165f91c020"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_chapter.svg",
+      "size": 683,
+      "md5": "52e6b15d20281712ebe9668c104d4d6d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_goal.svg",
+      "size": 1444,
+      "md5": "25b267464b8e74b5bcc6bb0d1bf3e518"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_message.svg",
+      "size": 685,
+      "md5": "0a9ab2eb54bbf0ca2a969b1df1c9d372"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Fluent/custom_trophy.svg",
+      "size": 1319,
+      "md5": "ac88f2b28b7f137bcf15f7e6c1acdf4d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_battery_charging.svg",
+      "size": 443,
+      "md5": "bff705ee39bf8f970591336925390197"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_battery_high.svg",
+      "size": 389,
+      "md5": "301112b6fa36f1ed964819641a255013"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_battery_low.svg",
+      "size": 322,
+      "md5": "527225f2b368d1bf051d7d255f83b093"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_battery_mid.svg",
+      "size": 364,
+      "md5": "e5dfeacf3230cb5437e7667c2da9472f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_book.svg",
+      "size": 1012,
+      "md5": "810f988baf0db137911882d3efdd8c32"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_chapter.svg",
+      "size": 565,
+      "md5": "c62111410dc9cc7476283fe9019bd1f9"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_goal.svg",
+      "size": 1047,
+      "md5": "f1f9c10e2674ab8c4512f7010f39fe92"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_message.svg",
+      "size": 763,
+      "md5": "2886bb2861b4b441150db2133b190cbb"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Pixel/custom_trophy.svg",
+      "size": 777,
+      "md5": "57207f7d80ca5041fbb09d75fdc3f88e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_battery_charging.svg",
+      "size": 329,
+      "md5": "2d6eafb9ff5053bf3bba51b817b61ce0"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_battery_high.svg",
+      "size": 283,
+      "md5": "d0c3c3d0a382842dcb1d3be6c2120297"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_battery_low.svg",
+      "size": 293,
+      "md5": "26b7a51532e07620e7a9f13bc7d2f7a6"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_battery_mid.svg",
+      "size": 293,
+      "md5": "f97fc2aa24da95fc648478ee0595bbcc"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_book.svg",
+      "size": 462,
+      "md5": "a86917db154eb2554c1a6dbf0988500f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_chapter.svg",
+      "size": 201,
+      "md5": "9147b730e4288e22c532ec3c72d8253b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_goal.svg",
+      "size": 334,
+      "md5": "893b155cab04280b2feeb5fc3cc37dff"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_message.svg",
+      "size": 301,
+      "md5": "f77e265de97495bef04d84c130ade6b9"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/icons/Silhouette/custom_trophy.svg",
+      "size": 331,
+      "md5": "22886bb816ecefcaf22870a37c90d708"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/customisablesleepscreen.pot",
+      "size": 26184,
+      "md5": "3695ca8038b64340d12c2ca3083289b9"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/de.po",
+      "size": 44571,
+      "md5": "4b41462df27e828093956c8ebb0c07fc"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/es.po",
+      "size": 45917,
+      "md5": "d27aec1cd15f9c57bb422f6375dee185"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/fr.po",
+      "size": 46674,
+      "md5": "d6b1df4bc622df6770161916491c2581"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/it.po",
+      "size": 45855,
+      "md5": "19496e15f86729c817582ad209693b55"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/ja.po",
+      "size": 48067,
+      "md5": "756d5d851ce210307542fd7186b6b433"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/ko.po",
+      "size": 45391,
+      "md5": "2485ab93c07eb1378942f043f5f907ff"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/nl.po",
+      "size": 44476,
+      "md5": "7744e94d4a7ea8e99df73832bb1143c1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/pl.po",
+      "size": 45655,
+      "md5": "0deae9e771fad5cf6032840bf077ab4c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/pt_BR.po",
+      "size": 46166,
+      "md5": "0d25cd4f87480706b50a26cdd2ea346f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/ru.po",
+      "size": 61311,
+      "md5": "56191805e220b18ac7ad9d7333097424"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/tr.po",
+      "size": 45857,
+      "md5": "a628ed3da8ac8fb7fe653a19031edc64"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/vi.po",
+      "size": 48523,
+      "md5": "0f694ebb4866f5a8446ac78a1b143847"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/l10n/zh_CN.po",
+      "size": 41273,
+      "md5": "a4e72a44ae81a4184311093356115f9c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/main.lua",
+      "size": 26128,
+      "md5": "d6f31ba947195b598557992b8700a1a9"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/bluehour.landscape.png",
+      "size": 730327,
+      "md5": "d52f10ab1c13db0da88c30fa4c8df951"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/bluehour.png",
+      "size": 413213,
+      "md5": "1954c0994e1e2ab7b4e66961d4dd2843"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/clouds.landscape.png",
+      "size": 817618,
+      "md5": "2bdf8d8d49248cdd4d71c8a6545f04db"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/clouds.png",
+      "size": 322197,
+      "md5": "5f559f9af657da5dc5827b0b9952cc89"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/street.landscape.png",
+      "size": 1214561,
+      "md5": "a37a5cabf9e244668dd56f4fada61e97"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/street.png",
+      "size": 523836,
+      "md5": "0fad11ff0bf7663ba7c7f1bf4c54f5d7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/train.landscape.png",
+      "size": 435131,
+      "md5": "3d5ac3f2fe3bdf619ef37fc33bc88ae3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/train.png",
+      "size": 461535,
+      "md5": "e163f4e27807fb28ee9368b34ec61926"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/wheat.landscape.png",
+      "size": 967162,
+      "md5": "977f4e7993af549f410b0c89c9e362ba"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/wheat.png",
+      "size": 330111,
+      "md5": "639a6cfefcbc69b975cfdca121ffcbf7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/windmill.landscape.png",
+      "size": 663963,
+      "md5": "9cd32f5199e2a2cfae0614a87f404fe5"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/catppuccin/windmill.png",
+      "size": 731872,
+      "md5": "6dfd13ce372ae5a6c01c893e7990c811"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/custom/Image_1786627709032_919.png",
+      "size": 324093,
+      "md5": "6d9ff4b3b87025097a5e6f55279447ff"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/custom/charles_torn.png",
+      "size": 1600126,
+      "md5": "480cefa6fd33cf26c8c8c1a49b54446a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/calm.landscape.png",
+      "size": 1095900,
+      "md5": "06993badf02a1b866684823b3dbc4931"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/calm.png",
+      "size": 517791,
+      "md5": "a80f77c50ae742e95fa2f45137921596"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/evening.landscape.png",
+      "size": 656278,
+      "md5": "963d4ef5ac9816477917aa3a70ae4c53"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/evening.png",
+      "size": 327804,
+      "md5": "39d4e35de596e7259d16decc7909378d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/forest.landscape.png",
+      "size": 624934,
+      "md5": "7c7728955c0036e6bc134e447e53e996"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/forest.png",
+      "size": 330340,
+      "md5": "6f46b4cd6c2a43fd597b2c47e4880744"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/koi.landscape.png",
+      "size": 403975,
+      "md5": "3d5e42df6a0e7104271ea307858ea449"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/koi.png",
+      "size": 140228,
+      "md5": "7fd1825fd1feda2434aa268c76fa4f7e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/peaks.landscape.png",
+      "size": 244141,
+      "md5": "9e651d7b9f48a77d054c9acc77b7407c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/peaks.png",
+      "size": 148870,
+      "md5": "f1ce80b19973901510184b38c3c9c834"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/waves.landscape.png",
+      "size": 1408014,
+      "md5": "2aee72d8732de69e5a88c403e645c338"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/customisablesleepscreen.koplugin/wallpapers/nord/waves.png",
+      "size": 615140,
+      "md5": "6bf61c6e48960b248731b84d7c35d0fe"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/Aa白桃乌龙甜茶体/AaBTWLTCT-Bold.ttf",
+      "size": 12190152,
+      "md5": "37f0ba5f7114158ad28bd21c7c810743"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/Aa白桃乌龙甜茶体/AaBTWLTCT-Regular.ttf",
+      "size": 12264972,
+      "md5": "56c1ae25b6f27061927ad5b5cc33771c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/仓耳玄三/TsangerXuanSan01JF W04-Bold.ttf",
+      "size": 5181736,
+      "md5": "7a7c4ce8882d14cc7908691e4ed857a1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/仓耳玄三/TsangerXuanSan01JF W04-Regular.ttf",
+      "size": 5195160,
+      "md5": "8e08e007abf5e4d85930c90841c667dc"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/冰橘皮 旧胶片/BJPJJP-Bold.ttf",
+      "size": 10832712,
+      "md5": "dd417ea662ae0a5893ee6255168a6f00"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/冰橘皮 旧胶片/BJPJJP-Regular.ttf",
+      "size": 10867296,
+      "md5": "8e83780f68a47c147469ccdf86ce5b4a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/文鼎书苑宋/AR SYSongGB Display H46-Bold.ttf",
+      "size": 3857536,
+      "md5": "7923ba11b168a2e24b3d973603b32cbc"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/文鼎书苑宋/AR SYSongGB Display H46-Regular.ttf",
+      "size": 3848292,
+      "md5": "2e8ce8d66b00195cbd8b4e870f3e791a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/汉仪空山楷/HYKongShanKai-Bold.ttf",
+      "size": 6016020,
+      "md5": "dfeb4aa49f0d11ad5dd3c89128b9851f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/汉仪空山楷/HYKongShanKai-Regular.ttf",
+      "size": 6032784,
+      "md5": "21515e45cef802074ad06926a18c1412"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/爱像突如其来的雨/AXTRQLDY-Bold.ttf",
+      "size": 11974140,
+      "md5": "4a64ff415f2553d1de245d33b241ab47"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/fonts/爱像突如其来的雨/AXTRQLDY-Regular.ttf",
+      "size": 12050980,
+      "md5": "d5b13f755cf444d89b38c9c85d3a4084"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/patches/2--ui-font.lua",
+      "size": 4185,
+      "md5": "1a9ba3b1ee3735585dc6e6060c362e55"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/patches/2--visual-overhaul-v68-可选隐藏标题作者及美化文件夹封面（三选一）.lua",
+      "size": 112595,
+      "md5": "3d62455e48a51b0ee65fc3f3ad30714c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/patches/2-bookshelf-screensaver.lua",
+      "size": 52166,
+      "md5": "adfb26530c739a491cdab4f53168e3e6"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/patches/2-visual-covergenerator-v2.lua",
+      "size": 8371,
+      "md5": "04a9572ca7028196b509a7fe05142e0e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/settings/customisablesleepscreen-torn.lua",
+      "size": 2070,
+      "md5": "818f740ea5d48edb15fcfc49cbde1955"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/settings/customisablesleepscreen.lua",
+      "size": 1993,
+      "md5": "d7d738bc558099ff994d75cfd5f2eeef"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/settings/customisablesleepscreen_presets.lua",
+      "size": 374,
+      "md5": "6240d0bc45bfd0172c06cb075edea711"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/settings/settings-preset-sleepscreen.lua",
+      "size": 1033,
+      "md5": "77a872bc6f33f0a0c7ed2000e392aad7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/settings/settings-preset-ui.lua",
+      "size": 1578,
+      "md5": "32131754404c181bb35fc40b5c1344f8"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/settings/simpleui/sui_settings.lua",
+      "size": 21246,
+      "md5": "34c3d8079ffec0d09925404113a1b10c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/settings/simpleui/sui_wallpapers/wallpaper1.png",
+      "size": 203705,
+      "md5": "763d23d61b92bdae1d3b935a17939047"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/_meta.lua",
+      "size": 237,
+      "md5": "9203dd5e1a8be53f4b41521494ad8f27"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_action_list.lua",
+      "size": 26301,
+      "md5": "94730ae2e53a2c3004df4aee914bb4aa"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_books_shared.lua",
+      "size": 42265,
+      "md5": "5edf01033c791031e7a6f199aa70c45f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_clock.lua",
+      "size": 38046,
+      "md5": "62a85c64800690b908a7bd537973aea3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_collections.lua",
+      "size": 45387,
+      "md5": "7d79c652c12162f18dd23c7d91d95b23"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_coverdeck.lua",
+      "size": 62017,
+      "md5": "8959bc2848e442a147784a7a9bd8eae4"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_currently.lua",
+      "size": 83664,
+      "md5": "5e54387d5cecbe9f0f5be89991373b30"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_new_books.lua",
+      "size": 15280,
+      "md5": "dfca7867efedce01dd2c21f933ef599e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_quick_actions.lua",
+      "size": 29753,
+      "md5": "63a479f661975f859c2a64b935735f40"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_quote.lua",
+      "size": 45198,
+      "md5": "ca220b6e810e3cfef22240c648e0ca76"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_reading_goals.lua",
+      "size": 53092,
+      "md5": "b913a090b3f17691b0847e539ebdc017"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_reading_stats.lua",
+      "size": 40585,
+      "md5": "297a5a2dfaac2ac6892cc427c587b9c9"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_recent.lua",
+      "size": 25319,
+      "md5": "5365e5c60944dac8f61458a7ae2607ae"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_spacer.lua",
+      "size": 3900,
+      "md5": "94d15d0bc1e074c957dcc42e3e783e4d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_stats_provider.lua",
+      "size": 46374,
+      "md5": "38ef4f54c145a6746c77ea74c1e2a13a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_tbr.lua",
+      "size": 34163,
+      "md5": "63eb335db8cbcf8e4033a61b29757cfe"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/moduleregistry.lua",
+      "size": 19481,
+      "md5": "aadb966ae66016a0801336b48ebe7315"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/quotes.lua",
+      "size": 11359,
+      "md5": "b3da974e9e2a174f787d407eb122eb1d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/.DS_Store",
+      "size": 6148,
+      "md5": "1535487816cec1fa6f2287e4e1ce1ba1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_asset_browser.lua",
+      "size": 12973,
+      "md5": "2c2bb83ec9699b707c4f92bd24b141b3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_book_grid.lua",
+      "size": 105145,
+      "md5": "7ecb208123af0ca66be4102554314c4b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_heatmap_data.lua",
+      "size": 7949,
+      "md5": "6889eb77f98ecbdae6a96fdb552b3c85"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_heatmap_widgets.lua",
+      "size": 16993,
+      "md5": "db377596b5476690a772c67ba1b27a07"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_library_scan.lua",
+      "size": 13407,
+      "md5": "bc15170794b51b3b5a5b1a22e93e6a88"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_quickactions_render.lua",
+      "size": 31576,
+      "md5": "a99aa3bad247167d45534e9633d0e1ce"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_screen_engine.lua",
+      "size": 210819,
+      "md5": "1587157dd58dad2d787ad44647080832"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_window.lua",
+      "size": 146645,
+      "md5": "1f218bb4845d10b56c637adcbc712f9e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_book_hold_dialog.lua",
+      "size": 29967,
+      "md5": "3ce01f9ad74510d326f1c312213d076c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_cover_finder.lua",
+      "size": 6565,
+      "md5": "69cece52281a8832ac9c8f2b9ffd10a8"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_cover_overrides.lua",
+      "size": 2519,
+      "md5": "f47bef1575ff7a252b3cea075cd33fcf"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_cover_widgets.lua",
+      "size": 39567,
+      "md5": "5a573a6dadbf9a19d96d7822b623939d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_filter_state.lua",
+      "size": 4846,
+      "md5": "51ee1f4da28b25c8be1e88f3be57d10b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_foldercovers.lua",
+      "size": 108568,
+      "md5": "ca9137a12e4c56a4c5c322afcdc2880d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_group_actions.lua",
+      "size": 5280,
+      "md5": "fcf2dc45c4f1af594f5e79be00545913"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_library_browse.lua",
+      "size": 41346,
+      "md5": "25454d71f19017a66bab5adffcee4b48"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_metadata_source.lua",
+      "size": 16881,
+      "md5": "bfaeb9cf25c719830235a6b44d9b2109"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_series_grouping.lua",
+      "size": 22710,
+      "md5": "1de42c57c4289bd6615011d606b1ddd7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_virtual_path.lua",
+      "size": 7862,
+      "md5": "2603f40b8299fb4315bf16c96f5a4a43"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_presets.lua",
+      "size": 52065,
+      "md5": "590f0bec1a46a4c1934b194c9e6f6a86"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_quickactions.lua",
+      "size": 158314,
+      "md5": "faaf063512872a0f7b6df182050c888d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_style.lua",
+      "size": 90673,
+      "md5": "f74d75f31202aef119ea2ffd46ab8931"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_wallpaper.lua",
+      "size": 19957,
+      "md5": "9e64fc586407b63dbbf8a1dea07147a8"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/author.svg",
+      "size": 853,
+      "md5": "20b874968104c6f0a34959948f778750"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/collections.svg",
+      "size": 698,
+      "md5": "cd73677df31b8f5adfc2e0e9c87bd6ba"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/continue.svg",
+      "size": 2714,
+      "md5": "e2ca11bf2357082883a3fa3b0393890d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/custom.svg",
+      "size": 397,
+      "md5": "7fa50527c3dbf8de803ce33ec329e9b3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/default.svg",
+      "size": 397,
+      "md5": "7fa50527c3dbf8de803ce33ec329e9b3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/frontlight.svg",
+      "size": 1926,
+      "md5": "ba9f1e632b9c684fce8cb1084911d54b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/group.svg",
+      "size": 519,
+      "md5": "3ac6c2be7d6c33d44c47766cae4dc538"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/history.svg",
+      "size": 782,
+      "md5": "fa220dcbd53aea0e2df2e1f885e11326"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/library.svg",
+      "size": 562,
+      "md5": "38f74edaa0549ad93ff11d017fcc6c25"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/night.svg",
+      "size": 324,
+      "md5": "1fefc3dbe01f7b1ec94ae83dc10d8f47"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/plugin.svg",
+      "size": 2595,
+      "md5": "d7cdade431f6af754f675132e00e56a7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/power.svg",
+      "size": 363,
+      "md5": "0678cf3e7f0bcbf3aa3a35eeea84add2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/random.svg",
+      "size": 538,
+      "md5": "765ee020c6d75ef34120299501393fc4"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/recent.svg",
+      "size": 514,
+      "md5": "e4498a5b7993c107492f296d8fe74080"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/series.svg",
+      "size": 755,
+      "md5": "be139bb2ecc0423e5eb5f6660cbad6a2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/settings.svg",
+      "size": 1120,
+      "md5": "d8ac1410589fa85a46d3d4091bd717f1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/stats.svg",
+      "size": 857,
+      "md5": "d7ad3deff737e987c03d7333ccc3c494"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/tags.svg",
+      "size": 1141,
+      "md5": "03d9dd9040fd2ecadf4044360a6c8eca"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/.DS_Store",
+      "size": 6148,
+      "md5": "d734413f9cc4395e541687c8e0c16523"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_aa_paint.lua",
+      "size": 5371,
+      "md5": "52c6cb9744502bc3748ecca394ab6154"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_config.lua",
+      "size": 84160,
+      "md5": "332a13a5fa664b255c985ba280039fd1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_core.lua",
+      "size": 45691,
+      "md5": "21fa4a060c598c61cf11d5c733a9f13f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_cover_cache.lua",
+      "size": 15096,
+      "md5": "a5073f533896446c5d4d49a2e4c46696"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_custom_screens.lua",
+      "size": 9311,
+      "md5": "a97ef49b884f1efd88625add1d521df1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_i18n.lua",
+      "size": 10689,
+      "md5": "687b298ac5dc941c5009f78e9f434f82"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_patches.lua",
+      "size": 264606,
+      "md5": "25c144be37b6753afb893edd140b70af"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_paths.lua",
+      "size": 2495,
+      "md5": "1197f71013ce042965869535521c6af4"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_store.lua",
+      "size": 10477,
+      "md5": "a97452f04694e3651c2edbb09563e1b2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_streak.lua",
+      "size": 16990,
+      "md5": "4ce825a66cd6e4216a074e9745ca4347"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_updater.lua",
+      "size": 26452,
+      "md5": "f77d66d83930b8cc9f50af0210a9c63a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/.DS_Store",
+      "size": 8196,
+      "md5": "373789b5d8308c6e232b49c71ac389f6"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/bg.po",
+      "size": 167056,
+      "md5": "0b1a46ae96db03ea9d659112e07509ca"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/cs.po",
+      "size": 142399,
+      "md5": "50a9edcc2a574df5cb76dadb5442b8c4"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/de.po",
+      "size": 149781,
+      "md5": "b2b3d559462cc2bf8bb39236f1c84488"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/es.po",
+      "size": 148917,
+      "md5": "edca90bd0beca8915cf534e85f4fa323"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/fr.po",
+      "size": 147985,
+      "md5": "74537965a72e15d4decaeb91702de8c2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/gl.po",
+      "size": 126408,
+      "md5": "4d52b4951bdd49a27a50ce5b7c5d7a85"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/hu.po",
+      "size": 149397,
+      "md5": "5b5c1b19bb458a9b9470c8b48637bf21"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/it_IT.po",
+      "size": 149424,
+      "md5": "dabf840b668788062927f05c1aa31b7d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ja.po",
+      "size": 150081,
+      "md5": "7234ac220e230e1725cba1bdc9ad2640"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ja.pot",
+      "size": 49969,
+      "md5": "5a6cbf2ecb30da8c5fd6f90ce2552a33"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ko.po",
+      "size": 125811,
+      "md5": "d3fa5ba33e8bbe2997f4e064a9c9554d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/lt_LT.po",
+      "size": 146726,
+      "md5": "83e6c0027309cbb0476d22222166770a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/pl.po",
+      "size": 143542,
+      "md5": "8bfe63d56e1add5a584977186ee392bd"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/pt_BR.po",
+      "size": 143491,
+      "md5": "82083a7a7aabc64e837a522049f001dc"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/pt_PT.po",
+      "size": 143992,
+      "md5": "986395340d66631fb0d0210d12da9e0c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ro.po",
+      "size": 150442,
+      "md5": "fe4ded88d79840bd951761f43baff760"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ro_MD.po",
+      "size": 150452,
+      "md5": "4014f36baf76801001e0faeb64848d1c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ru.po",
+      "size": 165071,
+      "md5": "376fcb618e784e76261181814b751691"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/simpleui.pot",
+      "size": 111514,
+      "md5": "4e43fe7e9fa150a449f0f037b267958b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/sv.po",
+      "size": 146359,
+      "md5": "e60d1313bb302a0a33e363ebf5e8d538"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/tr.po",
+      "size": 145148,
+      "md5": "212c310dd5edfa55f9858710184f7936"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/uk.po",
+      "size": 169118,
+      "md5": "4176bf899aac57a9e40b22a30f683545"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/vi.po",
+      "size": 147332,
+      "md5": "09110b604e505fd0abaffc63f72f6a27"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/zh_CN.po",
+      "size": 135669,
+      "md5": "160b18ba823f4e50574ab5125e24f7d7"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/zh_TW.po",
+      "size": 136058,
+      "md5": "d081a9a70de627b321b897522a5848be"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/main.lua",
+      "size": 139653,
+      "md5": "a59e7bb2374e403d447bbacd3db95c5c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_action_list.lua",
+      "size": 21746,
+      "md5": "891f22a221e12d1680e25960f991c5b8"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_books_shared.lua",
+      "size": 50443,
+      "md5": "4d52cb4e20084ffdd03c8f8a3ddd7107"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_clock.lua",
+      "size": 49025,
+      "md5": "eaf0220d8d46f6e95c198b0cada6b0ca"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_collections.lua",
+      "size": 73239,
+      "md5": "7de63143619ec152c150401a7a1f9fdf"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_coverdeck.lua",
+      "size": 69996,
+      "md5": "de6ebada3cee7f505eb959333e7c5909"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_currently.lua",
+      "size": 105686,
+      "md5": "3f197523c6c9861ea008aca0ec67d215"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_feat_coll.lua",
+      "size": 21331,
+      "md5": "d3fafac991b1d88bd9d69d79552c41fd"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_heatmap.lua",
+      "size": 17227,
+      "md5": "afe98a95c5eede59d260b991685bd5aa"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_library.lua",
+      "size": 15029,
+      "md5": "5e4d790ec11fe454f32696d9fefce7a6"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_new_books.lua",
+      "size": 6184,
+      "md5": "af3f8bca0f76eef3ac71ba9a24177bac"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_quick_actions.lua",
+      "size": 34462,
+      "md5": "be8d7826ccc5d3b6dbad7e27703d76cf"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_quote.lua",
+      "size": 43807,
+      "md5": "9fed09d9c3764d8bb076e3f118474ca4"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_reading_goals.lua",
+      "size": 53267,
+      "md5": "a0b1c62bec5b47d6dd4380efe71b4744"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_reading_stats.lua",
+      "size": 44840,
+      "md5": "e46f292bdbe846e48a6a77dba7effcaf"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_recent.lua",
+      "size": 2216,
+      "md5": "a7bdff7b9d3874ac259c026f83614a1c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_spacer.lua",
+      "size": 3880,
+      "md5": "d19c1e3df3e18ff0f8a3628ba911484e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_stats_provider.lua",
+      "size": 31405,
+      "md5": "6a131ef88b59d86e849c56de7daea237"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_tbr.lua",
+      "size": 31684,
+      "md5": "6893d802a862bdd34fd76cbddf56873f"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/moduleregistry.lua",
+      "size": 21842,
+      "md5": "e1c1f9ad9c80260c60b223f5d5322923"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/quotes.lua",
+      "size": 11359,
+      "md5": "b3da974e9e2a174f787d407eb122eb1d"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_bottombar.lua",
+      "size": 82767,
+      "md5": "91a705ef91b3bf736286ffb6b685fe67"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_heatmap_popup.lua",
+      "size": 8115,
+      "md5": "37b7bc8bf80fb044f9b867dbc526c7bb"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_homescreen.lua",
+      "size": 2466,
+      "md5": "39549edcbe6e21d559d79b0da9906b39"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_menu.lua",
+      "size": 280098,
+      "md5": "48105cbc54fa8a9b1a07a5879823bb13"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_onboarding.lua",
+      "size": 12136,
+      "md5": "24ea9285995c8d4fd2a6d1ba6ee89932"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_quicksettings_bar.lua",
+      "size": 56867,
+      "md5": "40413d699fbcf2156f98c09f51f967e4"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_settings_window.lua",
+      "size": 51906,
+      "md5": "5ee12c0db12404ff85bcaba6861fad5b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_stats_windows.lua",
+      "size": 173324,
+      "md5": "f1494f891842ddcf68cd82e84dc4f307"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_titlebar.lua",
+      "size": 71252,
+      "md5": "8f955c6f8bb36c2c85b46329f0fc0d0b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_topbar.lua",
+      "size": 25760,
+      "md5": "5c98791cc8a01fbfe97fff467718091e"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_bottombar.lua",
+      "size": 74385,
+      "md5": "8cbfe63407f7e4d140a97c869fbad962"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_browsemeta.lua",
+      "size": 61983,
+      "md5": "bd2228fefd4e5435eb47ac9cc0321940"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_config.lua",
+      "size": 54550,
+      "md5": "54db4d458c3ed9ae2cf0de8e9b542b0c"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_core.lua",
+      "size": 36342,
+      "md5": "84858683964710971081b7a576fc0eb5"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_foldercovers.lua",
+      "size": 157029,
+      "md5": "e3970f6eaf3cd0dea53b8ced25f522e3"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_homescreen.lua",
+      "size": 160431,
+      "md5": "b7c0565dcd84ba1d11ebc97fc94b85be"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_i18n.lua",
+      "size": 10685,
+      "md5": "a41b6b5e8501eede62c5998f01d5e215"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_menu.lua",
+      "size": 274596,
+      "md5": "ec14f13065ba6aa81ceb50f16d944878"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_onboarding.lua",
+      "size": 12347,
+      "md5": "94afda860f0cedbe2aacd81f320b56d8"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_patches.lua",
+      "size": 242702,
+      "md5": "94b60bda4fea1f6fab7073e3892b7c43"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_presets.lua",
+      "size": 53857,
+      "md5": "88af91b4f386dbe373e8efdcee215932"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_quickactions.lua",
+      "size": 143254,
+      "md5": "1b713daf8337e976fa9047a7fe26c79b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_quicksettings_bar.lua",
+      "size": 58887,
+      "md5": "1487e9ba40be117ffa63377974504822"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_settings_window.lua",
+      "size": 41002,
+      "md5": "8730649f426acc40f7012c457aa15b88"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_stats_windows.lua",
+      "size": 173127,
+      "md5": "8fccdc0420afc12c9aef5a04d79d269b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_store.lua",
+      "size": 10471,
+      "md5": "bab8dfffe79665b61c4728001ce1364a"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_streak.lua",
+      "size": 16992,
+      "md5": "ca601ddd48a02576192e00a087f4d8c2"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_style.lua",
+      "size": 103333,
+      "md5": "4380e5f8f61eaaf1c6c342749ceed94b"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_titlebar.lua",
+      "size": 70317,
+      "md5": "d6822b879d5c51075dcc8f8561720183"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_topbar.lua",
+      "size": 26037,
+      "md5": "9f392631ec91701ccbc7a6ce8e46faa1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_updater.lua",
+      "size": 25022,
+      "md5": "589328dbcbaf00444978e2ade83302c1"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_window.lua",
+      "size": 132195,
+      "md5": "e8fe8b5c61901d79f4f1daf660e28b07"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/LICENSE",
+      "size": 35149,
+      "md5": "1ebbd3e34237af26da5dc08a4e440464"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/README.md",
+      "size": 13624,
+      "md5": "8a475024f4f2e44125ff813d169b398e"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/assets/image-1.png",
+      "size": 39589,
+      "md5": "6989bcc758fe2dfc3c82a578bfaee865"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/assets/image-3.png",
+      "size": 91380,
+      "md5": "202f67379a396003b23027a95c1f7519"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/assets/image-4.png",
+      "size": 71340,
+      "md5": "48c82cc4ba0c46933d12434fbfe241c6"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/assets/image-5.png",
+      "size": 207235,
+      "md5": "7bea8cdf3f1d4f14b3b9eb5d0e9b16a4"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/assets/image-6.png",
+      "size": 148785,
+      "md5": "3a1cb36e8e1a12a9a630e6980cb49671"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/assets/image.png",
+      "size": 34613,
+      "md5": "6eda06d6db55206752830c7f8d29d229"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/config.lua",
+      "size": 825,
+      "md5": "ade88b04d5a8db0d9abdb6fde70c8fa4"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/default_fix.lua",
+      "size": 8911,
+      "md5": "017f27433734875ee2c405f8f7974347"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/fix_trad.lua",
+      "size": 11505,
+      "md5": "31a054dd7f76af0bb1bff25428ff3141"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/main.lua",
+      "size": 49899,
+      "md5": "2fef97b022ec4b496848e08ed9ec2e0a"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/phrase_data.lua",
+      "size": 321169,
+      "md5": "29a8dde7f4efbd1cc5a1c30792d3f290"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/phrase_trad.lua",
+      "size": 320744,
+      "md5": "e8d317bc9409b767f77306f94789eff0"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/pinyin_data.lua",
+      "size": 202743,
+      "md5": "80e040d6c7f5099829662db78a2e26df"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/polyphone_index.lua",
+      "size": 12763,
+      "md5": "fa637b7ca3afaa67a7595c042c2257bb"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/polyphone_trad.lua",
+      "size": 16768,
+      "md5": "898e8aa09856cd5a85df65b6bdadeea3"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/trad_data.lua",
+      "size": 71606,
+      "md5": "791ed9188a6ee7aba46d9c383c4700f8"
+    },
+    {
+      "path": "9、生僻字注音/settings-preset-pinyin.lua",
+      "size": 591,
+      "md5": "86fddbccae91335aa98ff2bca8cb9ea7"
+    },
+    {
+      "path": "9、生僻字注音/使用说明.txt",
+      "size": 3235,
+      "md5": "c68461b63abcc5088ec2e24a641282a6"
+    },
+    {
+      "path": "INSTALL.md",
+      "size": 52258,
+      "md5": "41ee200012e86da487469952b8ea9ea5"
+    },
+    {
+      "path": "README.md",
+      "size": 8826,
+      "md5": "b263d89250f290f7867d25eceaae5325"
+    },
+    {
+      "path": "使用说明.txt",
+      "size": 8079,
+      "md5": "a591f173bd0af5b3e40f5d51b7888881"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/bin/set1.sh",
+      "size": 207,
+      "md5": "2f9401e836940d8680505abc877d0cb6"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/bin/set2.sh",
+      "size": 205,
+      "md5": "d86a5b73bd821b2adb8a94888f73aba7"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/bin/unset1.sh",
+      "size": 151,
+      "md5": "43313a613fdb0a19e776981b8638a507"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/bin/unset2.sh",
+      "size": 150,
+      "md5": "147a1c99f21640958415a4ccffe5f4a8"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/config.xml",
+      "size": 345,
+      "md5": "9bc3fc55192f0bf76b0da74716af1595"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/menu.json",
+      "size": 978,
+      "md5": "1df6b4000db29b0a5a964412a8cc7cd1"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/thumbnail_kol_portrait.jpg",
+      "size": 465318,
+      "md5": "ff9f458003b50ff00faaa1bc26318e6a"
+    },
+    {
+      "path": "备用组件/cover-setter/CoverSetter/thumbnail_kual_portrait.jpg",
+      "size": 709090,
+      "md5": "28087251bb4d8de57bab6c6ad12f9a6d"
+    },
+    {
+      "path": "备用组件/cover-setter/使用说明.txt",
+      "size": 261,
+      "md5": "cb495ed091c4da64136f2fc5541d5835"
+    },
+    {
+      "path": "备用组件/kol-booklet/ChangeLog.txt",
+      "size": 33248,
+      "md5": "0c20725e79593d4009fdf312d467e4ca"
+    },
+    {
+      "path": "备用组件/kol-booklet/README.txt",
+      "size": 407,
+      "md5": "a157f5e04b3eac7224d74b7a98e17dc1"
+    },
+    {
+      "path": "备用组件/kol-booklet/Update_KOLBooklet_hotfix_v1.5_install.bin",
+      "size": 11106,
+      "md5": "977fc4f2255dfedceff70d4bb1772d6d"
+    },
+    {
+      "path": "备用组件/kol-booklet/Update_KOLBooklet_v1.5_install.bin",
+      "size": 11415,
+      "md5": "68e14b54a78063107b581e869198702e"
+    },
+    {
+      "path": "备用组件/kol-booklet/Update_KOLBooklet_v1.5_uninstall.bin",
+      "size": 6046,
+      "md5": "396f7b2a47a2e71ba05deddf830361a2"
+    },
+    {
+      "path": "备用组件/kol-booklet/使用说明.txt",
+      "size": 445,
+      "md5": "b349ae69e0a43501afeac09e362e9226"
+    },
+    {
+      "path": "推荐必装·无线传书/filebrowserplus.koplugin/_meta.lua",
+      "size": 226,
+      "md5": "216450798cae8c9a1b53d0008153ea7e"
+    },
+    {
+      "path": "推荐必装·无线传书/filebrowserplus.koplugin/filebrowser/filebrowser",
+      "size": 19988664,
+      "md5": "1cdbecb7b57cae794675b1206ca02c7e"
+    },
+    {
+      "path": "推荐必装·无线传书/filebrowserplus.koplugin/main.lua",
+      "size": 19892,
+      "md5": "770831b596442d0ec6f1e6e63dc3a9e6"
+    },
+    {
+      "path": "文档/manual-steps.md",
+      "size": 5178,
+      "md5": "20878bb0db889b9fa41b02856a4a5665"
+    },
+    {
+      "path": "文档/plugin-credits.md",
+      "size": 4198,
+      "md5": "68b993a2d6e6e67d74b9874c1266f409"
+    },
+    {
+      "path": "文档/rollback.md",
+      "size": 3120,
+      "md5": "25955a209ed25d0cf33d1d5980d1e18c"
+    },
+    {
+      "path": "装机包完整介绍.md",
+      "size": 14205,
+      "md5": "2d747e95779dba1c6ed1628f276ad90b"
+    }
+  ]
+}

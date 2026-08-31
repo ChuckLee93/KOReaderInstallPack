@@ -1,50 +1,131 @@
-# KOReader 一键装机包 / KOReader One-Click Install Pack
+# KOReader 一键装机包使用说明
 
-面向 Kindle（已越狱）的 KOReader 一键装机包：编号组件、询问式装机、官方内置插件精简、蓝牙翻页器组合，全部按 `INSTALL.md` 走一遍即可完成。
+> 📖 **收到这个文件夹的人**：不用看这么多字，直接看根目录的《使用说明.txt》就行。
+> 想了解插件作者/版本、预设手势、壁纸换法等细节，看《装机包完整介绍.md》。
 
-An all-in-one KOReader install pack for jailbroken Kindle devices: numbered components, interview-style installation, trimmed stock plugins, and a Bluetooth page-turner combo — follow `INSTALL.md` from start to finish and you're done.
+## 装完你会拥有一台怎样的 Kindle
 
----
+躺在被窝里就能刷**微信读书**和**番茄小说**；想看什么书，
+直接在 Kindle 上搜 **Z-Library** 免费下载，一次都不用开电脑；
+碰到不认识的词一点就查（12 部词典任选），划一句话就能问 **AI 伴读**
+（词义、翻译、句子解析张口就来）；翻页带顺滑动画（过去只有新机型才有），
+读书全程可以不被闪屏打断；**传书再也不用数据线**——
+同一 WiFi 下浏览器里一拖就进书库，比原版方便得多；
+丰富的锁屏以及精致的阅读小票。
+一句话：**一台比原装 Kindle 好用得多、越用越顺手的阅读神器。**
 
-## 📦 内容 / What's Inside
+这是一个为 **已经越狱、装好 KUAL** 的 Kindle 准备的 KOReader 配置复刻包。
+目标是把一套调试得非常好用的 KOReader 环境（自改插件、手势、词典、界面）一键装到别人的设备上。
+**KOReader 未安装也没关系**：WorkBuddy 装机前会先确认机型和 KOReader 安装状态，
+没装的话会引导你先装官方 KOReader（见 INSTALL.md §1.5）。
+**已经装过 KOReader 也行**：会推荐你换成改良版（同样基于官方版本，但精简了
+多余菜单和插件、修复了官方插件已知 BUG、内置诊断探针，见 INSTALL.md §1.5.3）；
+不想换就在现有版本上叠加安装。
 
-装机包位于 `KOReader装机包-请按INSTALL.md帮我装机/`，共 14 个编号组件：
+## 它能装什么
 
-The pack lives in `KOReader装机包-请按INSTALL.md帮我装机/`, with 14 numbered components:
-
-- `0、必装核心` — 核心必装：删除清单、补丁、字体、词典、拼音输入法（pinyinime）
-- `1–13` — 选装组件：简单 UI、觅阅（微信读书）、生僻字注音、KOAI 等
-- `12、蓝牙外接键盘` — 蓝牙/外接键盘（externalkeyboard）+ SSH 远程连接（组合选装，供蓝牙翻页器使用）
-
-| 编号 | 组件 | 装机方式 |
+| 组件 | 说明 | 必装/选装 |
 |---|---|---|
-| 0 | 必装核心（含删除清单 26 个官方插件） | 必装 |
-| 1–13 | 各类选装插件/补丁/字体/词典 | 逐项询问 |
+| 自改功能核心 | 核心插件（Z-Library 搜书下载、拼音输入等）+ 8 个功能补丁 + 界面覆盖文件 + 完整手势 | 必装 |
+| 诊断探针 | 体检探针：后台每 30 分钟记录设备状态到 `koreader/diag_report.txt`；重启抓栈探针：KOReader 退出/重启瞬间把发起方调用栈写进 `crash.log`。日后出问题 AI 可远程读报告/日志排障 | 必装（静默） |
+| 词典 | 12 部 stardict 词典，装机时由你选择装哪几部（有推荐分组：广韵/佛学等按需选） | 必装（选部数） |
+| 低内存保护 | 老设备防崩溃（内存保留比例 0.15，觅阅自带配置） | 装机时询问：老机型（KPW4 及更早）推荐，新机型不推荐 |
+| 蓝牙/外接键盘（含 SSH） | 官方 externalkeyboard 插件，外接蓝牙翻页器（翻页遥控器）用，也可接蓝牙键盘打字；组合含官方 SSH 远程连接（供蓝牙翻页器配对配置用，同装同不装） | 询问选装 |
+| 觅阅·微信读书 | 在 KOReader 里读微信读书的书、同步进度（装好后自行登录微信读书账号） | 询问选装 |
+| 番茄阅读 | 在 KOReader 里直接读番茄小说：扫码登录同步书架/进度、段评、离线缓存（首次用手机 App 扫码即可） | 询问选装 |
+| 生僻字注音 | 生僻汉字注音（v2.1：多音字上下文辨音、生词本联动、繁体书模式） | 询问选装 |
+| 翻页动画 | KPW5 及以上机型才有的翻页动画效果，增加阅读沉浸感（老机型无此效果，装机 AI 会直接告知） | 询问选装（仅新机型） |
+| 锁屏壁纸 | 休眠锁屏壁纸+书籍信息卡（**猫猫探头 / 撕纸二选一**，参数自动配好） | 询问选装 |
+| AI 阅读助手 | KOAI（5 组提示词预设；用 DeepSeek，装机时引导你获取 API key） | 询问选装 |
+| 美化界面 | simpleUI 主页、6 款中文字体、4 个美化补丁 | 询问选装 |
+| 精简 | 删除 26 个用不到的官方插件（自动备份后删除） | 默认执行 |
 
-## 🚀 安装 / Installation
+### 只想装一部分？（组件编号 1–14）
 
-1. 下载本仓库 **Release** 中的 zip（完整包，含全部组件）
-2. 解压，打开 `KOReader装机包-请按INSTALL.md帮我装机/INSTALL.md`
-3. 按 INSTALL.md 从第 1 步做到最后一步（核心组件必装，选装组件按需勾选）
+对方设备上如果已经装过别的插件、只想装本包中的部分组件，发送装机指令时
+**直接带编号或名字**即可，例如：
 
-> 仓库内的文件可能为精简版（不含超大词典/数据库，如 `wanxiang.sqlite3`），完整安装请务必使用 Release 附件 zip。
+> 请按 INSTALL.md 帮我装机，只装 1、5、8、14 号
 
-Download the **Release** zip (full pack), unzip it, and follow `INSTALL.md` step by step. The repo itself may be trimmed (large dicts/databases like `wanxiang.sqlite3` are excluded); always use the Release zip for a full install.
+编号对照（与《使用说明.txt》《装机包完整介绍.md》一致，执行规则见 INSTALL.md §1.7）：
 
-## 🧾 文档 / Docs
+| 编号 | 组件 | 状态 | 编号 | 组件 | 状态 |
+|---|---|---|---|---|---|
+| 1 | Z-Library 搜书下载 | 必装 | 8 | 锁屏壁纸 | 询问 |
+| 2 | 12 部词典 | 必装 | 9 | 生僻字注音 | 询问 |
+| 3 | 完整手势 | 必装 | 10 | AI 伴读 | 询问 |
+| 4 | 阅读小票 | 必装 | 11 | 翻页动画（仅新机型） | 询问 |
+| 5 | 诊断探针 | 必装 | 12 | 蓝牙/外接键盘（含 SSH） | 询问 |
+| 6 | 拼音输入 | 必装 | 13 | 觅阅·微信读书 | 询问 |
+| 7 | 界面美化 | 询问 | 14 | 番茄阅读 | 询问 |
 
-| 文件 | 说明 |
-|---|---|
-| `KOReader装机包-请按INSTALL.md帮我装机/INSTALL.md` | 装机总指令（第一步看它） |
-| `KOReader装机包-请按INSTALL.md帮我装机/README.md` | 装机包组件介绍 |
-| `KOReader装机包-请按INSTALL.md帮我装机/使用说明.txt` | 精简版使用说明 |
-| `KOReader装机包-请按INSTALL.md帮我装机/装机包完整介绍.md` | 完整介绍（含作者与致谢） |
-| `KOReader装机包-请按INSTALL.md帮我装机/文档/plugin-credits.md` | 插件来源与署名 |
+未指定的组件一律跳过、不再询问；5 号诊断探针建议保留（售后远程排查用）。
 
-## ⚠️ 说明 / Notes
+## 前置条件
 
-- 本装机包为个人维护的定制分发，组件版权归各自原作者；内置官方插件未做改动，仅代为分发。
-- 翻页速度是本包所有变更的最高准则，任何组件都不以牺牲翻页速度为代价。
-- 仅限学习交流使用。
+1. Kindle 已越狱（任何方式均可）
+2. 已安装 **KUAL**（Kindle Unified Application Launcher）
+3. **KOReader 版本 ≥ v2026.07.1**（未安装 KOReader 也可用：WorkBuddy 会先引导你安装官方版；
+   翻页动画插件要求最低 v2026.07.1，其他版本的差异见 INSTALL.md §2 版本门）
+4. 一台能插 USB 线的电脑，装了 WorkBuddy（或其他能读文档执行操作的 AI 助手）。
+   WiFi 不是装机必需（同 WiFi 时装后可远程验证/无线传书，更方便）
 
-This pack is personally maintained and customized; all components belong to their respective authors. Stock plugins are redistributed unmodified. Page-turn speed is the top priority — nothing here trades it away. For learning and personal use only.
+## 怎么用（3 步，要动手的只有插根线）
+
+1. **USB 线把 Kindle 插到电脑上**（Kindle 弹窗选「传输文件」；KOReader 开着先退出）。
+   不用手动复制任何东西。
+2. **把整个「KOReader装机包-请按INSTALL.md帮我装机」文件夹发给 WorkBuddy**，说：
+   > 请按 INSTALL.md 帮我装机
+3. WorkBuddy 会自动完成：**先确认机型和 KOReader 安装状态（没装先装）** → 扫描盘符找到
+   Kindle → 检查版本和机型 → 通过 USB 写入核心组件（其间按机型询问是否启用低内存保护）→
+   让你选词典（带推荐）→ 逐项询问选装件（蓝牙翻页器/生僻字/翻页动画（仅新机型）/
+   锁屏壁纸（猫猫探头和撕纸二选一）/AI/美化界面/微信读书/番茄阅读，每项都会先讲清楚功能）→
+   精简多余插件 → 引导你弹出 USB、重启验证。
+   中途需要你做的只有：USB 线别拔、回答几个问题、最后重启一次 KOReader。
+
+## 隐私说明
+
+- zlibrary 账号凭据**不**包含在包里（需各自登录）
+- KOAI 的 DeepSeek API key **不**包含在包里（装机时引导获取，可让 WorkBuddy 代填）
+- 觅阅的微信读书账号、番茄阅读的扫码登录凭据**不**包含在包里（装好后各自在设备上登录）
+- simpleUI / 锁屏插件的个人书单、阅读进度数据已从预设中剔除
+
+## 装机后的支持
+
+装完不是结束：使用中遇到**任何**问题（崩溃/卡死/手势失灵/查词无结果/插件异常/
+连不上/想改设置……），只要 FilebrowserPlus 能连（预设已开机自启、运行期间常开）
+或 USB 插着电脑，都可以把问题交给 AI 助手——它会读取探针报告
+`koreader/diag_report.txt` 和 `crash.log` 远程诊断。装机 AI 会在收尾时
+向用户说明这一点（INSTALL.md §8.5-E5）。
+
+以后用户想要别的插件，也可以直接告诉 AI 助手——AI 能帮忙从网上找到
+并直接装进设备。
+
+## 校验与回滚
+
+- `manifest.json` 是全包文件 md5 清单，分发前后可比对完整性
+- 装机全程自动备份到 `backup/` 目录，回滚方案见 `文档/rollback.md`
+
+## 备用组件
+
+`备用组件/` 里的 KOLBooklet 和 cover-setter（封面增强组件）默认装机流程
+不安装、不询问——封面入口功能 KOReader / simpleUI 已自带。日后想要
+"书库封面入口 + 自定义入口图标"的增强版，可参考 `文档/manual-steps.md` A2/A3
+手动安装（需插一次 USB）。
+
+## 作者与致谢
+
+ · Z-Library ——— ZlibraryKO
+ · 阅读小票（胶片版）——— omer-faruq（原始代码出自 Reddit 用户 hundredpercentcocoa）
+ · 诊断探针 ——— ChuckLee93
+ · 拼音输入法 pinyinime ——— Merpyzf
+ · FilebrowserPlus（无线传书）——— patelneeraj
+ · 界面美化 simpleUI ——— doctorhetfield-cmd 原作，汉化：菠萝油
+ · 锁屏壁纸 ——— pxlflux 原作，ChuckLee93 自改
+ · 生僻字注音 ——— zhouwt 原作，ChuckLee93 自改
+ · AI 伴读 KOAI ——— mufeng0199（KOAI-Reader）+ chunbo129（AIReadingAssistant），ChuckLee93 合并改进
+ · 翻页动画 ——— xhs:5699990012、nuku、Echoes、小红薯6809667F、斯普特尼克的漫游
+ · 蓝牙/外接键盘 ——— KOReader 官方内置（本包未改动）
+ · SSH 远程连接 ——— KOReader 官方内置（本包未改动）
+ · 觅阅·微信读书 ——— miumiupy98-art
+ · 番茄阅读 ——— hesan1232

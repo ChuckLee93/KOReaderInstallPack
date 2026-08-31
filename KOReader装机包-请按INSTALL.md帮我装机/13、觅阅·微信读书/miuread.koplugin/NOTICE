@@ -1,0 +1,23 @@
+MiuRead / WeRead Assistant
+Copyright (C) 2026 MiuRead contributors
+
+MiuRead originated as a modified version of WeRead KOReader Plugin v0.1.1.
+Development of this modified work began in 2026, and the project has since
+undergone substantial restructuring, modification, and extension.
+
+Upstream project:
+WeRead KOReader Plugin
+https://github.com/finlater/weread.koplugin
+Copyright (C) finlater and contributors
+
+Copyright in code originating from the upstream project remains with its
+original copyright holders. Copyright in later additions and modifications
+belongs to the respective MiuRead contributors.
+
+This project is distributed under the GNU Affero General Public License
+version 3 only (AGPL-3.0-only). See LICENSE for the complete license text.
+
+MiuRead is an unofficial community project. It is not affiliated with,
+endorsed by, or sponsored by WeRead, Tencent, KOReader, or the upstream
+project maintainers. All product names and trademarks belong to their
+respective owners.

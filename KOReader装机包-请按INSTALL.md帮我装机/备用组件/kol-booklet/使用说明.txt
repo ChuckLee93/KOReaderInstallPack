@@ -1,0 +1,10 @@
+1、安装：
+
+系统版本为 5.15.x 及以上的设备，必须使用 Update_KOLBooklet_hotfix_v1.5_install.bin
+系统版本为 5.14.x 及以下的设备，可以直接使用标准版 Update_KOLBooklet_v1.5_install.bin
+
+把bin文件放到Kindle根目录→mrpackages 文件夹
+
+2、设置：
+
+进入KUAL，点击Helper 选择 install MR Packages，运行后即可看到 KOReader 增加直接入口；Library 中出现“KOReader”。

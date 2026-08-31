@@ -1,0 +1,5 @@
+词典下载网址：http://download.huzheng.org/zh_CN/
+
+文件里是佛学大词典、牛津英汉词典、新华字典、现代汉语大词典修订版
+
+安装方法：把整个文件夹放入：koreader/data/dict

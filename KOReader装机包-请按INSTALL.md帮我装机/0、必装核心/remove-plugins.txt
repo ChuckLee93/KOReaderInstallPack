@@ -1,0 +1,35 @@
+待删除的官方 KOReader 插件（26 个）
+说明：装机时逐个检查设备 koreader/plugins/ 下是否存在，存在则先备份到本机
+backup/removed-plugins/ 再删除；不存在则跳过。此清单为蓝本设备已精简的官方插件。
+不要删除：gestures / autosuspend / calibre / coverbrowser / coverimage / statistics / batterystat / vocabbuilder
+注意：externalkeyboard（蓝牙/外接键盘）与 SSH（远程连接）不在删除清单——
+二者是 12 号选装组合（12、蓝牙外接键盘/ 目录）的组件，同装同不装：
+用户选装 12 号时都装上，未选装也不删（保留设备原有状态）。
+SSH 是蓝牙翻页器的配套（配对/配置翻页器需经 SSH 远程终端操作）。
+
+archiveviewer
+autodim
+autostandby
+autoturn
+autowarmth
+bookends
+bookshortcuts
+cloudstorage
+docsettingtweak
+exporter
+hello
+hotkeys
+httpinspector
+japanese
+kosync
+movetoarchive
+newsdownloader
+opds
+perceptionexpander
+profiles
+qrclipboard
+readtimer
+terminal
+texteditor
+timesync
+wallabag

@@ -1,0 +1,1243 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: v1.0.15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-16 20:40+0000\n"
+"PO-Revision-Date: 2026-04-03 00:00+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh <zh@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Z-library"
+msgstr "Z-library"
+
+msgid "[[A plugin to search and download books from Z-library.]]"
+msgstr "[[用于从 Z-library 搜索和下载书籍的插件。]]"
+
+msgid "Z-library search"
+msgstr "Z-library 搜索"
+
+msgid "My books"
+msgstr "我的书籍"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Set base URL"
+msgstr "设置入口网址"
+
+msgid "Set credentials"
+msgstr "设置账号信息"
+
+msgid "Login successful!"
+msgstr "登录成功！"
+
+msgid "Set download directory"
+msgstr "设置下载目录"
+
+msgid "Ask to open after download"
+msgstr "下载后询问是否打开"
+
+msgid "Download categories"
+msgstr "下载分类"
+
+msgid "View Settings"
+msgstr "视图设置"
+
+msgid "Search Covers"
+msgstr "搜索封面"
+
+msgid "Search Items/Page"
+msgstr "搜索每页条目"
+
+msgid "Browse Covers"
+msgstr "浏览封面"
+
+msgid "Browse Items/Page"
+msgstr "浏览每页条目"
+
+msgid "Search options"
+msgstr "搜索选项"
+
+msgid "Select search languages"
+msgstr "选择搜索语言"
+
+msgid "Select search formats"
+msgstr "选择搜索格式"
+
+msgid "Select search order"
+msgstr "选择搜索排序"
+
+msgid "Timeout settings"
+msgstr "超时设置"
+
+msgid "Check for updates"
+msgstr "检查更新"
+
+msgid "Error: Plugin path not found. Cannot check for updates."
+msgstr "错误：未找到插件路径。无法检查更新。"
+
+msgid "Advanced"
+msgstr "高级设置"
+
+msgid "Clear credentials"
+msgstr "清除账号信息"
+
+#, lua-format
+msgid "Credentials cleared, but %s still sets them. Edit that file to stop it."
+msgstr "账号信息已清除，但%s仍会重新设置。请编辑该文件以阻止此行为。"
+
+msgid "Credentials cleared."
+msgstr "账号信息已清除。"
+
+msgid "Clear user session"
+msgstr "清除用户会话"
+
+msgid "Session cleared. You will need to login again."
+msgstr "会话已清除。您需要重新登录。"
+
+msgid "Clear runtime cache"
+msgstr "清除运行时缓存"
+
+msgid "Runtime cache cleared."
+msgstr "运行时缓存已清除。"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Recommended"
+msgstr "推荐"
+
+msgid "Most popular"
+msgstr "最受欢迎"
+
+msgid "Operation"
+msgstr "操作"
+
+msgid "No books found, please try again"
+msgstr "未找到书籍，请重试"
+
+msgid "Fetching most popular books..."
+msgstr "正在获取热门书籍..."
+
+msgid "Failed to fetch most popular books"
+msgstr "获取热门书籍失败"
+
+msgid "Most popular books"
+msgstr "热门书籍"
+
+msgid "Fetching recommended books..."
+msgstr "正在获取推荐书籍..."
+
+msgid "Failed to fetch recommended books"
+msgstr "获取推荐书籍失败"
+
+msgid "Recommended books"
+msgstr "推荐书籍"
+
+msgid "API returned an error, please try again"
+msgstr "API 返回错误，请重试"
+
+msgid "Z-library My Books"
+msgstr "Z-library 我的书籍"
+
+msgid "Downloaded"
+msgstr "已下载"
+
+msgid "Favorites"
+msgstr "收藏夹"
+
+msgid "Getting your favorites..."
+msgstr "正在获取收藏书籍..."
+
+msgid "Failed to fetch favorite books"
+msgstr "获取收藏书籍失败"
+
+msgid "Favorite books"
+msgstr "收藏的书籍"
+
+msgid "Remove from downloaded"
+msgstr "从已下载中移除"
+
+msgid "Getting your downloaded..."
+msgstr "正在获取已下载书籍..."
+
+msgid "Failed to fetch downloaded books"
+msgstr "获取已下载书籍失败"
+
+msgid "Downloaded books"
+msgstr "已下载书籍"
+
+msgid "Finding similar books..."
+msgstr "正在查找相似书籍..."
+
+msgid "No similar books found"
+msgstr "未找到相似书籍"
+
+msgid "Similar books"
+msgstr "相似书籍"
+
+msgid "Removing book from downloaded…"
+msgstr "正在从已下载中移除书籍…"
+
+msgid "Failed to remove book from downloaded"
+msgstr "从已下载中移除书籍失败"
+
+msgid "Book removed from downloaded, please refresh"
+msgstr "书籍已从已下载中移除，请刷新"
+
+msgid "Removing book from favorites…"
+msgstr "正在从收藏夹移除书籍..."
+
+msgid "Failed to remove book from favorites"
+msgstr "从收藏夹移除书籍失败"
+
+msgid "Unfavorite book"
+msgstr "取消收藏书籍"
+
+msgid "Book removed from favorites, please refresh"
+msgstr "书籍已从收藏夹移除，请刷新"
+
+msgid "Adding book to favorites…"
+msgstr "正在添加书籍到收藏夹..."
+
+msgid "Failed to add book to favorites"
+msgstr "添加书籍到收藏夹失败"
+
+msgid "Favorite book"
+msgstr "收藏书籍"
+
+msgid "Book added to favorites, please refresh"
+msgstr "书籍已添加到收藏夹，请刷新"
+
+msgid "Fetching book details..."
+msgstr "正在获取书籍详情..."
+
+msgid "Failed to fetch book details"
+msgstr "获取书籍详情失败"
+
+msgid "Book details"
+msgstr "书籍详情"
+
+msgid "Could not retrieve book details."
+msgstr "无法获取书籍详情。"
+
+msgid "Logging in..."
+msgstr "正在登录..."
+
+msgid "Credentials saved, but they could not be checked right now."
+msgstr "账号信息已保存，但暂时无法验证。"
+
+msgid "Please set both username and password first."
+msgstr "请先设置用户名和密码。"
+
+msgid "Sign-in"
+msgstr "登录"
+
+#, lua-format
+msgid "Searching for \"%s\"..."
+msgstr "正在搜索\"%s\"..."
+
+#, lua-format
+msgid "No results found for \"%s\"."
+msgstr "未找到\"%s\"."
+
+#, lua-format
+msgid "Loading more results (Page %s)..."
+msgstr "正在加载更多结果(第%s页)..."
+
+msgid "Failed to load more results"
+msgstr "加载更多结果失败"
+
+msgid "No more results found."
+msgstr "没有更多结果。"
+
+msgid "Book ID is required."
+msgstr "未指定书籍id"
+
+msgid "Loading comments..."
+msgstr "加载评论中。。。"
+
+msgid "Failed to load comments"
+msgstr "加载评论失败"
+
+msgid "Comments"
+msgstr "评论"
+
+msgid "No comments to display"
+msgstr "没有评论展示"
+
+msgid "Could not find the server address"
+msgstr "找不到服务器地址"
+
+msgid "This Z-library server is refusing automated access"
+msgstr "此 Z-library 服务器拒绝自动访问"
+
+msgid "Credentials rejected or invalid response"
+msgstr "凭证被拒绝或响应无效"
+
+msgid "Request timed out - please check your connection and try again"
+msgstr "请求超时 - 请检查您的连接后重试"
+
+msgid "Network request failed"
+msgstr "网络请求失败"
+
+msgid "The Z-library address may be wrong or no longer exist."
+msgstr "Z-library 地址可能有误或已不存在。"
+
+msgid "Network connection error - please check your internet connection and try again"
+msgstr "网络连接错误 - 请检查您的网络连接后重试"
+
+msgid "Too many redirects"
+msgstr "重定向次数过多"
+
+msgid "Try a different Z-library server."
+msgstr "请尝试其他 Z-library 服务器。"
+
+msgid "HTTP Error"
+msgstr "HTTP 错误"
+
+msgid "Unknown Status"
+msgstr "未知状态"
+
+msgid "The Z-library server address (URL) is not set. Please configure it in the Z-library plugin settings."
+msgstr "未设置 Z-library 服务器地址(URL)。请在 Z-library 插件设置中进行配置。"
+
+msgid "Login failed: Empty response from server"
+msgstr "登录失败：服务器返回空响应"
+
+msgid "Login failed: Invalid response format"
+msgstr "登录失败：响应格式无效"
+
+msgid "Login failed"
+msgstr "登录失败"
+
+msgid "Login failed: Invalid session data"
+msgstr "登录失败：会话数据无效"
+
+msgid "No response received from server - please try again"
+msgstr "未收到服务器响应 - 请重试"
+
+msgid "Invalid response format from server"
+msgstr "服务器响应格式无效"
+
+msgid "Search API error"
+msgstr "搜索 API 错误"
+
+msgid "Failed to open target file"
+msgstr "无法打开目标文件"
+
+msgid "Unknown error"
+msgstr "未知错误"
+
+msgid "Download limit reached or file is an HTML page"
+msgstr "已达下载限制或文件为HTML页面"
+
+msgid "Failed to save downloaded file"
+msgstr "保存下载文件失败"
+
+msgid "Download HTTP Error"
+msgstr "下载 HTTP 错误"
+
+msgid "Z-library server URL not configured."
+msgstr "未配置 Z-library 服务器网址。"
+
+msgid "Failed to fetch recommended books (no response body)."
+msgstr "获取推荐书籍失败(无响应体)。"
+
+msgid "Failed to parse recommended books response."
+msgstr "解析推荐书籍响应失败。"
+
+msgid "API returned an error for recommended books."
+msgstr "API返回了推荐书籍的错误。"
+
+msgid "Failed to fetch most popular books (no response body)."
+msgstr "获取热门书籍失败(无响应体)。"
+
+msgid "Failed to parse most popular books response."
+msgstr "解析热门书籍响应失败。"
+
+msgid "API returned an error for most popular books."
+msgstr "API返回了热门书籍的错误。"
+
+msgid "Z-library server URL not configured or book identifiers missing."
+msgstr "未配置 Z-library 服务器网址或缺少书籍标识符。"
+
+msgid "Failed to fetch book details (no response body)."
+msgstr "获取书籍详情失败(无响应体)。"
+
+msgid "Failed to parse book details response."
+msgstr "解析书籍详情响应失败。"
+
+msgid "API returned an error for book details."
+msgstr "API返回了书籍详情的错误。"
+
+msgid "Failed to process book details."
+msgstr "处理书籍详情失败。"
+
+msgid "Failed to fetch download link (no response body)."
+msgstr "获取下载链接失败(无响应体)。"
+
+msgid "Failed to parse download link response."
+msgstr "解析下载链接响应失败。"
+
+msgid "API returned an error for download link."
+msgstr "API返回了下载链接的错误。"
+
+msgid "Download limit reached. Please try again later or check your account."
+msgstr "达到下载限制。请稍后重试或检查您的账户。"
+
+msgid "No download link provided in API response."
+msgstr "API响应中未提供下载链接。"
+
+msgid "Failed to fetch similar books (no response body)."
+msgstr "获取相似书籍失败(无响应体)。"
+
+msgid "Failed to parse similar books response."
+msgstr "解析相似书籍响应失败。"
+
+msgid "API returned an error for similar books."
+msgstr "API返回了相似书籍的错误。"
+
+msgid "Failed to fetch downloaded books (no response body)."
+msgstr "获取已下载书籍失败(无响应体)。"
+
+msgid "Failed to parse downloaded books response."
+msgstr "解析已下载书籍响应失败。"
+
+msgid "API returned an error for downloaded books."
+msgstr "API返回了已下载书籍的错误。"
+
+msgid "Failed to fetch favorite books (no response body)."
+msgstr "获取收藏书籍失败(无响应体)。"
+
+msgid "Failed to parse favorite books response."
+msgstr "解析收藏书籍响应失败。"
+
+msgid "API returned an error for favorite books."
+msgstr "API返回了收藏书籍的错误。"
+
+msgid "Failed to remove the book from downloaded (no response body)."
+msgstr "从已下载中移除书籍失败(无响应体)。"
+
+msgid "Failed to parse the remove from downloaded response."
+msgstr "解析从已下载中移除的响应失败。"
+
+msgid "API returned an error for remove from downloaded."
+msgstr "API返回了从已下载中移除的错误。"
+
+msgid "Failed to fetch unfavorite book (no response body)."
+msgstr "取消收藏书籍失败(无响应体)。"
+
+msgid "Failed to parse unfavorite book response."
+msgstr "解析取消收藏响应失败。"
+
+msgid "API returned an error for unfavorite book."
+msgstr "API返回了取消收藏的错误。"
+
+msgid "Failed to fetch download quota status (no response body)."
+msgstr "获取下载配额状态失败(无响应体)。"
+
+msgid "Failed to parse download quota status response."
+msgstr "解析下载配额状态响应失败。"
+
+msgid "API returned an error for download quota status."
+msgstr "API返回了下载配额状态的错误。"
+
+msgid "Failed to fetch favorite-book IDs (no response body)."
+msgstr "获取收藏书籍ID失败(无响应体)。"
+
+msgid "Failed to parse favorite-book IDs."
+msgstr "解析收藏书籍ID失败。"
+
+msgid "API returned an error for favorite-book IDs."
+msgstr "API返回了收藏书籍ID的错误。"
+
+msgid "Failed to fetch favorite book (no response body)."
+msgstr "获取收藏书籍失败(无响应体)。"
+
+msgid "Failed to parse favorite book response."
+msgstr "解析收藏书籍响应失败。"
+
+msgid "API returned an error for favorite book."
+msgstr "API返回了收藏书籍的错误。"
+
+msgid "Failed to fetch book comments (no response body)."
+msgstr "获取书籍评论失败。"
+
+msgid "Failed to parse book comments response."
+msgstr "获取书籍评论失败。"
+
+msgid "API returned an error for book comments."
+msgstr "获取书籍评论出错。"
+
+msgid "Request cancelled."
+msgstr "请求已取消。"
+
+msgid "Profile"
+msgstr "个人资料"
+
+msgid "No description available"
+msgstr "暂无简介"
+
+msgid "pages"
+msgstr "页"
+
+msgid "Cover"
+msgstr "封面"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "More Similar Books"
+msgstr "更多相似书籍"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Format"
+msgstr "格式"
+
+msgid "Download book"
+msgstr "下载书籍"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Remove From Favorites"
+msgstr "从收藏夹移除"
+
+msgid "Add To Favorites"
+msgstr "添加到收藏夹"
+
+msgid "No Comments"
+msgstr "暂无评论"
+
+msgid "Best match"
+msgstr "最佳匹配"
+
+msgid "Recently added"
+msgstr "最近添加"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Year"
+msgstr "年份"
+
+msgid "File size"
+msgstr "文件大小"
+
+msgid "Default"
+msgstr "默认"
+
+#, lua-format
+msgid "%ds"
+msgstr "%d秒"
+
+msgid "infinite"
+msgstr "无限"
+
+#, lua-format
+msgid "Block: %ds, Total: %s"
+msgstr "块：%d秒，总计：%s"
+
+msgid "Operation failed, please retry."
+msgstr "操作失败，请重试。"
+
+msgid "Fetching domains..."
+msgstr "正在获取域名..."
+
+msgid "Successfully set base URL to: "
+msgstr "已成功设置基础URL为："
+
+msgid "Failed to find a working base URL."
+msgstr "未能找到可用的入口网址。"
+
+msgid "Queued"
+msgstr "排队中"
+
+msgid "Selection copied to clipboard."
+msgstr "已复制所选内容到剪贴板。"
+
+msgid "Checking"
+msgstr "检查中"
+
+msgid "Invalid Base URL."
+msgstr "入口网址无效。"
+
+msgid "Failed"
+msgstr "失败"
+
+msgid "Searching for working Z-library server..."
+msgstr "正在搜索可用的 Z-library 服务器..."
+
+msgid "Current Base URL:"
+msgstr "当前基础URL："
+
+msgid "Mirror site redirected to: "
+msgstr "镜像站点已重定向至："
+
+msgid "Auto-discover base URL"
+msgstr "自动发现入口网址"
+
+msgid "Network unavailable."
+msgstr "网络不可用。"
+
+msgid "Discovery is already running..."
+msgstr "检测已在进行中..."
+
+msgid "Refresh Dynamic Domains"
+msgstr "刷新动态域名"
+
+msgid "This book's file type is unknown, so it cannot be downloaded."
+msgstr "此书籍的文件格式未知，无法下载。"
+
+msgid "Book identifiers missing. Cannot download."
+msgstr "缺少书籍标识符，无法下载。"
+
+#, lua-format
+msgid "Cannot create downloads directory: %s"
+msgstr "无法创建下载目录：%s"
+
+#, lua-format
+msgid "Couldn't create the folder for \"%s\". The book is in the download folder."
+msgstr "无法为“%s”创建文件夹。书籍保留在下载文件夹中。"
+
+#, lua-format
+msgid "Moved to \"%s\"."
+msgstr "已移动到“%s”。"
+
+#, lua-format
+msgid "Couldn't move the book into \"%s\". It's in the download folder."
+msgstr "无法将书籍移动到“%s”。书籍保留在下载文件夹中。"
+
+msgid "Could not open reader UI."
+msgstr "无法打开阅读器界面。"
+
+msgid "Download failed: Unknown error"
+msgstr "下载失败：未知错误"
+
+msgid "Book download"
+msgstr "书籍下载"
+
+msgid "Retrying download… (tap to cancel)"
+msgstr "正在重试下载…(点击取消)"
+
+msgid "Download cancelled."
+msgstr "下载已取消。"
+
+msgid "Untitled"
+msgstr "无标题"
+
+msgid "Unknown Author"
+msgstr "未知作者"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Update failed: Could not determine where to install the plugin."
+msgstr "更新失败：无法确定插件安装位置。"
+
+msgid "Installing update..."
+msgstr "正在安装更新..."
+
+msgid "Update installation failed."
+msgstr "更新安装失败。"
+
+msgid "Update installed successfully. Please restart KOReader for changes to take effect."
+msgstr "更新安装成功。请重启KOReader使更改生效。"
+
+msgid "Update check failed: Could not determine plugin location."
+msgstr "更新检查失败：无法确定插件位置。"
+
+#, lua-format
+msgid "Unsupported plugin path for OTA update: %s. Only 'plugins/zlibrary.koplugin' is supported."
+msgstr "不支持的 OTA 更新插件路径：%s。仅支持 'plugins/zlibrary.koplugin'。"
+
+msgid "Checking for updates..."
+msgstr "正在检查更新..."
+
+msgid "Failed to check for updates. Please check your internet connection."
+msgstr "检查更新失败。请检查您的网络连接。"
+
+msgid "Could not find update information (invalid data format)."
+msgstr "找不到更新信息(数据格式无效)。"
+
+msgid "Could not find update version information."
+msgstr "找不到更新版本信息。"
+
+msgid "Could not understand the update version format."
+msgstr "无法理解更新版本格式。"
+
+msgid "Could not find update files."
+msgstr "找不到更新文件。"
+
+msgid "Could not find a download link for the update."
+msgstr "找不到更新的下载链接。"
+
+#, lua-format
+msgid "You are already on the latest version (%s) or newer."
+msgstr "您已经是最新版本(%s)或更高版本。"
+
+#, lua-format
+msgid "Could not determine your current version, but the latest is %s. If you recently updated, you might be up-to-date."
+msgstr "无法确定您的当前版本，但最新版本是%s。如果您最近更新过，可能已经是最新版。"
+
+#, lua-format
+msgid "New version available: %s (you have %s). Download and install?"
+msgstr "有新版本可用：%s(您当前是%s)。要下载并安装吗？"
+
+msgid "an older version"
+msgstr "旧版本"
+
+msgid "Update available"
+msgstr "有可用更新"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Downloading update..."
+msgstr "正在下载更新..."
+
+msgid "Download failed. Please try again later."
+msgstr "下载失败。请稍后重试。"
+
+#, lua-format
+msgid "%s (tap to cancel)"
+msgstr "%s(点击取消)"
+
+msgid "Downloading… (tap to cancel)"
+msgstr "正在下载…(点击取消)"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Select Z-library Download Directory"
+msgstr "选择 Z-library 下载目录"
+
+#, lua-format
+msgid "Download directory set to: %s"
+msgstr "下载目录设置为：%s"
+
+msgid "No directory selected."
+msgstr "未选择目录。"
+
+#, lua-format
+msgid "%d items selected for %s."
+msgstr "%d个%s选择的項目。"
+
+#, lua-format
+msgid "Filter cleared for %s."
+msgstr "已清除%s的筛选条件。"
+
+msgid "Filter"
+msgstr "筛选"
+
+msgid "Show all"
+msgstr "显示全部"
+
+msgid "Set"
+msgstr "设置"
+
+msgid "Setting saved successfully!"
+msgstr "设置保存成功！"
+
+msgid "Setting cleared."
+msgstr "设置已清除。"
+
+msgid "Please enter a name."
+msgstr "请输入名称。"
+
+msgid "A category with that name already exists."
+msgstr "已存在同名分类。"
+
+msgid "That category no longer exists."
+msgstr "该分类已不存在。"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Rename"
+msgstr "重命名"
+
+msgid "Rename sub-category"
+msgstr "重命名子分类"
+
+msgid "Remove"
+msgstr "移除"
+
+#, lua-format
+msgid "Remove the sub-category \"%s\"? Books already filed there stay where they are."
+msgstr "删除子分类“%s”？已归入其中的书籍将保留原处。"
+
+msgid "Add sub-category…"
+msgstr "添加子分类…"
+
+msgid "New sub-category"
+msgstr "新建子分类"
+
+msgid "Rename category…"
+msgstr "重命名分类…"
+
+msgid "Rename category"
+msgstr "重命名分类"
+
+msgid "Remove category"
+msgstr "删除分类"
+
+#, lua-format
+msgid "Remove the category \"%s\" and its sub-categories? Books already filed there stay where they are."
+msgstr "删除分类“%s”及其子分类？已归入其中的书籍将保留原处。"
+
+msgid "Add category…"
+msgstr "添加分类…"
+
+msgid "New category"
+msgstr "新建分类"
+
+msgid "Set languages"
+msgstr "设置语言"
+
+#, lua-format
+msgid "Language: %s"
+msgstr "语言: %s"
+
+#, lua-format
+msgid "Languages (%d)"
+msgstr "语言 (%d)"
+
+msgid "Set formats"
+msgstr "设置格式"
+
+#, lua-format
+msgid "Format: %s"
+msgstr "格式: %s"
+
+#, lua-format
+msgid "Formats (%d)"
+msgstr "格式 (%d)"
+
+msgid "Search Z-library"
+msgstr "搜索 Z-library"
+
+msgid "Please enter a search term."
+msgstr "请输入搜索词。"
+
+msgid "Sort by"
+msgstr "排序方式"
+
+msgid "Unknown Title"
+msgstr "未知标题"
+
+msgid "Rating"
+msgstr "评分"
+
+msgid "Search Results"
+msgstr "搜索结果"
+
+#, lua-format
+msgid "Remove \"%s\" from your downloaded books?"
+msgstr "从您的已下载书籍中移除\"%s\"？"
+
+msgid "Clear your stored username and password?"
+msgstr "清除已保存的用户名和密码？"
+
+msgid "Clear"
+msgstr "清除"
+
+#, lua-format
+msgid "Download \"%s\"?"
+msgstr "下载\"%s\"？"
+
+msgid "Please enter a category name."
+msgstr "请输入分类名称。"
+
+msgid "Category"
+msgstr "分类"
+
+msgid "Category name"
+msgstr "分类名称"
+
+msgid "Sub-category (optional)"
+msgstr "子分类（可选）"
+
+msgid "Sub-category name"
+msgstr "子分类名称"
+
+msgid "Create"
+msgstr "创建"
+
+msgid "Keep in download folder"
+msgstr "保留在下载文件夹"
+
+msgid "New category…"
+msgstr "新建分类…"
+
+msgid "Move to"
+msgstr "移动到"
+
+#, lua-format
+msgid "\"%s\" downloaded."
+msgstr "“%s”下载完成。"
+
+msgid "Download folder"
+msgstr "下载文件夹"
+
+msgid "Book downloaded successfully. Open it now?"
+msgstr "书籍下载成功。现在打开吗？"
+
+msgid "Turn off Wi-Fi after closing this dialog"
+msgstr "关闭此对话框后关闭Wi-Fi"
+
+#, lua-format
+msgid "Move to: %s"
+msgstr "移动到：%s"
+
+msgid "Open book"
+msgstr "打开书籍"
+
+#, lua-format
+msgid "No %s found, please try again. Sometimes this requires a couple of retries."
+msgstr "未找到%s，请重试。有时需要多试几次。"
+
+msgid "Z-library Similar Books"
+msgstr "Z-library 相似书籍"
+
+msgid "Book Details"
+msgstr "书籍详情"
+
+#, lua-format
+msgid "Retrying search for \"%s\"..."
+msgstr "正在重试搜索\"%s\"..."
+
+msgid "Book search"
+msgstr "书籍搜索"
+
+msgid "Request timed out"
+msgstr "请求超时"
+
+msgid "Network connection error"
+msgstr "网络连接错误"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a timeout%s. Would you like to retry?"
+msgstr "无法完成“%s”：请求超时%s。是否重试？"
+
+#, lua-format
+msgid "Could not complete \"%s\" because the server address could not be found. Would you like to retry?"
+msgstr "无法完成“%s”：找不到服务器地址。是否重试？"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a network error. Would you like to retry?"
+msgstr "无法完成“%s”：网络错误。是否重试？"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a temporary issue. Would you like to retry?"
+msgstr "无法完成“%s”：出现临时问题。是否重试？"
+
+msgid "Retry"
+msgstr "重试"
+
+#, lua-format
+msgid "Block timeout: %s"
+msgstr "块超时：%s"
+
+#, lua-format
+msgid "Total timeout: %s"
+msgstr "总超时：%s"
+
+#, lua-format
+msgid "Set %s block timeout (seconds)"
+msgstr "设置%s块超时（秒）"
+
+msgid "Please enter a valid number (minimum 1 second)"
+msgstr "请输入有效数字（最少1秒）"
+
+#, lua-format
+msgid "Set %s total timeout (seconds, -1 for infinite)"
+msgstr "设置%s总超时（秒，-1表示无限）"
+
+msgid "Please enter a valid number (minimum 1 second or -1 for infinite)"
+msgstr "请输入有效数字（最少1秒或-1表示无限）"
+
+msgid "Reset to defaults"
+msgstr "重置为默认值"
+
+#, lua-format
+msgid "Reset %s timeouts to default values?"
+msgstr "将%s超时重置为默认值？"
+
+msgid "Timeout settings reset to defaults"
+msgstr "超时设置已重置为默认值"
+
+msgid "Reset"
+msgstr "重置"
+
+#, lua-format
+msgid "%s Timeout Settings"
+msgstr "%s超时设置"
+
+msgid "Login timeouts"
+msgstr "登录超时"
+
+msgid "Search timeouts"
+msgstr "搜索超时"
+
+msgid "Book details timeouts"
+msgstr "图书详情超时"
+
+msgid "Recommended books timeouts"
+msgstr "推荐图书超时"
+
+msgid "Popular books timeouts"
+msgstr "热门图书超时"
+
+msgid "Popular books"
+msgstr "热门图书"
+
+msgid "Download timeouts"
+msgstr "下载超时"
+
+msgid "Cover download timeouts"
+msgstr "封面下载超时"
+
+msgid "Cover download"
+msgstr "封面下载"
+
+msgid "Reset all timeouts to defaults"
+msgstr "将所有超时重置为默认值"
+
+msgid "Reset all timeout settings to default values?"
+msgstr "将所有超时设置重置为默认值？"
+
+msgid "All timeout settings reset to defaults"
+msgstr "所有超时设置已重置为默认值"
+
+msgid "Reset All"
+msgstr "全部重置"
+
+msgid "Timeout Settings"
+msgstr "超时设置"
+
+msgid "Email Address"
+msgstr "电子邮箱"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Enter password"
+msgstr "输入密码"
+
+msgid "Set and verify"
+msgstr "设置并验证"
+
+msgid "Please fill in all fields"
+msgstr "请填写所有字段"
+
+#~ msgid "Verify credentials"
+#~ msgstr "验证凭证"
+
+#~ msgid "Developer options"
+#~ msgstr "开发者选项"
+
+#~ msgid "Feature not implemented"
+#~ msgstr "功能尚未实现"
+
+#~ msgid "Download this book?"
+#~ msgstr "下载此书？"
+
+#, lua-format
+#~ msgid "\"%s\" downloaded successfully. Open it now?"
+#~ msgstr "\"%s\"下载成功。现在打开吗？"
+
+#, lua-format
+#~ msgid "Block timeout: %s seconds"
+#~ msgstr "块超时：%s秒"
+
+#~ msgid "seconds"
+#~ msgstr "秒"
+
+#, lua-format
+#~ msgid "%s failed due to a timeout%s. Would you like to retry?"
+#~ msgstr "%s因超时%s失败。您要重试吗？"
+
+#, lua-format
+#~ msgid "%s failed because the server address could not be found. Would you like to retry?"
+#~ msgstr "%s因找不到服务器地址失败。您要重试吗？"
+
+#, lua-format
+#~ msgid "%s failed due to a network error. Would you like to retry?"
+#~ msgstr "%s因网络错误失败。您要重试吗？"
+
+#, lua-format
+#~ msgid "%s failed due to a temporary issue. Would you like to retry?"
+#~ msgstr "%s因临时问题失败。您要重试吗？"
+
+#~ msgid "Login"
+#~ msgstr "登录"
+
+#~ msgid "Retrying search for \""
+#~ msgstr "正在重试搜索\""
+
+#~ msgid "Searching for \""
+#~ msgstr "正在搜索\""
+
+#~ msgid "No results found for \""
+#~ msgstr "未找到\""
+
+#~ msgid "Test mode"
+#~ msgstr "测试模式"
+
+#~ msgid "Test mode disabled. Normal download behavior restored."
+#~ msgstr "测试模式已关闭。已恢复正常下载行为。"
+
+#~ msgid "Test mode enabled. Downloads will always succeed."
+#~ msgstr "测试模式已开启。下载将始终成功。"
+
+#~ msgid "unfavorite book"
+#~ msgstr "取消收藏"
+
+#~ msgid "Retrying download..."
+#~ msgstr "正在重试下载..."
+
+#~ msgid "Downloading…"
+#~ msgstr "正在下载..."
+
+#~ msgid "Syncing your download limit..."
+#~ msgstr "正在同步下载配额..."
+
+#~ msgid "failed to load download quota status"
+#~ msgstr "加载下载配额状态失败"
+
+#~ msgid "Sync download quota"
+#~ msgstr "同步下载配额"
+
+#~ msgid "Syncing favorites summary…"
+#~ msgstr "正在同步收藏摘要..."
+
+#~ msgid "failed to load favorite book id list"
+#~ msgstr "加载收藏书籍ID列表失败"
+
+#~ msgid "Sync favorites summary"
+#~ msgstr "同步收藏摘要"
+
+#~ msgid "Description"
+#~ msgstr "描述"
+
+#~ msgid "Full Title"
+#~ msgstr "完整标题"
+
+#~ msgid "(tap to view)"
+#~ msgstr "（点击查看）"
+
+#~ msgid "Language"
+#~ msgstr "语言"
+
+#, lua-format
+#~ msgid "Format: %s (tap to download)"
+#~ msgstr "格式：%s(点击下载)"
+
+#, lua-format
+#~ msgid "Format: %s (Download not available)"
+#~ msgstr "格式：%s(不可下载)"
+
+#~ msgid "Download Book (Unknown Format)"
+#~ msgstr "下载书籍(未知格式)"
+
+#~ msgid "Size"
+#~ msgstr "大小"
+
+#~ msgid "Pages"
+#~ msgstr "页数"
+
+#~ msgid "Publisher"
+#~ msgstr "出版商"
+
+#~ msgid "Series"
+#~ msgstr "系列"
+
+#~ msgid "Set email"
+#~ msgstr "设置邮箱"
+
+#~ msgid "Set password"
+#~ msgstr "设置密码"
+
+#~ msgid "Z-library Recommended Books"
+#~ msgstr "Z-library 推荐书籍"
+
+#~ msgid "Z-library Most Popular Books"
+#~ msgstr "Z-library 热门书籍"
+
+#~ msgid "Fetch most recommended book from Z-library?"
+#~ msgstr "从 Z-library 获取最推荐书籍？"
+
+#~ msgid "OK"
+#~ msgstr "确定"
+
+#~ msgid "Fetch most popular books from Z-library?"
+#~ msgstr "从 Z-library 获取热门书籍？"
+
+#~ msgid "Network not available. Please connect and try again."
+#~ msgstr "网络不可用。请连接后重试。"
+
+#~ msgid "Failed to discover a working base URL"
+#~ msgstr "未能自动发现可用的入口网址"
+
+#~ msgid "Successfully found and set base URL to: "
+#~ msgstr "成功找到并设置入口网址为："
+
+#~ msgid "Error during auto-discovery: "
+#~ msgstr "自动发现过程中出错："
+
+#~ msgid "Could not find a working Z-library server. Please check your internet connection or set the base URL manually."
+#~ msgstr "未能找到可用的 Z-library 服务器。请检查您的网络连接或手动设置入口网址。"
+
+#~ msgid "No internet connection detected."
+#~ msgstr "未检测到网络连接。"
+
+#~ msgid "No internet connection detected. Please connect to the internet and try again."
+#~ msgstr "未检测到网络连接。请连接网络后重试。"
+
+#~ msgid "No download link available for this book."
+#~ msgstr "本书无可用下载链接。"
+
+#~ msgid "No recommended books found, please try again. Sometimes this requires a couple of retries."
+#~ msgstr "未找到推荐书籍，请重试。有时需要多次尝试。"
+
+#~ msgid "No most popular books found. The list was empty, please try again."
+#~ msgstr "未找到热门书籍。列表为空，请重试。"
+
+#~ msgid "Search failed"
+#~ msgstr "搜索失败"
+
+#~ msgid "Search failed due to a temporary issue (HTTP 400). Would you like to retry?"
+#~ msgstr "搜索因临时问题失败(HTTP 400)。是否重试？"
+
+#~ msgid "Z-library most popular"
+#~ msgstr "Z-图书馆热门书籍"
+
+#~ msgid "Z-library recommended"
+#~ msgstr "Z-图书馆推荐书籍"
+
+#~ msgid "Failed to retrieve user session after login."
+#~ msgstr "登录后无法获取用户会话。"
+
+#~ msgid "Full Author"
+#~ msgstr "完整作者"
+
+#~ msgid "Description (tap to view)"
+#~ msgstr "描述(点击查看)"
+
+#~ msgid "Set username"
+#~ msgstr "设置用户名"
+
+#~ msgid "Downloading..."
+#~ msgstr "正在下载..."

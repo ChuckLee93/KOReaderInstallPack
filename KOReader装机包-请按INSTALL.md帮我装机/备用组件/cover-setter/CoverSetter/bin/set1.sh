@@ -1,0 +1,2 @@
+#!/bin/sh
+sqlite3 /var/local/cc.db "UPDATE 'Entries' SET p_thumbnail = '/mnt/us/extensions/coversetter/thumbnail_kual_portrait.jpg' WHERE p_location LIKE '%.kual' AND p_mimeType = 'application/octet-stream'"

@@ -1,0 +1,1204 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: v1.0.15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-16 20:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Z-library"
+msgstr "Z-library"
+
+msgid "[[A plugin to search and download books from Z-library.]]"
+msgstr "[[Een plugin om boeken te zoeken en te downloaden van Z-library.]]"
+
+msgid "Z-library search"
+msgstr "Z-library zoeken"
+
+msgid "My books"
+msgstr "Mijn boeken"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Set base URL"
+msgstr "Stel basis-URL in"
+
+msgid "Set credentials"
+msgstr "Inloggegevens instellen"
+
+msgid "Login successful!"
+msgstr "Succesvol ingelogd!"
+
+msgid "Set download directory"
+msgstr "Downloadmap instellen"
+
+msgid "Ask to open after download"
+msgstr "Vragen om te openen na downloaden"
+
+msgid "Download categories"
+msgstr "Downloadcategorieën"
+
+msgid "View Settings"
+msgstr "Weergave-instellingen"
+
+msgid "Search Covers"
+msgstr "Omslagen bij zoeken"
+
+msgid "Search Items/Page"
+msgstr "Zoekitems/pagina"
+
+msgid "Browse Covers"
+msgstr "Omslagen bij bladeren"
+
+msgid "Browse Items/Page"
+msgstr "Bladeritems/pagina"
+
+msgid "Search options"
+msgstr "Zoekopties"
+
+msgid "Select search languages"
+msgstr "Selecteer zoektaal"
+
+msgid "Select search formats"
+msgstr "Selecteer zoekformaten"
+
+msgid "Select search order"
+msgstr "Zoekvolgorde selecteren"
+
+msgid "Timeout settings"
+msgstr "Timeout-instellingen"
+
+msgid "Check for updates"
+msgstr "Controleren op updates"
+
+msgid "Error: Plugin path not found. Cannot check for updates."
+msgstr "Fout: plug-inpad niet gevonden. Kan niet op updates controleren."
+
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+msgid "Clear credentials"
+msgstr "Inloggegevens wissen"
+
+#, lua-format
+msgid "Credentials cleared, but %s still sets them. Edit that file to stop it."
+msgstr "Inloggegevens gewist, maar %s stelt ze nog steeds in. Bewerk dat bestand om dat te voorkomen."
+
+msgid "Credentials cleared."
+msgstr "Inloggegevens gewist."
+
+msgid "Clear user session"
+msgstr "Gebruikerssessie wissen"
+
+msgid "Session cleared. You will need to login again."
+msgstr "Sessie gewist. Je moet opnieuw inloggen."
+
+msgid "Clear runtime cache"
+msgstr "Runtime-cache wissen"
+
+msgid "Runtime cache cleared."
+msgstr "Runtime-cache gewist."
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Recommended"
+msgstr "Aanbevolen"
+
+msgid "Most popular"
+msgstr "Meest populair"
+
+msgid "Operation"
+msgstr "Bewerking"
+
+msgid "No books found, please try again"
+msgstr "Geen boeken gevonden, probeer het opnieuw"
+
+msgid "Fetching most popular books..."
+msgstr "Meest populaire boeken ophalen..."
+
+msgid "Failed to fetch most popular books"
+msgstr "Kan meest populaire boeken niet ophalen"
+
+msgid "Most popular books"
+msgstr "Meest populaire boeken"
+
+msgid "Fetching recommended books..."
+msgstr "Aanbevolen boeken ophalen..."
+
+msgid "Failed to fetch recommended books"
+msgstr "Kan aanbevolen boeken niet ophalen"
+
+msgid "Recommended books"
+msgstr "Aanbevolen boeken"
+
+msgid "API returned an error, please try again"
+msgstr "API retourneerde een fout, probeer het opnieuw"
+
+msgid "Z-library My Books"
+msgstr "Z-library mijn boeken"
+
+msgid "Downloaded"
+msgstr "Gedownload"
+
+msgid "Favorites"
+msgstr "Favorieten"
+
+msgid "Getting your favorites..."
+msgstr "Je favorieten ophalen..."
+
+msgid "Failed to fetch favorite books"
+msgstr "Kan favoriete boeken niet ophalen"
+
+msgid "Favorite books"
+msgstr "Favoriete boeken"
+
+msgid "Remove from downloaded"
+msgstr "Verwijderen uit gedownloade boeken"
+
+msgid "Getting your downloaded..."
+msgstr "Je downloads ophalen..."
+
+msgid "Failed to fetch downloaded books"
+msgstr "Kan gedownloade boeken niet ophalen"
+
+msgid "Downloaded books"
+msgstr "Gedownloade boeken"
+
+msgid "Finding similar books..."
+msgstr "Vergelijkbare boeken zoeken..."
+
+msgid "No similar books found"
+msgstr "Geen vergelijkbare boeken gevonden"
+
+msgid "Similar books"
+msgstr "Vergelijkbare boeken"
+
+msgid "Removing book from downloaded…"
+msgstr "Boek verwijderen uit gedownloade boeken…"
+
+msgid "Failed to remove book from downloaded"
+msgstr "Kan boek niet verwijderen uit gedownloade boeken"
+
+msgid "Book removed from downloaded, please refresh"
+msgstr "Boek verwijderd uit gedownloade boeken, vernieuw de lijst"
+
+msgid "Removing book from favorites…"
+msgstr "Boek verwijderen uit favorieten…"
+
+msgid "Failed to remove book from favorites"
+msgstr "Kan boek niet uit favorieten verwijderen"
+
+msgid "Unfavorite book"
+msgstr "Boek uit favorieten verwijderen"
+
+msgid "Book removed from favorites, please refresh"
+msgstr "Boek verwijderd uit favorieten, vernieuw de lijst"
+
+msgid "Adding book to favorites…"
+msgstr "Boek toevoegen aan favorieten…"
+
+msgid "Failed to add book to favorites"
+msgstr "Kan boek niet aan favorieten toevoegen"
+
+msgid "Favorite book"
+msgstr "Favoriet boek"
+
+msgid "Book added to favorites, please refresh"
+msgstr "Boek toegevoegd aan favorieten, vernieuw de lijst"
+
+msgid "Fetching book details..."
+msgstr "Boekdetails ophalen..."
+
+msgid "Failed to fetch book details"
+msgstr "Kan boekdetails niet ophalen"
+
+msgid "Book details"
+msgstr "Boekdetails"
+
+msgid "Could not retrieve book details."
+msgstr "Kan boekdetails niet ophalen."
+
+msgid "Logging in..."
+msgstr "Bezig met inloggen..."
+
+msgid "Credentials saved, but they could not be checked right now."
+msgstr "Inloggegevens opgeslagen, maar ze konden nu niet worden geverifieerd."
+
+msgid "Please set both username and password first."
+msgstr "Stel eerst zowel gebruikersnaam als wachtwoord in."
+
+msgid "Sign-in"
+msgstr "Inloggen"
+
+#, lua-format
+msgid "Searching for \"%s\"..."
+msgstr "Zoeken naar \"%s\"..."
+
+#, lua-format
+msgid "No results found for \"%s\"."
+msgstr "Geen resultaten gevonden voor \"%s\"."
+
+#, lua-format
+msgid "Loading more results (Page %s)..."
+msgstr "Meer resultaten laden (Pagina %s)..."
+
+msgid "Failed to load more results"
+msgstr "Kan geen extra resultaten laden"
+
+msgid "No more results found."
+msgstr "Geen extra resultaten gevonden."
+
+msgid "Book ID is required."
+msgstr "Boek-ID is vereist."
+
+msgid "Loading comments..."
+msgstr "Reacties laden..."
+
+msgid "Failed to load comments"
+msgstr "Kan reacties niet laden"
+
+msgid "Comments"
+msgstr "Reacties"
+
+msgid "No comments to display"
+msgstr "Geen reacties om weer te geven"
+
+msgid "Could not find the server address"
+msgstr "Kan het serveradres niet vinden"
+
+msgid "This Z-library server is refusing automated access"
+msgstr "Deze Z-library server weigert geautomatiseerde toegang"
+
+msgid "Credentials rejected or invalid response"
+msgstr "Inloggegevens geweigerd of ongeldig antwoord"
+
+msgid "Request timed out - please check your connection and try again"
+msgstr "Time-out van verzoek - controleer je verbinding en probeer het opnieuw"
+
+msgid "Network request failed"
+msgstr "Netwerkverzoek mislukt"
+
+msgid "The Z-library address may be wrong or no longer exist."
+msgstr "Het Z-library-adres is mogelijk onjuist of bestaat niet meer."
+
+msgid "Network connection error - please check your internet connection and try again"
+msgstr "Netwerkverbindingsfout - controleer je internetverbinding en probeer het opnieuw"
+
+msgid "Too many redirects"
+msgstr "Te veel omleidingen"
+
+msgid "Try a different Z-library server."
+msgstr "Probeer een andere Z-library server."
+
+msgid "HTTP Error"
+msgstr "HTTP-fout"
+
+msgid "Unknown Status"
+msgstr "Onbekende status"
+
+msgid "The Z-library server address (URL) is not set. Please configure it in the Z-library plugin settings."
+msgstr "Het Z-library serveradres (URL) is niet ingesteld. Stel dit in bij de Z-library plugin-instellingen."
+
+msgid "Login failed: Empty response from server"
+msgstr "Inloggen mislukt: leeg antwoord van server"
+
+msgid "Login failed: Invalid response format"
+msgstr "Inloggen mislukt: ongeldige antwoordindeling"
+
+msgid "Login failed"
+msgstr "Inloggen mislukt"
+
+msgid "Login failed: Invalid session data"
+msgstr "Inloggen mislukt: ongeldige sessiegegevens"
+
+msgid "No response received from server - please try again"
+msgstr "Geen antwoord van server ontvangen - probeer het opnieuw"
+
+msgid "Invalid response format from server"
+msgstr "Ongeldige antwoordindeling van server"
+
+msgid "Search API error"
+msgstr "Zoek-API-fout"
+
+msgid "Failed to open target file"
+msgstr "Kan doelbestand niet openen"
+
+msgid "Unknown error"
+msgstr "Onbekende fout"
+
+msgid "Download limit reached or file is an HTML page"
+msgstr "Downloadlimiet bereikt of bestand is een HTML-pagina"
+
+msgid "Failed to save downloaded file"
+msgstr "Kan gedownload bestand niet opslaan"
+
+msgid "Download HTTP Error"
+msgstr "HTTP-fout bij downloaden"
+
+msgid "Z-library server URL not configured."
+msgstr "Z-library server-URL is niet geconfigureerd."
+
+msgid "Failed to fetch recommended books (no response body)."
+msgstr "Kan aanbevolen boeken niet ophalen (geen response body)."
+
+msgid "Failed to parse recommended books response."
+msgstr "Kan reactie met aanbevolen boeken niet parseren."
+
+msgid "API returned an error for recommended books."
+msgstr "API retourneerde een fout voor aanbevolen boeken."
+
+msgid "Failed to fetch most popular books (no response body)."
+msgstr "Kan meest populaire boeken niet ophalen (geen response body)."
+
+msgid "Failed to parse most popular books response."
+msgstr "Kan reactie met meest populaire boeken niet parseren."
+
+msgid "API returned an error for most popular books."
+msgstr "API retourneerde een fout voor meest populaire boeken."
+
+msgid "Z-library server URL not configured or book identifiers missing."
+msgstr "Z-library server-URL niet ingesteld of boek-ID's ontbreken."
+
+msgid "Failed to fetch book details (no response body)."
+msgstr "Kan boekdetails niet ophalen (geen response body)."
+
+msgid "Failed to parse book details response."
+msgstr "Kan reactie met boekdetails niet parseren."
+
+msgid "API returned an error for book details."
+msgstr "API retourneerde een fout voor boekdetails."
+
+msgid "Failed to process book details."
+msgstr "Kan boekdetails niet verwerken."
+
+msgid "Failed to fetch download link (no response body)."
+msgstr "Kan downloadlink niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse download link response."
+msgstr "Kan antwoord van downloadlink niet verwerken."
+
+msgid "API returned an error for download link."
+msgstr "API retourneerde een fout voor downloadlink."
+
+msgid "Download limit reached. Please try again later or check your account."
+msgstr "Downloadlimiet bereikt. Probeer het later opnieuw of controleer je account."
+
+msgid "No download link provided in API response."
+msgstr "Geen downloadlink in API-antwoord."
+
+msgid "Failed to fetch similar books (no response body)."
+msgstr "Kan vergelijkbare boeken niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse similar books response."
+msgstr "Kan antwoord van vergelijkbare boeken niet verwerken."
+
+msgid "API returned an error for similar books."
+msgstr "API retourneerde een fout voor vergelijkbare boeken."
+
+msgid "Failed to fetch downloaded books (no response body)."
+msgstr "Kan gedownloade boeken niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse downloaded books response."
+msgstr "Kan antwoord van gedownloade boeken niet verwerken."
+
+msgid "API returned an error for downloaded books."
+msgstr "API retourneerde een fout voor gedownloade boeken."
+
+msgid "Failed to fetch favorite books (no response body)."
+msgstr "Kan favoriete boeken niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse favorite books response."
+msgstr "Kan antwoord van favoriete boeken niet verwerken."
+
+msgid "API returned an error for favorite books."
+msgstr "API retourneerde een fout voor favoriete boeken."
+
+msgid "Failed to remove the book from downloaded (no response body)."
+msgstr "Kan het boek niet verwijderen uit gedownloade boeken (geen response body)."
+
+msgid "Failed to parse the remove from downloaded response."
+msgstr "Kan reactie op verwijderen uit gedownloade boeken niet parseren."
+
+msgid "API returned an error for remove from downloaded."
+msgstr "API retourneerde een fout voor verwijderen uit gedownloade boeken."
+
+msgid "Failed to fetch unfavorite book (no response body)."
+msgstr "Kan favoriet verwijderen niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse unfavorite book response."
+msgstr "Kan antwoord van favoriet verwijderen niet verwerken."
+
+msgid "API returned an error for unfavorite book."
+msgstr "API retourneerde een fout voor favoriet verwijderen."
+
+msgid "Failed to fetch download quota status (no response body)."
+msgstr "Kan downloadquotumstatus niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse download quota status response."
+msgstr "Kan antwoord van downloadquotumstatus niet verwerken."
+
+msgid "API returned an error for download quota status."
+msgstr "API retourneerde een fout voor downloadquotumstatus."
+
+msgid "Failed to fetch favorite-book IDs (no response body)."
+msgstr "Kan favoriete-boek-ID's niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse favorite-book IDs."
+msgstr "Kan favoriete-boek-ID's niet verwerken."
+
+msgid "API returned an error for favorite-book IDs."
+msgstr "API retourneerde een fout voor favoriete-boek-ID's."
+
+msgid "Failed to fetch favorite book (no response body)."
+msgstr "Kan favoriet boek niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse favorite book response."
+msgstr "Kan antwoord van favoriet boek niet verwerken."
+
+msgid "API returned an error for favorite book."
+msgstr "API retourneerde een fout voor favoriet boek."
+
+msgid "Failed to fetch book comments (no response body)."
+msgstr "Kan boekreacties niet ophalen (geen antwoordinhoud)."
+
+msgid "Failed to parse book comments response."
+msgstr "Kan antwoord van boekreacties niet verwerken."
+
+msgid "API returned an error for book comments."
+msgstr "API retourneerde een fout voor boekreacties."
+
+msgid "Request cancelled."
+msgstr "Verzoek geannuleerd."
+
+msgid "Profile"
+msgstr "Profiel"
+
+msgid "No description available"
+msgstr "Geen beschrijving beschikbaar"
+
+msgid "pages"
+msgstr "pagina's"
+
+msgid "Cover"
+msgstr "Omslag"
+
+msgid "Back"
+msgstr "Terug"
+
+msgid "More Similar Books"
+msgstr "Meer vergelijkbare boeken"
+
+msgid "Download"
+msgstr "Downloaden"
+
+msgid "Format"
+msgstr "Formaat"
+
+msgid "Download book"
+msgstr "Boek downloaden"
+
+msgid "Refresh"
+msgstr "Vernieuwen"
+
+msgid "Remove From Favorites"
+msgstr "Uit favorieten verwijderen"
+
+msgid "Add To Favorites"
+msgstr "Aan favorieten toevoegen"
+
+msgid "No Comments"
+msgstr "Geen reacties"
+
+msgid "Best match"
+msgstr "Beste overeenkomst"
+
+msgid "Recently added"
+msgstr "Recent toegevoegd"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Year"
+msgstr "Jaar"
+
+msgid "File size"
+msgstr "Bestandsgrootte"
+
+msgid "Default"
+msgstr "Standaard"
+
+#, lua-format
+msgid "%ds"
+msgstr "%ds"
+
+msgid "infinite"
+msgstr "oneindig"
+
+#, lua-format
+msgid "Block: %ds, Total: %s"
+msgstr "Blok: %ds, Totaal: %s"
+
+msgid "Operation failed, please retry."
+msgstr "Bewerking mislukt, probeer het opnieuw."
+
+msgid "Fetching domains..."
+msgstr "Domeinen ophalen..."
+
+msgid "Successfully set base URL to: "
+msgstr "Basis-URL succesvol ingesteld op:"
+
+msgid "Failed to find a working base URL."
+msgstr "Kan geen werkende basis-URL vinden."
+
+msgid "Queued"
+msgstr "In wachtrij"
+
+msgid "Selection copied to clipboard."
+msgstr "Selectie gekopieerd naar klembord."
+
+msgid "Checking"
+msgstr "Controleren"
+
+msgid "Invalid Base URL."
+msgstr "Ongeldige basis-URL."
+
+msgid "Failed"
+msgstr "Mislukt"
+
+msgid "Searching for working Z-library server..."
+msgstr "Zoeken naar werkende Z-library server..."
+
+msgid "Current Base URL:"
+msgstr "Huidige basis-URL:"
+
+msgid "Mirror site redirected to: "
+msgstr "Mirrorsite doorverwezen naar:"
+
+msgid "Auto-discover base URL"
+msgstr "Basis-URL automatisch ontdekken"
+
+msgid "Network unavailable."
+msgstr "Netwerk niet beschikbaar."
+
+msgid "Discovery is already running..."
+msgstr "Detectie loopt al..."
+
+msgid "Refresh Dynamic Domains"
+msgstr "Dynamische domeinen vernieuwen"
+
+msgid "This book's file type is unknown, so it cannot be downloaded."
+msgstr "Het formaat van dit boek is onbekend, dus het kan niet worden gedownload."
+
+msgid "Book identifiers missing. Cannot download."
+msgstr "Boek-ID's ontbreken. Downloaden niet mogelijk."
+
+#, lua-format
+msgid "Cannot create downloads directory: %s"
+msgstr "Kan downloadmap niet aanmaken: %s"
+
+#, lua-format
+msgid "Couldn't create the folder for \"%s\". The book is in the download folder."
+msgstr "Kan de map voor '%s' niet aanmaken. Het boek staat in de downloadmap."
+
+#, lua-format
+msgid "Moved to \"%s\"."
+msgstr "Verplaatst naar '%s'."
+
+#, lua-format
+msgid "Couldn't move the book into \"%s\". It's in the download folder."
+msgstr "Kan het boek niet naar '%s' verplaatsen. Het staat in de downloadmap."
+
+msgid "Could not open reader UI."
+msgstr "Kan de reader-interface niet openen."
+
+msgid "Download failed: Unknown error"
+msgstr "Download mislukt: Onbekende fout"
+
+msgid "Book download"
+msgstr "Boekdownload"
+
+msgid "Retrying download… (tap to cancel)"
+msgstr "Download opnieuw proberen… (tik om te annuleren)"
+
+msgid "Download cancelled."
+msgstr "Download geannuleerd."
+
+msgid "Untitled"
+msgstr "Zonder titel"
+
+msgid "Unknown Author"
+msgstr "Onbekende auteur"
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Update failed: Could not determine where to install the plugin."
+msgstr "Update mislukt: Kan de installatieplek van de plugin niet bepalen."
+
+msgid "Installing update..."
+msgstr "Update installeren..."
+
+msgid "Update installation failed."
+msgstr "Update-installatie mislukt."
+
+msgid "Update installed successfully. Please restart KOReader for changes to take effect."
+msgstr "Update succesvol geïnstalleerd. Herstart KOReader om de wijzigingen toe te passen."
+
+msgid "Update check failed: Could not determine plugin location."
+msgstr "Updatecontrole mislukt: Kan de locatie van de plugin niet bepalen."
+
+#, lua-format
+msgid "Unsupported plugin path for OTA update: %s. Only 'plugins/zlibrary.koplugin' is supported."
+msgstr "Niet-ondersteund plug-inpad voor OTA-update: %s. Alleen 'plugins/zlibrary.koplugin' wordt ondersteund."
+
+msgid "Checking for updates..."
+msgstr "Bezig met zoeken naar updates..."
+
+msgid "Failed to check for updates. Please check your internet connection."
+msgstr "Kan niet controleren op updates. Controleer je internetverbinding."
+
+msgid "Could not find update information (invalid data format)."
+msgstr "Kan geen update-informatie vinden (ongeldig gegevensformaat)."
+
+msgid "Could not find update version information."
+msgstr "Kan geen informatie over updateversie vinden."
+
+msgid "Could not understand the update version format."
+msgstr "Kan het updateversieformaat niet begrijpen."
+
+msgid "Could not find update files."
+msgstr "Kan updatebestanden niet vinden."
+
+msgid "Could not find a download link for the update."
+msgstr "Kan geen downloadlink voor de update vinden."
+
+#, lua-format
+msgid "You are already on the latest version (%s) or newer."
+msgstr "Je hebt al de nieuwste versie (%s) of een nieuwere."
+
+#, lua-format
+msgid "Could not determine your current version, but the latest is %s. If you recently updated, you might be up-to-date."
+msgstr "Kan je huidige versie niet bepalen, maar de nieuwste is %s. Als je onlangs hebt bijgewerkt, ben je mogelijk up-to-date."
+
+#, lua-format
+msgid "New version available: %s (you have %s). Download and install?"
+msgstr "Nieuwe versie beschikbaar: %s (je hebt %s). Downloaden en installeren?"
+
+msgid "an older version"
+msgstr "een oudere versie"
+
+msgid "Update available"
+msgstr "Update beschikbaar"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Downloading update..."
+msgstr "Update wordt gedownload..."
+
+msgid "Download failed. Please try again later."
+msgstr "Download mislukt. Probeer het later opnieuw."
+
+#, lua-format
+msgid "%s (tap to cancel)"
+msgstr "%s (tik om te annuleren)"
+
+msgid "Downloading… (tap to cancel)"
+msgstr "Bezig met downloaden… (tik om te annuleren)"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Select Z-library Download Directory"
+msgstr "Selecteer Z-library downloadmap"
+
+#, lua-format
+msgid "Download directory set to: %s"
+msgstr "Downloadmap ingesteld op: %s"
+
+msgid "No directory selected."
+msgstr "Geen map geselecteerd."
+
+#, lua-format
+msgid "%d items selected for %s."
+msgstr "%d items geselecteerd voor %s."
+
+#, lua-format
+msgid "Filter cleared for %s."
+msgstr "Filter gewist voor %s."
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Show all"
+msgstr "Alles tonen"
+
+msgid "Set"
+msgstr "Instellen"
+
+msgid "Setting saved successfully!"
+msgstr "Instelling succesvol opgeslagen!"
+
+msgid "Setting cleared."
+msgstr "Instelling gewist."
+
+msgid "Please enter a name."
+msgstr "Voer een naam in."
+
+msgid "A category with that name already exists."
+msgstr "Er bestaat al een categorie met die naam."
+
+msgid "That category no longer exists."
+msgstr "Die categorie bestaat niet meer."
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Rename"
+msgstr "Hernoemen"
+
+msgid "Rename sub-category"
+msgstr "Subcategorie hernoemen"
+
+msgid "Remove"
+msgstr "Verwijderen"
+
+#, lua-format
+msgid "Remove the sub-category \"%s\"? Books already filed there stay where they are."
+msgstr "De subcategorie '%s' verwijderen? Boeken die er al in staan, blijven staan."
+
+msgid "Add sub-category…"
+msgstr "Subcategorie toevoegen…"
+
+msgid "New sub-category"
+msgstr "Nieuwe subcategorie"
+
+msgid "Rename category…"
+msgstr "Categorie hernoemen…"
+
+msgid "Rename category"
+msgstr "Categorie hernoemen"
+
+msgid "Remove category"
+msgstr "Categorie verwijderen"
+
+#, lua-format
+msgid "Remove the category \"%s\" and its sub-categories? Books already filed there stay where they are."
+msgstr "De categorie '%s' en de bijbehorende subcategorieën verwijderen? Boeken die er al in staan, blijven staan."
+
+msgid "Add category…"
+msgstr "Categorie toevoegen…"
+
+msgid "New category"
+msgstr "Nieuwe categorie"
+
+msgid "Set languages"
+msgstr "Talen instellen"
+
+#, lua-format
+msgid "Language: %s"
+msgstr "Taal: %s"
+
+#, lua-format
+msgid "Languages (%d)"
+msgstr "Talen (%d)"
+
+msgid "Set formats"
+msgstr "Formaten instellen"
+
+#, lua-format
+msgid "Format: %s"
+msgstr "Formaat: %s"
+
+#, lua-format
+msgid "Formats (%d)"
+msgstr "Formaten (%d)"
+
+msgid "Search Z-library"
+msgstr "Zoek in Z-library"
+
+msgid "Please enter a search term."
+msgstr "Voer een zoekterm in."
+
+msgid "Sort by"
+msgstr "Sorteren op"
+
+msgid "Unknown Title"
+msgstr "Onbekende titel"
+
+msgid "Rating"
+msgstr "Beoordeling"
+
+msgid "Search Results"
+msgstr "Zoekresultaten"
+
+#, lua-format
+msgid "Remove \"%s\" from your downloaded books?"
+msgstr "\"%s\" verwijderen uit je gedownloade boeken?"
+
+msgid "Clear your stored username and password?"
+msgstr "Je opgeslagen gebruikersnaam en wachtwoord wissen?"
+
+msgid "Clear"
+msgstr "Wissen"
+
+#, lua-format
+msgid "Download \"%s\"?"
+msgstr "\"%s\" downloaden?"
+
+msgid "Please enter a category name."
+msgstr "Voer een categorienaam in."
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Category name"
+msgstr "Categorienaam"
+
+msgid "Sub-category (optional)"
+msgstr "Subcategorie (optioneel)"
+
+msgid "Sub-category name"
+msgstr "Subcategorienaam"
+
+msgid "Create"
+msgstr "Aanmaken"
+
+msgid "Keep in download folder"
+msgstr "In downloadmap houden"
+
+msgid "New category…"
+msgstr "Nieuwe categorie…"
+
+msgid "Move to"
+msgstr "Verplaatsen naar"
+
+#, lua-format
+msgid "\"%s\" downloaded."
+msgstr "\"%s\" gedownload."
+
+msgid "Download folder"
+msgstr "Downloadmap"
+
+msgid "Book downloaded successfully. Open it now?"
+msgstr "Boek succesvol gedownload. Nu openen?"
+
+msgid "Turn off Wi-Fi after closing this dialog"
+msgstr "Wi-Fi uitschakelen na sluiten van dit dialoog"
+
+#, lua-format
+msgid "Move to: %s"
+msgstr "Verplaatsen naar: %s"
+
+msgid "Open book"
+msgstr "Boek openen"
+
+#, lua-format
+msgid "No %s found, please try again. Sometimes this requires a couple of retries."
+msgstr "Geen %s gevonden, probeer het opnieuw. Soms zijn een paar pogingen nodig."
+
+msgid "Z-library Similar Books"
+msgstr "Z-library vergelijkbare boeken"
+
+msgid "Book Details"
+msgstr "Boekdetails"
+
+#, lua-format
+msgid "Retrying search for \"%s\"..."
+msgstr "Zoekopdracht opnieuw proberen voor \"%s\"..."
+
+msgid "Book search"
+msgstr "Boekzoekopdracht"
+
+msgid "Request timed out"
+msgstr "Time-out van verzoek"
+
+msgid "Network connection error"
+msgstr "Netwerkverbindingsfout"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a timeout%s. Would you like to retry?"
+msgstr "Kan \"%s\" niet voltooien vanwege een time-out%s. Wil je het opnieuw proberen?"
+
+#, lua-format
+msgid "Could not complete \"%s\" because the server address could not be found. Would you like to retry?"
+msgstr "Kan \"%s\" niet voltooien omdat het serveradres niet gevonden is. Wil je het opnieuw proberen?"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a network error. Would you like to retry?"
+msgstr "Kan \"%s\" niet voltooien vanwege een netwerkfout. Wil je het opnieuw proberen?"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a temporary issue. Would you like to retry?"
+msgstr "Kan \"%s\" niet voltooien vanwege een tijdelijk probleem. Wil je het opnieuw proberen?"
+
+msgid "Retry"
+msgstr "Opnieuw proberen"
+
+#, lua-format
+msgid "Block timeout: %s"
+msgstr "Blok-timeout: %s"
+
+#, lua-format
+msgid "Total timeout: %s"
+msgstr "Totale timeout: %s"
+
+#, lua-format
+msgid "Set %s block timeout (seconds)"
+msgstr "%s blok timeout instellen (seconden)"
+
+msgid "Please enter a valid number (minimum 1 second)"
+msgstr "Voer een geldig getal in (minimaal 1 seconde)"
+
+#, lua-format
+msgid "Set %s total timeout (seconds, -1 for infinite)"
+msgstr "%s totale timeout instellen (seconden, -1 voor oneindig)"
+
+msgid "Please enter a valid number (minimum 1 second or -1 for infinite)"
+msgstr "Voer een geldig getal in (minimaal 1 seconde of -1 voor oneindig)"
+
+msgid "Reset to defaults"
+msgstr "Standaardwaarden herstellen"
+
+#, lua-format
+msgid "Reset %s timeouts to default values?"
+msgstr "%s timeouts naar standaardwaarden herstellen?"
+
+msgid "Timeout settings reset to defaults"
+msgstr "Timeout-instellingen naar standaardwaarden hersteld"
+
+msgid "Reset"
+msgstr "Herstellen"
+
+#, lua-format
+msgid "%s Timeout Settings"
+msgstr "%s timeout-instellingen"
+
+msgid "Login timeouts"
+msgstr "Inlog timeouts"
+
+msgid "Search timeouts"
+msgstr "Zoek timeouts"
+
+msgid "Book details timeouts"
+msgstr "Boekdetails timeouts"
+
+msgid "Recommended books timeouts"
+msgstr "Aanbevolen boeken timeouts"
+
+msgid "Popular books timeouts"
+msgstr "Populaire boeken timeouts"
+
+msgid "Popular books"
+msgstr "Populaire boeken"
+
+msgid "Download timeouts"
+msgstr "Download timeouts"
+
+msgid "Cover download timeouts"
+msgstr "Omslag download timeouts"
+
+msgid "Cover download"
+msgstr "Omslagdownload"
+
+msgid "Reset all timeouts to defaults"
+msgstr "Alle timeouts naar standaardwaarden herstellen"
+
+msgid "Reset all timeout settings to default values?"
+msgstr "Alle timeout-instellingen naar standaardwaarden herstellen?"
+
+msgid "All timeout settings reset to defaults"
+msgstr "Alle timeout-instellingen naar standaardwaarden hersteld"
+
+msgid "Reset All"
+msgstr "Alles herstellen"
+
+msgid "Timeout Settings"
+msgstr "Timeout-instellingen"
+
+msgid "Email Address"
+msgstr "E-mailadres"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Enter password"
+msgstr "Voer wachtwoord in"
+
+msgid "Set and verify"
+msgstr "Instellen en verifiëren"
+
+msgid "Please fill in all fields"
+msgstr "Vul alle velden in"
+
+#~ msgid "Verify credentials"
+#~ msgstr "Inloggegevens verifiëren"
+
+#~ msgid "Developer options"
+#~ msgstr "Ontwikkelaarsopties"
+
+#~ msgid "Feature not implemented"
+#~ msgstr "Functie niet geïmplementeerd"
+
+#~ msgid "Download this book?"
+#~ msgstr "Dit boek downloaden?"
+
+#, lua-format
+#~ msgid "\"%s\" downloaded successfully. Open it now?"
+#~ msgstr "\"%s\" is succesvol gedownload. Nu openen?"
+
+#, lua-format
+#~ msgid "Block timeout: %s seconds"
+#~ msgstr "Blok timeout: %s seconden"
+
+#~ msgid "seconds"
+#~ msgstr "seconden"
+
+#, lua-format
+#~ msgid "%s failed due to a timeout%s. Would you like to retry?"
+#~ msgstr "%s is mislukt vanwege een timeout%s. Wilt u het opnieuw proberen?"
+
+#, lua-format
+#~ msgid "%s failed because the server address could not be found. Would you like to retry?"
+#~ msgstr "%s is mislukt omdat het serveradres niet gevonden kon worden. Wilt u het opnieuw proberen?"
+
+#, lua-format
+#~ msgid "%s failed due to a network error. Would you like to retry?"
+#~ msgstr "%s is mislukt vanwege een netwerkfout. Wilt u het opnieuw proberen?"
+
+#, lua-format
+#~ msgid "%s failed due to a temporary issue. Would you like to retry?"
+#~ msgstr "%s is mislukt vanwege een tijdelijk probleem. Wilt u het opnieuw proberen?"
+
+#~ msgid "Login"
+#~ msgstr "Inloggen"
+
+#~ msgid "Retrying search for \""
+#~ msgstr "Zoekopdracht opnieuw proberen voor \""
+
+#~ msgid "Searching for \""
+#~ msgstr "Zoeken naar \""
+
+#~ msgid "No results found for \""
+#~ msgstr "Geen resultaten gevonden voor \""
+
+#~ msgid "Downloading…"
+#~ msgstr "Bezig met downloaden…"
+
+#~ msgid "Description"
+#~ msgstr "Beschrijving"
+
+#~ msgid "Full Title"
+#~ msgstr "Volledige titel"
+
+#~ msgid "Language"
+#~ msgstr "Taal"
+
+#, lua-format
+#~ msgid "Format: %s (tap to download)"
+#~ msgstr "Formaat: %s (tik om te downloaden)"
+
+#, lua-format
+#~ msgid "Format: %s (Download not available)"
+#~ msgstr "Formaat: %s (Download niet beschikbaar)"
+
+#~ msgid "Download Book (Unknown Format)"
+#~ msgstr "Boek downloaden (onbekend formaat)"
+
+#~ msgid "Size"
+#~ msgstr "Grootte"
+
+#~ msgid "Pages"
+#~ msgstr "Pagina's"
+
+#~ msgid "Publisher"
+#~ msgstr "Uitgever"
+
+#~ msgid "Series"
+#~ msgstr "Serie"
+
+#~ msgid "Set email"
+#~ msgstr "E-mailadres instellen"
+
+#~ msgid "Set password"
+#~ msgstr "Wachtwoord instellen"
+
+#~ msgid "Z-library Recommended Books"
+#~ msgstr "Aanbevolen boeken van Z-library"
+
+#~ msgid "Z-library Most Popular Books"
+#~ msgstr "Meest populaire boeken van Z-library"
+
+#~ msgid "Fetch most recommended book from Z-library?"
+#~ msgstr "Meest aanbevolen boek ophalen van Z-library?"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Fetch most popular books from Z-library?"
+#~ msgstr "Meest populaire boeken ophalen van Z-library?"
+
+#~ msgid "Network not available. Please connect and try again."
+#~ msgstr "Netwerk niet beschikbaar. Verbind en probeer opnieuw."
+
+#~ msgid "Successfully found and set base URL to: "
+#~ msgstr "Basis-URL succesvol gevonden en ingesteld op: "
+
+#~ msgid "Error during auto-discovery: "
+#~ msgstr "Fout tijdens automatische ontdekking: "
+
+#~ msgid "Could not find a working Z-library server. Please check your internet connection or set the base URL manually."
+#~ msgstr "Kan geen werkende Z-library server vinden. Controleer uw internetverbinding of stel de basis-URL handmatig in."
+
+#~ msgid "No internet connection detected."
+#~ msgstr "Geen internetverbinding gedetecteerd."
+
+#~ msgid "No internet connection detected. Please connect to the internet and try again."
+#~ msgstr "Geen internetverbinding gedetecteerd. Maak verbinding met internet en probeer opnieuw."
+
+#~ msgid "No download link available for this book."
+#~ msgstr "Geen downloadlink beschikbaar voor dit boek."
+
+#~ msgid "No recommended books found, please try again. Sometimes this requires a couple of retries."
+#~ msgstr "Geen aanbevolen boeken gevonden, probeer het opnieuw. Soms zijn meerdere pogingen nodig."
+
+#~ msgid "No most popular books found. The list was empty, please try again."
+#~ msgstr "Geen meest populaire boeken gevonden. De lijst was leeg, probeer het opnieuw."
+
+#~ msgid "Search failed"
+#~ msgstr "Zoekopdracht mislukt"
+
+#~ msgid "Search failed due to a temporary issue (HTTP 400). Would you like to retry?"
+#~ msgstr "Zoekopdracht mislukt vanwege een tijdelijk probleem (HTTP 400). Opnieuw proberen?"
+
+#~ msgid "Z-library most popular"
+#~ msgstr "Z-library meest populair"
+
+#~ msgid "Z-library recommended"
+#~ msgstr "Z-library aanbevolen"
+
+#~ msgid "Failed to retrieve user session after login."
+#~ msgstr "Kan gebruikerssessie niet ophalen na inloggen."
+
+#~ msgid "Full Author"
+#~ msgstr "Volledige auteur"
+
+#~ msgid "Description (tap to view)"
+#~ msgstr "Beschrijving (tik om te bekijken)"
+
+#~ msgid "Set username"
+#~ msgstr "Gebruikersnaam instellen"
+
+#~ msgid "Downloading..."
+#~ msgstr "Bezig met downloaden..."

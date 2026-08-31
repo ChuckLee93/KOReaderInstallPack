@@ -1,0 +1,9 @@
+1、安装：
+
+把Coversetter文件夹放入Kindle根目录→extensions
+不希望现有封面，可以自己制作同尺寸封面，重命名后替换文件即可。
+
+2、部署：
+
+在Cover Setter 里点击“Set KUAL cover”和“Set KOL cover”
+

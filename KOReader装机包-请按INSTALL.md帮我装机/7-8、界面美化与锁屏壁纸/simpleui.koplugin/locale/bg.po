@@ -1,0 +1,4863 @@
+# Simple UI — KOReader plugin
+# Bulgarian translation
+# d0nizam 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: simpleui\n"
+"POT-Creation-Date: 2026-08-22 02:49\n"
+"PO-Revision-Date: 2026-06-25 00:17+0300\n"
+"Last-Translator: d0nizam\n"
+"Language-Team: Bulgarian\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
+
+#: modules/module_reading_goals.lua:853
+msgid "  Set Goal  (%d hr/month)"
+msgstr "  Задаване на цел  (%d ч./месец)"
+
+#: modules/module_reading_goals.lua:873
+msgid "  Set Goal  (%d min/day)"
+msgstr "  Задаване на цел  (%d мин./ден)"
+
+#: modules/module_reading_goals.lua:833
+msgid "  Set Goal  (%s)"
+msgstr "  Задаване на цел  (%s)"
+
+#: modules/module_reading_goals.lua:852 modules/module_reading_goals.lua:872
+msgid "  Set Goal  (disabled)"
+msgstr "  Задаване на цел  (изключена)"
+
+#: modules/module_coverdeck.lua:87
+msgid " et al."
+msgstr " и др."
+
+#: engines/sui_book_grid.lua:480 features/library/sui_foldercovers.lua:1222
+msgid " p."
+msgstr " стр."
+
+#: modules/module_feat_coll.lua:171 modules/module_tbr.lua:309
+msgid "% Read (ascending)"
+msgstr "% прочетено (възходящо)"
+
+#: modules/module_feat_coll.lua:172 modules/module_tbr.lua:310
+msgid "% Read (descending)"
+msgstr "% прочетено (низходящо)"
+
+#: modules/module_heatmap.lua:209
+msgid "%1 weeks"
+msgstr "%1 седм."
+
+#: engines/sui_book_grid.lua:1802 engines/sui_book_grid.lua:1807
+msgid "%1 × %2"
+msgstr "%1 × %2"
+
+#: modules/module_reading_goals.lua:952
+msgid "%d hr/month"
+msgstr "%d ч./месец"
+
+#: modules/module_reading_goals.lua:967
+msgid "%d min/day"
+msgstr "%d мин./ден"
+
+#: engines/sui_book_grid.lua:865
+msgid "%d%%"
+msgstr "%d%%"
+
+#: modules/module_coverdeck.lua:1015 modules/module_new_books.lua:138
+#: modules/module_currently.lua:729 modules/module_currently.lua:738
+#: engines/sui_book_grid.lua:924 engines/sui_book_grid.lua:935
+msgid "%d%% Read"
+msgstr "%d%% прочетено"
+
+#: screens/sui_stats_windows.lua:3445
+msgid "%d/%d days · %d/%d min to next freeze"
+msgstr "%d/%d дни · %d/%d мин до следващото замразяване"
+
+#: modules/module_currently.lua:832
+msgid "%s left"
+msgstr "остават %s"
+
+#: modules/module_reading_goals.lua:488 modules/module_reading_goals.lua:508
+#: modules/module_coverdeck.lua:1020 modules/module_currently.lua:772
+#: modules/module_currently.lua:773 modules/module_currently.lua:830
+#: modules/module_currently.lua:841
+msgid "%s read"
+msgstr "%s прочетено"
+
+#: modules/module_coverdeck.lua:1026 modules/module_currently.lua:795
+#: modules/module_currently.lua:799
+msgid "%s remaining"
+msgstr "остават %s"
+
+#: modules/module_reading_stats.lua:387 modules/module_quick_actions.lua:599
+msgid "(%d/%d — at limit)"
+msgstr "(%d/%d — на лимита)"
+
+#: modules/module_feat_coll.lua:95
+msgid "(collection not found)"
+msgstr "(колекцията не е намерена)"
+
+#: modules/module_collections.lua:1374
+msgid "4-Cover Grid"
+msgstr "Решетка от 4 корици"
+
+#: screens/sui_menu.lua:2876
+msgid "4-Cover Grid (Mosaic View Only)"
+msgstr "Мрежа от 4 корици (само мозаечен изглед)"
+
+#: screens/sui_stats_windows.lua:3120
+msgid "A freeze can only bridge a single missed day right after an active one — yesterday doesn't qualify."
+msgstr "Замразяването може да преодолее само един пропуснат ден непосредствено след активен — вчерашният ден не отговаря на условията."
+
+#: features/sui_presets.lua:878 features/sui_presets.lua:964
+#: screens/sui_menu.lua:4064 screens/sui_menu.lua:4149
+msgid "A preset named \"%s\" already exists."
+msgstr "Вече съществува настройка с име „%s\"."
+
+#: features/sui_presets.lua:819 screens/sui_menu.lua:4010
+msgid ""
+"A preset named \"%s\" already exists.\n"
+"Overwrite it?"
+msgstr ""
+"Вече съществува настройка с име „%s\".\n"
+"Презаписване?"
+
+#: screens/sui_menu.lua:1063 screens/sui_menu.lua:1343
+msgid ""
+"A restart is required to apply the new bar size across all layouts.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"За прилагане на новия размер на лентата е необходим рестарт.\n"
+"\n"
+"Рестарт сега?"
+
+#: screens/sui_menu.lua:4332
+msgid ""
+"A restart is required to apply the new text size everywhere.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"За прилагане на новия размер на текста навсякъде е необходим рестарт.\n"
+"\n"
+"Рестарт сега?"
+
+#: screens/sui_stats_windows.lua:2710
+msgid "ALL TIME"
+msgstr "ЗА ВСИЧКО ВРЕМЕ"
+
+#: screens/sui_menu.lua:4607 screens/sui_settings_window.lua:324
+#: screens/sui_settings_window.lua:1025
+msgid "About"
+msgstr "Относно"
+
+#: features/sui_style.lua:2099
+msgid "Accent / Active Color"
+msgstr "Акцент / Активен цвят"
+
+#: features/sui_quickactions.lua:2356 features/sui_quickactions.lua:2402
+msgid "Action"
+msgstr "Действие"
+
+#: modules/module_action_list.lua:333
+msgid "Action List"
+msgstr "Списък с действия"
+
+#: features/sui_quickactions.lua:2606
+msgid "Action Type"
+msgstr "Тип действие"
+
+#: features/sui_quickactions.lua:1091
+msgid "Action error: %s"
+msgstr "Грешка в действието: %s"
+
+#: features/sui_quickactions.lua:2378
+msgid "Action name…"
+msgstr "Име на действието…"
+
+#: features/sui_quickactions.lua:1084
+msgid "Action not available: %s"
+msgstr "Действието не е налично: %s"
+
+#: screens/sui_quicksettings_bar.lua:1234
+#: screens/sui_quicksettings_bar.lua:1261
+msgid "Add Action"
+msgstr "Добавяне на действие"
+
+#: screens/sui_menu.lua:1605 screens/sui_menu.lua:1643
+msgid "Add Button"
+msgstr "Добавяне на бутон"
+
+#: modules/module_action_list.lua:518 modules/module_action_list.lua:554
+#: modules/module_reading_stats.lua:756 modules/module_reading_stats.lua:788
+#: modules/module_reading_goals.lua:898 modules/module_reading_goals.lua:927
+#: modules/module_coverdeck.lua:1439 modules/module_coverdeck.lua:1459
+#: modules/module_coverdeck.lua:1574 modules/module_coverdeck.lua:1591
+#: modules/module_currently.lua:1561 modules/module_currently.lua:1608
+#: modules/module_quick_actions.lua:547 modules/module_quick_actions.lua:583
+#: engines/sui_screen_engine.lua:2175 engines/sui_window.lua:848
+#: screens/sui_menu.lua:988 screens/sui_menu.lua:1025 screens/sui_menu.lua:1214
+#: screens/sui_menu.lua:1260 screens/sui_menu.lua:2042
+#: screens/sui_menu.lua:2078 screens/sui_quicksettings_bar.lua:1048
+#: screens/sui_settings_window.lua:1033
+msgid "Add Item"
+msgstr "Добавяне на елемент"
+
+#: screens/sui_settings_window.lua:1030 screens/sui_settings_window.lua:1170
+msgid "Add Module"
+msgstr "Добавяне на модул"
+
+#: screens/sui_settings_window.lua:1136
+msgid "Add Page"
+msgstr "Добавяне на страница"
+
+#: modules/module_action_list.lua:429 modules/module_quick_actions.lua:452
+#: screens/sui_menu.lua:1962 screens/sui_quicksettings_bar.lua:1107
+msgid "Add at least 2 actions to arrange."
+msgstr "Добавете поне 2 действия за подреждане."
+
+#: modules/module_feat_coll.lua:220 modules/module_tbr.lua:366
+msgid "Add at least 2 books to arrange."
+msgstr "Добавете поне 2 книги за подреждане."
+
+#: modules/module_reading_stats.lua:705
+msgid "Add at least 2 stats to arrange."
+msgstr "Добавете поне 2 статистики за подреждане."
+
+#: modules/module_tbr.lua:592
+msgid "Add to To Be Read"
+msgstr "Добавяне към „За четене“"
+
+#: engines/sui_window.lua:2301
+msgid "Advanced"
+msgstr "Разширени"
+
+#: engines/sui_window.lua:2210
+msgid "Advanced option"
+msgstr "Разширена опция"
+
+#: modules/module_quote.lua:1559 modules/module_action_list.lua:597
+#: modules/module_reading_stats.lua:861 modules/module_clock.lua:1029
+#: modules/module_quick_actions.lua:759
+msgid "Alignment"
+msgstr "Подравняване"
+
+#: engines/sui_window.lua:3394 screens/sui_settings_window.lua:808
+msgid "All items have already been added."
+msgstr "Всички елементи вече са добавени."
+
+#: screens/sui_settings_window.lua:786
+msgid "All modules have already been added."
+msgstr "Всички модули вече са добавени."
+
+#: features/sui_quickactions.lua:3407
+msgid "All recent books are finished."
+msgstr "Всички скорошни книги са завършени."
+
+#: modules/module_reading_stats.lua:120
+msgid "All time — Books"
+msgstr "Общо — Книги"
+
+#: modules/module_reading_stats.lua:119
+msgid "All time — Time"
+msgstr "Общо — Време"
+
+#: screens/sui_menu.lua:2553
+msgid "Always"
+msgstr "Винаги"
+
+#: modules/module_clock.lua:1001 modules/module_clock.lua:1020
+msgid "Analogue"
+msgstr "Аналогов"
+
+#: modules/module_reading_goals.lua:820 modules/module_reading_goals.lua:886
+#: modules/module_reading_goals.lua:923 modules/module_reading_goals.lua:940
+msgid "Annual Goal"
+msgstr "Годишна цел"
+
+#: modules/module_reading_goals.lua:396
+msgid "Annual Reading Goal"
+msgstr "Годишна цел за четене"
+
+#: modules/module_heatmap.lua:338 modules/module_reading_goals.lua:1035
+#: modules/module_currently.lua:1839 modules/module_quick_actions.lua:685
+#: engines/sui_book_grid.lua:1867 screens/sui_menu.lua:1821
+#: screens/sui_menu.lua:1824
+msgid "Appearance"
+msgstr "Външен вид"
+
+#: modules/module_clock.lua:1075 modules/module_clock.lua:1101
+#: features/sui_style.lua:2123 infra/sui_config.lua:885
+#: infra/sui_config.lua:919 infra/sui_config.lua:1034 screens/sui_menu.lua:1050
+#: screens/sui_menu.lua:1330 screens/sui_menu.lua:2394
+#: screens/sui_menu.lua:2466 screens/sui_menu.lua:2503
+#: screens/sui_menu.lua:2924 screens/sui_menu.lua:3285
+#: screens/sui_menu.lua:4326
+msgid "Apply"
+msgstr "Прилагане"
+
+#: features/sui_style.lua:2173
+msgid "Apply Palette…"
+msgstr "Прилагане на палитра…"
+
+#: engines/sui_heatmap_widgets.lua:88
+msgid "Apr"
+msgstr "апр"
+
+#: modules/module_clock.lua:61 screens/sui_stats_windows.lua:2835
+msgid "April"
+msgstr "Април"
+
+#: modules/module_feat_coll.lua:206 modules/module_feat_coll.lua:281
+#: modules/module_feat_coll.lua:300 modules/module_tbr.lua:354
+#: modules/module_tbr.lua:427 modules/module_tbr.lua:450
+msgid "Arrange"
+msgstr "Подреждане"
+
+#: modules/module_action_list.lua:449 modules/module_quick_actions.lua:470
+#: screens/sui_menu.lua:1966
+msgid "Arrange %s"
+msgstr "Подреждане на %s"
+
+#: screens/sui_menu.lua:1561 screens/sui_menu.lua:1568
+#: screens/sui_menu.lua:1745 screens/sui_menu.lua:1760
+msgid "Arrange Buttons"
+msgstr "Подреждане на бутоните"
+
+#: modules/module_feat_coll.lua:214 modules/module_feat_coll.lua:249
+msgid "Arrange Collection"
+msgstr "Подреждане на колекция"
+
+#: modules/module_action_list.lua:420 modules/module_coverdeck.lua:1514
+#: modules/module_coverdeck.lua:1520 modules/module_currently.lua:1434
+#: modules/module_currently.lua:1477 modules/module_quick_actions.lua:443
+#: engines/sui_screen_engine.lua:2174 screens/sui_menu.lua:700
+#: screens/sui_menu.lua:771 screens/sui_menu.lua:778 screens/sui_menu.lua:1956
+#: screens/sui_topbar.lua:514 screens/sui_bottombar.lua:889
+#: screens/sui_quicksettings_bar.lua:1047
+#: screens/sui_quicksettings_bar.lua:1098 screens/sui_settings_window.lua:43
+#: screens/sui_settings_window.lua:1054
+msgid "Arrange Items"
+msgstr "Подреждане на елементите"
+
+#: screens/sui_quicksettings_bar.lua:1123
+msgid "Arrange Quick Settings"
+msgstr "Подреждане на бързите настройки"
+
+#: modules/module_reading_stats.lua:716
+msgid "Arrange Reading Stats"
+msgstr "Подреждане на статистиките за четене"
+
+#: modules/module_coverdeck.lua:1535
+msgid "Arrange Statistics"
+msgstr "Подреждане на статистиките"
+
+#: screens/sui_menu.lua:307 screens/sui_menu.lua:325
+msgid "Arrange Tabs"
+msgstr "Подреждане на разделите"
+
+#: modules/module_tbr.lua:359 modules/module_tbr.lua:397
+msgid "Arrange To Be Read List"
+msgstr "Подреждане на списъка „За четене“"
+
+#: features/sui_presets.lua:137
+msgid "At a Glance"
+msgstr "На един поглед"
+
+#: engines/sui_heatmap_widgets.lua:89
+msgid "Aug"
+msgstr "авг"
+
+#: modules/module_clock.lua:62 screens/sui_stats_windows.lua:2836
+msgid "August"
+msgstr "Август"
+
+#: modules/module_coverdeck.lua:187 modules/module_currently.lua:281
+msgid "Author"
+msgstr "Автор"
+
+#: modules/module_library.lua:213 modules/module_feat_coll.lua:170
+#: modules/module_tbr.lua:308
+msgid "Author (A–Z)"
+msgstr "Автор (А-Я)"
+
+#: screens/sui_menu.lua:4414
+msgid "Author: %s"
+msgstr "Автор: %s"
+
+#: features/sui_quickactions.lua:879 infra/sui_config.lua:132
+#: features/library/sui_library_browse.lua:58
+msgid "Authors"
+msgstr "Автори"
+
+#: modules/module_collections.lua:1383 screens/sui_menu.lua:2887
+msgid "Auto (Single ↔ 4-Cover Grid)"
+msgstr "Автоматично (Единична ↔ Мрежа от 4)"
+
+#: modules/module_collections.lua:348 features/library/sui_group_actions.lua:52
+msgid "Auto (first book)"
+msgstr "Автоматично (първа книга)"
+
+#: screens/sui_menu.lua:2351
+msgid "Auto-rotate"
+msgstr "Автоматично завъртане"
+
+#: screens/sui_menu.lua:4419
+msgid "Automatic Update Check"
+msgstr "Автоматична проверка за актуализации"
+
+#: screens/sui_stats_windows.lua:1214 screens/sui_stats_windows.lua:2419
+#: screens/sui_stats_windows.lua:3908
+msgid "Average per day"
+msgstr "Средно на ден"
+
+#: screens/sui_stats_windows.lua:1216 screens/sui_stats_windows.lua:3910
+msgid "Average per page"
+msgstr "Средно на страница"
+
+#: screens/sui_titlebar.lua:103 screens/sui_titlebar.lua:109
+msgid "Back"
+msgstr "Назад"
+
+#: features/sui_style.lua:100
+msgid "Back Button"
+msgstr "Бутон Назад"
+
+#: modules/module_collections.lua:1405 engines/sui_book_grid.lua:2036
+#: screens/sui_menu.lua:3189 screens/sui_menu.lua:3198
+#: screens/sui_menu.lua:3204
+msgid "Badge"
+msgstr "Значка"
+
+#: modules/module_collections.lua:1449 modules/module_collections.lua:1452
+#: engines/sui_book_grid.lua:1969 engines/sui_book_grid.lua:1971
+#: screens/sui_menu.lua:2917
+msgid "Badge Size"
+msgstr "Размер на значката"
+
+#: screens/sui_menu.lua:2905
+msgid "Badges"
+msgstr "Значки"
+
+#: screens/sui_menu.lua:3122 screens/sui_menu.lua:3131
+#: screens/sui_menu.lua:3137 features/library/sui_foldercovers.lua:309
+msgid "Banner"
+msgstr "Банер"
+
+#: engines/sui_book_grid.lua:1918
+msgid "Bar"
+msgstr "Лента"
+
+#: engines/sui_book_grid.lua:1920
+msgid "Bar + Text"
+msgstr "Лента + текст"
+
+#: screens/sui_menu.lua:566 screens/sui_menu.lua:1316
+msgid "Bar Size"
+msgstr "Размер на лентата"
+
+#: screens/sui_menu.lua:1274
+msgid "Bar Style"
+msgstr "Стил на лентата"
+
+#: modules/module_quick_actions.lua:711 screens/sui_menu.lua:1301
+#: screens/sui_quicksettings_bar.lua:1338
+msgid "Bare"
+msgstr "Без рамка"
+
+#: screens/sui_menu.lua:4569 screens/sui_settings_window.lua:289
+#: screens/sui_settings_window.lua:1022
+msgid "Bars"
+msgstr "Ленти"
+
+#: infra/sui_config.lua:170
+msgid "Battery"
+msgstr "Батерия"
+
+#: modules/module_clock.lua:1086 modules/module_clock.lua:1094
+msgid "Battery Spacing"
+msgstr "Отстояние на батерията"
+
+#: screens/sui_menu.lua:2752 screens/sui_settings_window.lua:373
+#: screens/sui_settings_window.lua:1035
+msgid "Behaviour"
+msgstr "Поведение"
+
+#: screens/sui_stats_windows.lua:2189 screens/sui_stats_windows.lua:2209
+msgid "Best streak"
+msgstr "Най-добра серия"
+
+#: screens/sui_menu.lua:2592
+msgid "Book Cover Transition"
+msgstr "Преход на корицата на книгата"
+
+#: features/sui_quickactions.lua:2127
+msgid "Book Info"
+msgstr "Информация за книгата"
+
+#: infra/sui_config.lua:1104
+msgid "Book Menu"
+msgstr "Меню на книгата"
+
+#: screens/sui_stats_windows.lua:3961
+msgid "Book Statistics"
+msgstr "Статистика за книгата"
+
+#: main.lua:1139
+msgid "Book statistics"
+msgstr "Статистика за книгата"
+
+#: screens/sui_settings_window.lua:297
+msgid "Book-browser settings"
+msgstr "Настройки на браузъра за книги"
+
+#: features/sui_quickactions.lua:453
+msgid "Bookmark browser"
+msgstr "Браузър на отметките"
+
+#: features/sui_quickactions.lua:387
+msgid "Bookmark browser not available."
+msgstr "Браузърът на отметки не е наличен."
+
+#: features/sui_quickactions.lua:776 infra/sui_config.lua:125
+msgid "Bookmarks"
+msgstr "Отметки"
+
+#: modules/module_library.lua:293 modules/module_feat_coll.lua:257
+msgid "Books"
+msgstr "Книги"
+
+#: modules/module_reading_goals.lua:397
+msgid "Books to read in %s:"
+msgstr "Книги за четене през %s:"
+
+#: modules/module_collections.lua:1426 screens/sui_menu.lua:2940
+#: screens/sui_menu.lua:2947 screens/sui_menu.lua:2962
+#: screens/sui_menu.lua:3353 screens/sui_menu.lua:3372
+msgid "Bottom"
+msgstr "Долу"
+
+#: screens/sui_menu.lua:1376 screens/sui_menu.lua:1377
+msgid "Bottom Margin"
+msgstr "Долно поле"
+
+#: screens/sui_menu.lua:2593
+msgid "Briefly show the book cover full-screen when opening or closing a book, masking the page-layout flash. Normally requires the book to already be indexed by the cover browser (its cover must have been seen at least once in a grid/list view) — see \"High-Quality Cover\" below to also cover un-indexed books."
+msgstr "Кратко показва корицата на книгата на цял екран при отваряне или затваряне на книга, прикривайки проблясъка от оформлението на страницата. Обикновено изисква книгата вече да е индексирана от браузъра за корици (корицата ѝ трябва да е била видяна поне веднъж в изглед на решетка/списък) — вижте „Висококачествена корица“ по-долу, за да обхванете и неиндексирани книги."
+
+#: features/sui_quickactions.lua:817 infra/sui_config.lua:127
+#: infra/sui_config.lua:169
+msgid "Brightness"
+msgstr "Яркост"
+
+#: screens/sui_titlebar.lua:105
+msgid "Browse"
+msgstr "Преглед"
+
+#: features/sui_style.lua:115
+msgid "Browse Button (author)"
+msgstr "Бутон Преглед (автор)"
+
+#: features/sui_style.lua:109
+msgid "Browse Button (default)"
+msgstr "Бутон Преглед (по подразбиране)"
+
+#: features/sui_style.lua:121
+msgid "Browse Button (series)"
+msgstr "Бутон Преглед (поредица)"
+
+#: features/sui_style.lua:127
+msgid "Browse Button (tags)"
+msgstr "Бутон Преглед (тагове)"
+
+#: features/sui_style.lua:1383
+msgid "Browse Icons"
+msgstr "Преглед на икони"
+
+#: features/library/sui_library_browse.lua:416
+msgid "Browse by"
+msgstr "Преглед по"
+
+#: features/sui_quickactions.lua:886 features/sui_quickactions.lua:904
+#: features/sui_quickactions.lua:922
+msgid "Browse by Authors/Series/Tags not available."
+msgstr "Прегледът по Автори/Поредици/Тагове не е наличен."
+
+#: screens/sui_titlebar.lua:1000
+msgid "Browse library"
+msgstr "Преглед на библиотеката"
+
+#: modules/module_quick_actions.lua:723 screens/sui_quicksettings_bar.lua:1351
+msgid "Button Background"
+msgstr "Фон на бутона"
+
+#: screens/sui_menu.lua:1832
+msgid "Button Size"
+msgstr "Размер на бутоните"
+
+#: modules/module_quick_actions.lua:688 screens/sui_quicksettings_bar.lua:1315
+msgid "Button Type"
+msgstr "Тип бутон"
+
+#: screens/sui_titlebar.lua:1004
+msgid "By author"
+msgstr "По автор"
+
+#: screens/sui_menu.lua:2632
+msgid "By default the cover is stretched to fill the whole screen, which can distort it if its proportions don't match your screen's. When on, the cover keeps its original proportions instead, centered over a black background."
+msgstr "По подразбиране корицата се разтяга, за да запълни целия екран, което може да я изкриви, ако пропорциите ѝ не съвпадат с тези на екрана. Когато е включено, корицата запазва оригиналните си пропорции и се центрира върху черен фон."
+
+#: screens/sui_titlebar.lua:1005
+msgid "By series"
+msgstr "По поредица"
+
+#: screens/sui_titlebar.lua:1006
+msgid "By tags"
+msgstr "По тагове"
+
+#: screens/sui_heatmap_popup.lua:140 screens/sui_stats_windows.lua:3141
+msgid "CALENDAR"
+msgstr "КАЛЕНДАР"
+
+#: modules/module_heatmap.lua:328
+msgid "Calendar"
+msgstr "Календар"
+
+#: modules/module_quote.lua:1305 modules/module_collections.lua:374
+#: modules/module_reading_goals.lua:383 modules/module_clock.lua:1076
+#: modules/module_clock.lua:1102 features/sui_quickactions.lua:478
+#: features/sui_quickactions.lua:1521 features/sui_quickactions.lua:1867
+#: features/sui_quickactions.lua:1991 features/sui_quickactions.lua:2013
+#: features/sui_quickactions.lua:2107 features/sui_quickactions.lua:2393
+#: features/sui_quickactions.lua:2464 features/sui_quickactions.lua:2490
+#: features/sui_quickactions.lua:2515 features/sui_quickactions.lua:2593
+#: features/sui_quickactions.lua:2617 features/sui_quickactions.lua:2941
+#: features/sui_quickactions.lua:3345 features/sui_style.lua:1401
+#: features/sui_style.lua:2119 features/sui_presets.lua:782
+#: features/sui_presets.lua:821 features/sui_presets.lua:851
+#: features/sui_presets.lua:868 features/sui_presets.lua:896
+#: features/sui_presets.lua:936 features/sui_presets.lua:954
+#: features/sui_presets.lua:983 infra/sui_config.lua:886
+#: infra/sui_config.lua:920 infra/sui_config.lua:1035 infra/sui_updater.lua:510
+#: infra/sui_updater.lua:527 screens/sui_titlebar.lua:1007
+#: screens/sui_menu.lua:656 screens/sui_menu.lua:921 screens/sui_menu.lua:1051
+#: screens/sui_menu.lua:1331 screens/sui_menu.lua:2395
+#: screens/sui_menu.lua:2467 screens/sui_menu.lua:2504
+#: screens/sui_menu.lua:2925 screens/sui_menu.lua:3286
+#: screens/sui_menu.lua:3978 screens/sui_menu.lua:4012
+#: screens/sui_menu.lua:4041 screens/sui_menu.lua:4058
+#: screens/sui_menu.lua:4084 screens/sui_menu.lua:4125
+#: screens/sui_menu.lua:4143 screens/sui_menu.lua:4170
+#: screens/sui_menu.lua:4327 screens/sui_menu.lua:4454
+#: screens/sui_stats_windows.lua:649 screens/sui_stats_windows.lua:775
+#: screens/sui_settings_window.lua:442 screens/sui_settings_window.lua:1113
+#: features/library/sui_library_browse.lua:826
+#: features/library/sui_series_grouping.lua:377
+#: features/library/sui_group_actions.lua:75
+#: features/library/sui_group_actions.lua:109
+msgid "Cancel"
+msgstr "Отказ"
+
+#: modules/module_reading_stats.lua:819
+msgid "Cards"
+msgstr "Карти"
+
+#: modules/module_reading_stats.lua:829
+msgid "Cards - Transparent"
+msgstr "Карти — Прозрачни"
+
+#: modules/module_quote.lua:128 modules/module_quote.lua:1569
+#: modules/module_action_list.lua:75 modules/module_action_list.lua:607
+#: modules/module_reading_stats.lua:95 modules/module_reading_stats.lua:875
+#: modules/module_clock.lua:146 modules/module_clock.lua:1041
+#: screens/sui_menu.lua:716 screens/sui_menu.lua:951 screens/sui_menu.lua:3352
+#: screens/sui_menu.lua:3365
+msgid "Center"
+msgstr "Център"
+
+#: screens/sui_menu.lua:4430
+msgid "Check for Updates"
+msgstr "Проверка за актуализации"
+
+#: infra/sui_updater.lua:643
+msgid "Checking for updates…"
+msgstr "Проверка за актуализации…"
+
+#: screens/sui_onboarding.lua:55
+msgid "Choose your initial layout"
+msgstr "Изберете началното си оформление"
+
+#: modules/module_clock.lua:700 features/sui_presets.lua:150
+#: infra/sui_config.lua:167
+msgid "Clock"
+msgstr "Часовник"
+
+#: modules/module_clock.lua:997
+msgid "Clock Style"
+msgstr "Стил на часовника"
+
+#: screens/sui_titlebar.lua:108
+msgid "Close"
+msgstr "Затваряне"
+
+#: screens/sui_menu.lua:2549
+msgid "Closing Book Notice"
+msgstr "Известие при затваряне на книга"
+
+#: main.lua:1901
+msgid "Closing book…"
+msgstr "Затваряне на книгата…"
+
+#: features/sui_quickactions.lua:2039
+msgid "Codepoint out of valid Unicode range (0–10FFFF)."
+msgstr "Кодова точка извън валидния Unicode диапазон (0–10FFFF)."
+
+#: features/sui_quickactions.lua:2466 features/sui_quickactions.lua:2609
+msgid "Collection"
+msgstr "Колекция"
+
+#: modules/module_collections.lua:1513
+msgid "Collection Menu"
+msgstr "Меню на колекция"
+
+#: features/library/sui_group_actions.lua:138
+msgid "Collection \"%1\" created with %2 books."
+msgstr "Колекция „%1\" е създадена с %2 книги."
+
+#: features/library/sui_group_actions.lua:122
+msgid "Collection already exists: %1"
+msgstr "Колекцията вече съществува: %1"
+
+#: modules/module_collections.lua:335 modules/module_collections.lua:341
+msgid "Collection is empty."
+msgstr "Колекцията е празна."
+
+#: features/sui_quickactions.lua:3031
+msgid "Collection not available: %s"
+msgstr "Колекцията не е налична: %s"
+
+#: modules/module_feat_coll.lua:127
+msgid "Collection: "
+msgstr "Колекция: "
+
+#: modules/module_feat_coll.lua:127
+msgid "Collection: (none)"
+msgstr "Колекция: (няма)"
+
+#: modules/module_collections.lua:1213 modules/module_collections.lua:1233
+#: modules/module_collections.lua:1242 modules/module_collections.lua:1295
+#: modules/module_collections.lua:1504 modules/module_collections.lua:1505
+#: modules/module_coverdeck.lua:1364 features/sui_quickactions.lua:464
+#: features/sui_quickactions.lua:661 features/sui_quickactions.lua:2129
+#: infra/sui_config.lua:119
+msgid "Collections"
+msgstr "Колекции"
+
+#: infra/sui_patches.lua:1385
+msgid "Collections (%1)"
+msgstr "Колекции (%1)"
+
+#: features/sui_quickactions.lua:668
+msgid "Collections not available."
+msgstr "Колекциите не са налични."
+
+#: features/sui_style.lua:177
+msgid "Collections: Back Button"
+msgstr "Колекции: Бутон Назад"
+
+#: screens/sui_menu.lua:2985 screens/sui_menu.lua:3039
+#: screens/sui_menu.lua:3093 screens/sui_menu.lua:3160
+#: screens/sui_menu.lua:3227 screens/sui_menu.lua:3381
+msgid "Color"
+msgstr "Цвят"
+
+#: engines/sui_book_grid.lua:1813
+msgid "Columns"
+msgstr "Колони"
+
+#: modules/module_reading_goals.lua:1047 modules/module_currently.lua:1881
+#: screens/sui_menu.lua:1835
+msgid "Compact"
+msgstr "Компактен"
+
+#: features/sui_quickactions.lua:1990
+msgid "Confirm"
+msgstr "Потвърждаване"
+
+#: features/sui_quickactions.lua:694 infra/sui_config.lua:122
+#: screens/sui_onboarding.lua:253 screens/sui_onboarding.lua:259
+#: screens/sui_onboarding.lua:265
+msgid "Continue"
+msgstr "Продължаване"
+
+#: features/sui_style.lua:2048
+msgid "Cool Mist"
+msgstr "Хладна мъгла"
+
+#: engines/sui_book_grid.lua:1922
+msgid "Corner Badge"
+msgstr "Ъглова значка"
+
+#: features/sui_style.lua:2360
+msgid "Could not determine packs folder"
+msgstr "Папката с пакети не може да бъде определена"
+
+#: screens/sui_stats_windows.lua:172
+msgid "Could not open statistics database."
+msgstr "Базата с данни за статистиката не може да бъде отворена."
+
+#: features/sui_style.lua:2362
+msgid "Could not open zip (invalid format or corrupted)"
+msgstr "Zip файлът не може да бъде отворен (невалиден формат или повреден)"
+
+#: modules/module_coverdeck.lua:652 features/sui_presets.lua:165
+#: features/sui_presets.lua:183
+msgid "Cover Deck"
+msgstr "Палуба с корици"
+
+#: screens/sui_menu.lua:2857
+msgid "Cover Settings"
+msgstr "Настройки на корицата"
+
+#: engines/sui_book_grid.lua:1766 engines/sui_book_grid.lua:1768
+msgid "Cover Size"
+msgstr "Размер на корицата"
+
+#: modules/module_currently.lua:1364 modules/module_currently.lua:1365
+msgid "Cover Spacing"
+msgstr "Разстояние между кориците"
+
+#: modules/module_collections.lua:1360
+msgid "Cover Style"
+msgstr "Стил на корицата"
+
+#: modules/module_collections.lua:378
+msgid "Cover for \"%s\""
+msgstr "Корица за „%s“"
+
+#: modules/module_coverdeck.lua:1260 modules/module_coverdeck.lua:1261
+#: modules/module_currently.lua:1337 modules/module_currently.lua:1338
+msgid "Cover size"
+msgstr "Размер на корицата"
+
+#: modules/module_coverdeck.lua:185
+msgid "Covers"
+msgstr "Корици"
+
+#: screens/sui_settings_window.lua:1118
+#: features/library/sui_group_actions.lua:114
+msgid "Create"
+msgstr "Създаване"
+
+#: features/sui_quickactions.lua:1557 features/sui_quickactions.lua:2844
+msgid "Create Quick Action"
+msgstr "Създаване на бързо действие"
+
+#: screens/sui_settings_window.lua:1101
+msgid "Create Screen"
+msgstr "Създаване на екран"
+
+#: features/library/sui_foldercovers.lua:726
+#: features/library/sui_library_browse.lua:819
+#: features/library/sui_series_grouping.lua:369
+msgid "Create collection"
+msgstr "Създаване на колекция"
+
+#: screens/sui_settings_window.lua:1108
+msgid "Create screen"
+msgstr "Създаване на екран"
+
+#: screens/sui_stats_windows.lua:2187 screens/sui_stats_windows.lua:2207
+msgid "Current streak"
+msgstr "Текуща серия"
+
+#: modules/module_currently.lua:330 modules/module_currently.lua:331
+#: modules/module_currently.lua:412 modules/module_currently.lua:1842
+#: features/sui_presets.lua:138 features/sui_presets.lua:150
+msgid "Currently Reading"
+msgstr "В момента чета"
+
+#: infra/sui_config.lua:1861
+msgid "Custom"
+msgstr "По избор"
+
+#: features/sui_quickactions.lua:1836 features/sui_quickactions.lua:1839
+msgid "Custom Actions"
+msgstr "Персонализирани действия"
+
+#: modules/module_quote.lua:1456
+msgid "Custom File"
+msgstr "Файл по избор"
+
+#: modules/module_quote.lua:1505
+msgid "Custom File + My Highlights"
+msgstr "Собствен файл + Моите подчертавания"
+
+#: features/sui_quickactions.lua:1450 features/sui_quickactions.lua:1554
+msgid "Custom Quick Actions"
+msgstr "Персонализирани бързи действия"
+
+#: infra/sui_custom_screens.lua:158
+msgid "Custom Screen"
+msgstr "Персонализиран екран"
+
+#: features/sui_quickactions.lua:1846 features/sui_quickactions.lua:1849
+msgid "Custom Screens"
+msgstr "Персонализирани екрани"
+
+#: screens/sui_settings_window.lua:393
+msgid "Custom Screens unavailable."
+msgstr "Персонализираните екрани не са налични."
+
+#: infra/sui_config.lua:173 screens/sui_menu.lua:648 screens/sui_menu.lua:914
+msgid "Custom Text"
+msgstr "Персонален текст"
+
+#: screens/sui_onboarding.lua:172
+msgid "Custom wallpapers and icons"
+msgstr "Персонализирани тапети и икони"
+
+#: screens/sui_onboarding.lua:164
+msgid "Customize even more"
+msgstr "Персонализирайте още повече"
+
+#: screens/sui_stats_windows.lua:2741 screens/sui_stats_windows.lua:3383
+msgid "DAY STREAK"
+msgstr "ПОРЕДНИ ДНИ"
+
+#: modules/module_reading_goals.lua:860 modules/module_reading_goals.lua:888
+#: modules/module_reading_goals.lua:925 modules/module_reading_goals.lua:970
+msgid "Daily Goal"
+msgstr "Дневна цел"
+
+#: modules/module_reading_goals.lua:430
+msgid "Daily Reading Goal"
+msgstr "Дневна цел за четене"
+
+#: modules/module_reading_stats.lua:116
+msgid "Daily avg — Pages"
+msgstr "Ср. дневно — Страници"
+
+#: modules/module_reading_stats.lua:115
+msgid "Daily avg — Time"
+msgstr "Ср. дневно — Време"
+
+#: modules/module_collections.lua:1435 modules/module_coverdeck.lua:1633
+#: engines/sui_book_grid.lua:1893 screens/sui_menu.lua:2987
+#: screens/sui_menu.lua:2992 screens/sui_menu.lua:3041
+#: screens/sui_menu.lua:3046 screens/sui_menu.lua:3095
+#: screens/sui_menu.lua:3100 screens/sui_menu.lua:3162
+#: screens/sui_menu.lua:3167 screens/sui_menu.lua:3229
+#: screens/sui_menu.lua:3234 screens/sui_menu.lua:3383
+#: screens/sui_menu.lua:3395
+msgid "Dark"
+msgstr "Тъмно"
+
+#: features/sui_style.lua:2034
+msgid "Dark Slate"
+msgstr "Тъмен шифер"
+
+#: modules/module_clock.lua:1060 modules/module_clock.lua:1068
+msgid "Date Spacing"
+msgstr "Отстояние на датата"
+
+#: modules/module_library.lua:214
+msgid "Date added (newest)"
+msgstr "Дата на добавяне (най-нови)"
+
+#: modules/module_library.lua:215
+msgid "Date added (oldest)"
+msgstr "Дата на добавяне (най-стари)"
+
+#: screens/sui_stats_windows.lua:727
+msgid "Date finished"
+msgstr "Дата на завършване"
+
+#: screens/sui_stats_windows.lua:720
+msgid "Date started"
+msgstr "Дата на започване"
+
+#: screens/sui_stats_windows.lua:954 screens/sui_stats_windows.lua:3677
+msgid "Days"
+msgstr "Дни"
+
+#: modules/module_coverdeck.lua:175 modules/module_currently.lua:286
+msgid "Days of reading"
+msgstr "Дни четене"
+
+#: engines/sui_heatmap_widgets.lua:89
+msgid "Dec"
+msgstr "дек"
+
+#: modules/module_clock.lua:63 screens/sui_stats_windows.lua:2837
+msgid "December"
+msgstr "Декември"
+
+#: modules/module_reading_goals.lua:1039 modules/module_currently.lua:1388
+#: modules/module_currently.lua:1879 features/sui_quickactions.lua:2068
+#: features/sui_quickactions.lua:2333 screens/sui_titlebar.lua:1003
+#: screens/sui_menu.lua:465 screens/sui_menu.lua:594 screens/sui_menu.lua:1277
+#: screens/sui_menu.lua:1836
+msgid "Default"
+msgstr "По подразбиране"
+
+#: features/sui_quickactions.lua:2334
+msgid "Default (Folder)"
+msgstr "По подразбиране (Папка)"
+
+#: features/sui_quickactions.lua:2335
+msgid "Default (Plugin)"
+msgstr "По подразбиране (Плъгин)"
+
+#: features/sui_quickactions.lua:2336
+msgid "Default (System)"
+msgstr "По подразбиране (Системно)"
+
+#: modules/module_quote.lua:1392
+msgid "Default Quotes"
+msgstr "Цитати по подразбиране"
+
+#: features/sui_style.lua:184
+msgid "Default: Folder"
+msgstr "По подразбиране: Папка"
+
+#: features/sui_style.lua:202
+msgid "Default: Group"
+msgstr "По подразбиране: Група"
+
+#: features/sui_style.lua:190
+msgid "Default: Plugin"
+msgstr "По подразбиране: Плъгин"
+
+#: features/sui_style.lua:196
+msgid "Default: System"
+msgstr "По подразбиране: Системно"
+
+#: engines/sui_window.lua:1926 engines/sui_window.lua:2855
+#: features/sui_quickactions.lua:1520 features/sui_quickactions.lua:2935
+#: features/sui_quickactions.lua:2940 features/sui_presets.lua:892
+#: features/sui_presets.lua:895 features/sui_presets.lua:935
+#: screens/sui_menu.lua:4080 screens/sui_menu.lua:4083
+#: screens/sui_menu.lua:4124 screens/sui_settings_window.lua:469
+#: screens/sui_settings_window.lua:514 screens/sui_settings_window.lua:643
+#: features/library/sui_book_hold_dialog.lua:151
+msgid "Delete"
+msgstr "Изтриване"
+
+#: screens/sui_menu.lua:4453
+msgid "Delete Settings"
+msgstr "Изтриване на настройките"
+
+#: screens/sui_settings_window.lua:467
+msgid "Delete \"%s\"? This removes its layout, modules and Quick Action."
+msgstr "Изтриване на „%s“? Това ще премахне оформлението, модулите и бързото действие."
+
+#: features/sui_presets.lua:894 features/sui_presets.lua:934
+#: screens/sui_menu.lua:4082 screens/sui_menu.lua:4123
+msgid "Delete preset \"%s\"?"
+msgstr "Изтриване на настройката „%s\"?"
+
+#: features/sui_quickactions.lua:1519 features/sui_quickactions.lua:2939
+msgid "Delete quick action \"%s\"?"
+msgstr "Изтриване на бързо действие „%s“?"
+
+#: modules/module_currently.lua:283
+msgid "Description"
+msgstr "Описание"
+
+#: features/sui_quickactions.lua:2132
+msgid "Dictionary Lookup"
+msgstr "Търсене в речник"
+
+#: modules/module_clock.lua:1002 modules/module_clock.lua:1006
+msgid "Digital"
+msgstr "Цифров"
+
+#: screens/sui_menu.lua:2488
+msgid "Disable \"Lock Scale\" first to set a custom label scale."
+msgstr "Първо изключете „Заключване на мащаба“, за да зададете мащаб по избор."
+
+#: infra/sui_config.lua:870
+msgid "Disable \"Lock Scale\" first to set a per-module scale."
+msgstr "Първо изключете „Заключване на мащаба“, за да зададете индивидуален мащаб."
+
+#: infra/sui_config.lua:171
+msgid "Disk Usage"
+msgstr "Използване на диска"
+
+#: features/sui_quickactions.lua:2990
+msgid "Dispatcher not available."
+msgstr "Диспечерът не е наличен."
+
+#: screens/sui_menu.lua:3553
+msgid "Display"
+msgstr "Дисплей"
+
+#: engines/sui_window.lua:67
+msgid "Do something"
+msgstr "Направи нещо"
+
+#: features/sui_quickactions.lua:2584
+msgid "Done"
+msgstr "Готово"
+
+#: screens/sui_menu.lua:502
+msgid "Dot Pager"
+msgstr "Точков индикатор"
+
+#: infra/sui_updater.lua:526
+msgid "Download and install"
+msgstr "Изтегляне и инсталиране"
+
+#: infra/sui_updater.lua:525
+msgid "Download and install now?"
+msgstr "Изтегляне и инсталиране сега?"
+
+#: infra/sui_updater.lua:447
+msgid "Download error: "
+msgstr "Грешка при изтегляне: "
+
+#: infra/sui_updater.lua:421
+msgid "Downloading Simple UI %s…"
+msgstr "Изтегляне на Simple UI %s…"
+
+#: modules/module_currently.lua:1391
+msgid "Dynamic"
+msgstr "Динамичен"
+
+#: features/sui_quickactions.lua:2922
+msgid "Edit"
+msgstr "Редактиране"
+
+#: screens/sui_menu.lua:640 screens/sui_menu.lua:642 screens/sui_menu.lua:908
+msgid "Edit Custom Text"
+msgstr "Редактиране на персонален текст"
+
+#: screens/sui_menu.lua:2196 screens/sui_settings_window.lua:338
+msgid "Edit Home Screen Layout"
+msgstr "Редактиране на оформлението на началния екран"
+
+#: features/sui_quickactions.lua:2251
+msgid "Edit Quick Action"
+msgstr "Редактиране на бързо действие"
+
+#: modules/module_clock.lua:239
+msgid "Eight"
+msgstr "Осем"
+
+#: modules/module_clock.lua:242
+msgid "Eighteen"
+msgstr "Осемнадесет"
+
+#: modules/module_clock.lua:240
+msgid "Eleven"
+msgstr "Единадесет"
+
+#: screens/sui_menu.lua:901
+msgid "Empty"
+msgstr "Празно"
+
+#: features/sui_quickactions.lua:887 features/sui_quickactions.lua:905
+#: features/sui_quickactions.lua:923
+msgid "Enable 'Browse by Author / Series / Tags' in the library menu first."
+msgstr "Първо активирайте 'Преглед по Автор / Поредица / Тагове' в менюто на библиотеката."
+
+#: screens/sui_menu.lua:2808
+msgid "Enable Browse by Author / Series / Tags"
+msgstr "Включване на разглеждане по автор / поредица / етикети"
+
+#: screens/sui_menu.lua:2792
+msgid "Enable Library Custom Covers"
+msgstr "Включване на персонализирани корици в библиотеката"
+
+#: screens/sui_menu.lua:1117
+msgid "Enable Navigation Bar"
+msgstr "Включване на навигационната лента"
+
+#: screens/sui_quicksettings_bar.lua:1172
+msgid "Enable Quick Settings Bar"
+msgstr "Включване на лентата за бързи настройки"
+
+#: screens/sui_menu.lua:848
+msgid "Enable Status Bar"
+msgstr "Включване на статус лентата"
+
+#: screens/sui_menu.lua:1786
+msgid "Enable Title Bar"
+msgstr "Включване на заглавната лента"
+
+#: screens/sui_menu.lua:2244
+msgid "Enable Wallpaper"
+msgstr "Включване на тапет"
+
+#: features/sui_style.lua:1783
+msgid "Enable custom UI font"
+msgstr "Активиране на персонален шрифт за интерфейса"
+
+#: features/sui_style.lua:2116
+msgid "Enter a hex color (#RRGGBB). On greyscale e-ink the perceived brightness is used."
+msgstr "Въведете шестнадесетичен цвят (#RRGGBB). На сиво-скален e-ink се използва възприеманата яркост."
+
+#: features/sui_quickactions.lua:2010
+msgid ""
+"Enter the Unicode codepoint (hex) of a Nerd Fonts symbol.\n"
+"You can look up codes with wakamaifondue.com using the file:\n"
+"  /koreader/fonts/nerdfonts/symbols.ttf\n"
+"Leave blank and press OK to remove a Nerd Font icon."
+msgstr ""
+"Въведете Unicode кодова точка (hex) на символ от Nerd Fonts.\n"
+"Можете да търсите кодове на wakamaifondue.com с файла:\n"
+"  /koreader/fonts/nerdfonts/symbols.ttf\n"
+"Оставете празно и натиснете OK, за да премахнете Nerd Font икона."
+
+#: screens/sui_menu.lua:3843
+msgid "Error applying pack:"
+msgstr "Грешка при прилагане на пакет:"
+
+#: infra/sui_updater.lua:648
+msgid "Error checking for updates."
+msgstr "Грешка при проверка за актуализации."
+
+#: infra/sui_updater.lua:653
+msgid "Error checking for updates: "
+msgstr "Грешка при проверка за актуализации: "
+
+#: features/sui_presets.lua:1073 screens/sui_menu.lua:4262
+msgid "Error exporting preset: "
+msgstr "Грешка при експортиране на настройка: "
+
+#: features/sui_style.lua:2409
+msgid "Error extracting zip: "
+msgstr "Грешка при разархивиране на zip: "
+
+#: features/sui_presets.lua:1041 screens/sui_menu.lua:4229
+msgid "Error importing preset: "
+msgstr "Грешка при импортиране на настройка: "
+
+#: modules/module_reading_goals.lua:741
+msgid "Error in Reading Goals: check crash.log"
+msgstr "Грешка в целите за четене: проверете crash.log"
+
+#: screens/sui_menu.lua:3804
+msgid "Error installing pack:"
+msgstr "Грешка при инсталиране на пакет:"
+
+#: screens/sui_stats_windows.lua:1225
+msgid "Exclude from goals"
+msgstr "Изключване от целите"
+
+#: screens/sui_stats_windows.lua:845 screens/sui_stats_windows.lua:851
+msgid "Excluded"
+msgstr "Изключено"
+
+#: features/sui_presets.lua:1057 screens/sui_menu.lua:4245
+msgid "Export preset"
+msgstr "Експортиране на шаблон"
+
+#: screens/sui_settings_window.lua:349 screens/sui_settings_window.lua:1021
+msgid "Extra Custom Screens"
+msgstr "Допълнителни персонализирани екрани"
+
+#: screens/sui_menu.lua:570
+msgid "Extra Small"
+msgstr "Много малък"
+
+#: infra/sui_updater.lua:448
+msgid "Extraction error: "
+msgstr "Грешка при разархивиране: "
+
+#: screens/sui_stats_windows.lua:3495
+msgid "FREEZES"
+msgstr "ЗАМРАЗЯВАНИЯ"
+
+#: screens/sui_menu.lua:4446
+msgid "Factory Reset"
+msgstr "Фабрично нулиране"
+
+#: screens/sui_menu.lua:3262
+msgid "Fade Finished Books"
+msgstr "Избледняване на завършените книги"
+
+#: screens/sui_menu.lua:3278
+msgid "Fade Intensity"
+msgstr "Интензитет на избледняването"
+
+#: screens/sui_menu.lua:3279
+msgid ""
+"Fades finished book covers towards white.\n"
+"50% is the default."
+msgstr ""
+"Избледнява кориците на завършените книги към бяло.\n"
+"50% е стойността по подразбиране."
+
+#: screens/sui_menu.lua:2388
+msgid ""
+"Fades the wallpaper towards white to improve text readability.\n"
+"0% is the default (no lightening)."
+msgstr ""
+"Избледнява тапета към бяло за по-добра четимост на текста.\n"
+"0% е стойността по подразбиране (без осветляване)."
+
+#: modules/module_coverdeck.lua:1346 features/sui_quickactions.lua:763
+#: features/sui_quickactions.lua:2128 infra/sui_config.lua:124
+msgid "Favorites"
+msgstr "Любими"
+
+#: features/sui_quickactions.lua:770
+msgid "Favorites not available."
+msgstr "Любимите не са налични."
+
+#: modules/module_feat_coll.lua:373 modules/module_feat_coll.lua:430
+msgid "Featured Collection"
+msgstr "Препоръчана колекция"
+
+#: modules/module_feat_coll.lua:87
+msgid "Featured Collection — tap to configure"
+msgstr "Препоръчана колекция — докоснете за конфигуриране"
+
+#: engines/sui_heatmap_widgets.lua:88
+msgid "Feb"
+msgstr "фев"
+
+#: modules/module_clock.lua:61 screens/sui_stats_windows.lua:2835
+msgid "February"
+msgstr "Февруари"
+
+#: features/sui_quickactions.lua:409
+msgid "Fetching bookmarks…"
+msgstr "Извличане на отметки…"
+
+#: modules/module_clock.lua:241
+msgid "Fifteen"
+msgstr "Петнадесет"
+
+#: modules/module_clock.lua:247
+msgid "Fifty"
+msgstr "Петдесет"
+
+#: features/sui_quickactions.lua:751
+msgid "File Manager not available."
+msgstr "Файловият мениджър не е наличен."
+
+#: features/sui_quickactions.lua:2130
+msgid "File Search"
+msgstr "Търсене на файл"
+
+#: features/sui_style.lua:2356
+msgid "File not found: "
+msgstr "Файлът не е намерен: "
+
+#: modules/module_library.lua:216
+msgid "File size (largest)"
+msgstr "Размер на файла (най-голям)"
+
+#: modules/module_library.lua:217
+msgid "File size (smallest)"
+msgstr "Размер на файла (най-малък)"
+
+#: screens/sui_menu.lua:3255
+msgid "Finished Books"
+msgstr "Завършени книги"
+
+#: modules/module_clock.lua:238
+msgid "Five"
+msgstr "Пет"
+
+#: modules/module_quote.lua:1584
+msgid "Fixed Height"
+msgstr "Фиксирана височина"
+
+#: modules/module_reading_stats.lua:839 modules/module_quick_actions.lua:747
+#: screens/sui_menu.lua:4348 screens/sui_quicksettings_bar.lua:1375
+msgid "Flat"
+msgstr "Плосък"
+
+#: modules/module_library.lua:292
+msgid "Flat Library"
+msgstr "Плоска библиотека"
+
+#: features/sui_quickactions.lua:2607
+msgid "Folder"
+msgstr "Папка"
+
+#: screens/sui_menu.lua:2862
+msgid "Folder Cover Type"
+msgstr "Тип корица на папка"
+
+#: features/sui_style.lua:1386
+msgid "Folder Covers"
+msgstr "Корици на папки"
+
+#: features/sui_style.lua:209
+msgid "Folder Covers: Empty Folder"
+msgstr "Корици на папки: Празна папка"
+
+#: screens/sui_menu.lua:3299
+msgid "Folder Name"
+msgstr "Име на папката"
+
+#: screens/sui_menu.lua:3408
+msgid "Folder Name Text Size"
+msgstr "Размер на текста за името на папката"
+
+#: features/sui_quickactions.lua:2131
+msgid "Folder Shortcuts"
+msgstr "Преки пътища към папки"
+
+#: features/library/sui_foldercovers.lua:647
+#: features/library/sui_library_browse.lua:366
+#: features/library/sui_series_grouping.lua:87
+#: features/library/sui_group_actions.lua:80
+msgid "Folder cover"
+msgstr "Корица на папката"
+
+#: modules/module_coverdeck.lua:1632 engines/sui_book_grid.lua:1892
+msgid "Follow Library"
+msgstr "Като в библиотеката"
+
+#: engines/sui_window.lua:2233 engines/sui_window.lua:2238
+msgid "Font weight"
+msgstr "Дебелина на шрифта"
+
+#: modules/module_clock.lua:247
+msgid "Forty"
+msgstr "Четиридесет"
+
+#: modules/module_clock.lua:238
+msgid "Four"
+msgstr "Четири"
+
+#: modules/module_clock.lua:241
+msgid "Fourteen"
+msgstr "Четиринадесет"
+
+#: modules/module_reading_goals.lua:1059 modules/module_currently.lua:1844
+#: engines/sui_book_grid.lua:1848
+msgid "Frame"
+msgstr "Рамка"
+
+#: screens/sui_menu.lua:1289 screens/sui_menu.lua:4359
+msgid "Framed"
+msgstr "С рамка"
+
+#: modules/module_reading_stats.lua:918 modules/module_reading_stats.lua:923
+msgid "Freezes"
+msgstr "Замразявания"
+
+#: screens/sui_stats_windows.lua:3097
+msgid "Freezes can only cover a single missed day, and only right after an active one. Tap yesterday's cell to use one, when eligible."
+msgstr "Замразяванията могат да покрият само един пропуснат ден, и то само веднага след активен. Докоснете клетката на вчерашния ден, за да използвате замразяване, когато е приложимо."
+
+#: engines/sui_heatmap_widgets.lua:96 screens/sui_stats_windows.lua:2825
+msgid "Fri"
+msgstr "Петък"
+
+#: modules/module_clock.lua:58
+msgid "Friday"
+msgstr "Петък"
+
+#: screens/sui_quicksettings_bar.lua:396 screens/sui_quicksettings_bar.lua:418
+msgid "Frontlight"
+msgstr "Предна светлина"
+
+#: screens/sui_quicksettings_bar.lua:1270
+msgid "Frontlight Slider"
+msgstr "Плъзгач за предна светлина"
+
+#: features/sui_quickactions.lua:373
+msgid "Frontlight not available on this device."
+msgstr "Осветлението не е налично на това устройство."
+
+#: screens/sui_menu.lua:2566
+msgid "Gesture Only"
+msgstr "Само при жест"
+
+#: screens/sui_menu.lua:4312 screens/sui_menu.lua:4319
+msgid "Global Text Size"
+msgstr "Общ размер на текста"
+
+#: screens/sui_settings_window.lua:311
+msgid "Global custom actions & icons"
+msgstr "Глобални персонализирани действия и икони"
+
+#: screens/sui_menu.lua:4320
+msgid ""
+"Global scale applied to all of KOReader's interface text — menus, dialogs, titles, and Simple UI. It does not change the book's reading font size, which has its own setting.\n"
+"100% is the default size. Useful when a chosen UI font (see UI Font above) renders smaller or larger than usual."
+msgstr ""
+"Общ мащаб, приложен към целия интерфейсен текст на KOReader — менюта, диалози, заглавия и Simple UI. Не променя размера на шрифта за четене на книгата, който има собствена настройка.\n"
+"100% е размерът по подразбиране. Полезно е, когато избран шрифт на интерфейса (вижте „Шрифт на интерфейса“ по-горе) се изобразява по-малък или по-голям от обичайното."
+
+#: screens/sui_menu.lua:2460
+msgid ""
+"Global scale for all modules.\n"
+"Individual overrides in Module Settings take precedence.\n"
+"100% is the default size."
+msgstr ""
+"Глобален мащаб за всички модули.\n"
+"Индивидуалните настройки в Настройки на модула имат приоритет.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_onboarding.lua:165
+msgid "Go to Settings > Home Screen to edit your layout whenever you want."
+msgstr "Отидете в Настройки > Начален екран, за да редактирате оформлението си по всяко време."
+
+#: modules/module_reading_goals.lua:817 modules/module_reading_goals.lua:882
+#: modules/module_reading_goals.lua:896
+msgid "Goals"
+msgstr "Цели"
+
+#: engines/sui_book_grid.lua:1800 engines/sui_book_grid.lua:1811
+msgid "Grid size"
+msgstr "Размер на решетката"
+
+#: features/sui_quickactions.lua:2262 features/sui_quickactions.lua:2590
+msgid "Group"
+msgstr "Група"
+
+#: screens/sui_menu.lua:2844
+msgid "Group by Book Series"
+msgstr "Групиране по поредица"
+
+#: features/sui_quickactions.lua:2615
+msgid "Group of Quick Actions"
+msgstr "Група от бързи действия"
+
+#: features/sui_quickactions.lua:2597
+msgid "Group: select actions"
+msgstr "Група: изберете действия"
+
+#: modules/module_currently.lua:1399
+msgid ""
+"Grows or shrinks the cover so its height always matches the text column, keeping the cover's proportions.\n"
+"The spacing between cover and text stays as set above.\n"
+"The Cover size setting still applies on top of this, and the cover never shrinks below its 100% size."
+msgstr ""
+"Увеличава или намалява корицата, така че височината ѝ винаги да съответства на текстовата колона, запазвайки пропорциите на корицата.\n"
+"Разстоянието между корицата и текста остава такова, каквото е зададено по-горе.\n"
+"Настройката „Размер на корицата“ продължава да се прилага над това, а корицата никога не се смалява под 100% от размера си."
+
+#: screens/sui_menu.lua:1324
+msgid ""
+"Height of the bottom navigation bar.\n"
+"100% is the default size."
+msgstr ""
+"Височина на долната навигационна лента.\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_spacer.lua:89
+msgid ""
+"Height of the spacer.\n"
+"100% is the default size."
+msgstr ""
+"Височина на разделителя.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_menu.lua:1044
+msgid ""
+"Height of the top status bar.\n"
+"100% is the default size."
+msgstr ""
+"Височина на горната статус лента.\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_collections.lua:1408 screens/sui_menu.lua:486
+#: screens/sui_menu.lua:545 screens/sui_menu.lua:2939 screens/sui_menu.lua:2946
+#: screens/sui_menu.lua:2973 screens/sui_menu.lua:3013
+#: screens/sui_menu.lua:3019 screens/sui_menu.lua:3030
+#: screens/sui_menu.lua:3067 screens/sui_menu.lua:3073
+#: screens/sui_menu.lua:3084 screens/sui_menu.lua:3305
+#: screens/sui_menu.lua:3336
+msgid "Hidden"
+msgstr "Скрито"
+
+#: modules/module_collections.lua:1397
+msgid "Hide Book Spine"
+msgstr "Скриване на гръбчето на книгата"
+
+#: screens/sui_menu.lua:3510
+msgid "Hide Folder Book Spine"
+msgstr "Скриване на гръбчето на книгите в папка"
+
+#: modules/module_quick_actions.lua:494 modules/module_quick_actions.lua:653
+#: screens/sui_menu.lua:1989 screens/sui_quicksettings_bar.lua:1303
+msgid "Hide Label"
+msgstr "Скриване на етикета"
+
+#: screens/sui_menu.lua:3504
+msgid "Hide Selection Underline"
+msgstr "Скриване на подчертаването при избор"
+
+#: screens/sui_menu.lua:1086
+msgid "Hide Wi-Fi Icon When Off"
+msgstr "Скриване на Wi-Fi иконата, когато е изключен"
+
+#: screens/sui_menu.lua:553
+msgid ""
+"Hides the pagination bar on the homescreen.\n"
+"Not available when Navpager is active."
+msgstr ""
+"Скрива лентата за страници на началния екран.\n"
+"Не е налично при активен Навигатор."
+
+#: screens/sui_menu.lua:2619
+msgid "High-Quality Cover"
+msgstr "Висококачествена корица"
+
+#: screens/sui_stats_windows.lua:1219 screens/sui_stats_windows.lua:3913
+msgid "Highlights"
+msgstr "Маркирания"
+
+#: features/sui_quickactions.lua:457 features/sui_quickactions.lua:673
+#: features/sui_quickactions.lua:2126 infra/sui_config.lua:120
+msgid "History"
+msgstr "История"
+
+#: features/sui_quickactions.lua:680
+msgid "History not available."
+msgstr "Историята не е налична."
+
+#: features/sui_quickactions.lua:624 infra/sui_config.lua:118
+msgid "Home"
+msgstr "Начало"
+
+#: engines/sui_screen_engine.lua:1335 infra/sui_patches.lua:1110
+#: infra/sui_patches.lua:1137 screens/sui_menu.lua:4574
+#: screens/sui_settings_window.lua:282 screens/sui_settings_window.lua:1020
+msgid "Home Screen"
+msgstr "Начален екран"
+
+#: screens/sui_settings_window.lua:1036
+msgid "Home Screen Presets"
+msgstr "Шаблони за началния екран"
+
+#: screens/sui_menu.lua:499
+msgid "Home Screen Style"
+msgstr "Стил на началния екран"
+
+#: features/sui_style.lua:2091
+msgid "Home Screen — Background"
+msgstr "Начален екран — Фон"
+
+#: features/sui_style.lua:2094
+msgid "Home Screen — Text"
+msgstr "Начален екран — Текст"
+
+#: features/sui_quickactions.lua:474
+msgid "Home folder"
+msgstr "Начална папка"
+
+#: features/sui_quickactions.lua:476
+msgid "Home folder + subfolders"
+msgstr "Начална папка + подпапки"
+
+#: features/sui_quickactions.lua:655
+msgid "Homescreen not available."
+msgstr "Началният екран не е наличен."
+
+#: modules/module_currently.lua:1366
+msgid ""
+"Horizontal space between the cover and the text.\n"
+"100% is the default spacing."
+msgstr ""
+"Хоризонтално разстояние между корицата и текста.\n"
+"100% е разстоянието по подразбиране."
+
+#: modules/module_reading_goals.lua:419
+msgid "Hours per month:"
+msgstr "Часове на месец:"
+
+#: modules/module_heatmap.lua:282
+msgid "How many weeks of history to include, and (in Calendar view) how many weeks the grid shows — this count is unaffected by Scale, which only resizes the cells. In Time of day view, this only changes how much history feeds the shading — the grid itself always has one column per hour."
+msgstr "Колко седмици история да се включат и (в изглед „Календар“) колко седмици показва решетката — това число не се влияе от Мащаб, който само променя размера на клетките. В изглед „Час от деня“ това само променя колко история се използва за оцветяването — самата решетка винаги има по една колона на час."
+
+#: features/sui_quickactions.lua:2287 features/sui_quickactions.lua:2291
+msgid "Icon"
+msgstr "Икона"
+
+#: screens/sui_menu.lua:3693
+msgid "Icon Packs"
+msgstr "Пакети с икони"
+
+#: screens/sui_menu.lua:3860
+msgid "Icon Presets"
+msgstr "Предварителни настройки за икони"
+
+#: screens/sui_menu.lua:1356 screens/sui_menu.lua:1357
+msgid "Icon Size"
+msgstr "Размер на иконата"
+
+#: features/sui_quickactions.lua:2283
+msgid "Icon: Default"
+msgstr "Икона: По подразбиране"
+
+#: screens/sui_menu.lua:209 screens/sui_menu.lua:3639
+msgid "Icons"
+msgstr "Икони"
+
+#: screens/sui_menu.lua:210
+msgid "Icons only"
+msgstr "Само икони"
+
+#: screens/sui_settings_window.lua:304
+msgid "Icons, fonts and appearance"
+msgstr "Икони, шрифтове и външен вид"
+
+#: screens/sui_onboarding.lua:169
+msgid "If you selected the Momentum Preset, long press the Reading Goal module to choose and set your reading goals."
+msgstr "Ако сте избрали шаблона „Устрем“, задръжте натиснат модула за цел за четене, за да изберете и зададете целите си за четене."
+
+#: features/sui_presets.lua:1014 screens/sui_menu.lua:4201
+msgid "Import preset"
+msgstr "Импортиране на шаблон"
+
+#: screens/sui_menu.lua:3767
+msgid "Install pack from ZIP"
+msgstr "Инсталиране на пакет от ZIP"
+
+#: screens/sui_menu.lua:3271
+msgid "Intensity"
+msgstr "Интензитет"
+
+#: screens/sui_menu.lua:1513
+msgid ""
+"Invalid arrangement.\n"
+"Keep items between the Left and Right separators."
+msgstr ""
+"Невалидно подреждане.\n"
+"Дръжте елементите между разделителите Ляво и Дясно."
+
+#: screens/sui_menu.lua:741
+msgid ""
+"Invalid arrangement.\n"
+"Keep the Left, Center and Right separators in order."
+msgstr ""
+"Невалидно подреждане.\n"
+"Запазете реда на разделителите Ляво, Център и Дясно."
+
+#: features/sui_presets.lua:382 features/sui_presets.lua:562
+msgid "Invalid data"
+msgstr "Невалидни данни"
+
+#: features/sui_quickactions.lua:2045
+msgid "Invalid input. Please enter 1–6 hexadecimal digits (0–9, A–F)."
+msgstr ""
+"Невалиден вход.\n"
+"Въведете 1–6 hex цифри (0–9, A–F)."
+
+#: features/sui_presets.lua:378 features/sui_presets.lua:558
+msgid "Invalid preset file"
+msgstr "Невалиден файл за настройка"
+
+#: screens/sui_menu.lua:2362
+msgid "Invert in Night Mode"
+msgstr "Обръщане в нощен режим"
+
+#: modules/module_reading_stats.lua:701 modules/module_reading_stats.lua:722
+#: modules/module_reading_stats.lua:744 modules/module_coverdeck.lua:1511
+#: modules/module_coverdeck.lua:1551 modules/module_coverdeck.lua:1565
+#: modules/module_currently.lua:1532 modules/module_currently.lua:1537
+#: modules/module_currently.lua:1560 screens/sui_menu.lua:867
+#: screens/sui_menu.lua:872 screens/sui_menu.lua:961 screens/sui_menu.lua:1999
+#: screens/sui_menu.lua:2004 screens/sui_menu.lua:2030
+msgid "Items"
+msgstr "Елементи"
+
+#: engines/sui_heatmap_widgets.lua:88
+msgid "Jan"
+msgstr "яну"
+
+#: modules/module_clock.lua:61 screens/sui_stats_windows.lua:2835
+msgid "January"
+msgstr "Януари"
+
+#: engines/sui_heatmap_widgets.lua:89
+msgid "Jul"
+msgstr "юли"
+
+#: modules/module_clock.lua:62 screens/sui_stats_windows.lua:2836
+msgid "July"
+msgstr "Юли"
+
+#: engines/sui_heatmap_widgets.lua:88
+msgid "Jun"
+msgstr "юни"
+
+#: modules/module_clock.lua:62 screens/sui_stats_windows.lua:2836
+msgid "June"
+msgstr "Юни"
+
+#: modules/module_quick_actions.lua:762
+msgid "Justified"
+msgstr "Двустранно подравнен"
+
+#: screens/sui_menu.lua:523
+msgid "KOReader"
+msgstr "KOReader"
+
+#: screens/sui_stats_windows.lua:2743
+msgid "LAST 7 DAYS"
+msgstr "ПОСЛЕДНИ 7 ДНИ"
+
+#: modules/module_quick_actions.lua:670 screens/sui_quicksettings_bar.lua:1292
+msgid "Label"
+msgstr "Етикет"
+
+#: screens/sui_menu.lua:2496
+msgid "Label Scale"
+msgstr "Мащаб на етикетите"
+
+#: screens/sui_menu.lua:1366 screens/sui_menu.lua:1367
+msgid "Label Size"
+msgstr "Размер на етикета"
+
+#: screens/sui_menu.lua:2480
+msgid "Labels"
+msgstr "Етикети"
+
+#: screens/sui_menu.lua:1837
+msgid "Large"
+msgstr "Голям"
+
+#: infra/sui_updater.lua:459 screens/sui_menu.lua:450 screens/sui_menu.lua:857
+#: screens/sui_menu.lua:1065 screens/sui_menu.lua:1126
+#: screens/sui_menu.lua:1345 screens/sui_menu.lua:1801
+#: screens/sui_menu.lua:3436 screens/sui_menu.lua:3459
+#: screens/sui_menu.lua:3481 screens/sui_menu.lua:4334
+#: screens/sui_menu.lua:4558 screens/sui_quicksettings_bar.lua:1186
+msgid "Later"
+msgstr "По-късно"
+
+#: modules/module_reading_goals.lua:1037 modules/module_currently.lua:1385
+msgid "Layout"
+msgstr "Оформление"
+
+#: screens/sui_settings_window.lua:1027 screens/sui_settings_window.lua:1028
+msgid "Layout Editor"
+msgstr "Редактор на оформлението"
+
+#: screens/sui_settings_window.lua:283
+msgid "Layout, wallpaper, presets and behaviour"
+msgstr "Оформление, тапет, готови настройки и поведение"
+
+#: modules/module_quote.lua:126 modules/module_quote.lua:1563
+#: modules/module_action_list.lua:73 modules/module_action_list.lua:601
+#: modules/module_reading_stats.lua:93 modules/module_reading_stats.lua:865
+#: modules/module_clock.lua:144 modules/module_clock.lua:1034
+#: modules/module_quick_actions.lua:772 screens/sui_menu.lua:710
+#: screens/sui_menu.lua:947 screens/sui_menu.lua:1478 screens/sui_menu.lua:1689
+msgid "Left"
+msgstr "Ляво"
+
+#: modules/module_heatmap.lua:166 engines/sui_heatmap_widgets.lua:376
+msgid "Less"
+msgstr "По-малко"
+
+#: features/sui_quickactions.lua:597 infra/sui_config.lua:117
+#: infra/sui_config.lua:376 screens/sui_titlebar.lua:1089
+#: screens/sui_menu.lua:4578 screens/sui_settings_window.lua:296
+#: screens/sui_settings_window.lua:1023
+msgid "Library"
+msgstr "Библиотека"
+
+#: screens/sui_menu.lua:1809 screens/sui_menu.lua:1812
+msgid "Library Buttons"
+msgstr "Бутони на библиотеката"
+
+#: features/sui_presets.lua:182
+msgid "Library View"
+msgstr "Изглед на библиотеката"
+
+#: modules/module_collections.lua:1442 modules/module_coverdeck.lua:1634
+#: engines/sui_book_grid.lua:1894 screens/sui_menu.lua:2987
+#: screens/sui_menu.lua:2999 screens/sui_menu.lua:3041
+#: screens/sui_menu.lua:3053 screens/sui_menu.lua:3095
+#: screens/sui_menu.lua:3107 screens/sui_menu.lua:3162
+#: screens/sui_menu.lua:3174 screens/sui_menu.lua:3229
+#: screens/sui_menu.lua:3241 screens/sui_menu.lua:3383
+#: screens/sui_menu.lua:3388
+msgid "Light"
+msgstr "Светло"
+
+#: screens/sui_menu.lua:2374
+msgid "Lighten"
+msgstr "Осветляване"
+
+#: screens/sui_menu.lua:2387
+msgid "Lighten Wallpaper"
+msgstr "Осветляване на тапета"
+
+#: modules/module_reading_stats.lua:849
+msgid "List"
+msgstr "Списък"
+
+#: screens/sui_stats_windows.lua:2503
+msgid "Loading statistics…"
+msgstr "Зареждане на статистиката…"
+
+#: screens/sui_menu.lua:2439
+msgid "Lock Scale"
+msgstr "Заключване на мащаба"
+
+#: infra/sui_config.lua:1106
+msgid "Long Press"
+msgstr "Дълго натискане"
+
+#: screens/sui_onboarding.lua:160
+msgid "Long press to customize"
+msgstr "Задръжте за персонализиране"
+
+#: features/sui_presets.lua:361 features/sui_presets.lua:373
+#: features/sui_presets.lua:541 features/sui_presets.lua:553
+msgid "LuaSettings module unavailable"
+msgstr "Модулът LuaSettings не е наличен"
+
+#: screens/sui_onboarding.lua:126
+msgid "Make it yours"
+msgstr "Направете го свой"
+
+#: screens/sui_menu.lua:2706
+msgid "Makes the device's physical Home button always open the SimpleUI Home Screen — while reading and while browsing files — instead of KOReader's native Home behaviour."
+msgstr "Прави така, че физическият бутон Home на устройството винаги отваря началния екран на SimpleUI — както при четене, така и при преглед на файлове — вместо стандартното поведение на KOReader."
+
+#: features/sui_presets.lua:839 features/sui_presets.lua:915
+#: features/sui_presets.lua:920 screens/sui_menu.lua:4029
+#: screens/sui_menu.lua:4103 screens/sui_menu.lua:4108
+msgid "Manage presets"
+msgstr "Управление на шаблони"
+
+#: modules/module_collections.lua:534
+msgid "Manual order"
+msgstr "Ръчен ред"
+
+#: modules/module_reading_goals.lua:1027
+msgid "Manually Tracked Books"
+msgstr "Ръчно проследени книги"
+
+#: modules/module_reading_goals.lua:1015
+msgid "Manually Tracked Books  (%s)"
+msgstr "Ръчно проследени книги  (%s)"
+
+#: engines/sui_heatmap_widgets.lua:88
+msgid "Mar"
+msgstr "март"
+
+#: modules/module_clock.lua:61 screens/sui_stats_windows.lua:2835
+msgid "March"
+msgstr "Март"
+
+#: screens/sui_quicksettings_bar.lua:443 screens/sui_quicksettings_bar.lua:549
+msgid "Max"
+msgstr "Макс"
+
+#: screens/sui_quicksettings_bar.lua:1248
+msgid "Maximum slots reached."
+msgstr "Достигнат е максималният брой слотове."
+
+#: modules/module_clock.lua:62 engines/sui_heatmap_widgets.lua:88
+#: screens/sui_stats_windows.lua:2836
+msgid "May"
+msgstr "Май"
+
+#: screens/sui_titlebar.lua:102 screens/sui_titlebar.lua:107
+msgid "Menu"
+msgstr "Меню"
+
+#: features/sui_style.lua:88
+msgid "Menu Button"
+msgstr "Бутон Меню"
+
+#: modules/module_clock.lua:295
+msgid "Midnight"
+msgstr "Полунощ"
+
+#: features/sui_presets.lua:149
+msgid "Mindful Reading"
+msgstr "Осъзнато четене"
+
+#: screens/sui_menu.lua:374
+msgid "Minimum 1 tab required in navpager mode."
+msgstr "Минимум 1 раздел в навигационен режим."
+
+#: screens/sui_menu.lua:375
+msgid "Minimum 2 tabs required. Select another tab first."
+msgstr ""
+"Нужни са поне 2 раздела.\n"
+"Изберете друг първо."
+
+#: modules/module_reading_goals.lua:431
+msgid "Minutes per day:"
+msgstr "Минути на ден:"
+
+#: screens/sui_menu.lua:462
+msgid "Mode"
+msgstr "Режим"
+
+#: screens/sui_menu.lua:2457
+msgid "Module Scale"
+msgstr "Мащаб на модула"
+
+#: infra/sui_config.lua:1103 screens/sui_menu.lua:2203
+msgid "Module Settings"
+msgstr "Настройки на модула"
+
+#: screens/sui_menu.lua:3697
+msgid "Module unavailable"
+msgstr "Модулът не е наличен"
+
+#: screens/sui_menu.lua:2450 screens/sui_menu.lua:2725
+msgid "Modules"
+msgstr "Модули"
+
+#: screens/sui_menu.lua:2191
+msgid "Modules  (%d)"
+msgstr "Модули  (%d)"
+
+#: engines/sui_screen_engine.lua:2776
+msgid ""
+"Modules exceed the visible area.\n"
+"Move some to another page or adjust the scale."
+msgstr ""
+"Модулите надвишават видимата площ.\n"
+"Преместете някои на друга страница или коригирайте мащаба."
+
+#: features/sui_presets.lua:164
+msgid "Momentum"
+msgstr "Устрем"
+
+#: engines/sui_heatmap_widgets.lua:96 screens/sui_stats_windows.lua:2825
+msgid "Mon"
+msgstr "Понеделник"
+
+#: modules/module_clock.lua:57
+msgid "Monday"
+msgstr "Понеделник"
+
+#: modules/module_reading_goals.lua:840 modules/module_reading_goals.lua:887
+#: modules/module_reading_goals.lua:924 modules/module_reading_goals.lua:955
+msgid "Monthly Goal"
+msgstr "Месечна цел"
+
+#: modules/module_reading_goals.lua:418
+msgid "Monthly Reading Goal"
+msgstr "Месечна цел за четене"
+
+#: engines/sui_heatmap_widgets.lua:383
+msgid "More"
+msgstr "Повече"
+
+#: main.lua:1088
+msgid "More by %s (%d)"
+msgstr "Още от %s (%d)"
+
+#: engines/sui_window.lua:2838
+msgid "Move down"
+msgstr "Преместване надолу"
+
+#: engines/sui_window.lua:2832 screens/sui_settings_window.lua:662
+#: screens/sui_settings_window.lua:698
+msgid "Move to page"
+msgstr "Преместване на страница"
+
+#: engines/sui_window.lua:2835
+msgid "Move up"
+msgstr "Преместване нагоре"
+
+#: features/sui_quickactions.lua:22
+msgid "My Action"
+msgstr "Моето действие"
+
+#: modules/module_quote.lua:1412
+msgid "My Highlights"
+msgstr "Моите подчертавания"
+
+#: features/sui_presets.lua:729 features/sui_presets.lua:734
+msgid "My Presets"
+msgstr "Моите шаблони"
+
+#: features/sui_quickactions.lua:2378
+msgid "Name"
+msgstr "Име"
+
+#: modules/module_collections.lua:535
+msgid "Name (A–Z)"
+msgstr "Име (А-Я)"
+
+#: modules/module_collections.lua:536
+msgid "Name (Z–A)"
+msgstr "Име (Я-А)"
+
+#: screens/sui_menu.lua:3123 screens/sui_menu.lua:3132
+#: screens/sui_menu.lua:3144 features/library/sui_foldercovers.lua:314
+msgid "Native"
+msgstr "Системен"
+
+#: screens/sui_menu.lua:2761 screens/sui_bottombar.lua:890
+msgid "Navigation Bar"
+msgstr "Навигационна лента"
+
+#: screens/sui_menu.lua:1323
+msgid "Navigation Bar Size"
+msgstr "Размер на навигационната лента"
+
+#: screens/sui_menu.lua:1125
+msgid ""
+"Navigation Bar will be %s after restart.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Навигационната лента ще бъде %s след рестартиране.\n"
+"\n"
+"Да се рестартира ли сега?"
+
+#: features/sui_style.lua:2092
+msgid "Navigation Bar — Background"
+msgstr "Навигационна лента — Фон"
+
+#: features/sui_style.lua:2095
+msgid "Navigation Bar — Text and Icons"
+msgstr "Навигационна лента — Текст и икони"
+
+#: features/sui_style.lua:1385 screens/sui_menu.lua:475
+msgid "Navpager"
+msgstr "Навигатор"
+
+#: screens/sui_menu.lua:482
+msgid ""
+"Navpager enabled.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Навигаторът е активиран.\n"
+"\n"
+"Рестарт сега?"
+
+#: features/sui_style.lua:168
+msgid "Navpager: Next"
+msgstr "Навигатор: Следваща"
+
+#: features/sui_style.lua:162
+msgid "Navpager: Previous"
+msgstr "Навигатор: Предишна"
+
+#: features/sui_quickactions.lua:2007
+msgid "Nerd Font Icon"
+msgstr "Икона Nerd Font"
+
+#: features/sui_quickactions.lua:2078
+msgid "Nerd Font symbol…"
+msgstr "Nerd Font символ…"
+
+#: features/sui_quickactions.lua:236
+msgid "Network manager unavailable."
+msgstr "Мрежовият мениджър не е наличен."
+
+#: screens/sui_menu.lua:2577
+msgid "Never"
+msgstr "Никога"
+
+#: modules/module_new_books.lua:137 engines/sui_book_grid.lua:535
+#: features/library/sui_foldercovers.lua:1263
+#: features/library/sui_foldercovers.lua:1911
+#: features/library/sui_cover_widgets.lua:421
+msgid "New"
+msgstr "Ново"
+
+#: engines/sui_book_grid.lua:2049
+msgid "New Badge Color"
+msgstr "Цвят на значка „нова книга“"
+
+#: screens/sui_menu.lua:3186
+msgid "New Book"
+msgstr "Нова книга"
+
+#: engines/sui_book_grid.lua:2041 engines/sui_book_grid.lua:2054
+msgid "New Book Badge"
+msgstr "Значка „нова книга“"
+
+#: modules/module_new_books.lua:82 modules/module_new_books.lua:83
+msgid "New Books"
+msgstr "Нови книги"
+
+#: features/sui_quickactions.lua:2251
+msgid "New Quick Action"
+msgstr "Ново бързо действие"
+
+#: features/library/sui_group_actions.lua:105
+msgid "New collection name"
+msgstr "Ново име на колекция"
+
+#: screens/sui_bottombar.lua:569
+msgid "Next"
+msgstr "Следваща"
+
+#: features/sui_quickactions.lua:826 infra/sui_config.lua:128
+msgid "Night Mode"
+msgstr "Нощен режим"
+
+#: modules/module_clock.lua:239
+msgid "Nine"
+msgstr "Девет"
+
+#: modules/module_clock.lua:243
+msgid "Nineteen"
+msgstr "Деветнадесет"
+
+#: screens/sui_stats_windows.lua:1226
+msgid "No"
+msgstr "Не"
+
+#: modules/module_quote.lua:1469 modules/module_quote.lua:1518
+msgid "No .lua files found in sui_quotes/"
+msgstr "Няма намерени .lua файлове в sui_quotes/"
+
+#: screens/sui_menu.lua:3785
+msgid ""
+"No .zip files found.\n"
+"Place .zip files in:\n"
+"%1"
+msgstr ""
+"Няма намерени .zip файлове.\n"
+"Поставете .zip файлове в:\n"
+"%1"
+
+#: screens/sui_quicksettings_bar.lua:1204
+#: screens/sui_quicksettings_bar.lua:1224
+msgid "No actions active yet."
+msgstr "Все още няма активни действия."
+
+#: modules/module_action_list.lua:108 modules/module_action_list.lua:135
+#: modules/module_quick_actions.lua:166 features/sui_quickactions.lua:1556
+#: screens/sui_settings_window.lua:615
+msgid "No actions configured"
+msgstr "Няма зададени действия"
+
+#: modules/module_action_list.lua:107 modules/module_action_list.lua:134
+#: modules/module_quick_actions.lua:165
+msgid "No actions configured  —  long press to configure"
+msgstr "Няма конфигурирани действия  —  задръжте за конфигуриране"
+
+#: screens/sui_quicksettings_bar.lua:355
+msgid ""
+"No actions configured.\n"
+"Go to Bars → Quick Settings Bar."
+msgstr ""
+"Няма конфигурирани действия.\n"
+"Отидете в Ленти → Лента за бързи настройки."
+
+#: features/sui_quickactions.lua:706
+msgid "No book in history."
+msgstr "Няма книги в историята."
+
+#: screens/sui_stats_windows.lua:790
+msgid "No books finished in %s"
+msgstr "Няма завършени книги през %s"
+
+#: features/library/sui_foldercovers.lua:651
+msgid "No books found in this folder."
+msgstr "Не са намерени книги в тази папка."
+
+#: features/library/sui_series_grouping.lua:91
+#: features/library/sui_series_grouping.lua:104
+msgid "No books found in this series."
+msgstr "Няма намерени книги в тази поредица."
+
+#: features/library/sui_library_browse.lua:370
+#: features/library/sui_library_browse.lua:392
+#: features/library/sui_group_actions.lua:38
+#: features/library/sui_group_actions.lua:96
+msgid "No books found."
+msgstr "Не са намерени книги."
+
+#: modules/module_tbr.lua:405 modules/module_tbr.lua:430
+#: modules/module_tbr.lua:505
+msgid "No books in To Be Read list."
+msgstr "Няма книги в списъка „За четене“."
+
+#: modules/module_feat_coll.lua:260 modules/module_feat_coll.lua:284
+#: modules/module_feat_coll.lua:353
+msgid "No books in this collection."
+msgstr "Няма книги в тази колекция."
+
+#: engines/sui_screen_engine.lua:420
+msgid "No books opened yet"
+msgstr "Още няма отворени книги"
+
+#: modules/module_feat_coll.lua:410 screens/sui_settings_window.lua:627
+msgid "No collection selected"
+msgstr "Няма избрана колекция"
+
+#: modules/module_feat_coll.lua:409
+msgid "No collection selected  —  long press to configure"
+msgstr "Няма избрана колекция — задръжте за конфигуриране"
+
+#: modules/module_coverdeck.lua:1316
+msgid "No collections found"
+msgstr "Не са намерени колекции"
+
+#: modules/module_collections.lua:1297 modules/module_collections.lua:1466
+#: modules/module_feat_coll.lua:136
+msgid "No collections found."
+msgstr "Не са намерени колекции."
+
+#: modules/module_collections.lua:1551
+msgid "No collections selected"
+msgstr "Няма избрани колекции"
+
+#: modules/module_collections.lua:1550
+msgid "No collections selected  —  long press to configure"
+msgstr "Няма избрани колекции  —  задръжте за конфигуриране"
+
+#: modules/module_quote.lua:929
+msgid "No custom quotes found. Add a .lua file to the plugin's sui_quotes/ folder and select it in Settings."
+msgstr "Няма намерени персонализирани цитати. Добавете .lua файл в папката sui_quotes/ на приставката и го изберете в Настройки."
+
+#: screens/sui_settings_window.lua:400
+msgid "No custom screens yet."
+msgstr "Все още няма персонализирани екрани."
+
+#: infra/sui_updater.lua:508
+msgid ""
+"No download file found.\n"
+"\n"
+"Open the releases page?"
+msgstr ""
+"Не е намерен файл за изтегляне.\n"
+"\n"
+"Отваряне на страницата с версии?"
+
+#: features/sui_presets.lua:353 features/sui_presets.lua:533
+msgid "No export directory"
+msgstr "Няма директория за експортиране"
+
+#: screens/sui_stats_windows.lua:159
+msgid "No filepath."
+msgstr "Няма път до файл."
+
+#: features/sui_quickactions.lua:3068
+msgid ""
+"No folder, collection or plugin configured.\n"
+"Go to Simple UI → Settings → Quick Actions to set one."
+msgstr ""
+"Няма конфигурирана папка, колекция или плъгин.\n"
+"Отидете в Simple UI → Настройки → Бързи действия, за да зададете."
+
+#: features/sui_style.lua:1798
+msgid "No fonts found."
+msgstr "Няма намерени шрифтове."
+
+#: modules/module_quote.lua:1001
+msgid "No highlights found. Open a book and highlight some passages."
+msgstr ""
+"Няма подчертавания.\n"
+"Отворете книга и отбележете нещо."
+
+#: features/sui_quickactions.lua:2091
+msgid "No icons found in:"
+msgstr "Не са намерени икони в:"
+
+#: engines/sui_window.lua:2506 engines/sui_window.lua:3155
+msgid "No items available."
+msgstr "Няма налични елементи."
+
+#: modules/module_collections.lua:1245 modules/module_action_list.lua:483
+#: modules/module_action_list.lua:508 modules/module_reading_stats.lua:725
+#: modules/module_reading_stats.lua:746 modules/module_reading_goals.lua:890
+#: modules/module_reading_goals.lua:897 modules/module_coverdeck.lua:1559
+#: modules/module_coverdeck.lua:1567 modules/module_currently.lua:1554
+#: modules/module_currently.lua:1638 modules/module_currently.lua:1770
+#: modules/module_currently.lua:1813 modules/module_quick_actions.lua:512
+#: modules/module_quick_actions.lua:537 engines/sui_window.lua:3065
+#: screens/sui_menu.lua:885 screens/sui_menu.lua:963 screens/sui_menu.lua:1152
+#: screens/sui_menu.lua:1203 screens/sui_menu.lua:1598
+#: screens/sui_menu.lua:1705 screens/sui_menu.lua:2007
+#: screens/sui_menu.lua:2032
+msgid "No items selected."
+msgstr "Няма избрани елементи."
+
+#: screens/sui_settings_window.lua:534 screens/sui_settings_window.lua:709
+msgid "No modules"
+msgstr "Няма модули"
+
+#: screens/sui_settings_window.lua:695
+msgid "No other pages available."
+msgstr "Няма други налични страници."
+
+#: screens/sui_menu.lua:3821
+msgid "No packs found."
+msgstr "Няма намерени пакети."
+
+#: features/sui_quickactions.lua:2473
+msgid "No plugins found."
+msgstr "Не са намерени плъгини."
+
+#: features/sui_presets.lua:1021 screens/sui_menu.lua:4209
+msgid ""
+"No preset files found.\n"
+"Place .lua files in:\n"
+"%1"
+msgstr ""
+"Не са намерени файлове с настройки.\n"
+"Поставете .lua файлове в:\n"
+"%1"
+
+#: features/sui_presets.lua:998 screens/sui_menu.lua:4185
+msgid "No presets found."
+msgstr "Няма намерени шаблони."
+
+#: modules/module_quote.lua:963
+msgid "No quotes found."
+msgstr "Не са намерени цитати."
+
+#: features/sui_quickactions.lua:3389
+msgid "No recent books."
+msgstr "Няма скорошни книги."
+
+#: screens/sui_stats_windows.lua:168 screens/sui_stats_windows.lua:202
+#: screens/sui_stats_windows.lua:3593
+msgid "No statistics found for this book."
+msgstr "Няма намерена статистика за тази книга."
+
+#: modules/module_coverdeck.lua:1436
+msgid "No statistics selected."
+msgstr "Няма избрани статистики."
+
+#: modules/module_reading_stats.lua:470
+msgid "No stats selected"
+msgstr "Няма избрани статистики"
+
+#: modules/module_reading_stats.lua:469
+msgid "No stats selected  —  long press to configure"
+msgstr "Няма избрани статистики  —  задръжте за конфигуриране"
+
+#: features/sui_quickactions.lua:2499
+msgid "No system actions found."
+msgstr "Не са намерени системни действия."
+
+#: screens/sui_menu.lua:2275
+msgid "No wallpapers found."
+msgstr "Няма намерени тапети."
+
+#: engines/sui_book_grid.lua:1917 engines/sui_book_grid.lua:2035
+#: features/sui_quickactions.lua:2371 screens/sui_menu.lua:3124
+#: screens/sui_menu.lua:3133 screens/sui_menu.lua:3151
+#: screens/sui_menu.lua:3191 screens/sui_menu.lua:3200
+#: screens/sui_menu.lua:3218 features/library/sui_foldercovers.lua:319
+msgid "None"
+msgstr "Без"
+
+#: modules/module_clock.lua:298
+msgid "Noon"
+msgstr "Пладне"
+
+#: modules/module_reading_goals.lua:938 modules/module_reading_goals.lua:953
+#: modules/module_reading_goals.lua:968
+msgid "Not set"
+msgstr "Не е зададено"
+
+#: screens/sui_stats_windows.lua:1220 screens/sui_stats_windows.lua:3914
+msgid "Notes"
+msgstr "Бележки"
+
+#: engines/sui_heatmap_widgets.lua:89
+msgid "Nov"
+msgstr "ное"
+
+#: modules/module_clock.lua:63 screens/sui_stats_windows.lua:2837
+msgid "November"
+msgstr "Ноември"
+
+#: engines/sui_book_grid.lua:1784 engines/sui_book_grid.lua:1785
+msgid "Number of Books"
+msgstr "Брой книги"
+
+#: screens/sui_menu.lua:2937
+msgid "Number of Books in Folder"
+msgstr "Брой книги в папката"
+
+#: screens/sui_menu.lua:3011
+msgid "Number of Pages"
+msgstr "Брой страници"
+
+# Word clock: blank second line so only the hour shows (single space avoids
+# gettext fallback to the English source).
+#: modules/module_clock.lua:316
+msgid "O'Clock"
+msgstr "  "
+
+#: features/sui_quickactions.lua:2020
+msgid "OK"
+msgstr "ОК"
+
+#: engines/sui_heatmap_widgets.lua:89
+msgid "Oct"
+msgstr "окт"
+
+#: modules/module_clock.lua:63 screens/sui_stats_windows.lua:2837
+msgid "October"
+msgstr "Октомври"
+
+#: modules/module_coverdeck.lua:1644 engines/sui_book_grid.lua:2002
+#: engines/sui_book_grid.lua:2028 features/sui_quickactions.lua:1655
+#: features/sui_quickactions.lua:2755 screens/sui_menu.lua:1442
+#: screens/sui_menu.lua:1656 screens/sui_menu.lua:3257
+#: screens/sui_menu.lua:3422 screens/sui_menu.lua:4540
+msgid "Off"
+msgstr "Изкл"
+
+#: modules/module_clock.lua:261
+msgid "Oh"
+msgstr "и"
+
+#: modules/module_coverdeck.lua:1644 engines/sui_book_grid.lua:2002
+#: engines/sui_book_grid.lua:2028 features/sui_quickactions.lua:1654
+#: features/sui_quickactions.lua:2754 screens/sui_menu.lua:1442
+#: screens/sui_menu.lua:1656 screens/sui_menu.lua:4540
+msgid "On"
+msgstr "Вкл"
+
+#: modules/module_clock.lua:237
+msgid "One"
+msgstr "Един(а)"
+
+#: modules/module_quote.lua:1304 engines/sui_screen_engine.lua:770
+#: features/sui_quickactions.lua:3344 screens/sui_stats_windows.lua:774
+msgid "Open"
+msgstr "Отваряне"
+
+#: modules/module_collections.lua:1129
+msgid "Open Module Settings"
+msgstr "Настройки на модула"
+
+#: engines/sui_screen_engine.lua:429
+msgid "Open a book to get started"
+msgstr "Отворете книга, за да започнете"
+
+#: infra/sui_updater.lua:509
+msgid "Open in browser"
+msgstr "Отваряне в браузър"
+
+#: features/library/sui_book_hold_dialog.lua:517
+msgid "Open module settings"
+msgstr "Настройки на модула"
+
+#: modules/module_quote.lua:1303 engines/sui_screen_engine.lua:769
+#: features/sui_quickactions.lua:3343 screens/sui_stats_windows.lua:772
+msgid "Open this file?"
+msgstr "Отваряне на този файл?"
+
+#: features/library/sui_book_hold_dialog.lua:387
+msgid "Open with…"
+msgstr "Отваряне с…"
+
+#: screens/sui_menu.lua:2657
+msgid "Overflow Warning"
+msgstr "Предупреждение за препълване"
+
+#: screens/sui_menu.lua:2901
+msgid "Overlays"
+msgstr "Слоеве"
+
+#: features/sui_presets.lua:820 features/sui_presets.lua:850
+#: features/sui_presets.lua:982 screens/sui_menu.lua:4011
+#: screens/sui_menu.lua:4040 screens/sui_menu.lua:4169
+msgid "Overwrite"
+msgstr "Презаписване"
+
+#: features/sui_presets.lua:849 features/sui_presets.lua:981
+msgid "Overwrite preset \"%s\" with the current homescreen settings?"
+msgstr "Презаписване на настройката „%s\" с текущите настройки на началния екран?"
+
+#: screens/sui_menu.lua:4039 screens/sui_menu.lua:4168
+msgid "Overwrite preset \"%s\" with the current icon settings?"
+msgstr "Презаписване на настройката „%s\" с текущите настройки за икони?"
+
+#: screens/sui_menu.lua:3837
+msgid ""
+"Pack \"%s\" applied.\n"
+"%d icons replaced."
+msgstr ""
+"Пакетът „%s\" е приложен.\n"
+"%d икони са заменени."
+
+#: screens/sui_menu.lua:3798
+msgid ""
+"Pack \"%s\" installed.\n"
+"You can now apply it from the list."
+msgstr ""
+"Пакетът „%s\" е инсталиран.\n"
+"Можете да го приложите от списъка."
+
+#: features/sui_style.lua:2414
+msgid "Pack folder not accessible: "
+msgstr "Папката с пакети не е достъпна: "
+
+#: engines/sui_screen_engine.lua:1999 engines/sui_window.lua:1406
+#: infra/sui_patches.lua:2232 infra/sui_patches.lua:2805
+msgid "Page %1 of %2"
+msgstr "Страница %1 от %2"
+
+#: screens/sui_settings_window.lua:508 screens/sui_settings_window.lua:671
+#: screens/sui_settings_window.lua:1042
+msgid "Page %d"
+msgstr "Страница %d"
+
+#: screens/sui_settings_window.lua:507 screens/sui_settings_window.lua:670
+#: screens/sui_settings_window.lua:1041
+msgid "Page 1 (Home)"
+msgstr "Страница 1 (Начало)"
+
+#: screens/sui_stats_windows.lua:956 screens/sui_stats_windows.lua:3679
+msgid "Pages"
+msgstr "Страници"
+
+#: engines/sui_book_grid.lua:1984 engines/sui_book_grid.lua:2000
+msgid "Pages Badge"
+msgstr "Значка за страници"
+
+#: engines/sui_book_grid.lua:1995
+msgid "Pages Badge Color"
+msgstr "Цвят на значката за страници"
+
+#: screens/sui_stats_windows.lua:2421
+msgid "Pages per day"
+msgstr "Страници на ден"
+
+#: screens/sui_stats_windows.lua:2438 screens/sui_stats_windows.lua:2454
+msgid "Pages read"
+msgstr "Прочетени страници"
+
+#: features/sui_style.lua:1384 screens/sui_menu.lua:2763
+msgid "Pagination Bar"
+msgstr "Лента за страници"
+
+#: screens/sui_menu.lua:492
+msgid ""
+"Pagination bar hidden.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Лентата за страници е скрита.\n"
+"\n"
+"Рестарт сега?"
+
+#: screens/sui_menu.lua:471
+msgid ""
+"Pagination bar set to Default.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Лентата за страници е зададена по подразбиране.\n"
+"\n"
+"Рестарт сега?"
+
+#: screens/sui_menu.lua:578 screens/sui_menu.lua:590 screens/sui_menu.lua:602
+msgid ""
+"Pagination bar size will change after restart.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Размерът на лентата за страници ще се промени след рестарт.\n"
+"\n"
+"Рестарт сега?"
+
+#: features/sui_style.lua:149
+msgid "Pagination: First Page"
+msgstr "Страниране: Първа страница"
+
+#: features/sui_style.lua:155
+msgid "Pagination: Last Page"
+msgstr "Страниране: Последна страница"
+
+#: features/sui_style.lua:143
+msgid "Pagination: Next Page"
+msgstr "Страниране: Следваща страница"
+
+#: features/sui_style.lua:137
+msgid "Pagination: Previous Page"
+msgstr "Страниране: Предишна страница"
+
+#: features/sui_quickactions.lua:2427
+msgid "Path chooser not available."
+msgstr "Изборът на път не е наличен."
+
+#: features/sui_style.lua:2403
+msgid "Path does not exist: "
+msgstr "Пътят не съществува: "
+
+#: modules/module_coverdeck.lua:174 modules/module_currently.lua:285
+#: modules/module_currently.lua:1513
+msgid "Percentage read"
+msgstr "Процент прочетено"
+
+#: modules/module_reading_goals.lua:407
+msgid "Physical Books — %s"
+msgstr "Хартиени книги — %s"
+
+#: modules/module_reading_goals.lua:408
+msgid "Physical books read this year:"
+msgstr "Хартиени книги за годината:"
+
+#: modules/module_quote.lua:1494 modules/module_quote.lua:1543
+msgid "Place .lua files in the plugin's sui_quotes/ folder"
+msgstr "Поставете .lua файлове в папката sui_quotes/ на плъгина"
+
+#: screens/sui_menu.lua:3822
+msgid "Place a folder or .zip in:"
+msgstr "Поставете папка или .zip в:"
+
+#: screens/sui_menu.lua:2277
+msgid "Place images in:"
+msgstr "Поставете изображения в:"
+
+#: screens/sui_onboarding.lua:173
+msgid "Place your files in koreader/settings/simpleui/sui_wallpapers or sui_icons."
+msgstr "Поставете файловете си в koreader/settings/simpleui/sui_wallpapers или sui_icons."
+
+#: screens/sui_menu.lua:3520
+msgid "Placeholder Cover for Bookless Folders"
+msgstr "Заместваща корица за папки без книги"
+
+#: screens/sui_stats_windows.lua:669
+msgid "Please enter a date in YYYY-MM-DD format."
+msgstr "Моля, въведете дата във формат ГГГГ-ММ-ДД."
+
+#: features/sui_presets.lua:794 screens/sui_menu.lua:3990
+msgid "Please enter a name for the preset."
+msgstr "Въведете име за предварителната настройка."
+
+#: features/sui_quickactions.lua:2398
+msgid "Please select an action."
+msgstr "Моля, изберете действие."
+
+#: features/sui_quickactions.lua:2492 features/sui_quickactions.lua:2611
+msgid "Plugin"
+msgstr "Плъгин"
+
+#: features/sui_quickactions.lua:3014
+msgid "Plugin error: %s"
+msgstr "Грешка в плъгина: %s"
+
+#: features/sui_quickactions.lua:3016
+msgid "Plugin not available: %s"
+msgstr "Плъгинът не е наличен: %s"
+
+#: screens/sui_menu.lua:2705
+msgid "PocketBook Home Button Opens Home Screen"
+msgstr "Бутонът Home на PocketBook отваря началния екран"
+
+#: screens/sui_menu.lua:2944 screens/sui_menu.lua:3348
+msgid "Position"
+msgstr "Позиция"
+
+#: features/sui_quickactions.lua:856 infra/sui_config.lua:130
+msgid "Power"
+msgstr "Захранване"
+
+#: screens/sui_menu.lua:2631
+msgid "Preserve Cover Proportions"
+msgstr "Запазване на пропорциите на корицата"
+
+#: screens/sui_menu.lua:2682
+msgid "Preserve Deleted Books in Statistics"
+msgstr "Запазване на изтритите книги в статистиката"
+
+#: features/sui_presets.lua:1035 screens/sui_menu.lua:4221
+msgid "Preset \"%s\" imported."
+msgstr "Настройката „%s\" е импортирана."
+
+# ── Presets ────────────────────────────────────────────────────────────────
+#: features/sui_presets.lua:676 features/sui_presets.lua:754
+#: screens/sui_menu.lua:3950
+msgid "Preset \"%s\" not found."
+msgstr "Предварителната настройка „%s\" не е намерена."
+
+#: features/sui_presets.lua:811 screens/sui_menu.lua:4000
+msgid "Preset \"%s\" saved."
+msgstr "Настройката „%s\" е запазена."
+
+#: features/sui_presets.lua:856 features/sui_presets.lua:988
+#: screens/sui_menu.lua:4046 screens/sui_menu.lua:4175
+msgid "Preset \"%s\" updated."
+msgstr "Настройката „%s\" е обновена."
+
+#: features/sui_presets.lua:1068 screens/sui_menu.lua:4257
+msgid ""
+"Preset exported to:\n"
+"%s"
+msgstr ""
+"Настройката е експортирана в:\n"
+"%s"
+
+#: features/sui_presets.lua:779 screens/sui_menu.lua:3975
+msgid "Preset name"
+msgstr "Име на настройката"
+
+#: features/sui_presets.lua:355 features/sui_presets.lua:535
+msgid "Preset not found"
+msgstr "Настройката не е намерена"
+
+#: screens/sui_menu.lua:2735 screens/sui_settings_window.lua:367
+msgid "Presets"
+msgstr "Предварителни настройки"
+
+#: screens/sui_settings_window.lua:852
+msgid "Presets module unavailable."
+msgstr "Модулът за шаблони не е наличен."
+
+#: screens/sui_onboarding.lua:161
+msgid "Press and hold any element on the screen (like modules or bars) to quickly customize its settings."
+msgstr "Натиснете и задръжте който и да е елемент на екрана (като модули или ленти), за да персонализирате бързо настройките му."
+
+#: screens/sui_bottombar.lua:569
+msgid "Prev"
+msgstr "Предишна"
+
+#: screens/sui_menu.lua:3119
+msgid "Progress"
+msgstr "Прогрес"
+
+#: modules/module_coverdeck.lua:1620 modules/module_coverdeck.lua:1642
+msgid "Progress Badge"
+msgstr "Значка за прогрес"
+
+#: modules/module_coverdeck.lua:1629 engines/sui_book_grid.lua:1943
+msgid "Progress Badge Color"
+msgstr "Цвят на значката за прогрес"
+
+#: screens/sui_menu.lua:4345
+msgid "Progress Bar Type"
+msgstr "Тип на лентата за прогрес"
+
+#: engines/sui_book_grid.lua:1948
+msgid "Progress Indicator"
+msgstr "Индикатор за прогрес"
+
+#: engines/sui_book_grid.lua:1935
+msgid "Progress Style"
+msgstr "Стил на лентата за прогрес"
+
+#: engines/sui_book_grid.lua:2068
+msgid "Progress and Badges"
+msgstr "Прогрес и значки"
+
+#: modules/module_currently.lua:1865
+msgid "Progress and Stats"
+msgstr "Прогрес и статистика"
+
+#: modules/module_coverdeck.lua:188 modules/module_currently.lua:284
+msgid "Progress bar"
+msgstr "Лента на прогреса"
+
+#: modules/module_currently.lua:1868
+msgid "Progress bar style"
+msgstr "Стил на лентата за прогрес"
+
+#: modules/module_action_list.lua:475 modules/module_action_list.lua:480
+#: modules/module_action_list.lua:506 modules/module_quick_actions.lua:504
+#: modules/module_quick_actions.lua:509 modules/module_quick_actions.lua:535
+#: modules/module_quick_actions.lua:652 features/sui_quickactions.lua:1461
+#: features/sui_quickactions.lua:3287 screens/sui_menu.lua:2180
+#: screens/sui_menu.lua:4595 screens/sui_quicksettings_bar.lua:1196
+#: screens/sui_quicksettings_bar.lua:1201
+#: screens/sui_quicksettings_bar.lua:1222 screens/sui_settings_window.lua:310
+msgid "Quick Actions"
+msgstr "Бързи действия"
+
+#: screens/sui_menu.lua:4599
+msgid "Quick Actions  (%d/%d — %d left)"
+msgstr "Бързи действия  (%d/%d — остават %d)"
+
+#: screens/sui_menu.lua:4597
+msgid "Quick Actions  (%d/%d — at limit)"
+msgstr "Бързи действия  (%d/%d — лимит)"
+
+#: features/sui_quickactions.lua:1443 features/sui_quickactions.lua:1858
+#: screens/sui_menu.lua:3676
+msgid "Quick Actions Icons"
+msgstr "Икони на бързи действия"
+
+#: modules/module_quick_actions.lua:352 modules/module_quick_actions.lua:408
+#: modules/module_quick_actions.lua:806 screens/sui_menu.lua:1932
+msgid "Quick Actions Row"
+msgstr "Ред с бързи действия"
+
+#: screens/sui_menu.lua:2765 screens/sui_quicksettings_bar.lua:1049
+msgid "Quick Settings Bar"
+msgstr "Лента за бързи настройки"
+
+#: screens/sui_onboarding.lua:235 screens/sui_onboarding.lua:236
+msgid "Quick Tips"
+msgstr "Бързи съвети"
+
+#: engines/sui_window.lua:2266
+msgid "Quick toggles"
+msgstr "Бързи превключватели"
+
+#: features/sui_quickactions.lua:539
+msgid "Quit"
+msgstr "Изход"
+
+#: modules/module_quote.lua:1118 features/sui_presets.lua:150
+msgid "Quote of the Day"
+msgstr "Цитат на деня"
+
+#: modules/module_quote.lua:1434
+msgid "Quotes + My Highlights"
+msgstr "Цитати + Подчертавания"
+
+#: infra/sui_config.lua:172
+msgid "RAM Usage"
+msgstr "Използване на RAM"
+
+#: modules/module_library.lua:218 features/sui_quickactions.lua:712
+#: infra/sui_config.lua:123
+msgid "Random"
+msgstr "Случайно"
+
+#: modules/module_reading_goals.lua:525 modules/module_reading_goals.lua:526
+#: modules/module_reading_goals.lua:552 modules/module_reading_goals.lua:1057
+#: features/sui_presets.lua:165
+msgid "Reading Goals"
+msgstr "Цели за четене"
+
+#: modules/module_heatmap.lua:193 modules/module_heatmap.lua:194
+#: modules/module_heatmap.lua:213 modules/module_heatmap.lua:340
+#: screens/sui_heatmap_popup.lua:193
+msgid "Reading Heatmap"
+msgstr "Топлинна карта на четенето"
+
+#: screens/sui_stats_windows.lua:2757
+msgid "Reading Insights"
+msgstr "Анализ на четенето"
+
+#: modules/module_reading_stats.lua:361 features/sui_presets.lua:165
+msgid "Reading Stats"
+msgstr "Статистика за четене"
+
+#: modules/module_reading_stats.lua:919 modules/module_reading_stats.lua:933
+msgid "Real streak only"
+msgstr "Само истинска серия"
+
+#: features/sui_quickactions.lua:527
+msgid "Reboot"
+msgstr "Рестартиране"
+
+#: features/sui_quickactions.lua:685 features/sui_quickactions.lua:3450
+#: infra/sui_config.lua:121
+msgid "Recent"
+msgstr "Скорошни"
+
+#: modules/module_recent.lua:15 modules/module_recent.lua:16
+#: modules/module_coverdeck.lua:1342 features/sui_presets.lua:138
+#: features/sui_presets.lua:183
+msgid "Recent Books"
+msgstr "Скорошни книги"
+
+#: modules/module_tbr.lua:592
+msgid "Remove from To Be Read"
+msgstr "Премахване от „За четене“"
+
+#: modules/module_tbr.lua:529
+msgid "Remove from list when finished"
+msgstr "Премахване от списъка след завършване"
+
+#: engines/sui_window.lua:1923 engines/sui_window.lua:2844
+#: features/sui_presets.lua:862 features/sui_presets.lua:869
+#: features/sui_presets.lua:955 screens/sui_menu.lua:4052
+#: screens/sui_menu.lua:4059 screens/sui_menu.lua:4144
+msgid "Rename"
+msgstr "Преименуване"
+
+#: features/sui_presets.lua:865 features/sui_presets.lua:951
+#: screens/sui_menu.lua:4055 screens/sui_menu.lua:4140
+msgid "Rename \"%s\""
+msgstr "Преименуване на „%s\""
+
+#: screens/sui_settings_window.lua:437
+msgid "Rename screen"
+msgstr "Преименуване на екрана"
+
+#: screens/sui_menu.lua:2608
+msgid "Replaces the \"Closing book…\" notice above with the cover for that close, when a cover is available."
+msgstr "Заменя известието „Затваряне на книга…“ по-горе с корицата при това затваряне, когато е налична корица."
+
+#: screens/sui_menu.lua:478
+msgid ""
+"Replaces the pagination bar with Prev/Next arrows at the edges of the navigation bar.\n"
+"The arrows dim when there is no previous or next page.\n"
+"With navpager active, as few as 1 tab and at most 4 tabs can be configured."
+msgstr ""
+"Заменя лентата за страници със стрелки Предишна/Следваща в краищата на навигационната лента.\n"
+"Стрелките избледняват, когато няма предишна или следваща страница.\n"
+"При активен навигатор могат да се настроят от 1 до 4 раздела."
+
+#: features/sui_quickactions.lua:1866 features/sui_style.lua:1400
+#: screens/sui_menu.lua:2523 screens/sui_stats_windows.lua:653
+msgid "Reset"
+msgstr "Нулиране"
+
+#: features/sui_quickactions.lua:1860 features/sui_style.lua:1394
+msgid "Reset All"
+msgstr "Нулиране на всички"
+
+#: features/sui_quickactions.lua:2677
+msgid "Reset All Quick Action Icons"
+msgstr "Нулиране на всички икони за бързи действия"
+
+#: features/sui_style.lua:1147
+msgid "Reset All System Icons"
+msgstr "Нулиране на всички системни икони"
+
+#: features/sui_style.lua:2203
+msgid "Reset All Theme Colors"
+msgstr "Нулиране на всички цветове на темата"
+
+#: features/sui_quickactions.lua:1865
+msgid "Reset all Quick Actions icons to default?"
+msgstr "Нулиране на всички икони за бързи действия по подразбиране?"
+
+#: screens/sui_menu.lua:2522
+msgid "Reset all scales to default (100%)? This cannot be undone."
+msgstr ""
+"Нулиране на мащабите (100%)?\n"
+"Това е необратимо."
+
+#: features/sui_style.lua:1399
+msgid "Reset all system icons to default?"
+msgstr "Нулиране на всички системни икони по подразбиране?"
+
+#: screens/sui_menu.lua:2517
+msgid "Reset to Default Scale"
+msgstr "Нулиране към мащаб по подразбиране"
+
+#: engines/sui_window.lua:2202 features/sui_quickactions.lua:511
+#: infra/sui_updater.lua:458 screens/sui_menu.lua:450 screens/sui_menu.lua:857
+#: screens/sui_menu.lua:1064 screens/sui_menu.lua:1126
+#: screens/sui_menu.lua:1344 screens/sui_menu.lua:1800
+#: screens/sui_menu.lua:3436 screens/sui_menu.lua:3459
+#: screens/sui_menu.lua:3481 screens/sui_menu.lua:4333
+#: screens/sui_menu.lua:4558 screens/sui_quicksettings_bar.lua:1186
+msgid "Restart"
+msgstr "Рестарт"
+
+#: features/sui_style.lua:1790 features/sui_style.lua:1834
+msgid "Restart to fully apply the UI font change."
+msgstr "Рестартирайте за пълно прилагане на промяната на шрифта."
+
+#: screens/sui_menu.lua:2537
+msgid "Return to Book Folder"
+msgstr "Връщане към папката на книгата"
+
+#: screens/sui_menu.lua:2423
+msgid "Return to Home Screen on Wakeup"
+msgstr "Връщане към началния екран при събуждане"
+
+#: engines/sui_book_grid.lua:2037 screens/sui_menu.lua:3190
+#: screens/sui_menu.lua:3199 screens/sui_menu.lua:3211
+msgid "Ribbon"
+msgstr "Панделка"
+
+#: modules/module_quote.lua:127 modules/module_quote.lua:1575
+#: modules/module_action_list.lua:74 modules/module_action_list.lua:613
+#: modules/module_reading_stats.lua:94 modules/module_reading_stats.lua:885
+#: modules/module_clock.lua:145 modules/module_clock.lua:1048
+#: modules/module_quick_actions.lua:782 screens/sui_menu.lua:722
+#: screens/sui_menu.lua:955 screens/sui_menu.lua:1493 screens/sui_menu.lua:1695
+msgid "Right"
+msgstr "Дясно"
+
+#: modules/module_quick_actions.lua:691 screens/sui_quicksettings_bar.lua:1318
+msgid "Round"
+msgstr "Кръгъл"
+
+#: engines/sui_book_grid.lua:1921
+msgid "Round Overlay"
+msgstr "Кръгло покритие"
+
+#: modules/module_quick_actions.lua:701 screens/sui_quicksettings_bar.lua:1328
+msgid "Rounded Square"
+msgstr "Заоблен квадрат"
+
+#: engines/sui_book_grid.lua:1821
+msgid "Rows"
+msgstr "Редове"
+
+#: screens/sui_stats_windows.lua:2825
+msgid "Sat"
+msgstr "Събота"
+
+#: modules/module_clock.lua:58
+msgid "Saturday"
+msgstr "Събота"
+
+#: modules/module_reading_goals.lua:383 features/sui_quickactions.lua:2395
+#: features/sui_presets.lua:787 screens/sui_menu.lua:3983
+#: screens/sui_stats_windows.lua:662 screens/sui_settings_window.lua:447
+msgid "Save"
+msgstr "Запазване"
+
+#: features/sui_presets.lua:772 screens/sui_menu.lua:3968
+msgid "Save as new preset"
+msgstr "Запазване като нов шаблон"
+
+#: screens/sui_menu.lua:3973
+msgid "Save icon preset"
+msgstr "Запазване на настройка за икони"
+
+#: features/sui_presets.lua:777
+msgid "Save preset"
+msgstr "Запазване на настройката"
+
+#: modules/module_heatmap.lua:295 modules/module_heatmap.lua:297
+#: modules/module_quote.lua:1354 modules/module_quote.lua:1358
+#: modules/module_action_list.lua:568 modules/module_action_list.lua:570
+#: modules/module_reading_stats.lua:660 modules/module_reading_stats.lua:662
+#: modules/module_reading_goals.lua:799 modules/module_reading_goals.lua:801
+#: modules/module_clock.lua:950 modules/module_clock.lua:952
+#: modules/module_coverdeck.lua:1251 modules/module_coverdeck.lua:1253
+#: modules/module_currently.lua:1323 modules/module_currently.lua:1325
+#: modules/module_quick_actions.lua:658 modules/module_quick_actions.lua:660
+#: engines/sui_book_grid.lua:1749 engines/sui_book_grid.lua:1751
+#: screens/sui_menu.lua:2435
+msgid "Scale"
+msgstr "Мащаб"
+
+#: modules/module_currently.lua:1352
+msgid ""
+"Scale for all text elements (title, author, progress, time).\n"
+"100% is the default size."
+msgstr ""
+"Мащаб за всички текстови елементи (заглавие, автор, прогрес, време).\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_quick_actions.lua:675
+msgid ""
+"Scale for the button label text.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб за текста на етикетите на бутоните.\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_collections.lua:1453
+msgid "Scale for the collection count badge."
+msgstr ""
+"Мащаб на значката с броя книги в колекцията.\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_currently.lua:1339
+msgid ""
+"Scale for the cover thumbnail only.\n"
+"100% is the default size.\n"
+"When Dynamic Cover Size is on, this scales the cover relative to its current dynamic size instead, and the cover never shrinks below its 100% size."
+msgstr ""
+"Мащаб само за миниатюрата на корицата.\n"
+"100% е размерът по подразбиране.\n"
+"Когато „Динамичен размер на корицата“ е включено, мащабът се прилага спрямо текущия динамичен размер, а корицата никога не се смалява под 100% от размера си."
+
+#: modules/module_coverdeck.lua:1262
+msgid ""
+"Scale for the cover thumbnails only.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб само за миниатюрите на кориците.\n"
+"100% е размерът по подразбиране."
+
+#: engines/sui_book_grid.lua:1769
+msgid ""
+"Scale for the cover thumbnails only.\n"
+"Text and progress bar follow the module scale.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб само за миниатюрите на кориците.\n"
+"Текстът и лентата за прогрес следват мащаба на модула.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_menu.lua:3409
+msgid ""
+"Scale for the folder name overlay text.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб за текста на наслоения надпис с името на папката.\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_action_list.lua:579 screens/sui_quicksettings_bar.lua:1297
+msgid ""
+"Scale for the label text.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб за текста на етикета.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_menu.lua:2918
+msgid ""
+"Scale for the library badges (progress, pages, etc.).\n"
+"100% is the default size."
+msgstr ""
+"Мащаб на значките в библиотеката (прогрес, страници и др.).\n"
+"100% е размерът по подразбиране."
+
+#: engines/sui_book_grid.lua:1760
+msgid ""
+"Scale for the percentage read text.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб за текста на процента прочетено.\n"
+"100% е размерът по подразбиране."
+
+#: engines/sui_book_grid.lua:1972
+msgid "Scale for this module's corner badges (progress, pages, series, new book)."
+msgstr ""
+"Мащаб на ъгловите значки на модула (прогрес, страници, поредица, нова книга).\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_coverdeck.lua:1254
+msgid "Scale for this module."
+msgstr "Мащаб за този модул."
+
+#: modules/module_quote.lua:1360 modules/module_action_list.lua:571
+#: modules/module_reading_stats.lua:663 modules/module_reading_goals.lua:802
+#: modules/module_clock.lua:953 modules/module_currently.lua:1326
+#: modules/module_quick_actions.lua:661 engines/sui_book_grid.lua:1752
+msgid ""
+"Scale for this module.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб за този модул.\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_heatmap.lua:298
+msgid ""
+"Scale for this module.\n"
+"100% is the default size. Capped at 100% here: the grid always has as many columns as \"Weeks shown\" (or, in Time of day view, 24), so there's no room to grow the cells past their autofit size without the grid overflowing the card."
+msgstr ""
+"Мащаб за този модул.\n"
+"100% е размерът по подразбиране. Тук е ограничен до 100%: решетката винаги има толкова колони, колкото е зададено в „Показани седмици“ (или 24 в изглед „Час от деня“), затова клетките нямат място да растат над автоматичния си размер, без решетката да прелее извън картата."
+
+#: modules/module_coverdeck.lua:1270
+msgid ""
+"Scale for title and statistics text.\n"
+"100% is the default size."
+msgstr ""
+"Мащаб за текста на заглавието и статистиките.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_menu.lua:2459
+msgid ""
+"Scales all modules and labels together.\n"
+"100% is the default size."
+msgstr ""
+"Мащабира всички модули и етикети заедно.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_menu.lua:2497
+msgid ""
+"Scales the section label text above each module.\n"
+"100% is the default size."
+msgstr ""
+"Мащабира текста на етикета на раздела над всеки модул.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_menu.lua:3533
+msgid "Scan Subfolders for Covers"
+msgstr "Сканиране на подпапки за корици"
+
+#: screens/sui_settings_window.lua:439 screens/sui_settings_window.lua:1110
+msgid "Screen name"
+msgstr "Име на екрана"
+
+#: screens/sui_titlebar.lua:104
+msgid "Search"
+msgstr "Търсене"
+
+#: features/sui_style.lua:94
+msgid "Search Button"
+msgstr "Бутон Търсене"
+
+#: features/sui_style.lua:2097
+msgid "Secondary / Dim Text"
+msgstr "Вторичен / Затъмнен текст"
+
+#: engines/sui_window.lua:1912 engines/sui_window.lua:2829
+msgid "Select"
+msgstr "Избор"
+
+#: features/sui_presets.lua:685 features/sui_presets.lua:693
+#: features/sui_presets.lua:698 screens/sui_menu.lua:3959
+msgid "Select Preset"
+msgstr "Избор на шаблон"
+
+#: screens/sui_menu.lua:2255
+msgid "Select Wallpaper"
+msgstr "Избор на тапет"
+
+#: modules/module_collections.lua:1218
+msgid "Select at least 2 collections to arrange."
+msgstr "Изберете поне 2 колекции за подреждане."
+
+#: engines/sui_heatmap_widgets.lua:89
+msgid "Sep"
+msgstr "сеп"
+
+#: features/sui_style.lua:2098
+msgid "Separator Line"
+msgstr "Разделителна линия"
+
+#: features/sui_style.lua:2062
+msgid "Sepia Classic"
+msgstr "Класическо сепия"
+
+#: modules/module_clock.lua:63 screens/sui_stats_windows.lua:2837
+msgid "September"
+msgstr "Септември"
+
+#: modules/module_currently.lua:282 features/sui_quickactions.lua:897
+#: infra/sui_config.lua:134 features/library/sui_library_browse.lua:59
+msgid "Series"
+msgstr "Поредици"
+
+#: engines/sui_book_grid.lua:2010 engines/sui_book_grid.lua:2026
+msgid "Series Badge"
+msgstr "Значка за поредица"
+
+#: engines/sui_book_grid.lua:2021
+msgid "Series Badge Color"
+msgstr "Цвят на значката за поредица"
+
+#: screens/sui_menu.lua:3065
+msgid "Series Index"
+msgstr "Индекс на поредицата"
+
+#: screens/sui_menu.lua:661 screens/sui_menu.lua:922
+msgid "Set"
+msgstr "Задаване"
+
+#: modules/module_reading_goals.lua:944 modules/module_reading_goals.lua:959
+#: modules/module_reading_goals.lua:974
+msgid "Set Goal"
+msgstr "Задаване на цел"
+
+#: modules/module_collections.lua:1121
+msgid "Set collection cover"
+msgstr "Задаване на корица за колекция"
+
+#: features/library/sui_foldercovers.lua:684
+#: features/library/sui_library_browse.lua:811
+#: features/library/sui_series_grouping.lua:357
+msgid "Set folder cover"
+msgstr "Задаване на корица за папка"
+
+#: screens/sui_onboarding.lua:168
+msgid "Set your reading goal"
+msgstr "Задайте целта си за четене"
+
+#: features/sui_quickactions.lua:866 infra/sui_config.lua:131
+msgid "Settings"
+msgstr "Настройки"
+
+#: screens/sui_settings_window.lua:258 screens/sui_settings_window.lua:263
+msgid "Settings not found."
+msgstr "Настройките не са намерени."
+
+#: screens/sui_menu.lua:1095 screens/sui_menu.lua:1393
+#: screens/sui_menu.lua:2669 screens/sui_quicksettings_bar.lua:1388
+msgid "Settings on Long Tap"
+msgstr "Настройки при дълго докосване"
+
+#: modules/module_clock.lua:239
+msgid "Seven"
+msgstr "Седем"
+
+#: modules/module_clock.lua:242
+msgid "Seventeen"
+msgstr "Седемнадесет"
+
+#: modules/module_clock.lua:987
+msgid "Show Battery"
+msgstr "Показване на батерията"
+
+#: modules/module_clock.lua:975
+msgid "Show Clock"
+msgstr "Показване на часовника"
+
+#: modules/module_clock.lua:981
+msgid "Show Date"
+msgstr "Показване на датата"
+
+#: modules/module_action_list.lua:588
+msgid "Show Icon"
+msgstr "Показване на икона"
+
+#: screens/sui_menu.lua:609
+msgid "Show Page Count in Title Bar"
+msgstr "Показване на броя страници в заглавната лента"
+
+#: screens/sui_menu.lua:2550
+msgid "Show a brief \"Closing book…\" notice when closing a book, preventing accidental double-taps while e-ink refreshes."
+msgstr "Показва кратко известие „Затваряне на книга…“ при затваряне на книга, предотвратявайки случайни двойни докосвания, докато e-ink се опреснява."
+
+#: screens/sui_menu.lua:2646
+msgid "Show a brief \"Loading statistics…\" notice when opening a statistics window, preventing accidental double-taps while e-ink refreshes."
+msgstr "Показва кратко известие „Зареждане на статистиката…“ при отваряне на прозорец със статистика, предотвратявайки случайни двойни докосвания, докато e-ink се опреснява."
+
+#: modules/module_library.lua:345 modules/module_recent.lua:50
+#: modules/module_coverdeck.lua:1650
+msgid "Show finished books"
+msgstr "Показване на завършените книги"
+
+#: modules/module_heatmap.lua:342
+msgid "Show legend"
+msgstr "Показване на легендата"
+
+#: screens/sui_menu.lua:2607
+msgid "Show on Close"
+msgstr "Показване при затваряне"
+
+#: screens/sui_menu.lua:2596
+msgid "Show on Open"
+msgstr "Показване при отваряне"
+
+#: infra/sui_config.lua:1195
+msgid "Show section label"
+msgstr "Показване етикет на раздела"
+
+#: screens/sui_menu.lua:2322
+msgid "Show wallpaper on all screens"
+msgstr "Показване на тапет на всички екрани"
+
+#: screens/sui_menu.lua:614
+msgid ""
+"Shows \"Page X of Y\" in the title bar subtitle when browsing the library, history or collections.\n"
+"Navpager enables this automatically.\n"
+"Not available when Navpager is active."
+msgstr ""
+"Показва „Страница X от Y\" в подзаглавието при разглеждане на библиотека, история или колекции.\n"
+"Навигаторът активира това автоматично.\n"
+"Не е налично при активен Навигатор."
+
+#: screens/sui_menu.lua:510
+msgid ""
+"Shows a row of dots at the bottom of the homescreen.\n"
+"The active page dot is filled; the others are dimmed.\n"
+"Always active when Navpager is selected."
+msgstr ""
+"Показва ред с точки в долната част на началния екран.\n"
+"Точката на активната страница е запълнена; останалите са затъмнени.\n"
+"Винаги активно при избран Навигатор."
+
+#: modules/module_feat_coll.lua:173 modules/module_tbr.lua:311
+msgid "Shuffle"
+msgstr "Разбъркване"
+
+#: modules/module_library.lua:273
+msgid "Shuffle now"
+msgstr "Разбъркай сега"
+
+#: modules/module_currently.lua:1870
+msgid "Simple"
+msgstr "Семпъл"
+
+#: main.lua:2535 main.lua:2548 _meta.lua:5 screens/sui_menu.lua:4532
+#: screens/sui_menu.lua:4540 screens/sui_menu.lua:4629
+msgid "Simple UI"
+msgstr "Simple UI"
+
+#: infra/sui_updater.lua:455
+msgid ""
+"Simple UI %s installed.\n"
+"\n"
+"Restart KOReader to apply the update?"
+msgstr ""
+"Simple UI %s е инсталиран.\n"
+"\n"
+"Рестартирайте KOReader, за да приложите актуализацията?"
+
+#: infra/sui_updater.lua:502
+msgid ""
+"Simple UI %s is available!\n"
+"You have %s."
+msgstr ""
+"Налична е версия Simple UI %s!\n"
+"Имате %s."
+
+#: screens/sui_settings_window.lua:1019
+msgid "Simple UI Settings"
+msgstr "Настройки на Simple UI"
+
+#: screens/sui_onboarding.lua:133
+msgid "Simple UI is designed to be simple and flexible. Here are a few tips to get the most out of it."
+msgstr "Simple UI е създаден да бъде прост и гъвкав. Ето няколко съвета, за да извлечете максимума от него."
+
+#: infra/sui_updater.lua:496
+msgid "Simple UI is up to date (%s)."
+msgstr "Simple UI е актуален (%s)."
+
+#: screens/sui_menu.lua:4557
+msgid ""
+"Simple UI will be %s after restart.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Simple UI ще бъде %s след рестарт.\n"
+"\n"
+"Рестарт сега?"
+
+#: main.lua:892
+msgid "Simple UI: Go to Homescreen"
+msgstr "Simple UI: Към началния екран"
+
+#: main.lua:898
+msgid "Simple UI: Go to Library"
+msgstr "Simple UI: Към библиотеката"
+
+#: main.lua:922
+msgid "Simple UI: Navigation Bar"
+msgstr "Simple UI: Навигационна лента"
+
+#: main.lua:916
+msgid "Simple UI: Recent"
+msgstr "Simple UI: Скорошни"
+
+#: main.lua:910
+msgid "Simple UI: Settings"
+msgstr "Simple UI: Настройки"
+
+#: main.lua:904
+msgid "Simple UI: Toggle Homescreen / Library"
+msgstr "Simple UI: Превключване Начален екран / Библиотека"
+
+#: modules/module_collections.lua:1364 screens/sui_menu.lua:2865
+msgid "Single Cover"
+msgstr "Единична корица"
+
+#: modules/module_clock.lua:238
+msgid "Six"
+msgstr "Шест"
+
+#: modules/module_clock.lua:242
+msgid "Sixteen"
+msgstr "Шестнадесет"
+
+#: modules/module_action_list.lua:565 modules/module_coverdeck.lua:1603
+#: modules/module_currently.lua:1829 modules/module_quick_actions.lua:673
+#: modules/module_quick_actions.lua:674 engines/sui_book_grid.lua:1833
+#: engines/sui_window.lua:2287 engines/sui_window.lua:2294
+#: screens/sui_menu.lua:1036 screens/sui_menu.lua:2909
+#: screens/sui_quicksettings_bar.lua:1295
+#: screens/sui_quicksettings_bar.lua:1296
+msgid "Size"
+msgstr "Размер"
+
+#: screens/sui_menu.lua:1358
+msgid ""
+"Size of the tab icons.\n"
+"100% is the default size."
+msgstr ""
+"Размер на иконите на разделите.\n"
+"100% е размерът по подразбиране."
+
+#: screens/sui_menu.lua:1368
+msgid ""
+"Size of the tab label text.\n"
+"100% is the default size."
+msgstr ""
+"Размер на текста на етикетите на разделите.\n"
+"100% е размерът по подразбиране."
+
+#: modules/module_reading_stats.lua:806
+msgid ""
+"Size of the text inside the stat cards.\n"
+"Does not affect card size or padding.\n"
+"100% is the default size."
+msgstr ""
+"Размер на текста вътре в картите со статистики.\n"
+"Не влияе на размера на картата или отстоянието.\n"
+"100% е размерът по подразбиране."
+
+#: features/sui_quickactions.lua:533
+msgid "Sleep"
+msgstr "Сън"
+
+#: screens/sui_menu.lua:582
+msgid "Small"
+msgstr "Малък"
+
+#: modules/module_quick_actions.lua:737 screens/sui_menu.lua:3306
+#: screens/sui_menu.lua:3310 screens/sui_quicksettings_bar.lua:1365
+msgid "Solid"
+msgstr "Плътен"
+
+#: modules/module_reading_goals.lua:1068 modules/module_currently.lua:1853
+#: engines/sui_book_grid.lua:1857
+msgid "Solid Background"
+msgstr "Плътен фон"
+
+#: modules/module_library.lua:239 modules/module_collections.lua:1338
+#: modules/module_feat_coll.lua:177 modules/module_tbr.lua:321
+msgid "Sort"
+msgstr "Сортиране"
+
+#: modules/module_quote.lua:1386 modules/module_coverdeck.lua:1352
+msgid "Source"
+msgstr "Източник"
+
+#: screens/sui_menu.lua:1378
+msgid ""
+"Space below the bottom navigation bar.\n"
+"100% is the default spacing."
+msgstr ""
+"Отстояние под долната навигационна лента.\n"
+"100% е разстоянието по подразбиране."
+
+#: modules/module_spacer.lua:56 modules/module_spacer.lua:109
+msgid "Spacer"
+msgstr "Разделител"
+
+#: modules/module_spacer.lua:87 modules/module_spacer.lua:88
+msgid "Spacer Size"
+msgstr "Размер на разделителя"
+
+#: modules/module_clock.lua:1057
+msgid "Spacing"
+msgstr "Разредка"
+
+#: screens/sui_onboarding.lua:271
+msgid "Start using Simple UI"
+msgstr "Започнете да използвате Simple UI"
+
+#: infra/sui_patches.lua:1137 infra/sui_patches.lua:1139
+msgid "Start with"
+msgstr "Стартиране с"
+
+#: screens/sui_menu.lua:2412
+msgid "Start with Home Screen"
+msgstr "Стартиране с началния екран"
+
+#: screens/sui_onboarding.lua:62
+msgid "Start with a ready-made layout. You can change everything later."
+msgstr "Започнете с готово оформление. Можете да промените всичко по-късно."
+
+#: modules/module_coverdeck.lua:189 modules/module_coverdeck.lua:1434
+#: modules/module_coverdeck.lua:1465 modules/module_coverdeck.lua:1532
+msgid "Statistics"
+msgstr "Статистики"
+
+#: screens/sui_menu.lua:2645
+msgid "Statistics Loading Notice"
+msgstr "Известие при зареждане на статистика"
+
+#: screens/sui_stats_windows.lua:163
+msgid "Statistics database library not available."
+msgstr "Библиотеката за базата с данни на статистиката не е налична."
+
+#: features/sui_quickactions.lua:850
+msgid "Statistics plugin not available."
+msgstr "Плъгинът за статистики не е наличен."
+
+#: modules/module_currently.lua:1548 modules/module_currently.lua:1630
+#: modules/module_currently.lua:1691 features/sui_quickactions.lua:835
+#: infra/sui_config.lua:129
+msgid "Stats"
+msgstr "Статистики"
+
+#: modules/module_currently.lua:1877
+msgid "Stats layout"
+msgstr "Оформление на статистиките"
+
+#: modules/module_reading_stats.lua:975 modules/module_reading_goals.lua:1109
+#: modules/module_coverdeck.lua:1688 modules/module_currently.lua:1926
+msgid "Stats updated successfully."
+msgstr "Статистиката е актуализирана успешно."
+
+#: screens/sui_menu.lua:2760
+msgid "Status Bar"
+msgstr "Статус лента"
+
+#: screens/sui_menu.lua:1043
+msgid "Status Bar Size"
+msgstr "Размер на статус лентата"
+
+#: screens/sui_menu.lua:856
+msgid ""
+"Status Bar will be %s after restart.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Статус лентата ще бъде %s след рестартиране.\n"
+"\n"
+"Да се рестартира ли сега?"
+
+#: features/sui_style.lua:2093
+msgid "Status Bar — Background"
+msgstr "Статус лента — Фон"
+
+#: features/sui_style.lua:2096
+msgid "Status Bar — Text"
+msgstr "Статус лента — Текст"
+
+#: modules/module_reading_stats.lua:129
+msgid "Status — Abandoned"
+msgstr "Статус — Изоставена"
+
+#: modules/module_reading_stats.lua:128
+msgid "Status — Reading"
+msgstr "Статус — Четене"
+
+#: modules/module_reading_stats.lua:127
+msgid "Status — Unread"
+msgstr "Статус — Непрочетена"
+
+#: screens/sui_settings_window.lua:290
+msgid "Status, title, navigation and pagination"
+msgstr "Статус, заглавие, навигация и странициране"
+
+#: modules/module_reading_stats.lua:121 screens/sui_stats_windows.lua:3520
+msgid "Streak"
+msgstr "Серия"
+
+#: modules/module_reading_stats.lua:915
+msgid "Streak Mode"
+msgstr "Режим на серия"
+
+#: screens/sui_menu.lua:2340
+msgid "Stretch to fill screen"
+msgstr "Разтягане до края на екрана"
+
+#: modules/module_reading_stats.lua:816 screens/sui_menu.lua:4586
+#: screens/sui_settings_window.lua:303 screens/sui_settings_window.lua:1024
+msgid "Style"
+msgstr "Стил"
+
+#: screens/sui_menu.lua:1815 screens/sui_menu.lua:1818
+msgid "Sub-page Buttons"
+msgstr "Бутони за подстраници"
+
+#: screens/sui_stats_windows.lua:2825
+msgid "Sun"
+msgstr "Неделя"
+
+#: modules/module_clock.lua:57
+msgid "Sunday"
+msgstr "Неделя"
+
+#: screens/sui_menu.lua:1076
+msgid "Swipe Indicator"
+msgstr "Индикатор за плъзгане"
+
+#: features/sui_quickactions.lua:1826 features/sui_quickactions.lua:1829
+#: features/sui_quickactions.lua:2517 features/sui_quickactions.lua:2613
+msgid "System Actions"
+msgstr "Системни действия"
+
+#: features/sui_style.lua:1392 screens/sui_menu.lua:3645
+#: screens/sui_menu.lua:3653
+msgid "System Icons"
+msgstr "Системни икони"
+
+#: features/sui_quickactions.lua:2987
+msgid "System action error: %s"
+msgstr "Грешка в системното действие: %s"
+
+#: screens/sui_stats_windows.lua:2745
+msgid "THIS MONTH"
+msgstr "ТОЗИ МЕСЕЦ"
+
+#: screens/sui_stats_windows.lua:2744
+msgid "THIS WEEK"
+msgstr "ТАЗИ СЕДМИЦА"
+
+#: screens/sui_heatmap_popup.lua:164
+msgid "TIME OF DAY"
+msgstr "ЧАС ОТ ДЕНЯ"
+
+#: screens/sui_stats_windows.lua:2740
+msgid "TODAY'S SUMMARY"
+msgstr "ОБОБЩЕНИЕ ЗА ДНЕС"
+
+#: features/sui_style.lua:1387
+msgid "Tab Bar"
+msgstr "Лента с раздели"
+
+#: screens/sui_menu.lua:1270
+msgid "Tab Style"
+msgstr "Стил на разделите"
+
+#: features/sui_style.lua:1343
+msgid "Tab bar icons must be PNG or SVG."
+msgstr "Иконите на лентата с раздели трябва да са PNG или SVG."
+
+#: engines/sui_window.lua:2251
+msgid "Tab order"
+msgstr "Ред на разделите"
+
+#: features/sui_style.lua:270
+msgid "Tab: Back to File Browser"
+msgstr "Раздел: обратно към файловия браузър"
+
+#: features/sui_style.lua:249
+msgid "Tab: File Browser Settings"
+msgstr "Раздел: настройки на файловия браузър"
+
+#: features/sui_style.lua:221
+msgid "Tab: Menu"
+msgstr "Раздел: меню"
+
+#: features/sui_style.lua:256
+msgid "Tab: Reader Navigation"
+msgstr "Раздел: навигация в четеца"
+
+#: features/sui_style.lua:263
+msgid "Tab: Reader Typeset"
+msgstr "Раздел: оформление на четеца"
+
+#: features/sui_style.lua:242
+msgid "Tab: Search"
+msgstr "Раздел: търсене"
+
+#: features/sui_style.lua:228
+msgid "Tab: Settings"
+msgstr "Раздел: настройки"
+
+#: features/sui_style.lua:277
+msgid "Tab: SimpleUI Quick Settings"
+msgstr "Раздел: бързи настройки на Simple UI"
+
+#: features/sui_style.lua:235
+msgid "Tab: Tools"
+msgstr "Раздел: инструменти"
+
+#: screens/sui_menu.lua:1149 screens/sui_menu.lua:1201
+msgid "Tabs"
+msgstr "Раздели"
+
+#: screens/sui_menu.lua:1143
+msgid "Tabs  (%d/%d — %d left)"
+msgstr "Раздели  (%d/%d — остават %d)"
+
+#: screens/sui_menu.lua:1141
+msgid "Tabs  (%d/%d — at limit)"
+msgstr "Раздели  (%d/%d — лимит)"
+
+#: features/sui_quickactions.lua:915 infra/sui_config.lua:136
+#: features/library/sui_library_browse.lua:60
+msgid "Tags"
+msgstr "Тагове"
+
+#: screens/sui_settings_window.lua:401
+msgid "Tap \"Create Screen\" below to add one."
+msgstr "Докоснете „Създаване на екран“ по-долу, за да добавите такъв."
+
+#: modules/module_clock.lua:240
+msgid "Ten"
+msgstr "Десет"
+
+#: engines/sui_book_grid.lua:1919 screens/sui_menu.lua:209
+msgid "Text"
+msgstr "Текст"
+
+#: modules/module_action_list.lua:577 modules/module_action_list.lua:578
+#: modules/module_reading_stats.lua:802 modules/module_reading_stats.lua:805
+#: modules/module_currently.lua:1350 modules/module_currently.lua:1351
+#: engines/sui_book_grid.lua:1758 engines/sui_book_grid.lua:1759
+#: screens/sui_menu.lua:3406
+msgid "Text Size"
+msgstr "Размер на текста"
+
+#: modules/module_reading_stats.lua:803
+msgid "Text Size — %d%%"
+msgstr "Размер на текста — %d%%"
+
+#: screens/sui_menu.lua:211
+msgid "Text only"
+msgstr "Само текст"
+
+#: modules/module_coverdeck.lua:1268 modules/module_coverdeck.lua:1269
+msgid "Text size"
+msgstr "Размер на текста"
+
+#: screens/sui_quicksettings_bar.lua:1183
+msgid ""
+"The Quick Settings Bar will be %s after restart.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Лентата за бързи настройки ще бъде %s след рестартиране.\n"
+"\n"
+"Да се рестартира ли сега?"
+
+#: screens/sui_menu.lua:2620
+msgid "The cover shown right as a book opens normally comes from the library's cached thumbnail, which can look soft on higher-resolution screens. When on, SimpleUI instead reads the cover straight from the book file for that moment (also covers books never opened before, which otherwise show no cover at all) — at the cost of a brief extra pause while opening, since the file has to be read twice. Cover on close is unaffected either way: it already reads the full-quality cover from the open book."
+msgstr "Корицата, показвана веднага при отваряне на книга, обикновено идва от кешираната миниатюра на библиотеката, която може да изглежда размита на екрани с по-висока резолюция. Когато е включено, SimpleUI вместо това чете корицата directно от файла на книгата в този момент (обхваща и книги, които никога не са отваряни, които иначе изобщо не показват корица) — за сметка на кратка допълнителна пауза при отваряне, тъй като файлът трябва да бъде прочетен два пъти. Корицата при затваряне не се засяга в никакъв случай: тя вече чете пълноценна по качество корица от отворената книга."
+
+#: main.lua:1399 screens/sui_bottombar.lua:1870
+msgid "The navigation bar is already available on this screen."
+msgstr "Навигационната лента вече е налична на този екран."
+
+#: infra/sui_patches.lua:1283
+msgid "The «To Be Read» collection cannot be renamed."
+msgstr "Колекцията „За четене“ не може да бъде преименувана."
+
+#: screens/sui_menu.lua:4386
+msgid "Theme Colors"
+msgstr "Цветове на темата"
+
+#: modules/module_clock.lua:241
+msgid "Thirteen"
+msgstr "Тринадесет"
+
+#: modules/module_clock.lua:246
+msgid "Thirty"
+msgstr "Тридесет"
+
+#: modules/module_tbr.lua:604
+msgid ""
+"This book is marked as Finished, so it can't be added to To Be Read.\n"
+"Change its status to Reading or On Hold first."
+msgstr ""
+"Тази книга е отбелязана като „Завършена“, затова не може да бъде добавена към „За четене“.\n"
+"Първо променете статуса ѝ на „Четене“ или „Отложена“."
+
+#: features/sui_quickactions.lua:3185 features/sui_quickactions.lua:3271
+msgid ""
+"This group is empty.\n"
+"Add actions to it from Settings → Quick Actions."
+msgstr ""
+"Тази група е празна.\n"
+"Добавете действия към нея от Настройки → Бързи действия."
+
+#: modules/module_reading_stats.lua:118
+msgid "This month — Pages"
+msgstr "Този месец — страници"
+
+#: modules/module_reading_stats.lua:117
+msgid "This month — Time"
+msgstr "Този месец — време"
+
+#: features/sui_presets.lua:801 features/sui_presets.lua:874
+#: features/sui_presets.lua:960
+msgid "This name is reserved by a built-in preset."
+msgstr "Това име е запазено от вграден шаблон."
+
+#: modules/module_reading_stats.lua:114
+msgid "This week — Pages"
+msgstr "Тази седмица — страници"
+
+#: modules/module_reading_stats.lua:113
+msgid "This week — Time"
+msgstr "Тази седмица — време"
+
+#: screens/sui_menu.lua:4452
+msgid ""
+"This will delete all Simple UI settings and restart KOReader.\n"
+"Are you sure?"
+msgstr ""
+"Това ще изтрие всички настройки на Simple UI и ще рестартира KOReader.\n"
+"Сигурни ли сте?"
+
+#: modules/module_clock.lua:237
+msgid "Three"
+msgstr "Три"
+
+#: screens/sui_stats_windows.lua:2825
+msgid "Thu"
+msgstr "Четвъртък"
+
+#: modules/module_clock.lua:58
+msgid "Thursday"
+msgstr "Четвъртък"
+
+#: modules/module_heatmap.lua:208 modules/module_heatmap.lua:329
+msgid "Time of day"
+msgstr "Час от деня"
+
+#: modules/module_coverdeck.lua:176 modules/module_currently.lua:287
+msgid "Time read"
+msgstr "Време на четене"
+
+#: modules/module_coverdeck.lua:177 modules/module_currently.lua:288
+msgid "Time remaining"
+msgstr "Оставащо време"
+
+#: modules/module_coverdeck.lua:186 modules/module_currently.lua:280
+#: screens/sui_titlebar.lua:106
+msgid "Title"
+msgstr "Заглавие"
+
+#: modules/module_library.lua:211 modules/module_feat_coll.lua:168
+#: modules/module_tbr.lua:306
+msgid "Title (A–Z)"
+msgstr "Заглавие (А-Я)"
+
+#: modules/module_library.lua:212 modules/module_feat_coll.lua:169
+#: modules/module_tbr.lua:307
+msgid "Title (Z–A)"
+msgstr "Заглавие (Я-А)"
+
+#: features/sui_style.lua:1382 screens/sui_menu.lua:2762
+msgid "Title Bar"
+msgstr "Заглавна лента"
+
+#: screens/sui_menu.lua:1797
+msgid ""
+"Title Bar will be %s after restart.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Заглавната лента ще бъде %s след рестартиране.\n"
+"\n"
+"Да се рестартира ли сега?"
+
+#: screens/sui_menu.lua:3468
+msgid "Title and Author"
+msgstr "Заглавие и автор"
+
+#: screens/sui_menu.lua:3419
+msgid "Title and Author Below Covers"
+msgstr "Заглавие и автор под кориците"
+
+#: screens/sui_menu.lua:3480
+msgid ""
+"Title and author strip enabled.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Лентата за заглавие и автор е активирана.\n"
+"\n"
+"Рестарт сега?"
+
+#: screens/sui_menu.lua:3446
+msgid "Title only"
+msgstr "Само заглавие"
+
+#: screens/sui_menu.lua:3435
+msgid ""
+"Title strip disabled.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Лентата за заглавие е изключена.\n"
+"\n"
+"Рестарт сега?"
+
+#: screens/sui_menu.lua:3458
+msgid ""
+"Title strip enabled.\n"
+"\n"
+"Restart now?"
+msgstr ""
+"Лентата за заглавие е активирана.\n"
+"\n"
+"Рестарт сега?"
+
+#: modules/module_tbr.lua:563 modules/module_tbr.lua:625
+#: modules/module_tbr.lua:626 modules/module_coverdeck.lua:1344
+msgid "To Be Read"
+msgstr "За четене"
+
+#: modules/module_tbr.lua:401
+msgid "To Be Read Books"
+msgstr "Книги за четене"
+
+#: modules/module_reading_goals.lua:636 modules/module_reading_goals.lua:638
+#: modules/module_reading_goals.lua:692 modules/module_reading_goals.lua:695
+msgid "Today"
+msgstr "Днес"
+
+#: modules/module_reading_stats.lua:112
+msgid "Today — Pages"
+msgstr "Днес — Страници"
+
+#: modules/module_reading_stats.lua:111
+msgid "Today — Time"
+msgstr "Днес — Време"
+
+#: engines/sui_window.lua:2847
+msgid "Toggle"
+msgstr "Превключване"
+
+#: modules/module_collections.lua:1418 screens/sui_menu.lua:2940
+#: screens/sui_menu.lua:2947 screens/sui_menu.lua:2951
+#: screens/sui_menu.lua:3351 screens/sui_menu.lua:3358
+msgid "Top"
+msgstr "Горе"
+
+#: screens/sui_topbar.lua:515
+msgid "Top Bar"
+msgstr "Горна лента"
+
+#: engines/sui_screen_engine.lua:2144
+msgid "Top Margin"
+msgstr "Горно поле"
+
+#: screens/sui_stats_windows.lua:952 screens/sui_stats_windows.lua:3675
+msgid "Total"
+msgstr "Общо"
+
+#: screens/sui_stats_windows.lua:2436 screens/sui_stats_windows.lua:2452
+msgid "Total time"
+msgstr "Общо време"
+
+#: modules/module_quick_actions.lua:727 screens/sui_menu.lua:3306
+#: screens/sui_menu.lua:3323 screens/sui_quicksettings_bar.lua:1355
+msgid "Transparent"
+msgstr "Прозрачно"
+
+#: screens/sui_menu.lua:2302
+msgid "Transparent navigation bar"
+msgstr "Прозрачна навигационна лента"
+
+#: screens/sui_menu.lua:2284
+msgid "Transparent status bar"
+msgstr "Прозрачна статус лента"
+
+#: screens/sui_stats_windows.lua:2825
+msgid "Tue"
+msgstr "Вторник"
+
+#: modules/module_clock.lua:57
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: modules/module_clock.lua:240
+msgid "Twelve"
+msgstr "Дванадесет"
+
+#: modules/module_clock.lua:246
+msgid "Twenty"
+msgstr "Двадесет"
+
+#: modules/module_clock.lua:237
+msgid "Two"
+msgstr "Два(е)"
+
+#: modules/module_heatmap.lua:326 screens/sui_menu.lua:3128
+#: screens/sui_menu.lua:3195
+msgid "Type"
+msgstr "Тип"
+
+#: screens/sui_menu.lua:4282 screens/sui_menu.lua:4285
+msgid "UI Font"
+msgstr "Шрифт на интерфейса"
+
+#: screens/sui_menu.lua:4289
+msgid "UI Font  (default)"
+msgstr "Шрифт на интерфейса  (по подразбиране)"
+
+#: screens/sui_menu.lua:4291
+msgid "UI Font  [%s]"
+msgstr "Шрифт на интерфейса  [%s]"
+
+#: screens/sui_menu.lua:3495
+msgid "Uniformize Covers (2:3)"
+msgstr "Уеднаквяване на кориците (2:3)"
+
+#: modules/module_coverdeck.lua:123
+msgid "Unknown Author"
+msgstr "Неизвестен автор"
+
+#: screens/sui_stats_windows.lua:867
+msgid "Unknown error."
+msgstr "Неизвестна грешка."
+
+#: features/sui_style.lua:2412
+msgid "Unsupported format (use a folder or a .zip file)"
+msgstr "Неподдържан формат (използвайте папка или .zip файл)"
+
+#: features/sui_quickactions.lua:93 features/sui_quickactions.lua:1770
+#: features/sui_style.lua:1128 features/sui_style.lua:1336
+msgid ""
+"Unsupported icon format.\n"
+"Please use a PNG or SVG file."
+msgstr ""
+"Неподдържан формат на икона.\n"
+"Моля, използвайте PNG или SVG файл."
+
+#: engines/sui_window.lua:1920 engines/sui_window.lua:2841
+msgid "Update"
+msgstr "Актуализиране"
+
+#: modules/module_reading_stats.lua:946 modules/module_reading_goals.lua:1079
+#: modules/module_coverdeck.lua:1659 modules/module_currently.lua:1896
+msgid "Update Stats Now"
+msgstr "Актуализиране на статистиката сега"
+
+#: infra/sui_updater.lua:475
+msgid "Update cancelled."
+msgstr "Актуализацията е отменена."
+
+#: infra/sui_updater.lua:676
+msgid "Update check cancelled."
+msgstr "Проверката за актуализации е отменена."
+
+#: features/sui_presets.lua:847 screens/sui_menu.lua:4037
+msgid "Update with current settings"
+msgstr "Актуализиране с текущите настройки"
+
+#: screens/sui_menu.lua:4437
+msgid "Updater module not found."
+msgstr "Модулът за актуализиране не е намерен."
+
+#: screens/sui_stats_windows.lua:3129
+msgid "Use freeze"
+msgstr "Използване на замразяване"
+
+#: features/sui_quickactions.lua:1989
+msgid "Use this Nerd Font icon?"
+msgstr "Използване на тази Nerd Font икона?"
+
+#: screens/sui_menu.lua:532
+msgid ""
+"Uses the standard KOReader pagination bar on the homescreen.\n"
+"Not available when Navpager is active."
+msgstr ""
+"Използва стандартната лента за страници на KOReader на началния екран.\n"
+"Не е налично при активен Навигатор."
+
+#: screens/sui_settings_window.lua:325
+msgid "Version, author and updates"
+msgstr "Версия, автор и актуализации"
+
+#: screens/sui_menu.lua:4409
+msgid "Version: %s"
+msgstr "Версия: %s"
+
+#: engines/sui_screen_engine.lua:2147
+msgid ""
+"Vertical space above this module.\n"
+"100% is the default spacing."
+msgstr ""
+"Вертикално разстояние над този модул.\n"
+"100% е разстоянието по подразбиране."
+
+#: modules/module_clock.lua:1069
+msgid ""
+"Vertical space between the clock and the date.\n"
+"100% is the default spacing."
+msgstr ""
+"Вертикално разстояние между часовника и датата.\n"
+"100% е разстоянието по подразбиране."
+
+#: modules/module_clock.lua:1095
+msgid ""
+"Vertical space between the date (or clock) and the battery.\n"
+"100% is the default spacing."
+msgstr ""
+"Вертикално разстояние между датата (или часовника) и батерията.\n"
+"100% е разстоянието по подразбиране."
+
+#: modules/module_clock.lua:972 screens/sui_menu.lua:3017
+#: screens/sui_menu.lua:3071 screens/sui_menu.lua:3303
+msgid "Visibility"
+msgstr "Видимост"
+
+#: screens/sui_menu.lua:3013 screens/sui_menu.lua:3019
+#: screens/sui_menu.lua:3023 screens/sui_menu.lua:3067
+#: screens/sui_menu.lua:3073 screens/sui_menu.lua:3077
+msgid "Visible"
+msgstr "Видимо"
+
+#: screens/sui_stats_windows.lua:2742 screens/sui_stats_windows.lua:3390
+msgid "WEEK STREAK"
+msgstr "ПОРЕДНИ СЕДМИЦИ"
+
+#: modules/module_clock.lua:250
+msgid "WORD_CLOCK_TENS_SEP"
+msgstr " и"
+
+#: screens/sui_menu.lua:2731 screens/sui_settings_window.lua:355
+#: screens/sui_settings_window.lua:361
+msgid "Wallpaper"
+msgstr "Тапет"
+
+#: features/sui_style.lua:2020
+msgid "Warm Paper"
+msgstr "Топла хартия"
+
+#: screens/sui_quicksettings_bar.lua:500 screens/sui_quicksettings_bar.lua:521
+#: screens/sui_quicksettings_bar.lua:532
+msgid "Warmth"
+msgstr "Топлина"
+
+#: screens/sui_quicksettings_bar.lua:1281
+msgid "Warmth Slider"
+msgstr "Плъзгач за топлина"
+
+#: screens/sui_menu.lua:2658
+msgid "Warn when modules on a page exceed the available screen height."
+msgstr "Предупреждаване, когато модулите на дадена страница надхвърлят наличната височина на екрана."
+
+#: engines/sui_heatmap_widgets.lua:96 screens/sui_stats_windows.lua:2825
+msgid "Wed"
+msgstr "Сряда"
+
+#: modules/module_clock.lua:57
+msgid "Wednesday"
+msgstr "Сряда"
+
+#: modules/module_heatmap.lua:277 modules/module_heatmap.lua:281
+msgid "Weeks shown"
+msgstr "Показани седмици"
+
+#: screens/sui_onboarding.lua:233 screens/sui_onboarding.lua:234
+msgid "Welcome to Simple UI"
+msgstr "Добре дошли в Simple UI"
+
+#: infra/sui_updater.lua:503
+msgid "What's new:"
+msgstr "Какво ново:"
+
+#: screens/sui_menu.lua:2683
+msgid ""
+"When a finished book is deleted from the device, keep it counted in the Books Read statistics on the Home Screen.\n"
+"\n"
+"Books changed back to Reading or Abandoned are automatically removed from this list."
+msgstr ""
+"Когато завършена книга бъде изтрита от устройството, тя да остане отчетена в статистиката „Прочетени книги“ на началния екран.\n"
+"\n"
+"Книги, върнати към „Чета“ или „Изоставена“, се премахват автоматично от този списък."
+
+#: screens/sui_menu.lua:2538
+msgid "When closing a book from the Home Screen, go back to the folder where the book is located instead of the Library home folder."
+msgstr "При затваряне на книга от началния екран да се връща в папката, в която се намира книгата, вместо в началната папка на библиотеката."
+
+#: screens/sui_menu.lua:2670
+msgid ""
+"When enabled, long-pressing a module on the home screen opens its settings menu.\n"
+"Disable this to prevent settings from appearing on long tap."
+msgstr ""
+"Когато е включено, задържането на модул на началния екран отваря менюто му с настройки.\n"
+"Изключете това, за да не се появяват настройки при задържане."
+
+#: screens/sui_quicksettings_bar.lua:1389
+msgid ""
+"When enabled, long-pressing the Quick Settings Bar opens its settings menu.\n"
+"Disable this to prevent the settings menu from appearing on long tap."
+msgstr ""
+"Когато е включено, задържането на лентата за бързи настройки отваря менюто ѝ с настройки.\n"
+"Изключете това, за да не се появява менюто с настройки при задържане."
+
+#: screens/sui_menu.lua:1394
+msgid ""
+"When enabled, long-pressing the navigation bar opens its settings menu.\n"
+"Disable this to prevent the settings menu from appearing on long tap."
+msgstr ""
+"Когато е активирано, дългото натискане на навигационната лента отваря менюто с настройки.\n"
+"Изключете, за да предотвратите появата на менюто при дълго докосване."
+
+#: screens/sui_menu.lua:1096
+msgid ""
+"When enabled, long-pressing the top bar opens its settings menu.\n"
+"Disable this to prevent the settings menu from appearing on long tap."
+msgstr ""
+"Когато е активирано, дългото натискане на горната лента отваря менюто с настройки.\n"
+"Изключете, за да предотвратите появата на менюто при дълго докосване."
+
+#: screens/sui_menu.lua:2424
+msgid "When waking the device from sleep/suspend, always return to the Home Screen — even if a book was open when it went to sleep."
+msgstr "При събуждане на устройството от сън/готовност, винаги се връщай към началния екран — дори ако при заспиването е била отворена книга."
+
+#: features/sui_quickactions.lua:801 infra/sui_config.lua:126
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: features/sui_quickactions.lua:244
+msgid "Wi-Fi off"
+msgstr "Wi-Fi изкл"
+
+#: infra/sui_config.lua:168
+msgid "WiFi"
+msgstr "WiFi"
+
+#: features/sui_quickactions.lua:231
+msgid "WiFi not available on this device."
+msgstr "WiFi не е налично на това устройство."
+
+#: features/sui_quickactions.lua:2133
+msgid "Wikipedia Lookup"
+msgstr "Търсене в Wikipedia"
+
+#: modules/module_currently.lua:1872
+msgid "With percentage"
+msgstr "С процент"
+
+#: modules/module_clock.lua:1000 modules/module_clock.lua:1013
+msgid "Word"
+msgstr "Текстов"
+
+#: screens/sui_stats_windows.lua:1226
+msgid "Yes"
+msgstr "Да"
+
+#: screens/sui_stats_windows.lua:3118
+msgid "Yesterday is already covered by a freeze."
+msgstr "Вчерашният ден вече е покрит от замразяване."
+
+#: screens/sui_stats_windows.lua:3116
+msgid "You already read yesterday — there's nothing to freeze."
+msgstr "Вече сте чели вчера — няма какво да се замразява."
+
+#: screens/sui_stats_windows.lua:3109
+msgid "You don't have any freezes available yet."
+msgstr "Все още нямате налични замразявания."
+
+#: screens/sui_stats_windows.lua:3127
+msgid ""
+"You have %d freeze(s) available.\n"
+"Use one to cover %s?"
+msgstr ""
+"Разполагате с %d налични замразявания.\n"
+"Да се използва ли едно, за да покрие %s?"
+
+#: modules/module_quote.lua:1003
+msgid "Your highlights"
+msgstr "Вашите акценти"
+
+#: modules/module_reading_stats.lua:129
+msgid "abandoned"
+msgstr "изоставена"
+
+#: screens/sui_stats_windows.lua:416 screens/sui_stats_windows.lua:1433
+msgid "apr"
+msgstr "апр"
+
+#: screens/sui_stats_windows.lua:1437
+msgid "april"
+msgstr "април"
+
+#: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
+msgid "aug"
+msgstr "авг"
+
+#: screens/sui_stats_windows.lua:1438
+msgid "august"
+msgstr "август"
+
+#: modules/module_reading_stats.lua:120 screens/sui_stats_windows.lua:2310
+msgid "books finished"
+msgstr "завършени книги"
+
+#: modules/module_reading_stats.lua:115
+msgid "daily avg (7 days)"
+msgstr "ср. дневно (7 дни)"
+
+#: modules/module_reading_stats.lua:122
+msgid "day streak"
+msgstr "поредни дни"
+
+#: modules/module_reading_stats.lua:122
+msgid "days streak"
+msgstr "поредни дни"
+
+#: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
+msgid "dec"
+msgstr "дек"
+
+#: screens/sui_stats_windows.lua:1438
+msgid "december"
+msgstr "декември"
+
+#: features/sui_quickactions.lua:1762 features/sui_quickactions.lua:2794
+msgid "default"
+msgstr "по подразбиране"
+
+#: screens/sui_menu.lua:856 screens/sui_menu.lua:1125 screens/sui_menu.lua:1798
+#: screens/sui_menu.lua:4557 screens/sui_quicksettings_bar.lua:1184
+msgid "disabled"
+msgstr "изключено"
+
+#: features/sui_style.lua:2115
+msgid "e.g. #F5F0E8  or #1C1C1E  (empty = reset)"
+msgstr "напр. #F5F0E8  или #1C1C1E  (празно = нулиране)"
+
+#: screens/sui_menu.lua:856 screens/sui_menu.lua:1125 screens/sui_menu.lua:1798
+#: screens/sui_menu.lua:4557 screens/sui_quicksettings_bar.lua:1184
+msgid "enabled"
+msgstr "включено"
+
+#: screens/sui_stats_windows.lua:416 screens/sui_stats_windows.lua:1433
+msgid "feb"
+msgstr "фев"
+
+#: screens/sui_stats_windows.lua:1437
+msgid "february"
+msgstr "февруари"
+
+#: features/sui_style.lua:2358
+msgid "ffi/archiver not available in this KOReader version"
+msgstr "ffi/archiver не е наличен в тази версия на KOReader"
+
+#: features/sui_quickactions.lua:2009
+msgid "hex code, e.g. E001"
+msgstr "hex код, напр. E001"
+
+#: screens/sui_stats_windows.lua:1969 screens/sui_stats_windows.lua:2308
+msgid "hours read"
+msgstr "часове четене"
+
+#: modules/module_reading_stats.lua:128
+msgid "in progress"
+msgstr "в процес"
+
+#: screens/sui_stats_windows.lua:416 screens/sui_stats_windows.lua:1433
+msgid "jan"
+msgstr "яну"
+
+#: screens/sui_stats_windows.lua:1437
+msgid "january"
+msgstr "януари"
+
+#: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
+msgid "jul"
+msgstr "юли"
+
+#: screens/sui_stats_windows.lua:1438
+msgid "july"
+msgstr "юли"
+
+#: screens/sui_stats_windows.lua:416 screens/sui_stats_windows.lua:1433
+msgid "jun"
+msgstr "юни"
+
+#: screens/sui_stats_windows.lua:1437
+msgid "june"
+msgstr "юни"
+
+#: infra/sui_updater.lua:690
+msgid "latest"
+msgstr "последна"
+
+#: screens/sui_stats_windows.lua:416 screens/sui_stats_windows.lua:1433
+msgid "mar"
+msgstr "мар"
+
+#: screens/sui_stats_windows.lua:1437
+msgid "march"
+msgstr "март"
+
+#: screens/sui_stats_windows.lua:416 screens/sui_stats_windows.lua:1433
+#: screens/sui_stats_windows.lua:1437
+msgid "may"
+msgstr "май"
+
+#: modules/module_reading_stats.lua:122
+msgid "no streak"
+msgstr "няма поредни дни"
+
+#: features/sui_quickactions.lua:1499 features/sui_quickactions.lua:2895
+#: features/sui_quickactions.lua:2914
+msgid "not configured"
+msgstr "не е зададено"
+
+#: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
+msgid "nov"
+msgstr "ное"
+
+#: screens/sui_stats_windows.lua:1438
+msgid "november"
+msgstr "ноември"
+
+#: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
+msgid "oct"
+msgstr "окт"
+
+#: screens/sui_stats_windows.lua:1438
+msgid "october"
+msgstr "октомври"
+
+#: modules/module_reading_stats.lua:117
+msgid "of reading this month"
+msgstr "четене този месец"
+
+#: modules/module_reading_stats.lua:113
+msgid "of reading this week"
+msgstr "четене тази седмица"
+
+#: modules/module_reading_stats.lua:111
+msgid "of reading today"
+msgstr "четене днес"
+
+#: modules/module_reading_stats.lua:119
+msgid "of reading, all time"
+msgstr "четене, общо"
+
+#: features/sui_style.lua:2401
+msgid "pack_path not provided"
+msgstr "pack_path не е предоставен"
+
+#: screens/sui_stats_windows.lua:2309 screens/sui_stats_windows.lua:2631
+msgid "pages read"
+msgstr "прочетени страници"
+
+#: modules/module_reading_stats.lua:118
+msgid "pages read this month"
+msgstr "страници, прочетени този месец"
+
+#: modules/module_reading_stats.lua:114
+msgid "pages read this week"
+msgstr "страници, прочетени тази седмица"
+
+#: modules/module_reading_stats.lua:112
+msgid "pages read today"
+msgstr "страници днес"
+
+#: modules/module_reading_stats.lua:116
+msgid "pages/day (7 days)"
+msgstr "стр./ден (7 дни)"
+
+#: screens/sui_stats_windows.lua:2629
+msgid "reading time"
+msgstr "време за четене"
+
+#: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
+msgid "sep"
+msgstr "сеп"
+
+#: screens/sui_stats_windows.lua:1438
+msgid "september"
+msgstr "септември"
+
+#: modules/module_reading_stats.lua:127
+msgid "unread"
+msgstr "непрочетена"
+
+#: infra/sui_updater.lua:692
+msgid "⬆ Update available: %s"
+msgstr "⬆ Налична актуализация: %s"
+
+#: modules/module_action_list.lua:464 modules/module_reading_stats.lua:904
+#: modules/module_quick_actions.lua:484 screens/sui_menu.lua:351
+#: screens/sui_menu.lua:1979
+msgid "  (%d left)"
+msgid_plural "  (%d left)"
+msgstr[0] "  (остава %d)"
+msgstr[1] "  (остават %d)"
+
+#: modules/module_reading_goals.lua:832
+msgid "  Set Goal  (%d book in %s)"
+msgid_plural "  Set Goal  (%d books in %s)"
+msgstr[0] "  Задаване на цел  (%d книга в %s)"
+msgstr[1] "  Задаване на цел  (%d книги в %s)"
+
+#: modules/module_reading_goals.lua:472
+msgid "%d book"
+msgid_plural "%d books"
+msgstr[0] "%d книга"
+msgstr[1] "%d книги"
+
+#: modules/module_reading_goals.lua:937
+msgid "%d book in %s"
+msgid_plural "%d books in %s"
+msgstr[0] "%d книга в %s"
+msgstr[1] "%d книги в %s"
+
+#: screens/sui_stats_windows.lua:1295
+msgid "%d book read in %s"
+msgid_plural "%d books read in %s"
+msgstr[0] "%d прочетена книга в %s"
+msgstr[1] "%d прочетени книги в %s"
+
+#: screens/sui_stats_windows.lua:2174 screens/sui_stats_windows.lua:2176
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d ден"
+msgstr[1] "%d дни"
+
+#: modules/module_coverdeck.lua:1018 modules/module_currently.lua:755
+#: modules/module_currently.lua:756 modules/module_currently.lua:834
+msgid "%d day of reading"
+msgid_plural "%d days of reading"
+msgstr[0] "%d ден четене"
+msgstr[1] "%d дни четене"
+
+#: screens/sui_stats_windows.lua:3436
+msgid "%d freeze available"
+msgid_plural "%d freezes available"
+msgstr[0] "%d налично замразяване"
+msgstr[1] "%d налични замразявания"
+
+#: modules/module_reading_goals.lua:1023
+msgid "%d in %s"
+msgid_plural "%d in %s"
+msgstr[0] "%d в %s"
+msgstr[1] "%d в %s"
+
+#: features/sui_quickactions.lua:1491 features/sui_quickactions.lua:2887
+#: features/sui_quickactions.lua:2908
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] "%d елемент"
+msgstr[1] "%d елемента"
+
+#: screens/sui_stats_windows.lua:2194 screens/sui_stats_windows.lua:2196
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "%d седмица"
+msgstr[1] "%d седмици"
+
+#: modules/module_reading_goals.lua:470
+msgid "%d/%d book"
+msgid_plural "%d/%d books"
+msgstr[0] "%d/%d книга"
+msgstr[1] "%d/%d книги"
+
+#: modules/module_collections.lua:1603
+msgid "(%d collection)"
+msgid_plural "(%d collections)"
+msgstr[0] "(%d колекция)"
+msgstr[1] "(%d колекции)"
+
+#: modules/module_reading_stats.lua:388 modules/module_quick_actions.lua:600
+msgid "(%d/%d — %d left)"
+msgid_plural "(%d/%d — %d left)"
+msgstr[0] "(%d/%d — остава %d)"
+msgstr[1] "(%d/%d — остават %d)"
+
+#: features/sui_quickactions.lua:2368
+msgid "Group (%d item)"
+msgid_plural "Group (%d items)"
+msgstr[0] "Група (%d елемент)"
+msgstr[1] "Група (%d елемента)"
+
+#: modules/module_reading_goals.lua:1014
+msgid "Manually Tracked Books  (%d in %s)"
+msgid_plural "Manually Tracked Books  (%d in %s)"
+msgstr[0] "Ръчно проследени книги  (%d в %s)"
+msgstr[1] "Ръчно проследени книги  (%d в %s)"
+
+#: screens/sui_quicksettings_bar.lua:1158
+msgid "Maximum of %d slot reached. Remove one first."
+msgid_plural "Maximum of %d slots reached. Remove one first."
+msgstr[0] "Достигнат е максимумът от %d слот. Премахнете един първо."
+msgstr[1] "Достигнат е максимумът от %d слота. Премахнете един първо."
+
+#: screens/sui_menu.lua:650 screens/sui_menu.lua:916
+msgid ""
+"Text shown in the top bar.\n"
+"Maximum %d character."
+msgid_plural ""
+"Text shown in the top bar.\n"
+"Maximum %d characters."
+msgstr[0] ""
+"Текст в горната лента.\n"
+"Максимум %d знак."
+msgstr[1] ""
+"Текст в горната лента.\n"
+"Максимум %d знака."
+
+#: modules/module_action_list.lua:401 modules/module_action_list.lua:538
+#: modules/module_quick_actions.lua:426 modules/module_quick_actions.lua:567
+#: screens/sui_menu.lua:1943 screens/sui_menu.lua:2062
+msgid "The maximum of %d action per module has been reached. Remove one first."
+msgid_plural "The maximum of %d actions per module has been reached. Remove one first."
+msgstr[0] ""
+"Достигнат лимит от %d действие.\n"
+"Премахнете едно."
+msgstr[1] ""
+"Достигнат лимит от %d действия.\n"
+"Премахнете едно."
+
+#: features/sui_quickactions.lua:1563 features/sui_quickactions.lua:2849
+msgid "The maximum of %d quick action has been reached. Delete one first."
+msgid_plural "The maximum of %d quick actions has been reached. Delete one first."
+msgstr[0] ""
+"Достигнат лимит от %d бързо действие.\n"
+"Изтрийте едно."
+msgstr[1] ""
+"Достигнат лимит от %d бързи действия.\n"
+"Изтрийте едно."
+
+#: modules/module_reading_stats.lua:690 modules/module_reading_stats.lua:772
+msgid "The maximum of %d stat per row has been reached. Remove one first."
+msgid_plural "The maximum of %d stats per row has been reached. Remove one first."
+msgstr[0] ""
+"Максимум %d статистика на ред.\n"
+"Премахнете една."
+msgstr[1] ""
+"Максимум %d статистики на ред.\n"
+"Премахнете една."
+
+#: screens/sui_menu.lua:384 screens/sui_menu.lua:1240
+msgid "The maximum of %d tab has been reached. Remove one first."
+msgid_plural "The maximum of %d tabs has been reached. Remove one first."
+msgstr[0] ""
+"Достигнат лимит от %d раздел.\n"
+"Премахнете един."
+msgstr[1] "Достигнат лимит от %d раздела. Премахнете един."
+
+#: screens/sui_stats_windows.lua:1972
+msgid "day read"
+msgid_plural "days read"
+msgstr[0] "прочетен ден"
+msgstr[1] "прочетени дни"
+
+#: screens/sui_stats_windows.lua:1987
+msgid "page read"
+msgid_plural "pages read"
+msgstr[0] "прочетена страница"
+msgstr[1] "прочетени страници"
+
+#~ msgid "Above"
+#~ msgstr "Отгоре"
+
+#~ msgid "Below"
+#~ msgstr "Отдолу"
+
+#~ msgid "Bottom Bar"
+#~ msgstr "Долна лента"
+
+#~ msgid "Maximum 5 collections. Remove one first."
+#~ msgstr "Максимум 5 колекции. Премахнете една първо."
+
+#~ msgid "Percentage overlay on cover"
+#~ msgstr "Процент върху корицата"
+
+#~ msgid "Percentage text"
+#~ msgstr "Текст с процент"
+
+#~ msgid ""
+#~ "Scale for the collection thumbnails only.\n"
+#~ "The label text follows the module scale.\n"
+#~ "100% is the default size."
+#~ msgstr ""
+#~ "Мащаб само за миниатюрите на колекциите.\n"
+#~ "Текстът на етикета следва мащаба на модула.\n"
+#~ "100% е размерът по подразбиране."
+
+#~ msgid ""
+#~ "Scale for the cover thumbnail only.\n"
+#~ "100% is the default size."
+#~ msgstr ""
+#~ "Мащаб само за миниатюрата на корицата.\n"
+#~ "100% е размерът по подразбиране."
+
+#~ msgid "Title Position"
+#~ msgstr "Позиция на заглавието"
+
+#~ msgid "To Be Read list is full (max. 5 books)."
+#~ msgstr ""
+#~ "Списъкът „За четене“ е пълен (макс.\n"
+#~ "5 книги)."
+
+#~ msgid ""
+#~ "When enabled, long-pressing the bottom bar opens its settings menu.\n"
+#~ "Disable this to prevent the settings menu from appearing on long tap."
+#~ msgstr ""
+#~ "Когато е активирано, дългото натискане на долната лента отваря менюто с настройки.\n"
+#~ "Изключете, за да предотвратите появата на менюто при дълго докосване."
+
+#~ msgid "Edit Layout"
+#~ msgstr "Редактиране на оформлението"
+
+#~ msgid "Global custom quick actions  (%d/%d)"
+#~ msgstr "Глобални персонализирани бързи действия  (%d/%d)"
+
+#~ msgid "Percentage Overlay on Cover"
+#~ msgstr "Процент върху корицата"
+
+#~ msgid "Percentage Text"
+#~ msgstr "Текст на процента"

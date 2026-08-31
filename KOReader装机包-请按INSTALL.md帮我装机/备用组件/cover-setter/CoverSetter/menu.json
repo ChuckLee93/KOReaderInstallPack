@@ -1,0 +1,44 @@
+{
+	"items": [
+	{
+		"name": "Обложка KUAL/KOL",
+		"priority": -998,
+		"items": [
+		{
+            "name": "Установить обложку KUAL",
+            "priority": 1,
+            "action": "bin/set1.sh",
+            "exitmenu": false
+		},
+		{
+            "name": "Удалить обложку KUAL",
+            "priority": 2,
+            "action": "bin/unset1.sh",
+            "exitmenu": false
+		},
+		{
+            "name": "Установить обложку KOL",
+            "priority": 3,
+            "action": "bin/set2.sh",
+            "exitmenu": false
+		},
+		{
+            "name": "Удалить обложку KOL",
+            "priority": 4,
+            "action": "bin/unset2.sh",
+            "exitmenu": false
+		},
+		{
+			"name": "Авторы",
+			"priority": 1000,
+			"exitmenu": false,
+			"checked": true,
+			"status": false,
+			"refresh": false,
+			"action": "xxxx",
+			"internal": "status cearp,Dark_AssassinUA,Targit,Stanner"
+		}
+		]
+	}
+	]
+}

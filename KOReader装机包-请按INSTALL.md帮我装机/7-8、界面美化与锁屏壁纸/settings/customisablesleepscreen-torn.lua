@@ -1,0 +1,41 @@
+-- ./settings/customisablesleepscreen-torn.lua
+-- 壁纸主题：撕纸（装机时按用户选择，将本文件重命名为 customisablesleepscreen.lua 上传）
+-- 参数出处：《自用插件/13、锁屏壁纸插件/使用说明.txt》第 2 条
+--   位置左居中 水平偏移75 垂直偏移60 其他同猫猫探头
+--   （宽度35 不透明度100 文本对齐居中 背景叠加透明度0 不要图标）
+return {
+    ["customisable_ss_all_titles_bold"] = true,
+    ["customisable_ss_bar_height"] = 4,
+    ["customisable_ss_bar_inline"] = true,
+    ["customisable_ss_batt_stat_type"] = "awake",
+    ["customisable_ss_bg_cover_align"] = "center",
+    ["customisable_ss_bg_cover_fill_color"] = "black",
+    ["customisable_ss_bg_dimming"] = 0,
+    ["customisable_ss_bg_dimming_color"] = "#000000",
+    ["customisable_ss_bg_folder"] = "@plugin/wallpapers/custom",
+    ["customisable_ss_bg_stretch"] = true,
+    ["customisable_ss_bg_type"] = "folder",
+    ["customisable_ss_border_size"] = 0,
+    ["customisable_ss_border_size_2"] = 0,
+    ["customisable_ss_box_width_pct"] = 35,
+    ["customisable_ss_cover_align_to_text"] = true,
+    ["customisable_ss_cover_border_size"] = 0,
+    ["customisable_ss_cover_in_book"] = true,
+    ["customisable_ss_cover_size"] = 250,
+    ["customisable_ss_daily_goal_minutes"] = 30,
+    ["customisable_ss_dark_mode"] = false,
+    ["customisable_ss_font_face_subtitle"] = "AXTRQLDY (Non-Commercial Use)",
+    ["customisable_ss_font_face_title"] = "AaBTWLTCT (Non-Commercial Use)",
+    ["customisable_ss_font_size_subtitle"] = 9,
+    ["customisable_ss_font_size_title"] = 10,
+    ["customisable_ss_goal_stat_scope"] = "all",
+    ["customisable_ss_goal_title_type"] = "time",
+    ["customisable_ss_goal_type"] = "pages",
+    ["customisable_ss_opacity"] = 255,
+    ["customisable_ss_position"] = "middle_left",
+    ["customisable_ss_pos_offset_x"] = 75,
+    ["customisable_ss_pos_offset_y"] = 60,
+    ["customisable_ss_last_book_state"] = {},
+    ["customisable_ss_show_icons"] = false,
+    ["customisable_ss_text_align"] = "center",
+}

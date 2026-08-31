@@ -1,0 +1,1204 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: v1.0.15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-16 20:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Korean\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Z-library"
+msgstr "Z-라이브러리"
+
+msgid "[[A plugin to search and download books from Z-library.]]"
+msgstr "[[Z-라이브러리에서 책을 검색하고 다운로드할 수 있는 플러그인입니다.]]"
+
+msgid "Z-library search"
+msgstr "Z-라이브러리 검색"
+
+msgid "My books"
+msgstr "내 도서"
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Set base URL"
+msgstr "기본 URL 설정"
+
+msgid "Set credentials"
+msgstr "인증 정보 설정"
+
+msgid "Login successful!"
+msgstr "로그인 성공!"
+
+msgid "Set download directory"
+msgstr "다운로드 디렉토리 설정"
+
+msgid "Ask to open after download"
+msgstr "다운로드 후 열기 확인"
+
+msgid "Download categories"
+msgstr "다운로드 카테고리"
+
+msgid "View Settings"
+msgstr "보기 설정"
+
+msgid "Search Covers"
+msgstr "검색 표지"
+
+msgid "Search Items/Page"
+msgstr "검색 항목/페이지"
+
+msgid "Browse Covers"
+msgstr "둘러보기 표지"
+
+msgid "Browse Items/Page"
+msgstr "둘러보기 항목/페이지"
+
+msgid "Search options"
+msgstr "검색 옵션"
+
+msgid "Select search languages"
+msgstr "검색 언어 선택"
+
+msgid "Select search formats"
+msgstr "검색 형식 선택"
+
+msgid "Select search order"
+msgstr "검색 정렬 선택"
+
+msgid "Timeout settings"
+msgstr "타임아웃 설정"
+
+msgid "Check for updates"
+msgstr "업데이트 확인"
+
+msgid "Error: Plugin path not found. Cannot check for updates."
+msgstr "오류: 플러그인 경로를 찾을 수 없습니다. 업데이트를 확인할 수 없습니다."
+
+msgid "Advanced"
+msgstr "고급"
+
+msgid "Clear credentials"
+msgstr "인증 정보 초기화"
+
+#, lua-format
+msgid "Credentials cleared, but %s still sets them. Edit that file to stop it."
+msgstr "인증 정보가 초기화되었지만 %s에서 여전히 인증 정보를 설정합니다. 이를 중지하려면 해당 파일을 편집하세요."
+
+msgid "Credentials cleared."
+msgstr "인증 정보가 초기화되었습니다."
+
+msgid "Clear user session"
+msgstr "사용자 세션 초기화"
+
+msgid "Session cleared. You will need to login again."
+msgstr "세션이 초기화되었습니다. 다시 로그인해야 합니다."
+
+msgid "Clear runtime cache"
+msgstr "런타임 캐시 지우기"
+
+msgid "Runtime cache cleared."
+msgstr "런타임 캐시가 삭제되었습니다."
+
+msgid "Search"
+msgstr "검색"
+
+msgid "Recommended"
+msgstr "추천"
+
+msgid "Most popular"
+msgstr "인기순"
+
+msgid "Operation"
+msgstr "작업"
+
+msgid "No books found, please try again"
+msgstr "책을 찾을 수 없습니다. 다시 시도해 주세요."
+
+msgid "Fetching most popular books..."
+msgstr "인기 도서 가져오는 중..."
+
+msgid "Failed to fetch most popular books"
+msgstr "인기 도서를 가져오지 못했습니다"
+
+msgid "Most popular books"
+msgstr "인기 도서"
+
+msgid "Fetching recommended books..."
+msgstr "추천 도서 가져오는 중..."
+
+msgid "Failed to fetch recommended books"
+msgstr "추천 도서를 가져오지 못했습니다"
+
+msgid "Recommended books"
+msgstr "추천 도서"
+
+msgid "API returned an error, please try again"
+msgstr "API 오류가 반환되었습니다. 다시 시도하세요"
+
+msgid "Z-library My Books"
+msgstr "Z-library 내 도서"
+
+msgid "Downloaded"
+msgstr "다운로드함"
+
+msgid "Favorites"
+msgstr "즐겨찾기"
+
+msgid "Getting your favorites..."
+msgstr "즐겨찾기 가져오는 중..."
+
+msgid "Failed to fetch favorite books"
+msgstr "즐겨찾기 도서를 가져오지 못했습니다"
+
+msgid "Favorite books"
+msgstr "즐겨찾기 도서"
+
+msgid "Remove from downloaded"
+msgstr "다운로드 목록에서 제거"
+
+msgid "Getting your downloaded..."
+msgstr "다운로드 목록 가져오는 중..."
+
+msgid "Failed to fetch downloaded books"
+msgstr "다운로드한 도서를 가져오지 못했습니다"
+
+msgid "Downloaded books"
+msgstr "다운로드한 도서"
+
+msgid "Finding similar books..."
+msgstr "비슷한 책 찾는 중..."
+
+msgid "No similar books found"
+msgstr "비슷한 책이 없습니다"
+
+msgid "Similar books"
+msgstr "비슷한 책"
+
+msgid "Removing book from downloaded…"
+msgstr "다운로드 목록에서 도서 제거 중…"
+
+msgid "Failed to remove book from downloaded"
+msgstr "다운로드 목록에서 도서를 제거하지 못했습니다"
+
+msgid "Book removed from downloaded, please refresh"
+msgstr "다운로드 목록에서 도서가 제거되었습니다. 새로고침해 주세요."
+
+msgid "Removing book from favorites…"
+msgstr "즐겨찾기에서 제거하는 중…"
+
+msgid "Failed to remove book from favorites"
+msgstr "즐겨찾기에서 제거하지 못했습니다"
+
+msgid "Unfavorite book"
+msgstr "즐겨찾기 해제"
+
+msgid "Book removed from favorites, please refresh"
+msgstr "즐겨찾기에서 제거되었습니다. 새로고침하세요"
+
+msgid "Adding book to favorites…"
+msgstr "즐겨찾기에 추가하는 중…"
+
+msgid "Failed to add book to favorites"
+msgstr "즐겨찾기에 추가하지 못했습니다"
+
+msgid "Favorite book"
+msgstr "즐겨찾기 도서"
+
+msgid "Book added to favorites, please refresh"
+msgstr "즐겨찾기에 추가되었습니다. 새로고침하세요"
+
+msgid "Fetching book details..."
+msgstr "도서 세부정보 가져오는 중..."
+
+msgid "Failed to fetch book details"
+msgstr "도서 세부정보를 가져오지 못했습니다"
+
+msgid "Book details"
+msgstr "도서 세부정보"
+
+msgid "Could not retrieve book details."
+msgstr "도서 세부정보를 가져올 수 없습니다."
+
+msgid "Logging in..."
+msgstr "로그인 중..."
+
+msgid "Credentials saved, but they could not be checked right now."
+msgstr "인증 정보가 저장되었지만 지금은 확인할 수 없습니다."
+
+msgid "Please set both username and password first."
+msgstr "먼저 사용자 이름과 비밀번호를 모두 설정하세요."
+
+msgid "Sign-in"
+msgstr "로그인"
+
+#, lua-format
+msgid "Searching for \"%s\"..."
+msgstr "\"%s\" 검색 중..."
+
+#, lua-format
+msgid "No results found for \"%s\"."
+msgstr "\"%s\"에 대한 결과가 없습니다."
+
+#, lua-format
+msgid "Loading more results (Page %s)..."
+msgstr "추가 결과 불러오는 중 (페이지 %s)..."
+
+msgid "Failed to load more results"
+msgstr "추가 결과를 불러오지 못했습니다"
+
+msgid "No more results found."
+msgstr "더 이상 결과가 없습니다."
+
+msgid "Book ID is required."
+msgstr "도서 ID가 필요합니다."
+
+msgid "Loading comments..."
+msgstr "댓글 불러오는 중..."
+
+msgid "Failed to load comments"
+msgstr "댓글을 불러오지 못했습니다"
+
+msgid "Comments"
+msgstr "댓글"
+
+msgid "No comments to display"
+msgstr "표시할 댓글이 없습니다"
+
+msgid "Could not find the server address"
+msgstr "서버 주소를 찾을 수 없습니다"
+
+msgid "This Z-library server is refusing automated access"
+msgstr "이 Z-library 서버가 자동화된 접근을 차단하고 있습니다"
+
+msgid "Credentials rejected or invalid response"
+msgstr "인증 정보가 거부되었거나 응답이 잘못되었습니다"
+
+msgid "Request timed out - please check your connection and try again"
+msgstr "요청 시간이 초과되었습니다 - 연결을 확인한 후 다시 시도하세요"
+
+msgid "Network request failed"
+msgstr "네트워크 요청에 실패했습니다"
+
+msgid "The Z-library address may be wrong or no longer exist."
+msgstr "Z-library 주소가 잘못되었거나 더 이상 존재하지 않을 수 있습니다."
+
+msgid "Network connection error - please check your internet connection and try again"
+msgstr "네트워크 연결 오류 - 인터넷 연결을 확인한 후 다시 시도하세요"
+
+msgid "Too many redirects"
+msgstr "리디렉션이 너무 많음"
+
+msgid "Try a different Z-library server."
+msgstr "다른 Z-library 서버를 사용해 보세요."
+
+msgid "HTTP Error"
+msgstr "HTTP 오류"
+
+msgid "Unknown Status"
+msgstr "알 수 없는 상태"
+
+msgid "The Z-library server address (URL) is not set. Please configure it in the Z-library plugin settings."
+msgstr "Z-library 서버 주소(URL)가 설정되지 않았습니다. Z-library 플러그인 설정에서 지정하세요."
+
+msgid "Login failed: Empty response from server"
+msgstr "로그인 실패: 서버 응답이 비어 있습니다"
+
+msgid "Login failed: Invalid response format"
+msgstr "로그인 실패: 잘못된 응답 형식"
+
+msgid "Login failed"
+msgstr "로그인 실패"
+
+msgid "Login failed: Invalid session data"
+msgstr "로그인 실패: 잘못된 세션 데이터"
+
+msgid "No response received from server - please try again"
+msgstr "서버에서 응답이 없습니다 - 다시 시도하세요"
+
+msgid "Invalid response format from server"
+msgstr "서버 응답 형식이 잘못되었습니다"
+
+msgid "Search API error"
+msgstr "검색 API 오류"
+
+msgid "Failed to open target file"
+msgstr "대상 파일을 열지 못했습니다"
+
+msgid "Unknown error"
+msgstr "알 수 없는 오류"
+
+msgid "Download limit reached or file is an HTML page"
+msgstr "다운로드 한도에 도달했거나 파일이 HTML 페이지입니다"
+
+msgid "Failed to save downloaded file"
+msgstr "다운로드한 파일을 저장하지 못했습니다"
+
+msgid "Download HTTP Error"
+msgstr "다운로드 HTTP 오류"
+
+msgid "Z-library server URL not configured."
+msgstr "Z-라이브러리 서버 URL이 구성되지 않았습니다."
+
+msgid "Failed to fetch recommended books (no response body)."
+msgstr "추천 도서를 가져오지 못했습니다(응답 본문 없음)."
+
+msgid "Failed to parse recommended books response."
+msgstr "추천 도서 응답을 분석하지 못했습니다."
+
+msgid "API returned an error for recommended books."
+msgstr "추천 도서에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch most popular books (no response body)."
+msgstr "인기 도서를 가져오지 못했습니다(응답 본문 없음)."
+
+msgid "Failed to parse most popular books response."
+msgstr "인기 도서 응답을 분석하지 못했습니다."
+
+msgid "API returned an error for most popular books."
+msgstr "인기 도서에 대해 API 오류가 반환되었습니다."
+
+msgid "Z-library server URL not configured or book identifiers missing."
+msgstr "Z-라이브러리 서버 URL이 설정되지 않았거나 도서 식별자가 없습니다."
+
+msgid "Failed to fetch book details (no response body)."
+msgstr "도서 세부정보를 가져오지 못했습니다(응답 본문 없음)."
+
+msgid "Failed to parse book details response."
+msgstr "도서 세부정보 응답을 분석하지 못했습니다."
+
+msgid "API returned an error for book details."
+msgstr "도서 세부정보에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to process book details."
+msgstr "도서 세부정보를 처리하지 못했습니다."
+
+msgid "Failed to fetch download link (no response body)."
+msgstr "다운로드 링크를 가져오지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse download link response."
+msgstr "다운로드 링크 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for download link."
+msgstr "다운로드 링크에 대해 API 오류가 반환되었습니다."
+
+msgid "Download limit reached. Please try again later or check your account."
+msgstr "다운로드 제한에 도달했습니다. 나중에 다시 시도하거나 계정을 확인하세요."
+
+msgid "No download link provided in API response."
+msgstr "API 응답에 다운로드 링크가 없습니다."
+
+msgid "Failed to fetch similar books (no response body)."
+msgstr "비슷한 책을 가져오지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse similar books response."
+msgstr "비슷한 책 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for similar books."
+msgstr "비슷한 책에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch downloaded books (no response body)."
+msgstr "다운로드한 도서를 가져오지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse downloaded books response."
+msgstr "다운로드한 도서 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for downloaded books."
+msgstr "다운로드한 도서에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch favorite books (no response body)."
+msgstr "즐겨찾기 도서를 가져오지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse favorite books response."
+msgstr "즐겨찾기 도서 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for favorite books."
+msgstr "즐겨찾기 도서에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to remove the book from downloaded (no response body)."
+msgstr "다운로드 목록에서 도서를 제거하지 못했습니다(응답 본문 없음)."
+
+msgid "Failed to parse the remove from downloaded response."
+msgstr "다운로드 목록에서 제거 응답을 분석하지 못했습니다."
+
+msgid "API returned an error for remove from downloaded."
+msgstr "다운로드 목록에서 제거에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch unfavorite book (no response body)."
+msgstr "즐겨찾기 해제를 처리하지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse unfavorite book response."
+msgstr "즐겨찾기 해제 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for unfavorite book."
+msgstr "즐겨찾기 해제에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch download quota status (no response body)."
+msgstr "다운로드 할당량 상태를 가져오지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse download quota status response."
+msgstr "다운로드 할당량 상태 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for download quota status."
+msgstr "다운로드 할당량 상태에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch favorite-book IDs (no response body)."
+msgstr "즐겨찾기 도서 ID를 가져오지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse favorite-book IDs."
+msgstr "즐겨찾기 도서 ID를 해석하지 못했습니다."
+
+msgid "API returned an error for favorite-book IDs."
+msgstr "즐겨찾기 도서 ID에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch favorite book (no response body)."
+msgstr "즐겨찾기 추가를 처리하지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse favorite book response."
+msgstr "즐겨찾기 추가 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for favorite book."
+msgstr "즐겨찾기 추가에 대해 API 오류가 반환되었습니다."
+
+msgid "Failed to fetch book comments (no response body)."
+msgstr "도서 댓글을 가져오지 못했습니다 (응답 본문 없음)."
+
+msgid "Failed to parse book comments response."
+msgstr "도서 댓글 응답을 해석하지 못했습니다."
+
+msgid "API returned an error for book comments."
+msgstr "도서 댓글에 대해 API 오류가 반환되었습니다."
+
+msgid "Request cancelled."
+msgstr "요청이 취소되었습니다."
+
+msgid "Profile"
+msgstr "프로필"
+
+msgid "No description available"
+msgstr "설명 없음"
+
+msgid "pages"
+msgstr "페이지"
+
+msgid "Cover"
+msgstr "표지"
+
+msgid "Back"
+msgstr "뒤로"
+
+msgid "More Similar Books"
+msgstr "비슷한 책 더 보기"
+
+msgid "Download"
+msgstr "다운로드"
+
+msgid "Format"
+msgstr "형식"
+
+msgid "Download book"
+msgstr "책 다운로드"
+
+msgid "Refresh"
+msgstr "새로고침"
+
+msgid "Remove From Favorites"
+msgstr "즐겨찾기에서 제거"
+
+msgid "Add To Favorites"
+msgstr "즐겨찾기에 추가"
+
+msgid "No Comments"
+msgstr "댓글 없음"
+
+msgid "Best match"
+msgstr "정확도순"
+
+msgid "Recently added"
+msgstr "최신순"
+
+msgid "Title"
+msgstr "제목"
+
+msgid "Year"
+msgstr "연도"
+
+msgid "File size"
+msgstr "파일 크기"
+
+msgid "Default"
+msgstr "기본값"
+
+#, lua-format
+msgid "%ds"
+msgstr "%d초"
+
+msgid "infinite"
+msgstr "무한"
+
+#, lua-format
+msgid "Block: %ds, Total: %s"
+msgstr "블록: %d초, 총: %s"
+
+msgid "Operation failed, please retry."
+msgstr "작업에 실패했습니다. 다시 시도하세요."
+
+msgid "Fetching domains..."
+msgstr "도메인 가져오는 중..."
+
+msgid "Successfully set base URL to: "
+msgstr "기본 URL이 다음으로 설정됨:"
+
+msgid "Failed to find a working base URL."
+msgstr "작동하는 기본 URL을 찾지 못했습니다."
+
+msgid "Queued"
+msgstr "대기 중"
+
+msgid "Selection copied to clipboard."
+msgstr "선택 항목이 클립보드에 복사되었습니다."
+
+msgid "Checking"
+msgstr "확인 중"
+
+msgid "Invalid Base URL."
+msgstr "잘못된 기본 URL입니다."
+
+msgid "Failed"
+msgstr "실패"
+
+msgid "Searching for working Z-library server..."
+msgstr "작동 중인 Z-library 서버 검색 중..."
+
+msgid "Current Base URL:"
+msgstr "현재 기본 URL:"
+
+msgid "Mirror site redirected to: "
+msgstr "미러 사이트가 다음으로 이동됨:"
+
+msgid "Auto-discover base URL"
+msgstr "기본 URL 자동 검색"
+
+msgid "Network unavailable."
+msgstr "네트워크를 사용할 수 없습니다."
+
+msgid "Discovery is already running..."
+msgstr "탐색이 이미 진행 중입니다..."
+
+msgid "Refresh Dynamic Domains"
+msgstr "동적 도메인 새로고침"
+
+msgid "This book's file type is unknown, so it cannot be downloaded."
+msgstr "이 도서의 파일 형식을 알 수 없어 다운로드할 수 없습니다."
+
+msgid "Book identifiers missing. Cannot download."
+msgstr "도서 식별자가 없습니다. 다운로드할 수 없습니다."
+
+#, lua-format
+msgid "Cannot create downloads directory: %s"
+msgstr "다운로드 디렉토리를 생성할 수 없습니다: %s"
+
+#, lua-format
+msgid "Couldn't create the folder for \"%s\". The book is in the download folder."
+msgstr "\"%s\"의 폴더를 만들 수 없습니다. 도서는 다운로드 폴더에 있습니다."
+
+#, lua-format
+msgid "Moved to \"%s\"."
+msgstr "\"%s\"(으)로 이동했습니다."
+
+#, lua-format
+msgid "Couldn't move the book into \"%s\". It's in the download folder."
+msgstr "도서를 \"%s\"(으)로 이동할 수 없습니다. 도서는 다운로드 폴더에 있습니다."
+
+msgid "Could not open reader UI."
+msgstr "리더 UI를 열 수 없습니다."
+
+msgid "Download failed: Unknown error"
+msgstr "다운로드 실패: 알 수 없는 오류"
+
+msgid "Book download"
+msgstr "도서 다운로드"
+
+msgid "Retrying download… (tap to cancel)"
+msgstr "다운로드 다시 시도 중… (탭하여 취소)"
+
+msgid "Download cancelled."
+msgstr "다운로드가 취소되었습니다."
+
+msgid "Untitled"
+msgstr "제목 없음"
+
+msgid "Unknown Author"
+msgstr "저자 미상"
+
+msgid "Author"
+msgstr "저자"
+
+msgid "Update failed: Could not determine where to install the plugin."
+msgstr "업데이트 실패: 플러그인 설치 위치를 확인할 수 없습니다."
+
+msgid "Installing update..."
+msgstr "업데이트 설치 중..."
+
+msgid "Update installation failed."
+msgstr "업데이트 설치에 실패했습니다."
+
+msgid "Update installed successfully. Please restart KOReader for changes to take effect."
+msgstr "업데이트가 성공적으로 설치되었습니다. 변경 사항을 적용하려면 KOReader를 재시작하세요."
+
+msgid "Update check failed: Could not determine plugin location."
+msgstr "업데이트 확인 실패: 플러그인 위치를 확인할 수 없습니다."
+
+#, lua-format
+msgid "Unsupported plugin path for OTA update: %s. Only 'plugins/zlibrary.koplugin' is supported."
+msgstr "OTA 업데이트를 위한 지원되지 않는 플러그인 경로: %s. 'plugins/zlibrary.koplugin'만 지원됩니다."
+
+msgid "Checking for updates..."
+msgstr "업데이트 확인 중..."
+
+msgid "Failed to check for updates. Please check your internet connection."
+msgstr "업데이트 확인에 실패했습니다. 인터넷 연결을 확인해 주세요."
+
+msgid "Could not find update information (invalid data format)."
+msgstr "업데이트 정보를 찾을 수 없습니다(잘못된 데이터 형식)."
+
+msgid "Could not find update version information."
+msgstr "업데이트 버전 정보를 찾을 수 없습니다."
+
+msgid "Could not understand the update version format."
+msgstr "업데이트 버전 형식을 이해할 수 없습니다."
+
+msgid "Could not find update files."
+msgstr "업데이트 파일을 찾을 수 없습니다."
+
+msgid "Could not find a download link for the update."
+msgstr "업데이트에 대한 다운로드 링크를 찾을 수 없습니다."
+
+#, lua-format
+msgid "You are already on the latest version (%s) or newer."
+msgstr "이미 최신 버전(%s) 이상을 사용 중입니다."
+
+#, lua-format
+msgid "Could not determine your current version, but the latest is %s. If you recently updated, you might be up-to-date."
+msgstr "현재 버전을 확인할 수 없지만 최신 버전은 %s입니다. 최근에 업데이트했다면 최신 상태일 수 있습니다."
+
+#, lua-format
+msgid "New version available: %s (you have %s). Download and install?"
+msgstr "새 버전 이용 가능: %s (현재 버전: %s). 다운로드하고 설치하시겠습니까?"
+
+msgid "an older version"
+msgstr "이전 버전"
+
+msgid "Update available"
+msgstr "업데이트 가능"
+
+msgid "Update"
+msgstr "업데이트"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Downloading update..."
+msgstr "업데이트 다운로드 중..."
+
+msgid "Download failed. Please try again later."
+msgstr "다운로드에 실패했습니다. 나중에 다시 시도해 주세요."
+
+#, lua-format
+msgid "%s (tap to cancel)"
+msgstr "%s (탭하여 취소)"
+
+msgid "Downloading… (tap to cancel)"
+msgstr "다운로드 중… (탭하여 취소)"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Select Z-library Download Directory"
+msgstr "Z-라이브러리 다운로드 디렉토리 선택"
+
+#, lua-format
+msgid "Download directory set to: %s"
+msgstr "다운로드 디렉토리가 다음으로 설정됨: %s"
+
+msgid "No directory selected."
+msgstr "디렉토리가 선택되지 않았습니다."
+
+#, lua-format
+msgid "%d items selected for %s."
+msgstr "%d개 항목이 %s에 선택되었습니다."
+
+#, lua-format
+msgid "Filter cleared for %s."
+msgstr "%s에 대한 필터가 제거되었습니다."
+
+msgid "Filter"
+msgstr "필터"
+
+msgid "Show all"
+msgstr "전체 보기"
+
+msgid "Set"
+msgstr "설정"
+
+msgid "Setting saved successfully!"
+msgstr "설정이 성공적으로 저장되었습니다!"
+
+msgid "Setting cleared."
+msgstr "설정이 초기화되었습니다."
+
+msgid "Please enter a name."
+msgstr "이름을 입력하세요."
+
+msgid "A category with that name already exists."
+msgstr "같은 이름의 카테고리가 이미 있습니다."
+
+msgid "That category no longer exists."
+msgstr "해당 카테고리가 더 이상 존재하지 않습니다."
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Rename"
+msgstr "이름 변경"
+
+msgid "Rename sub-category"
+msgstr "하위 카테고리 이름 변경"
+
+msgid "Remove"
+msgstr "제거"
+
+#, lua-format
+msgid "Remove the sub-category \"%s\"? Books already filed there stay where they are."
+msgstr "하위 카테고리 \"%s\"을(를) 삭제할까요? 이미 정리된 도서는 그대로 유지됩니다."
+
+msgid "Add sub-category…"
+msgstr "하위 카테고리 추가…"
+
+msgid "New sub-category"
+msgstr "새 하위 카테고리"
+
+msgid "Rename category…"
+msgstr "카테고리 이름 변경…"
+
+msgid "Rename category"
+msgstr "카테고리 이름 변경"
+
+msgid "Remove category"
+msgstr "카테고리 삭제"
+
+#, lua-format
+msgid "Remove the category \"%s\" and its sub-categories? Books already filed there stay where they are."
+msgstr "카테고리 \"%s\"과(와) 하위 카테고리를 삭제할까요? 이미 정리된 도서는 그대로 유지됩니다."
+
+msgid "Add category…"
+msgstr "카테고리 추가…"
+
+msgid "New category"
+msgstr "새 카테고리"
+
+msgid "Set languages"
+msgstr "언어 설정"
+
+#, lua-format
+msgid "Language: %s"
+msgstr "언어: %s"
+
+#, lua-format
+msgid "Languages (%d)"
+msgstr "언어 (%d)"
+
+msgid "Set formats"
+msgstr "형식 설정"
+
+#, lua-format
+msgid "Format: %s"
+msgstr "형식: %s"
+
+#, lua-format
+msgid "Formats (%d)"
+msgstr "형식 (%d)"
+
+msgid "Search Z-library"
+msgstr "Z-라이브러리 검색"
+
+msgid "Please enter a search term."
+msgstr "검색어를 입력하세요."
+
+msgid "Sort by"
+msgstr "정렬 기준"
+
+msgid "Unknown Title"
+msgstr "제목 미상"
+
+msgid "Rating"
+msgstr "평점"
+
+msgid "Search Results"
+msgstr "검색 결과"
+
+#, lua-format
+msgid "Remove \"%s\" from your downloaded books?"
+msgstr "\"%s\"을(를) 다운로드 목록에서 제거하시겠습니까?"
+
+msgid "Clear your stored username and password?"
+msgstr "저장된 사용자 이름과 비밀번호를 초기화하시겠습니까?"
+
+msgid "Clear"
+msgstr "초기화"
+
+#, lua-format
+msgid "Download \"%s\"?"
+msgstr "\"%s\"을(를) 다운로드하시겠습니까?"
+
+msgid "Please enter a category name."
+msgstr "카테고리 이름을 입력하세요."
+
+msgid "Category"
+msgstr "카테고리"
+
+msgid "Category name"
+msgstr "카테고리 이름"
+
+msgid "Sub-category (optional)"
+msgstr "하위 카테고리(선택 사항)"
+
+msgid "Sub-category name"
+msgstr "하위 카테고리 이름"
+
+msgid "Create"
+msgstr "만들기"
+
+msgid "Keep in download folder"
+msgstr "다운로드 폴더에 유지"
+
+msgid "New category…"
+msgstr "새 카테고리…"
+
+msgid "Move to"
+msgstr "이동 위치"
+
+#, lua-format
+msgid "\"%s\" downloaded."
+msgstr "“%s” 다운로드 완료."
+
+msgid "Download folder"
+msgstr "다운로드 폴더"
+
+msgid "Book downloaded successfully. Open it now?"
+msgstr "도서가 성공적으로 다운로드되었습니다. 지금 열까요?"
+
+msgid "Turn off Wi-Fi after closing this dialog"
+msgstr "이 대화 상자를 닫은 후 Wi-Fi 끄기"
+
+#, lua-format
+msgid "Move to: %s"
+msgstr "이동 위치: %s"
+
+msgid "Open book"
+msgstr "도서 열기"
+
+#, lua-format
+msgid "No %s found, please try again. Sometimes this requires a couple of retries."
+msgstr "%s을(를) 찾을 수 없습니다. 다시 시도하세요. 몇 번 재시도해야 할 때도 있습니다."
+
+msgid "Z-library Similar Books"
+msgstr "Z-library 비슷한 책"
+
+msgid "Book Details"
+msgstr "도서 세부정보"
+
+#, lua-format
+msgid "Retrying search for \"%s\"..."
+msgstr "\"%s\" 다시 검색 중..."
+
+msgid "Book search"
+msgstr "도서 검색"
+
+msgid "Request timed out"
+msgstr "요청 시간 초과"
+
+msgid "Network connection error"
+msgstr "네트워크 연결 오류"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a timeout%s. Would you like to retry?"
+msgstr "시간 초과로 “%s” 작업을 완료하지 못했습니다%s. 다시 시도하시겠습니까?"
+
+#, lua-format
+msgid "Could not complete \"%s\" because the server address could not be found. Would you like to retry?"
+msgstr "서버 주소를 찾을 수 없어 “%s” 작업을 완료하지 못했습니다. 다시 시도하시겠습니까?"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a network error. Would you like to retry?"
+msgstr "네트워크 오류로 “%s” 작업을 완료하지 못했습니다. 다시 시도하시겠습니까?"
+
+#, lua-format
+msgid "Could not complete \"%s\" due to a temporary issue. Would you like to retry?"
+msgstr "일시적인 문제로 “%s” 작업을 완료하지 못했습니다. 다시 시도하시겠습니까?"
+
+msgid "Retry"
+msgstr "다시 시도"
+
+#, lua-format
+msgid "Block timeout: %s"
+msgstr "블록 타임아웃: %s"
+
+#, lua-format
+msgid "Total timeout: %s"
+msgstr "총 타임아웃: %s"
+
+#, lua-format
+msgid "Set %s block timeout (seconds)"
+msgstr "%s 블록 타임아웃 설정 (초)"
+
+msgid "Please enter a valid number (minimum 1 second)"
+msgstr "유효한 숫자를 입력하세요 (최소 1초)"
+
+#, lua-format
+msgid "Set %s total timeout (seconds, -1 for infinite)"
+msgstr "%s 총 타임아웃 설정 (초, -1은 무한)"
+
+msgid "Please enter a valid number (minimum 1 second or -1 for infinite)"
+msgstr "유효한 숫자를 입력하세요 (최소 1초 또는 -1은 무한)"
+
+msgid "Reset to defaults"
+msgstr "기본값으로 재설정"
+
+#, lua-format
+msgid "Reset %s timeouts to default values?"
+msgstr "%s 타임아웃을 기본값으로 재설정하시겠습니까?"
+
+msgid "Timeout settings reset to defaults"
+msgstr "타임아웃 설정이 기본값으로 재설정되었습니다"
+
+msgid "Reset"
+msgstr "재설정"
+
+#, lua-format
+msgid "%s Timeout Settings"
+msgstr "%s 타임아웃 설정"
+
+msgid "Login timeouts"
+msgstr "로그인 타임아웃"
+
+msgid "Search timeouts"
+msgstr "검색 타임아웃"
+
+msgid "Book details timeouts"
+msgstr "도서 상세정보 타임아웃"
+
+msgid "Recommended books timeouts"
+msgstr "추천 도서 타임아웃"
+
+msgid "Popular books timeouts"
+msgstr "인기 도서 타임아웃"
+
+msgid "Popular books"
+msgstr "인기 도서"
+
+msgid "Download timeouts"
+msgstr "다운로드 타임아웃"
+
+msgid "Cover download timeouts"
+msgstr "표지 다운로드 타임아웃"
+
+msgid "Cover download"
+msgstr "표지 다운로드"
+
+msgid "Reset all timeouts to defaults"
+msgstr "모든 타임아웃을 기본값으로 재설정"
+
+msgid "Reset all timeout settings to default values?"
+msgstr "모든 타임아웃 설정을 기본값으로 재설정하시겠습니까?"
+
+msgid "All timeout settings reset to defaults"
+msgstr "모든 타임아웃 설정이 기본값으로 재설정되었습니다"
+
+msgid "Reset All"
+msgstr "모두 재설정"
+
+msgid "Timeout Settings"
+msgstr "타임아웃 설정"
+
+msgid "Email Address"
+msgstr "이메일 주소"
+
+msgid "Password"
+msgstr "비밀번호"
+
+msgid "Enter password"
+msgstr "비밀번호 입력"
+
+msgid "Set and verify"
+msgstr "설정 후 확인"
+
+msgid "Please fill in all fields"
+msgstr "모든 항목을 입력하세요"
+
+#~ msgid "Verify credentials"
+#~ msgstr "자격 증명 확인"
+
+#~ msgid "Developer options"
+#~ msgstr "개발자 옵션"
+
+#~ msgid "Feature not implemented"
+#~ msgstr "구현되지 않은 기능입니다"
+
+#~ msgid "Download this book?"
+#~ msgstr "이 책을 다운로드하시겠습니까?"
+
+#, lua-format
+#~ msgid "\"%s\" downloaded successfully. Open it now?"
+#~ msgstr "\"%s\"이(가) 성공적으로 다운로드되었습니다. 지금 열까요?"
+
+#, lua-format
+#~ msgid "Block timeout: %s seconds"
+#~ msgstr "블록 타임아웃: %s초"
+
+#~ msgid "seconds"
+#~ msgstr "초"
+
+#, lua-format
+#~ msgid "%s failed due to a timeout%s. Would you like to retry?"
+#~ msgstr "%s이(가) 타임아웃%s으로 실패했습니다. 다시 시도하시겠습니까?"
+
+#, lua-format
+#~ msgid "%s failed because the server address could not be found. Would you like to retry?"
+#~ msgstr "%s이(가) 서버 주소를 찾을 수 없어 실패했습니다. 다시 시도하시겠습니까?"
+
+#, lua-format
+#~ msgid "%s failed due to a network error. Would you like to retry?"
+#~ msgstr "%s이(가) 네트워크 오류로 실패했습니다. 다시 시도하시겠습니까?"
+
+#, lua-format
+#~ msgid "%s failed due to a temporary issue. Would you like to retry?"
+#~ msgstr "%s이(가) 일시적인 문제로 실패했습니다. 다시 시도하시겠습니까?"
+
+#~ msgid "Login"
+#~ msgstr "로그인"
+
+#~ msgid "Retrying search for \""
+#~ msgstr "\" 검색을 다시 시도하는 중"
+
+#~ msgid "Searching for \""
+#~ msgstr "\" 검색 중"
+
+#~ msgid "No results found for \""
+#~ msgstr "\"에 대한 결과가 없습니다"
+
+#~ msgid "Downloading…"
+#~ msgstr "다운로드 중…"
+
+#~ msgid "Description"
+#~ msgstr "설명"
+
+#~ msgid "Full Title"
+#~ msgstr "전체 제목"
+
+#~ msgid "Language"
+#~ msgstr "언어"
+
+#, lua-format
+#~ msgid "Format: %s (tap to download)"
+#~ msgstr "형식: %s (탭하여 다운로드)"
+
+#, lua-format
+#~ msgid "Format: %s (Download not available)"
+#~ msgstr "형식: %s (다운로드 불가)"
+
+#~ msgid "Download Book (Unknown Format)"
+#~ msgstr "도서 다운로드 (알 수 없는 형식)"
+
+#~ msgid "Size"
+#~ msgstr "크기"
+
+#~ msgid "Pages"
+#~ msgstr "페이지 수"
+
+#~ msgid "Publisher"
+#~ msgstr "출판사"
+
+#~ msgid "Series"
+#~ msgstr "시리즈"
+
+#~ msgid "Set email"
+#~ msgstr "이메일 설정"
+
+#~ msgid "Set password"
+#~ msgstr "비밀번호 설정"
+
+#~ msgid "Z-library Recommended Books"
+#~ msgstr "Z-라이브러리 추천 도서"
+
+#~ msgid "Z-library Most Popular Books"
+#~ msgstr "Z-라이브러리 인기 도서"
+
+#~ msgid "Fetch most recommended book from Z-library?"
+#~ msgstr "Z-라이브러리에서 가장 추천받는 도서를 가져오시겠습니까?"
+
+#~ msgid "OK"
+#~ msgstr "확인"
+
+#~ msgid "Fetch most popular books from Z-library?"
+#~ msgstr "Z-라이브러리에서 인기 도서를 가져오시겠습니까?"
+
+#~ msgid "Network not available. Please connect and try again."
+#~ msgstr "네트워크를 사용할 수 없습니다. 연결 후 다시 시도하세요."
+
+#~ msgid "Successfully found and set base URL to: "
+#~ msgstr "기본 URL을 성공적으로 찾아서 설정했습니다: "
+
+#~ msgid "Error during auto-discovery: "
+#~ msgstr "자동 검색 중 오류 발생: "
+
+#~ msgid "Could not find a working Z-library server. Please check your internet connection or set the base URL manually."
+#~ msgstr "작동 중인 Z-library 서버를 찾을 수 없습니다. 인터넷 연결을 확인하거나 기본 URL을 수동으로 설정하세요."
+
+#~ msgid "No internet connection detected."
+#~ msgstr "인터넷 연결이 감지되지 않았습니다."
+
+#~ msgid "No internet connection detected. Please connect to the internet and try again."
+#~ msgstr "인터넷 연결이 감지되지 않았습니다. 인터넷에 연결한 후 다시 시도해 주세요."
+
+#~ msgid "No download link available for this book."
+#~ msgstr "이 도서에 대한 다운로드 링크가 없습니다."
+
+#~ msgid "No recommended books found, please try again. Sometimes this requires a couple of retries."
+#~ msgstr "추천 도서를 찾을 수 없습니다. 다시 시도해 주세요. 때때로 여러 번 시도해야 할 수도 있습니다."
+
+#~ msgid "No most popular books found. The list was empty, please try again."
+#~ msgstr "인기 도서를 찾을 수 없습니다. 목록이 비어 있습니다. 다시 시도해 주세요."
+
+#~ msgid "Search failed"
+#~ msgstr "검색 실패"
+
+#~ msgid "Search failed due to a temporary issue (HTTP 400). Would you like to retry?"
+#~ msgstr "일시적인 문제로 검색에 실패했습니다(HTTP 400). 다시 시도하시겠습니까?"
+
+#~ msgid "Z-library most popular"
+#~ msgstr "Z-라이브러리 인기 도서"
+
+#~ msgid "Z-library recommended"
+#~ msgstr "Z-라이브러리 추천 도서"
+
+#~ msgid "Failed to retrieve user session after login."
+#~ msgstr "로그인 후 사용자 세션을 가져오는 데 실패했습니다."
+
+#~ msgid "Full Author"
+#~ msgstr "전체 저자명"
+
+#~ msgid "Description (tap to view)"
+#~ msgstr "설명 (탭하여 보기)"
+
+#~ msgid "Set username"
+#~ msgstr "사용자 이름 설정"
+
+#~ msgid "Downloading..."
+#~ msgstr "다운로드 중..."

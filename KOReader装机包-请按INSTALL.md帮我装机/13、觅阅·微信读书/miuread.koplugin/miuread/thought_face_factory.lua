@@ -1,0 +1,298 @@
+-- Native thought-popup font construction and per-glyph fallback support.
+-- The module prefers the selected/document font, then adds KOReader symbol,
+-- CJK and optional monochrome Emoji faces. All failures fall back to KOReader's
+-- normal Font:getFace path so a missing font can never block the popup.
+
+local Font = require("ui/font")
+local FontList = require("fontlist")
+local Freetype = require("ffi/freetype")
+local Screen = require("device").screen
+local logger = require("logger")
+
+local FaceFactory = {
+    initialized = false,
+    emoji_path = nil,
+    font_paths_cache = {},
+    face_cache = {},
+    fallback_cache = {},
+}
+
+local function file_exists(path)
+    if type(path) ~= "string" or path == "" then return false end
+    local ok_lfs, lfs = pcall(require, "libs/libkoreader-lfs")
+    if ok_lfs and lfs and type(lfs.attributes) == "function" then
+        return lfs.attributes(path, "mode") == "file"
+    end
+    local file = io.open(path, "rb")
+    if file then file:close(); return true end
+    return false
+end
+
+local function realpath(path)
+    if not file_exists(path) then return nil end
+    local ok, ffiutil = pcall(require, "ffi/util")
+    if ok and ffiutil and type(ffiutil.realpath) == "function" then
+        return ffiutil.realpath(path) or path
+    end
+    return path
+end
+
+local function resolve_bundled_font(fontname)
+    if type(fontname) ~= "string" or fontname == "" then return nil end
+    local direct = FontList.fontdir and (FontList.fontdir .. "/" .. fontname) or nil
+    if direct and file_exists(direct) then return realpath(direct) end
+
+    local ok, fonts = pcall(FontList.getFontList, FontList)
+    if not ok or type(fonts) ~= "table" then return nil end
+    for _, path in ipairs(fonts) do
+        if type(path) == "string" then
+            local basename = path:match("([^/]+)$") or path
+            if basename == fontname or path:find(fontname, 1, true) then
+                return realpath(path)
+            end
+        end
+    end
+    return nil
+end
+
+function FaceFactory:findEmojiFont()
+    if self.emoji_path and file_exists(self.emoji_path) then return self.emoji_path end
+
+    local candidates = {
+        "plugins/miuread.koplugin/fonts/NotoEmoji-Regular.ttf",
+        "plugins/weread.koplugin/fonts/NotoEmoji-Regular.ttf",
+        "/mnt/us/koreader/plugins/miuread.koplugin/fonts/NotoEmoji-Regular.ttf",
+        "/mnt/us/koreader/plugins/weread.koplugin/fonts/NotoEmoji-Regular.ttf",
+        "/mnt/us/fonts/NotoEmoji-Regular.ttf",
+        "/usr/share/fonts/truetype/noto/NotoEmoji-Regular.ttf",
+    }
+    local ok_ds, DataStorage = pcall(require, "datastorage")
+    if ok_ds and DataStorage and type(DataStorage.getDataDir) == "function" then
+        local data_dir = DataStorage:getDataDir()
+        candidates[#candidates + 1] = data_dir .. "/plugins/miuread.koplugin/fonts/NotoEmoji-Regular.ttf"
+        candidates[#candidates + 1] = data_dir .. "/plugins/weread.koplugin/fonts/NotoEmoji-Regular.ttf"
+    end
+
+    for _, path in ipairs(candidates) do
+        local resolved = realpath(path)
+        if resolved then
+            self.emoji_path = resolved
+            logger.info("[MiuRead][ThoughtPopup] emoji fallback font:", resolved)
+            return resolved
+        end
+    end
+    self.emoji_path = nil
+    return nil
+end
+
+function FaceFactory:init()
+    if self.initialized then return end
+    pcall(function()
+        local cre = require("document/credocument")
+        if cre and type(cre.engineInit) == "function" then cre:engineInit() end
+    end)
+    self:findEmojiFont()
+    self.initialized = true
+end
+
+function FaceFactory:getFontPaths(font_name)
+    if type(font_name) ~= "string" or font_name == "" then return {} end
+    local cached = self.font_paths_cache[font_name]
+    if cached then return cached end
+
+    local direct = realpath(font_name)
+    if direct then
+        local paths = {{path = direct, bold = false, italic = false}}
+        self.font_paths_cache[font_name] = paths
+        return paths
+    end
+
+    local paths, seen = {}, {}
+    local ok, cre = pcall(function()
+        local module = require("document/credocument")
+        return module and type(module.engineInit) == "function" and module:engineInit() or module
+    end)
+    if ok and cre and type(cre.getFontFaceFilenameAndFaceIndex) == "function" then
+        for index = 1, 4 do
+            local bold = index >= 3
+            local italic = index == 2 or index == 4
+            local ok_path, path = pcall(cre.getFontFaceFilenameAndFaceIndex, font_name, bold, italic)
+            path = ok_path and realpath(path) or nil
+            if path and not seen[path] then
+                seen[path] = true
+                paths[#paths + 1] = {path = path, bold = bold, italic = italic}
+            end
+        end
+    end
+    self.font_paths_cache[font_name] = paths
+    return paths
+end
+
+function FaceFactory:_buildFace(path, size, scale_size)
+    path = realpath(path)
+    local orig_size = math.max(8, math.floor(tonumber(size) or 0))
+    if not path or orig_size <= 0 then return nil end
+    -- Font:getFace() treats its size argument as a logical KOReader size and
+    -- applies Screen:scaleBySize() before opening FreeType. Custom UI fonts
+    -- must do the same or they become dramatically smaller on 300-ppi Kindles.
+    local scaled_size = orig_size
+    if scale_size ~= false and Screen and type(Screen.scaleBySize) == "function" then
+        local ok_scale, value = pcall(Screen.scaleBySize, Screen, orig_size)
+        if ok_scale and tonumber(value) and tonumber(value) > 0 then
+            scaled_size = math.max(8, math.floor(tonumber(value) + .5))
+        end
+    end
+
+    local ok, ftsize = pcall(Freetype.newFaceSize, path, scaled_size)
+    if not ok or not ftsize then
+        logger.warn("[MiuRead][ThoughtPopup] unable to open fallback font:", tostring(path))
+        return nil
+    end
+
+    local face = {
+        orig_font = path,
+        realname = path,
+        size = scaled_size,
+        orig_size = orig_size,
+        ftsize = ftsize,
+        hash = path .. "|" .. tostring(scaled_size),
+        is_real_bold = false,
+        hb_features = {"+kern", "+liga"},
+        fallbacks = {},
+    }
+    face.getFallbackFont = function(number)
+        if not number or number == 0 then return face end
+        if face.fallbacks[number] ~= nil then return face.fallbacks[number] end
+        return false
+    end
+    return face
+end
+
+function FaceFactory:_getFallbackFace(path, size, scale_size)
+    if not path then return nil end
+    local key = path .. "|" .. tostring(size) .. "|" .. (scale_size == false and "final" or "logical")
+    if self.fallback_cache[key] then return self.fallback_cache[key] end
+    local face = self:_buildFace(path, size, scale_size)
+    if face then self.fallback_cache[key] = face end
+    return face
+end
+
+local FALLBACK_FONT_NAMES = {
+    "FreeSans.ttf",
+    "NotoSansCJKsc-Regular.otf",
+    "freefont/FreeSerif.ttf",
+    "nerdfonts/symbols.ttf",
+    "NotoSansSymbols2-Regular.ttf",
+}
+
+function FaceFactory:_addFallbacks(face, size, scale_size)
+    if not face then return end
+    local paths, seen = {}, {}
+    if face.orig_font then seen[face.orig_font] = true end
+
+    for _, fontname in ipairs(FALLBACK_FONT_NAMES) do
+        local path = resolve_bundled_font(fontname)
+        if path and not seen[path] then
+            seen[path] = true
+            paths[#paths + 1] = path
+        end
+    end
+    local emoji = self:findEmojiFont()
+    if emoji and not seen[emoji] then paths[#paths + 1] = emoji end
+
+    local fallbacks = {}
+    for _, path in ipairs(paths) do
+        local fallback = self:_getFallbackFace(path, size, scale_size)
+        if fallback then fallbacks[#fallbacks + 1] = fallback end
+    end
+    fallbacks[#fallbacks + 1] = false
+    face.fallbacks = fallbacks
+end
+
+local function unscale_size(final_size)
+    final_size = math.max(8, math.floor(tonumber(final_size) or 12))
+    if not Screen or type(Screen.scaleBySize) ~= "function" then return final_size end
+    local best, best_diff = final_size, math.huge
+    for logical = 8, math.min(255, final_size + 32) do
+        local ok, scaled = pcall(Screen.scaleBySize, Screen, logical)
+        scaled = ok and tonumber(scaled) or nil
+        if scaled then
+            local diff = math.abs(scaled - final_size)
+            if diff < best_diff then best, best_diff = logical, diff end
+            if diff == 0 then break end
+        end
+    end
+    return best
+end
+
+local function legacy_face(font_name, size, fallback_name, size_is_final)
+    local logical_size = size_is_final and unscale_size(size) or size
+    if type(font_name) == "string" and font_name ~= "" then
+        local ok, face = pcall(Font.getFace, Font, font_name, logical_size)
+        if ok and face then return face end
+    end
+    return Font:getFace(fallback_name or "cfont", logical_size)
+end
+
+function FaceFactory:_getFace(font_name, size, fallback_name, scale_size)
+    self:init()
+    size = math.max(8, math.floor(tonumber(size) or 12))
+    fallback_name = fallback_name or "cfont"
+    local mode = scale_size == false and "final" or "logical"
+    local key = table.concat({tostring(font_name or ""), tostring(size), fallback_name, self.emoji_path or "", mode}, "|")
+    if self.face_cache[key] then return self.face_cache[key] end
+
+    local path
+    local paths = self:getFontPaths(font_name)
+    for _, item in ipairs(paths) do
+        if not item.bold and not item.italic then path = item.path; break end
+    end
+    if not path and paths[1] then path = paths[1].path end
+
+    if not path then
+        if fallback_name == "smallinfofont" then
+            path = resolve_bundled_font("NotoSans-Regular.ttf")
+                or resolve_bundled_font("FreeSans.ttf")
+        else
+            path = resolve_bundled_font("NotoSansCJKsc-Regular.otf")
+                or resolve_bundled_font("NotoSans-Regular.ttf")
+        end
+    end
+
+    local face = path and self:_buildFace(path, size, scale_size) or nil
+    if face then
+        self:_addFallbacks(face, size, scale_size)
+        self.face_cache[key] = face
+        return face
+    end
+
+    -- Compatibility fallback for KOReader builds whose font internals differ.
+    return legacy_face(font_name, size, fallback_name, scale_size == false)
+end
+
+-- Logical KOReader size: used by MiuRead UI and preview widgets. The factory
+-- applies Screen:scaleBySize exactly once, matching Font:getFace semantics.
+function FaceFactory:getFace(font_name, size, fallback_name)
+    return self:_getFace(font_name, size, fallback_name, true)
+end
+
+-- Final device-scaled size: used by the native comment popup, whose layout and
+-- pagination metrics are already calculated from the final scaled size.
+function FaceFactory:getFinalFace(font_name, size, fallback_name)
+    return self:_getFace(font_name, size, fallback_name, false)
+end
+
+function FaceFactory:signature()
+    self:init()
+    return self.emoji_path or "no-emoji-font"
+end
+
+function FaceFactory:clearCache()
+    self.font_paths_cache = {}
+    self.face_cache = {}
+    self.fallback_cache = {}
+    self.emoji_path = nil
+    self.initialized = false
+end
+
+return FaceFactory

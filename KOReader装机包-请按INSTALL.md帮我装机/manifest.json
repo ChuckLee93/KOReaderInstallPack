@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-31T08:58:12.144Z",
-  "file_count": 786,
+  "generated": "2026-08-31T12:06:13.973Z",
+  "file_count": 790,
   "files": [
     {
       "path": "0、必装核心/defaults.custom.lua",
@@ -3734,8 +3734,8 @@
     },
     {
       "path": "9、生僻字注音/pinyin.koplugin/README.md",
-      "size": 12410,
-      "md5": "28e7bbb5f9179d355f98ca8297fbed84"
+      "size": 13624,
+      "md5": "8a475024f4f2e44125ff813d169b398e"
     },
     {
       "path": "9、生僻字注音/pinyin.koplugin/assets/image-1.png",
@@ -3778,14 +3778,24 @@
       "md5": "017f27433734875ee2c405f8f7974347"
     },
     {
+      "path": "9、生僻字注音/pinyin.koplugin/fix_trad.lua",
+      "size": 11505,
+      "md5": "31a054dd7f76af0bb1bff25428ff3141"
+    },
+    {
       "path": "9、生僻字注音/pinyin.koplugin/main.lua",
-      "size": 46040,
-      "md5": "2065baa6bdf204aed04a8e2fb28df0e4"
+      "size": 49899,
+      "md5": "2fef97b022ec4b496848e08ed9ec2e0a"
     },
     {
       "path": "9、生僻字注音/pinyin.koplugin/phrase_data.lua",
       "size": 321169,
       "md5": "29a8dde7f4efbd1cc5a1c30792d3f290"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/phrase_trad.lua",
+      "size": 320744,
+      "md5": "e8d317bc9409b767f77306f94789eff0"
     },
     {
       "path": "9、生僻字注音/pinyin.koplugin/pinyin_data.lua",
@@ -3798,29 +3808,39 @@
       "md5": "fa637b7ca3afaa67a7595c042c2257bb"
     },
     {
+      "path": "9、生僻字注音/pinyin.koplugin/polyphone_trad.lua",
+      "size": 16768,
+      "md5": "898e8aa09856cd5a85df65b6bdadeea3"
+    },
+    {
+      "path": "9、生僻字注音/pinyin.koplugin/trad_data.lua",
+      "size": 71606,
+      "md5": "791ed9188a6ee7aba46d9c383c4700f8"
+    },
+    {
       "path": "9、生僻字注音/settings-preset-pinyin.lua",
       "size": 591,
       "md5": "86fddbccae91335aa98ff2bca8cb9ea7"
     },
     {
       "path": "9、生僻字注音/使用说明.txt",
-      "size": 2512,
-      "md5": "fc33bcbc7933568612b65516408db005"
+      "size": 3235,
+      "md5": "c68461b63abcc5088ec2e24a641282a6"
     },
     {
       "path": "INSTALL.md",
-      "size": 52210,
-      "md5": "ec39f356a2324ca9cc11c9f2376fcc9b"
+      "size": 52258,
+      "md5": "41ee200012e86da487469952b8ea9ea5"
     },
     {
       "path": "README.md",
-      "size": 8790,
-      "md5": "a4b52da6bd3d2d270884fd5293495ba4"
+      "size": 8826,
+      "md5": "b263d89250f290f7867d25eceaae5325"
     },
     {
       "path": "使用说明.txt",
-      "size": 8174,
-      "md5": "2d9ecf353ba8d1ef909c6be0bf01a37a"
+      "size": 8079,
+      "md5": "a591f173bd0af5b3e40f5d51b7888881"
     },
     {
       "path": "备用组件/cover-setter/CoverSetter/bin/set1.sh",
@@ -3929,8 +3949,8 @@
     },
     {
       "path": "装机包完整介绍.md",
-      "size": 14097,
-      "md5": "da7ddc57af9e9bfb69099663c5447e4e"
+      "size": 14205,
+      "md5": "2d747e95779dba1c6ed1628f276ad90b"
     }
   ]
 }

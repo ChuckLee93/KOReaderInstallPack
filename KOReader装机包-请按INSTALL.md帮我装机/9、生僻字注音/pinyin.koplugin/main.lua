@@ -5,6 +5,16 @@
 仿 Kindle "生字注音" 功能: 在中文页面每个汉字上方(或下方)叠加拼音,
 并可按"常用度等级"控制只给较生僻的字注音。
 
+v6.5 新增(繁体书模式, 与简体通道完全同构的纯查表设计):
+  * 菜单「繁体书模式: 开/关」(默认关, 读繁体书时打开)。
+  * 繁体数据表(gen_trad_data.py 自动生成, 一对多歧义在生成期由 OpenCC
+    词组级转换解析): trad_data.lua(繁体字→拼音|rank, 启动即载)、
+    polyphone_trad.lua(繁体多音字索引)、fix_trad.lua(繁体读音修正)、
+    phrase_trad.lua(繁体键词组辨音表, 惰性加载, 仅繁体模式才读入)。
+  * 简体模式行为完全不变: 繁体表不参与查表(简体路径零改动),
+    phrase_trad 文件不加载。繁体模式: 单字查 trad_data→pinyin_data,
+    辨音窗口用页面原字(繁体)查 phrase_trad, 生词本联动原文匹配不变。
+    两条通道均为一次哈希查表, 翻页速度同构。
 v6.2: 词组辨音改为始终开启(纯查表不影响翻页, 不设开关); 菜单仅保留
   「生词本注音: 开/关」一项开关, 开关状态直接写在菜单文字里。
 v6.1: 单字生词读音也走词组辨音(行列 háng / 举行 xíng), 不再锁默认读音。
@@ -50,6 +60,18 @@ if not ok_idx or type(PolyIdx) ~= "table" then PolyIdx = {} end
 local ok_fix, DefaultFix = pcall(require, "default_fix")
 if not ok_fix or type(DefaultFix) ~= "table" then DefaultFix = {} end
 
+-- v6.5 繁体书模式数据表(均自动生成, 详见 gen_trad_data.py):
+--   trad_data.lua:      繁体字→拼音|rank(启动即载, 仅繁体模式查询)
+--   polyphone_trad.lua: 繁体多音字索引(小, 启动即载)
+--   fix_trad.lua:       繁体键默认读音修正表(小, 启动即载)
+--   phrase_trad.lua:    繁体键词组辨音表(约 320KB, 惰性加载, 仅繁体模式)
+local ok_trad, TradData = pcall(require, "trad_data")
+if not ok_trad or type(TradData) ~= "table" then TradData = {} end
+local ok_pidxt, PolyIdxTrad = pcall(require, "polyphone_trad")
+if not ok_pidxt or type(PolyIdxTrad) ~= "table" then PolyIdxTrad = {} end
+local ok_ftrad, FixTrad = pcall(require, "fix_trad")
+if not ok_ftrad or type(FixTrad) ~= "table" then FixTrad = {} end
+
 -- 插件配置(config.lua): 两项高级开关, 默认均为关闭。修改后需重启 KOReader 生效。
 local ok_cfg, PinyinConfig = pcall(require, "config")
 if not ok_cfg or type(PinyinConfig) ~= "table" or PinyinConfig._pinyin ~= true then
@@ -80,25 +102,48 @@ local LOOKAHEAD = 5       -- 辨音右窗(字后最多取 5 个字, 配合左窗
 local MAX_WORD_LEN = 6    -- 词组匹配最大长度(字)
 local MAX_ANNOT = 30      -- 单页注音上限(保险丝): 收满即停, 扫描与绘制都省
 
--- 插件版本(对外显示 v2.0; 内部开发迭代号 6.4, 仅记录于 README/日志)
-local VERSION = "2.0"
+-- 插件版本(对外显示 v2.1; 内部开发迭代号 6.5, 仅记录于 README/日志)
+local VERSION = "2.1"
 
 local Pinyin = WidgetContainer:extend{
     name = "pinyin",
     is_doc_only = true,
 }
 
--- 取字读音: 优先用修正表(kTGHZ2013 部分字罕见读音排前), 回退插件默认
-local function resolvePy(entry, ch)
-    return DefaultFix[ch] or entry:match("^([^|]+)")
+-- 取字读音: 优先用修正表(kTGHZ2013 部分字罕见读音排前), 回退插件默认。
+-- fix 参数: 简体模式传 DefaultFix(或不传), 繁体模式传 FixTrad。
+local function resolvePy(entry, ch, fix)
+    return (fix or DefaultFix)[ch] or entry:match("^([^|]+)")
 end
 
 -- 惰性加载词组辨音表(首次遇到多音字才 require, 之后常驻; false=加载失败不再重试)
+-- v6.5: 按当前模式加载简体/繁体词组表; 切换模式时调用方应置 self._phrases=nil。
 local function getPhrases(self)
     if self._phrases ~= nil then return self._phrases end
-    local ok, P = pcall(require, "phrase_data")
+    local mod = self.trad and "phrase_trad" or "phrase_data"
+    local ok, P = pcall(require, mod)
     self._phrases = (ok and type(P) == "table") and P or false
     return self._phrases
+end
+
+-- ---------------------------------------------------------------------------
+-- v6.5 模式感知查表入口: 简体模式=原通道(繁体表不参与, 简体路径零改动);
+-- 繁体模式=先查繁体表, 未命中(简繁同形字/混排简体字)回退简体表。
+-- 两条通道均为一次哈希查表, 速度同构。
+-- ---------------------------------------------------------------------------
+function Pinyin:_entry(ch)
+    if self.trad then
+        return TradData[ch] or PinyinData.data[ch]
+    end
+    return PinyinData.data[ch]
+end
+
+function Pinyin:_polyIdx()
+    return self.trad and PolyIdxTrad or PolyIdx
+end
+
+function Pinyin:_fix()
+    return self.trad and FixTrad or DefaultFix
 end
 
 function Pinyin:init()
@@ -111,6 +156,7 @@ function Pinyin:init()
     self.debug = CFG_DEBUG_LOG  -- 由 config.lua 的 enable_debug_log 控制, 默认关闭
     self.show_diagnostics = CFG_SHOW_DIAG  -- 由 config.lua 的 show_diagnostics 控制, 默认关闭
     self.vocab_link = G_reader_settings:readSetting("pinyin_vocab_link", true)
+    self.trad = G_reader_settings:readSetting("pinyin_traditional", false)
     self.plan = {}  -- view module 绘制计划
     self._vocab = nil    -- 生词本词表(惰性, mtime 同步)
     self._phrases = nil  -- 词组辨音表(惰性)
@@ -281,16 +327,16 @@ function Pinyin:_wordPys(w)
                 if k <= cover then
                     out[k] = pys[k]
                 else
-                    local entry = PinyinData.data[chs[k]]
-                    out[k] = entry and resolvePy(entry, chs[k]) or nil
+                    local entry = self:_entry(chs[k])
+                    out[k] = entry and resolvePy(entry, chs[k], self:_fix()) or nil
                 end
             end
             return out
         end
     end
     for k = 1, n do
-        local entry = PinyinData.data[chs[k]]
-        out[k] = entry and resolvePy(entry, chs[k]) or nil
+        local entry = self:_entry(chs[k])
+        out[k] = entry and resolvePy(entry, chs[k], self:_fix()) or nil
     end
     return out
 end
@@ -371,7 +417,9 @@ function Pinyin:_emitRec(rt, j, plan, stats, doc)
         py = rec.py
         -- 词组辨音始终开启(v6.2): 只对"本来就要注音"的多音字做纯查表
         -- (实测单字 <0.01ms, 无注音页面成本为零), 无需开关。
-        if PolyIdx[rec.ch] then
+        -- v6.5: 多音字索引按模式取简/繁表, 辨音窗口用页面原字查对应词组表。
+        local pidx = self:_polyIdx()
+        if pidx[rec.ch] then
             local d = self:_disambiguate(rt, j, stats)
             if d then py = d end
         end
@@ -479,7 +527,8 @@ function Pinyin:drawPinyin(target_page)
     -- 直接返回, 完全跳过下面的逐字遍历(逐字遍历要 300~600 字 × 3 次 CRE 桥调用,
     -- 是翻页"长时间不动"的元凶)。有目标的页面才走逐字定位通道, 且结果按
     -- (页码|等级|字号) 缓存, 翻回同一页零成本。
-    local cache_key = string.format("%d|%d|%d", page, self.level, self.font_size)
+    local cache_key = string.format("%d|%d|%d|%s", page, self.level, self.font_size,
+        self.trad and "T" or "S")
     if not self._plan_cache then self._plan_cache = {} end
     if self._plan_cache[cache_key] ~= nil then
         -- 缓存命中: 直接复用上次的绘制计划, 同时把诊断数据也切到本页,
@@ -513,7 +562,7 @@ function Pinyin:drawPinyin(target_page)
     local full_target_count = 0
     if type(full_text) == "string" and full_text ~= "" then
         for ch in full_text:gmatch(util.UTF8_CHAR_PATTERN) do
-            local entry = PinyinData.data[ch]
+            local entry = self:_entry(ch)
             if entry then
                 local rk = tonumber(entry:match("|(%d+)$")) or 999999
                 if rk > threshold then
@@ -587,7 +636,7 @@ function Pinyin:drawPinyin(target_page)
             if tr and tr.text and tr.text ~= "" and tr.pos0 and tr.pos1 then
                 local n_t = 0
                 for ch in tr.text:gmatch(util.UTF8_CHAR_PATTERN) do
-                    local entry = PinyinData.data[ch]
+                    local entry = self:_entry(ch)
                     if entry then
                         local rk = tonumber(entry:match("|(%d+)$")) or 999999
                         if rk > threshold then
@@ -654,11 +703,11 @@ function Pinyin:drawPinyin(target_page)
                 for ch in word:gmatch(util.UTF8_CHAR_PATTERN) do
                     stats.chars = stats.chars + 1
                     local rec = { ch = ch, xp = xp, next_xp = next_xp }
-                    local entry = PinyinData.data[ch]
+                    local entry = self:_entry(ch)
                     if entry then
                         stats.with_data = stats.with_data + 1
                         local rk = tonumber(entry:match("|(%d+)$")) or 999999
-                        rec.py = resolvePy(entry, ch)
+                        rec.py = resolvePy(entry, ch, self:_fix())
                         if rk > threshold then
                             rec.show = true
                             stats.shown = stats.shown + 1
@@ -898,6 +947,21 @@ function Pinyin:genMenuItems()
 
     table.insert(sub, {
         text_func = function()
+            return T(_("繁体书模式: %1"), self.trad and _("开") or _("关"))
+        end,
+        checked = self.trad,
+        help_text = _("读繁体(传统汉字)书时开启:\n· 繁体字正常按等级注音, 并参与词组辨音(銀行→háng)与生词本联动\n· 一对多简繁字(發/髮)由词组辨音区分(頭髮→fà / 出發→fā)\n· 关闭时繁体数据表不参与查表, 简体书行为完全不变\n· 切换后自动清空页面缓存, 下次翻页按新模式重建"),
+        callback = function()
+            self.trad = not self.trad
+            G_reader_settings:saveSetting("pinyin_traditional", self.trad)
+            self._phrases = nil     -- 词组表按模式重新惰性加载
+            self._plan_cache = {}   -- 页面计划缓存清空
+            if self.enabled then self:drawPinyin() end
+        end,
+    })
+
+    table.insert(sub, {
+        text_func = function()
             return T(_("拼音字号: %1"), self.font_size)
         end,
         keep_menu_open = true,
@@ -1017,6 +1081,7 @@ function Pinyin:genMenuItems()
                 "·标注等级：控制生僻字注音范围（1最严，5覆盖面最宽）。\n" ..
                 "·新增生词本联动（给生词本中的单字和整词添加注音）。\n" ..
                 "·新增多音字词组辨音：结合上下文判断读音。\n" ..
+                "·繁体书模式：读繁体书时在菜单开启，繁体字正常注音辨音。\n" ..
                 "·已测试: EPUB / DOCX / HTML(建议用 EPUB); 其它格式未测试, 可能显示不出拼音。\n" ..
                 "· PDF / DjVu 因引擎限制暂不支持。",
                 VERSION)

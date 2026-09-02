@@ -12085,14 +12085,22 @@ function Plugin:_reset_reader_toolbar_state_cache()
         session=tonumber(HOME_SESSION.reader_session_generation or 0) or 0,
         page=nil,total=nil,chapter="",chapter_percent=nil,whole_percent=nil,chapter_ordinal=nil,updated_at=0,
     }
+    self._reader_toolbar_position_cache=nil
 end
 
 function Plugin:_refresh_reader_toolbar_state_cache(page)
     if not (self.ui and self.ui.document) then return false end
-    local started=os.clock()
     local cache=self:_reader_toolbar_cache()
     local current=tonumber(page)
     if not current then current=self:_reader_current_page() end
+    -- Same-page short circuit: an unchanged page cannot change any toolbar
+    -- value, so skip the whole refresh (TOC walk + WeRead position mapping).
+    if current and current==tonumber(cache.page)
+        and tonumber(cache.total) and tonumber(cache.total)>0
+        and (tonumber(cache.updated_at) or 0)>0 then
+        return true
+    end
+    local started=os.clock()
     if current then cache.page=current end
 
     if not tonumber(cache.total) or tonumber(cache.total)<=0 then
@@ -12156,13 +12164,44 @@ function Plugin:_refresh_reader_toolbar_state_cache(page)
     -- deliberately does not invoke the precise source-text locator.
     if self:_reader_session_is_weread() and self.sync and type(self.sync.local_position)=="function"
         and current and page_total and page_total>0 then
-        local ok,position=pcall(self.sync.local_position,self.sync,current/page_total)
-        if ok and type(position)=="table" then
-            if position.safe==true and tonumber(position.progress) then
-                cache.whole_percent=math.max(0,math.min(100,tonumber(position.progress)))
+        local ratio=current/page_total
+        -- The WeRead position mapping is by far the most expensive part of
+        -- this refresh (chapter map copy + forward/inverse conversion) while
+        -- its result moves sub-linearly with page turns. Recompute only when
+        -- book progress moved by >=1% (or book/session changed); otherwise
+        -- reuse the cached values. Display-only: Sync:upload computes its own
+        -- fresh position at upload time and never reads this cache.
+        local pcache=self._reader_toolbar_position_cache
+        local pcache_valid=type(pcache)=="table"
+            and pcache.path==path
+            and tonumber(pcache.session or -1)==tonumber(cache.session or -1)
+            and tonumber(pcache.ratio)~=nil
+            and math.abs(ratio-tonumber(pcache.ratio))<0.01
+        if pcache_valid then
+            if tonumber(pcache.progress) then
+                cache.whole_percent=math.max(0,math.min(100,tonumber(pcache.progress)))
             end
-            if tonumber(position.chapter_percent) then
-                cache.chapter_percent=math.max(0,math.min(100,tonumber(position.chapter_percent)))
+            if tonumber(pcache.chapter_percent) then
+                cache.chapter_percent=math.max(0,math.min(100,tonumber(pcache.chapter_percent)))
+            end
+        else
+            local ok,position=pcall(self.sync.local_position,self.sync,ratio)
+            if ok and type(position)=="table" then
+                local mapped_progress=(position.safe==true and tonumber(position.progress)) or nil
+                local mapped_chapter_percent=tonumber(position.chapter_percent) or nil
+                self._reader_toolbar_position_cache={
+                    path=path,
+                    session=tonumber(cache.session or -1),
+                    ratio=ratio,
+                    progress=mapped_progress,
+                    chapter_percent=mapped_chapter_percent,
+                }
+                if mapped_progress then
+                    cache.whole_percent=math.max(0,math.min(100,mapped_progress))
+                end
+                if mapped_chapter_percent then
+                    cache.chapter_percent=math.max(0,math.min(100,mapped_chapter_percent))
+                end
             end
         end
     end
@@ -27187,3 +27226,4 @@ function Plugin:_inkstain_ensure_or_prompt()
 end
 
 return Plugin
+

@@ -634,7 +634,12 @@ function M.refresh(plugin)
         if not w or not w._navbar_container or seen[w] then return end
         seen[w] = true
         UI.replaceTopbar(w, new_topbar)
-        UIManager:setDirty(w, "ui")
+        -- Scope the e-ink refresh to the topbar's own region instead of the
+        -- whole screen (same convention as module_clock.lua's surgical clock
+        -- tick and ScreenWidget:_refreshBookModSlot). The dimen is read
+        -- lazily via the callback, after the paint pass has positioned
+        -- new_topbar, so it reflects its real on-screen coordinates.
+        UIManager:setDirty(w, function() return "ui", new_topbar.dimen end)
     end
     refreshWidget(plugin.ui)
     for _, entry in ipairs(stack) do

@@ -4434,11 +4434,9 @@ msgstr "günlük ort. (7 gün)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "günlük seri"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "günlük seri"
+msgid_plural "days streak"
+msgstr[0] "günlük seri"
+msgstr[1] "günlük seri"
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

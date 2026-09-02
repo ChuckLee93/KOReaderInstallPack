@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-31T12:06:13.973Z",
-  "file_count": 790,
+  "generated": "2026-09-02T10:50:19.849Z",
+  "file_count": 763,
   "files": [
     {
       "path": "0、必装核心/defaults.custom.lua",
@@ -509,13 +509,13 @@
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/lib/pinyinime.lua",
-      "size": 96698,
-      "md5": "a63da48464d42e9eeba57e3551ef5f95"
+      "size": 97498,
+      "md5": "6007fa7a6111d1ee1d7f9c4c136029cf"
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/lib/plugin_version.lua",
-      "size": 16,
-      "md5": "b5c2b8aa50041da0b833805de259b918"
+      "size": 21,
+      "md5": "1a32399a28e234797a73eb9c7274f96e"
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/lib/release_adapter.lua",
@@ -524,8 +524,8 @@
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/lib/runtime.lua",
-      "size": 52663,
-      "md5": "645111bd96454cf2ef516a679d475aea"
+      "size": 56131,
+      "md5": "82e49e520b24a1bcb6f2bdc002f815fc"
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/lib/sentence_decoder.lua",
@@ -534,8 +534,8 @@
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/lib/settings.lua",
-      "size": 30054,
-      "md5": "e24d18373ac58111568a3e5ee8bce1ad"
+      "size": 30757,
+      "md5": "dcd490cf30de0f853c31709a28abc2da"
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/lib/shuangpin_decoder.lua",
@@ -554,8 +554,8 @@
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/main.lua",
-      "size": 6154,
-      "md5": "08043c69d17f9d4c68a18059f9321a5b"
+      "size": 6211,
+      "md5": "4f0a6bdfbe03173b6d5e28de1f57bb00"
     },
     {
       "path": "0、必装核心/plugins/pinyinime.koplugin/widgets/candidatebar.lua",
@@ -939,8 +939,8 @@
     },
     {
       "path": "10、AI 伴读/koai.koplugin/settings_menu.lua",
-      "size": 13697,
-      "md5": "121bf3991401561a846f3999ec8fc967"
+      "size": 13690,
+      "md5": "1d4b4c18b1e4a9def42b3613a10a4f02"
     },
     {
       "path": "10、AI 伴读/koai.koplugin/settings_storage.lua",
@@ -1029,8 +1029,8 @@
     },
     {
       "path": "13、觅阅·微信读书/miuread.koplugin/_meta.lua",
-      "size": 188,
-      "md5": "3840f1b3d7c4f913fa4febfaa318f256"
+      "size": 221,
+      "md5": "77a338ba9b0eff47e28b1e065c0e2838"
     },
     {
       "path": "13、觅阅·微信读书/miuread.koplugin/libs/cervantes/libmiucodec.so",
@@ -1069,8 +1069,8 @@
     },
     {
       "path": "13、觅阅·微信读书/miuread.koplugin/main.lua",
-      "size": 1360697,
-      "md5": "2aeeb55929ccb9273fa23ec92e314df0"
+      "size": 1362713,
+      "md5": "cca212bf4d02168d660cb1f28be2d12e"
     },
     {
       "path": "13、觅阅·微信读书/miuread.koplugin/miuread/access.lua",
@@ -1694,8 +1694,8 @@
     },
     {
       "path": "13、觅阅·微信读书/miuread.koplugin/miuread/sync.lua",
-      "size": 198763,
-      "md5": "039bd9eed6985dddcc87953c4e04b340"
+      "size": 199912,
+      "md5": "0e9edde916c28893ed5cfb6978ec5ad6"
     },
     {
       "path": "13、觅阅·微信读书/miuread.koplugin/miuread/text.lua",
@@ -2889,13 +2889,13 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/fonts/文鼎书苑宋/AR SYSongGB Display H46-Bold.ttf",
-      "size": 3857536,
-      "md5": "7923ba11b168a2e24b3d973603b32cbc"
+      "size": 3857720,
+      "md5": "8ed02c90664b1679ad0fce04f96f4448"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/fonts/文鼎书苑宋/AR SYSongGB Display H46-Regular.ttf",
-      "size": 3848292,
-      "md5": "2e8ce8d66b00195cbd8b4e870f3e791a"
+      "size": 3848468,
+      "md5": "27549c537c4d879de9d8b133d4ac4594"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/fonts/汉仪空山楷/HYKongShanKai-Bold.ttf",
@@ -2974,98 +2974,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/_meta.lua",
-      "size": 237,
-      "md5": "9203dd5e1a8be53f4b41521494ad8f27"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_action_list.lua",
-      "size": 26301,
-      "md5": "94730ae2e53a2c3004df4aee914bb4aa"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_books_shared.lua",
-      "size": 42265,
-      "md5": "5edf01033c791031e7a6f199aa70c45f"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_clock.lua",
-      "size": 38046,
-      "md5": "62a85c64800690b908a7bd537973aea3"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_collections.lua",
-      "size": 45387,
-      "md5": "7d79c652c12162f18dd23c7d91d95b23"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_coverdeck.lua",
-      "size": 62017,
-      "md5": "8959bc2848e442a147784a7a9bd8eae4"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_currently.lua",
-      "size": 83664,
-      "md5": "5e54387d5cecbe9f0f5be89991373b30"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_new_books.lua",
-      "size": 15280,
-      "md5": "dfca7867efedce01dd2c21f933ef599e"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_quick_actions.lua",
-      "size": 29753,
-      "md5": "63a479f661975f859c2a64b935735f40"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_quote.lua",
-      "size": 45198,
-      "md5": "ca220b6e810e3cfef22240c648e0ca76"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_reading_goals.lua",
-      "size": 53092,
-      "md5": "b913a090b3f17691b0847e539ebdc017"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_reading_stats.lua",
-      "size": 40585,
-      "md5": "297a5a2dfaac2ac6892cc427c587b9c9"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_recent.lua",
-      "size": 25319,
-      "md5": "5365e5c60944dac8f61458a7ae2607ae"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_spacer.lua",
-      "size": 3900,
-      "md5": "94d15d0bc1e074c957dcc42e3e783e4d"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_stats_provider.lua",
-      "size": 46374,
-      "md5": "38ef4f54c145a6746c77ea74c1e2a13a"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/module_tbr.lua",
-      "size": 34163,
-      "md5": "63eb335db8cbcf8e4033a61b29757cfe"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/moduleregistry.lua",
-      "size": 19481,
-      "md5": "aadb966ae66016a0801336b48ebe7315"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/desktop_modules/quotes.lua",
-      "size": 11359,
-      "md5": "b3da974e9e2a174f787d407eb122eb1d"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/.DS_Store",
-      "size": 6148,
-      "md5": "1535487816cec1fa6f2287e4e1ce1ba1"
+      "size": 235,
+      "md5": "aaa80f6b94dcc45f1429280d0a39f649"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_asset_browser.lua",
@@ -3074,8 +2984,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_book_grid.lua",
-      "size": 105145,
-      "md5": "7ecb208123af0ca66be4102554314c4b"
+      "size": 105192,
+      "md5": "4fda4ef87f0d1839b07c65be35f3e68d"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_heatmap_data.lua",
@@ -3099,8 +3009,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_screen_engine.lua",
-      "size": 210819,
-      "md5": "1587157dd58dad2d787ad44647080832"
+      "size": 202154,
+      "md5": "93e81424bcdca552215b86cf55420a9b"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/engines/sui_window.lua",
@@ -3148,6 +3058,11 @@
       "md5": "25454d71f19017a66bab5adffcee4b48"
     },
     {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_metadata_providers.lua",
+      "size": 26353,
+      "md5": "12e5afb7037e8a5b7319bf1d767161c0"
+    },
+    {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/library/sui_metadata_source.lua",
       "size": 16881,
       "md5": "bfaeb9cf25c719830235a6b44d9b2109"
@@ -3163,14 +3078,19 @@
       "md5": "2603f40b8299fb4315bf16c96f5a4a43"
     },
     {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_backup.lua",
+      "size": 47184,
+      "md5": "db019b1924538c00e544b646bb1dc085"
+    },
+    {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_presets.lua",
-      "size": 52065,
-      "md5": "590f0bec1a46a4c1934b194c9e6f6a86"
+      "size": 55959,
+      "md5": "1b08f2c8f1ef2a82079d64caaea0ebb8"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_quickactions.lua",
-      "size": 158314,
-      "md5": "faaf063512872a0f7b6df182050c888d"
+      "size": 158734,
+      "md5": "ed23f4bc4d3e7f21faebc67363159e70"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/features/sui_style.lua",
@@ -3186,6 +3106,11 @@
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/author.svg",
       "size": 853,
       "md5": "20b874968104c6f0a34959948f778750"
+    },
+    {
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/backup.svg",
+      "size": 803,
+      "md5": "6de71ec76d4bdbb37db4fcc028655e0a"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/icons/collections.svg",
@@ -3273,24 +3198,19 @@
       "md5": "03d9dd9040fd2ecadf4044360a6c8eca"
     },
     {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/.DS_Store",
-      "size": 6148,
-      "md5": "d734413f9cc4395e541687c8e0c16523"
-    },
-    {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_aa_paint.lua",
-      "size": 5371,
-      "md5": "52c6cb9744502bc3748ecca394ab6154"
+      "size": 9102,
+      "md5": "c79d6019d0b135904e2127eb6cec4795"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_config.lua",
-      "size": 84160,
-      "md5": "332a13a5fa664b255c985ba280039fd1"
+      "size": 89290,
+      "md5": "4d1c7dc677c6a258644893bcf1efd95e"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_core.lua",
-      "size": 45691,
-      "md5": "21fa4a060c598c61cf11d5c733a9f13f"
+      "size": 47520,
+      "md5": "696576c2207b33b3e3dfa483933b815f"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_cover_cache.lua",
@@ -3309,8 +3229,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_patches.lua",
-      "size": 264606,
-      "md5": "25c144be37b6753afb893edd140b70af"
+      "size": 265626,
+      "md5": "6b3252f333f88b1069cd6c78f629596a"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_paths.lua",
@@ -3319,8 +3239,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_store.lua",
-      "size": 10477,
-      "md5": "a97452f04694e3651c2edbb09563e1b2"
+      "size": 10510,
+      "md5": "062861701c1464bc19c2b3f873ff3e46"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/infra/sui_streak.lua",
@@ -3333,139 +3253,129 @@
       "md5": "f77d66d83930b8cc9f50af0210a9c63a"
     },
     {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/.DS_Store",
-      "size": 8196,
-      "md5": "373789b5d8308c6e232b49c71ac389f6"
-    },
-    {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/bg.po",
-      "size": 167056,
-      "md5": "0b1a46ae96db03ea9d659112e07509ca"
+      "size": 167028,
+      "md5": "107becd68f42d74f403f89ae6ad2d337"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/cs.po",
-      "size": 142399,
-      "md5": "50a9edcc2a574df5cb76dadb5442b8c4"
+      "size": 142384,
+      "md5": "1104cea2633b6cb57ffac8f91faa38c4"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/de.po",
-      "size": 149781,
-      "md5": "b2b3d559462cc2bf8bb39236f1c84488"
+      "size": 149753,
+      "md5": "d6d861e42f5e56ea821bf4df82fb679e"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/es.po",
-      "size": 148917,
-      "md5": "edca90bd0beca8915cf534e85f4fa323"
+      "size": 148889,
+      "md5": "fdb8c2740dd568e64e3e972a51eb243f"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/fr.po",
-      "size": 147985,
-      "md5": "74537965a72e15d4decaeb91702de8c2"
+      "size": 147957,
+      "md5": "0ac6e74cc0268f52b0be1910379a0d22"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/gl.po",
-      "size": 126408,
-      "md5": "4d52b4951bdd49a27a50ce5b7c5d7a85"
+      "size": 126373,
+      "md5": "4e553f0316d27daa94cbc967e80f7911"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/hu.po",
-      "size": 149397,
-      "md5": "5b5c1b19bb458a9b9470c8b48637bf21"
+      "size": 159255,
+      "md5": "7c0eb8daf5f29c09a38793faa39c362b"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/it_IT.po",
-      "size": 149424,
-      "md5": "dabf840b668788062927f05c1aa31b7d"
+      "size": 149396,
+      "md5": "6a3711ccbbd0e70551fd20f849251287"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ja.po",
-      "size": 150081,
-      "md5": "7234ac220e230e1725cba1bdc9ad2640"
+      "size": 157129,
+      "md5": "76f50d953f30889d4019004d49bbcfbc"
     },
     {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ja.pot",
-      "size": 49969,
-      "md5": "5a6cbf2ecb30da8c5fd6f90ce2552a33"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ko.po",
-      "size": 125811,
-      "md5": "d3fa5ba33e8bbe2997f4e064a9c9554d"
+      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ko_KR.po",
+      "size": 151881,
+      "md5": "7bccb66bb2605d62faed22bd2c9f1be6"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/lt_LT.po",
-      "size": 146726,
-      "md5": "83e6c0027309cbb0476d22222166770a"
+      "size": 146646,
+      "md5": "2711624abe5c0367a25b37ced19f5828"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/pl.po",
-      "size": 143542,
-      "md5": "8bfe63d56e1add5a584977186ee392bd"
+      "size": 143527,
+      "md5": "12b7dc18001efdacf338b95509959639"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/pt_BR.po",
-      "size": 143491,
-      "md5": "82083a7a7aabc64e837a522049f001dc"
+      "size": 150674,
+      "md5": "a7a6e421bcb6ad513721a3e10545aad2"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/pt_PT.po",
-      "size": 143992,
-      "md5": "986395340d66631fb0d0210d12da9e0c"
+      "size": 151436,
+      "md5": "6736a58e434ee3f0c33755ef876cb977"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ro.po",
-      "size": 150442,
-      "md5": "fe4ded88d79840bd951761f43baff760"
+      "size": 150427,
+      "md5": "5e473ee4a111f68d3b09d60ea574d0f2"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ro_MD.po",
-      "size": 150452,
-      "md5": "4014f36baf76801001e0faeb64848d1c"
+      "size": 150437,
+      "md5": "994a5db92ad4831621c231ce2de1fc0b"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/ru.po",
-      "size": 165071,
-      "md5": "376fcb618e784e76261181814b751691"
+      "size": 165056,
+      "md5": "a1f35381f734b205e463542f3f5785c3"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/simpleui.pot",
-      "size": 111514,
-      "md5": "4e43fe7e9fa150a449f0f037b267958b"
+      "size": 117455,
+      "md5": "00d8f00f0e07709f35eb14f25f47898d"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/sv.po",
-      "size": 146359,
-      "md5": "e60d1313bb302a0a33e363ebf5e8d538"
+      "size": 146331,
+      "md5": "3f0753b35e049b1ac10e0c38bdcfb6b5"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/tr.po",
-      "size": 145148,
-      "md5": "212c310dd5edfa55f9858710184f7936"
+      "size": 145120,
+      "md5": "e0e54b1416e3810f64574cd20edeb484"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/uk.po",
-      "size": 169118,
-      "md5": "4176bf899aac57a9e40b22a30f683545"
+      "size": 169103,
+      "md5": "e41057dd255a8b21ca07c88146f3de1a"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/vi.po",
-      "size": 147332,
-      "md5": "09110b604e505fd0abaffc63f72f6a27"
+      "size": 147344,
+      "md5": "525b90049fcce6bdb6c5f1da46be5a9c"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/zh_CN.po",
-      "size": 135669,
-      "md5": "160b18ba823f4e50574ab5125e24f7d7"
+      "size": 143166,
+      "md5": "7d39ded15f3db48540ddc98437d2cb8c"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/locale/zh_TW.po",
-      "size": 136058,
-      "md5": "d081a9a70de627b321b897522a5848be"
+      "size": 143702,
+      "md5": "08338d64f66f7cb5e44e451b359eef9a"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/main.lua",
-      "size": 139653,
-      "md5": "a59e7bb2374e403d447bbacd3db95c5c"
+      "size": 140401,
+      "md5": "7685ca891f4d85a7a9cfa2ed550bc61f"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_action_list.lua",
@@ -3474,28 +3384,28 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_books_shared.lua",
-      "size": 50443,
-      "md5": "4d52cb4e20084ffdd03c8f8a3ddd7107"
+      "size": 52758,
+      "md5": "a53d58205f9a9cad6d8e9eeaf5303c73"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_clock.lua",
-      "size": 49025,
-      "md5": "eaf0220d8d46f6e95c198b0cada6b0ca"
+      "size": 52189,
+      "md5": "172655dbceba12952efd0d61b6170d53"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_collections.lua",
-      "size": 73239,
-      "md5": "7de63143619ec152c150401a7a1f9fdf"
+      "size": 72701,
+      "md5": "0ab12f7e2f518f41a4d515cddb26f850"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_coverdeck.lua",
-      "size": 69996,
-      "md5": "de6ebada3cee7f505eb959333e7c5909"
+      "size": 75676,
+      "md5": "75367bb1b809be3d8203d350aab31215"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_currently.lua",
-      "size": 105686,
-      "md5": "3f197523c6c9861ea008aca0ec67d215"
+      "size": 107671,
+      "md5": "226a07d4d3a1291677e355548fcbd820"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_feat_coll.lua",
@@ -3524,23 +3434,23 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_quote.lua",
-      "size": 43807,
-      "md5": "9fed09d9c3764d8bb076e3f118474ca4"
+      "size": 43797,
+      "md5": "e21a07c16965267fce8fb37e3c4fbff9"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_reading_goals.lua",
-      "size": 53267,
-      "md5": "a0b1c62bec5b47d6dd4380efe71b4744"
+      "size": 78006,
+      "md5": "9be85b040e45eb13f078494b5a7f8f5a"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_reading_stats.lua",
-      "size": 44840,
-      "md5": "e46f292bdbe846e48a6a77dba7effcaf"
+      "size": 44697,
+      "md5": "00f7b8c653e89d32b70ec2e05a3aa7c3"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_recent.lua",
-      "size": 2216,
-      "md5": "a7bdff7b9d3874ac259c026f83614a1c"
+      "size": 3560,
+      "md5": "66e100377ee3e3b451a4e7c85617dd7d"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/module_spacer.lua",
@@ -3559,8 +3469,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/moduleregistry.lua",
-      "size": 21842,
-      "md5": "e1c1f9ad9c80260c60b223f5d5322923"
+      "size": 21940,
+      "md5": "2c75de776ab4a8bc273eaced6dc49946"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/modules/quotes.lua",
@@ -3574,8 +3484,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_heatmap_popup.lua",
-      "size": 8115,
-      "md5": "37b7bc8bf80fb044f9b867dbc526c7bb"
+      "size": 8116,
+      "md5": "cc921d58284b0db20e47c5c012581f4b"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_homescreen.lua",
@@ -3584,13 +3494,13 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_menu.lua",
-      "size": 280098,
-      "md5": "48105cbc54fa8a9b1a07a5879823bb13"
+      "size": 281673,
+      "md5": "fd4774acea72ec319a23b549c4265f06"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_onboarding.lua",
-      "size": 12136,
-      "md5": "24ea9285995c8d4fd2a6d1ba6ee89932"
+      "size": 12187,
+      "md5": "dd6f58510c20934f93519f52c4cab70e"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_quicksettings_bar.lua",
@@ -3599,13 +3509,13 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_settings_window.lua",
-      "size": 51906,
-      "md5": "5ee12c0db12404ff85bcaba6861fad5b"
+      "size": 54750,
+      "md5": "1a03804bc276966df643b52927128ccd"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_stats_windows.lua",
-      "size": 173324,
-      "md5": "f1494f891842ddcf68cd82e84dc4f307"
+      "size": 173325,
+      "md5": "48c9e7d3bb47423cd8b02bdf712b3b71"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_titlebar.lua",
@@ -3614,118 +3524,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/screens/sui_topbar.lua",
-      "size": 25760,
-      "md5": "5c98791cc8a01fbfe97fff467718091e"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_bottombar.lua",
-      "size": 74385,
-      "md5": "8cbfe63407f7e4d140a97c869fbad962"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_browsemeta.lua",
-      "size": 61983,
-      "md5": "bd2228fefd4e5435eb47ac9cc0321940"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_config.lua",
-      "size": 54550,
-      "md5": "54db4d458c3ed9ae2cf0de8e9b542b0c"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_core.lua",
-      "size": 36342,
-      "md5": "84858683964710971081b7a576fc0eb5"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_foldercovers.lua",
-      "size": 157029,
-      "md5": "e3970f6eaf3cd0dea53b8ced25f522e3"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_homescreen.lua",
-      "size": 160431,
-      "md5": "b7c0565dcd84ba1d11ebc97fc94b85be"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_i18n.lua",
-      "size": 10685,
-      "md5": "a41b6b5e8501eede62c5998f01d5e215"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_menu.lua",
-      "size": 274596,
-      "md5": "ec14f13065ba6aa81ceb50f16d944878"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_onboarding.lua",
-      "size": 12347,
-      "md5": "94afda860f0cedbe2aacd81f320b56d8"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_patches.lua",
-      "size": 242702,
-      "md5": "94b60bda4fea1f6fab7073e3892b7c43"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_presets.lua",
-      "size": 53857,
-      "md5": "88af91b4f386dbe373e8efdcee215932"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_quickactions.lua",
-      "size": 143254,
-      "md5": "1b713daf8337e976fa9047a7fe26c79b"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_quicksettings_bar.lua",
-      "size": 58887,
-      "md5": "1487e9ba40be117ffa63377974504822"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_settings_window.lua",
-      "size": 41002,
-      "md5": "8730649f426acc40f7012c457aa15b88"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_stats_windows.lua",
-      "size": 173127,
-      "md5": "8fccdc0420afc12c9aef5a04d79d269b"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_store.lua",
-      "size": 10471,
-      "md5": "bab8dfffe79665b61c4728001ce1364a"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_streak.lua",
-      "size": 16992,
-      "md5": "ca601ddd48a02576192e00a087f4d8c2"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_style.lua",
-      "size": 103333,
-      "md5": "4380e5f8f61eaaf1c6c342749ceed94b"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_titlebar.lua",
-      "size": 70317,
-      "md5": "d6822b879d5c51075dcc8f8561720183"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_topbar.lua",
-      "size": 26037,
-      "md5": "9f392631ec91701ccbc7a6ce8e46faa1"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_updater.lua",
-      "size": 25022,
-      "md5": "589328dbcbaf00444978e2ade83302c1"
-    },
-    {
-      "path": "7-8、界面美化与锁屏壁纸/simpleui.koplugin/sui_window.lua",
-      "size": 132195,
-      "md5": "e8fe8b5c61901d79f4f1daf660e28b07"
+      "size": 26170,
+      "md5": "df69f4a202c0a7769c33455dc60f7f26"
     },
     {
       "path": "9、生僻字注音/pinyin.koplugin/LICENSE",
@@ -3784,8 +3584,8 @@
     },
     {
       "path": "9、生僻字注音/pinyin.koplugin/main.lua",
-      "size": 49899,
-      "md5": "2fef97b022ec4b496848e08ed9ec2e0a"
+      "size": 50919,
+      "md5": "5a2f798f0883a9624dc3170dfb275600"
     },
     {
       "path": "9、生僻字注音/pinyin.koplugin/phrase_data.lua",
@@ -3824,13 +3624,13 @@
     },
     {
       "path": "9、生僻字注音/使用说明.txt",
-      "size": 3235,
-      "md5": "c68461b63abcc5088ec2e24a641282a6"
+      "size": 3277,
+      "md5": "d8c5265d9f2b8077ccfd6dd4b90f2405"
     },
     {
       "path": "INSTALL.md",
-      "size": 52258,
-      "md5": "41ee200012e86da487469952b8ea9ea5"
+      "size": 52337,
+      "md5": "4eed2f96b0987eb5ca4dcd1552aa3580"
     },
     {
       "path": "README.md",
@@ -3918,6 +3718,71 @@
       "md5": "b349ae69e0a43501afeac09e362e9226"
     },
     {
+      "path": "备用组件/个人设置同步/settings.reader.lua",
+      "size": 29249,
+      "md5": "ac53147235eea824da0a2d0c944a0df0"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/KOAI_settings.json",
+      "size": 3261,
+      "md5": "ec7ec52104c07b0cd1a5d3597d7f0a3a"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/battery_stats.lua",
+      "size": 589,
+      "md5": "a3c071dbea0348ff0f1bee6e9cdfd0ac"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/bookends_presets/basic_bookends.lua",
+      "size": 3216,
+      "md5": "8b2efd829fd919431cb020c40c3d56fd"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/chinesepinyin.lua",
+      "size": 776,
+      "md5": "abe0f29be463e00b403da7ed59f1f295"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/customisablesleepscreen.lua",
+      "size": 3851,
+      "md5": "407e8fa88fabb0f797c7820c0bcdd11b"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/customisablesleepscreen_presets.lua",
+      "size": 163,
+      "md5": "20746c859fcaeb0e275e7ad522422d59"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/directory_defaults.lua",
+      "size": 956,
+      "md5": "ae62bffd899bf7d9c6c84c969ad6e9cd"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/gestures.lua",
+      "size": 5551,
+      "md5": "66442afdb26d119fdb0a1e6f67551256"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/simpleui/sui_settings.lua",
+      "size": 33964,
+      "md5": "d1bcbf4167e10154611a552d72f0dc03"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/simpleui/sui_wallpapers/wallpaper1.png",
+      "size": 203705,
+      "md5": "763d23d61b92bdae1d3b935a17939047"
+    },
+    {
+      "path": "备用组件/个人设置同步/settings/zlibrary.lua",
+      "size": 512,
+      "md5": "8095d5653ac930dfa17403a9cda907b3"
+    },
+    {
+      "path": "备用组件/个人设置同步/恢复说明.txt",
+      "size": 2348,
+      "md5": "6a07618333bf2632da5e70e5212e02ba"
+    },
+    {
       "path": "推荐必装·无线传书/filebrowserplus.koplugin/_meta.lua",
       "size": 226,
       "md5": "216450798cae8c9a1b53d0008153ea7e"
@@ -3949,8 +3814,8 @@
     },
     {
       "path": "装机包完整介绍.md",
-      "size": 14205,
-      "md5": "2d747e95779dba1c6ed1628f276ad90b"
+      "size": 14476,
+      "md5": "589080dd3cba190030fdbc0ad9a0f70a"
     }
   ]
 }

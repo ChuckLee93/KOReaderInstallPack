@@ -100,6 +100,18 @@ local function _getStatsProvider()
     return _SP
 end
 
+-- Predicts which book occupies the Cover Deck's centre slot before any
+-- carousel navigation happens, so its stats can be pre-fetched off the paint
+-- path. Mirrors the ordering rule in module_coverdeck.buildRecentFps(): the
+-- active book takes the centre slot when there is one, otherwise the most
+-- recently read book takes its place. A guard at read time compares this
+-- prediction against the book actually centred in the carousel and falls
+-- back to a live query on mismatch, so an incorrect guess here never shows
+-- the wrong book's stats — it only costs one extra query on that render.
+local function _coverdeckDefaultCenterFp(current_fp, recent_fps)
+    return current_fp or (recent_fps and recent_fps[1])
+end
+
 -- True until the very first ScreenWidget:onShow() this KOReader process (or
 -- plugin hot-reload — this module is evicted from package.loaded on
 -- teardown, which naturally resets this local) has consumed it. That one
@@ -295,8 +307,16 @@ local function sectionLabel(text, w, right_text, page_nav, landscape_factor)
                 face    = face_right,
                 bold    = false,
             }
-            local gap      = PAD
-            local row_h    = right_widget:getSize().h
+            local gap = PAD
+            local title_widget = UI.makeColoredText{
+                text    = text,
+                face    = face,
+                bold    = true,
+            }
+            -- Shared row height so title, "1/2", and chevrons centre on one line.
+            local title_h = title_widget:getSize().h
+            local right_h = right_widget:getSize().h
+            local row_h   = math.max(title_h, right_h)
 
             -- Chevrons, one on each side of right_widget. Built lazily
             -- (same require-on-first-use pattern as elsewhere in this file)
@@ -317,32 +337,25 @@ local function sectionLabel(text, w, right_text, page_nav, landscape_factor)
 
             local right_w  = right_widget:getSize().w + nav_w
             local title_w  = math.max(1, avail_w - right_w - gap)
-            local title_widget = UI.makeColoredText{
-                text    = text,
-                face    = face,
-                bold    = true,
-            }
-            -- BUGFIX: TextWidget doesn't have a `width` option that pads its
-            -- reported size — only `max_width`, and even then getSize()
-            -- always reflects the real glyph width (never padded up when
-            -- the text is shorter). Passing `width = title_w` above did
-            -- nothing: the title's HorizontalGroup slot was only ever as
-            -- wide as the rendered text itself, so right_text ended up
-            -- right after the title instead of at the row's right edge.
-            -- LeftContainer with an explicit dimen gives it a real,
-            -- title_w-wide slot regardless of how short the title text is.
+            -- LeftContainer gives the title a real title_w-wide slot so the
+            -- page indicator stays at the row's right edge (TextWidget's
+            -- getSize() only reports glyph width, never pads to max_width).
             local title_slot = LeftContainer:new{
-                dimen = Geom:new{ w = title_w, h = title_widget:getSize().h },
+                dimen = Geom:new{ w = title_w, h = row_h },
                 title_widget,
             }
-            content = HorizontalGroup:new{ align = "bottom" }
+            local right_slot = CenterContainer:new{
+                dimen = Geom:new{ w = right_widget:getSize().w, h = row_h },
+                right_widget,
+            }
+            content = HorizontalGroup:new{ align = "center" }
             table.insert(content, title_slot)
             table.insert(content, HorizontalSpan:new{ width = gap })
             if prev_button then
                 table.insert(content, prev_button)
                 table.insert(content, HorizontalSpan:new{ width = gap })
             end
-            table.insert(content, right_widget)
+            table.insert(content, right_slot)
             if next_button then
                 table.insert(content, HorizontalSpan:new{ width = gap })
                 table.insert(content, next_button)
@@ -1574,40 +1587,23 @@ function ScreenWidget:_initLayout()
     local body = VerticalGroup:new{ align = "left" }
     self._body = body
 
-    -- Reset the VerticalSpan pool (see _vspan) for the exact same reason as
-    -- _wrapper_pool just below: it is keyed and reused across _updatePage()
-    -- calls, so leaving it untouched here would mean spacer widgets from the
-    -- OLD tree stay shared with the NEW one and get swept up by
-    -- _deferredFreeOldTree(). Currently harmless in practice (stock
-    -- VerticalSpan has no meaningful :free() override to corrupt anything),
-    -- but it's the same defect in kind and shouldn't be left half-fixed.
+    -- Reset the VerticalSpan pool (see _vspan): keyed and reused across
+    -- _updatePage() calls, so it must not keep spacers shared between the
+    -- OLD tree (about to be handed to _deferredFreeOldTree()) and the NEW
+    -- one being built here.
     self._vspan_pool = {}
 
     -- Reset the per-module InputContainer wrapper pool (see _makeModWrapper).
-    -- The pool exists to avoid reallocating a wrapper + its GestureRanges on
-    -- every _updatePage() call (page turns, stats-only refreshes), which is
-    -- safe as long as body/overlap itself is NOT being swapped out — i.e. the
-    -- wrapper stays inside the one-and-only live tree the whole time.
+    -- The pool avoids reallocating a wrapper + its GestureRanges on every
+    -- _updatePage() call (page turns, stats-only refreshes), which is safe
+    -- as long as the wrapper stays inside one single live tree.
     --
-    -- _initLayout() is different: it builds a brand-new overlap/body and the
-    -- CALLER (onShow / rotation handlers) swaps it into self._navbar_container
-    -- and hands the previous tree to _deferredFreeOldTree(), which frees it
-    -- on UIManager:nextTick. If the wrapper pool were left untouched, the
-    -- very next _updatePage() call (issued synchronously, right after this
-    -- swap) would fetch the SAME pooled wrapper table and mutate its `[1]`
-    -- slot in place to point at the freshly-built module widget — but that
-    -- wrapper is still a child of the OLD tree too (it was never rebuilt,
-    -- only reused), so the deferred free ends up calling :free() on the
-    -- NEW module widget through the shared wrapper. The result is a widget
-    -- that is already torn down (e.g. an alpha-blended TextBoxWidget with
-    -- `_inner` set to nil by makeAlphaTextBox's :free()) the first time it
-    -- is painted -- "attempt to index local 'widget' (a nil value)" in
-    -- paintWithAlphaMask.
-    --
-    -- Clearing the pool here forces _makeModWrapper() to allocate fresh
-    -- wrappers for the new tree, so old and new trees never share a node and
-    -- _deferredFreeOldTree() only ever touches widgets that truly belong to
-    -- the tree being discarded.
+    -- _initLayout() builds a brand-new overlap/body that the caller swaps
+    -- into self._navbar_container, sending the previous tree to
+    -- _deferredFreeOldTree() for a deferred :free(). Clearing the pool here
+    -- forces fresh wrappers for the new tree, so old and new trees never
+    -- share a node — the deferred free then only ever touches widgets that
+    -- truly belong to the tree being discarded.
     self._wrapper_pool = {}
 
     -- Module widgets are transparent by default (no background field set), so
@@ -1680,6 +1676,27 @@ function ScreenWidget:_initLayout()
     }
     self._overlap = overlap
     return overlap
+end
+
+-- ---------------------------------------------------------------------------
+-- _swapLayoutTree — swaps a freshly-built overlap (from _initLayout) into
+-- self._navbar_container, preserving the outgoing tree's overlap_offset,
+-- and frees the outgoing tree via _deferredFreeOldTree.
+--
+-- Also updates self._navbar_inner to point at the new overlap. That field
+-- is the reference sui_bottombar.lua's rewrapAllWidgets() (and other
+-- rewrap-style callers) read to re-wrap "the current content" with a fresh
+-- navbar container — leaving it pointing at the discarded tree would make a
+-- later rewrap re-wrap content already handed to _deferredFreeOldTree().
+-- ---------------------------------------------------------------------------
+function ScreenWidget:_swapLayoutTree(overlap)
+    local old = self._navbar_container[1]
+    if old and old.overlap_offset then
+        overlap.overlap_offset = old.overlap_offset
+    end
+    self._navbar_container[1] = overlap
+    self._navbar_inner        = overlap
+    _deferredFreeOldTree(old)
 end
 
 -- ---------------------------------------------------------------------------
@@ -1761,7 +1778,11 @@ function ScreenWidget:_buildCtx()
                 -- max_recent is set to 15 so that after each module filters
                 -- finished books at render time, at least 5 unfinished entries
                 -- remain available for display.
-                self._cached_books_state = SH.prefetchBooks(show_c, show_r, max_recent)
+                local excl = SUISettings:readSetting(self._pfx .. "recent_exclude_currently")
+                if excl == nil then excl = true end
+                self._cached_books_state = SH.prefetchBooks(show_c, show_r, max_recent, {
+                    exclude_current = excl,
+                })
                 if Config.cover_extraction_pending then
                     self:_scheduleCoverPoll()
                 end
@@ -1829,13 +1850,9 @@ function ScreenWidget:_buildCtx()
     elseif mod_rs and mod_rs.isEnabled and mod_rs.isEnabled(self._pfx) then
         -- mod_rs.getItems(self._pfx) applies the same default { "total_books",
         -- "today_time", "streak" } fallback module_reading_stats itself uses
-        -- when the user has never customized their stat cards. Reading the
-        -- raw "reading_stats_items" setting here instead (as before) returns
-        -- nil/{} on a fresh install, which was wrongly treated as "no items
-        -- selected" — even though the card actually rendered "total_books"
-        -- by falling back to that same default. That mismatch is why the
-        -- Books Finished card only ever populated when Reading Goals (which
-        -- forces needs_books=true unconditionally above) was also enabled.
+        -- when the user has never customized their stat cards, so the check
+        -- below reflects the cards actually rendered rather than the raw
+        -- "reading_stats_items" setting (nil/{} on a fresh install).
         local rs_items = mod_rs.getItems and mod_rs.getItems(self._pfx) or {}
         for _, id in ipairs(rs_items) do
             if id == "total_books" then needs_books = true; break end
@@ -1888,8 +1905,7 @@ function ScreenWidget:_buildCtx()
     -- reuse it directly rather than repeating the visibility logic here.
     local coverdeck_center_stats = nil
     if coverdeck_needs_db and self._db_conn then
-        local saved_center_fp = SUISettings:readSetting(self._pfx .. "flow_recent_fp")
-        local center_fp = saved_center_fp or (bs.recent_fps and bs.recent_fps[1])
+        local center_fp = _coverdeckDefaultCenterFp(bs.current_fp, bs.recent_fps)
         local pe = center_fp and bs.prefetched_data and bs.prefetched_data[center_fp]
         local center_md5 = type(pe) == "table" and pe.partial_md5_checksum
         if center_md5 then
@@ -1917,10 +1933,10 @@ function ScreenWidget:_buildCtx()
             local pe_c  = bs.prefetched_data and bs.prefetched_data[bs.current_fp]
             local c_md5 = type(pe_c) == "table" and pe_c.partial_md5_checksum
             if c_md5 then
-                -- Fix 5: use pcall(require) instead of package.loaded so that the
-                -- module is always resolved even on the very first render, before
-                -- build() has had a chance to load it. require() is idempotent —
-                -- subsequent calls return the cached module at zero extra cost.
+                -- pcall(require) resolves the module even on the very first render,
+                -- before build() has had a chance to load it. require() is
+                -- idempotent — subsequent calls return the cached module at zero
+                -- extra cost.
                 local mc_ok, mc_mod = pcall(require, "modules/module_currently")
                 if mc_ok and mc_mod and mc_mod.fetchBookStatsForCtx then
                     currently_book_stats = {
@@ -1978,8 +1994,7 @@ function ScreenWidget:_updateFooter(current_page, total_pages, topbar_on)
     if not footer_bc then return end
 
     local sw        = self._layout_sw or Screen:getWidth()
-    -- Same fallback fix as _initLayout() above: UI.getContentHeight() (bar-
-    -- aware) instead of the raw, bar-covering Screen:getHeight().
+    -- Bar-aware height, same as _initLayout() — never the raw Screen:getHeight().
     local content_h = self._layout_content_h or self._navbar_content_h or UI.getContentHeight()
 
     local navpager_on   = Config.isNavpagerEnabled()
@@ -2085,7 +2100,15 @@ function ScreenWidget:_showBookHoldDialog(fp, mod_id)
         -- what a module shows or how a cover looks (e.g. status badges),
         -- so re-render on close rather than trying to track exactly which
         -- action fired. This mirrors _navigateRefresh in module_coverdeck.lua.
-        refresh_fn = function() self_ref:_refreshImmediate(true) end,
+        refresh_fn = function()
+            -- Status change already invalidates the sidecar cache via
+            -- patchStatusButtons → _onStatusChanged. Drop the books prefetch
+            -- and ctx so the rebuild re-runs prefetchBooks() and picks up the
+            -- new percent/summary for Cover Deck + book-grid badges/bars.
+            self_ref._cached_books_state = nil
+            self_ref._ctx_cache          = nil
+            self_ref:_refreshImmediate(true)
+        end,
         -- "More by <Author>" (sui_browse_author, registered in main.lua)
         -- repaints FM.instance.file_chooser to the virtual author leaf, but
         -- the homescreen is what's actually on screen here, on top of FM —
@@ -2104,21 +2127,17 @@ function ScreenWidget:_showBookHoldDialog(fp, mod_id)
         -- cause — UIManager:close removes every occurrence of a widget from
         -- the window stack, so this can't create duplicate entries.
         --
-        -- IMPORTANT: a plain UIManager:close(self_ref) here is an
-        -- "unexpected" close from onCloseWidget's point of view (see the
+        -- A plain UIManager:close(self_ref) here is an "unexpected" close
+        -- from onCloseWidget's point of view (see the
         -- _navbar_closing_intentionally branch below in this same file) —
         -- it discards this screen's cached _current_page/_cached_books_state/
-        -- _cfg_cache AND nils out self_ref's own fields (_current_page,
-        -- _enabled_mods_cache, _body, _overlap, ...), since it assumes a
-        -- real close. Re-showing that same, now-gutted self_ref (instead of
-        -- building a fresh instance) used to leave _current_page == nil,
-        -- which crashed the page-clamping compare in _updatePage and — since
-        -- patchUIManagerShow swallows that error in a pcall — surfaced as a
-        -- blank homescreen. Mark the close intentional (caching state via
-        -- _sset, keyed by this screen's id) and rebuild through
-        -- ScreenEngine._open(), which restores that cached page/book state
-        -- into a fresh widget, same as the tab-switch and rotation-reopen
-        -- paths do.
+        -- _cfg_cache and nils out self_ref's own fields (_current_page,
+        -- _enabled_mods_cache, _body, _overlap, ...), leaving self_ref gutted
+        -- and unsafe to re-show directly. Mark the close intentional
+        -- (caching state via _sset, keyed by this screen's id) and rebuild
+        -- through ScreenEngine._open(), which restores that cached page/book
+        -- state into a fresh widget, same as the tab-switch and
+        -- rotation-reopen paths do.
         reveal_fn = function()
             self_ref._navbar_closing_intentionally = true
             UIManager:close(self_ref)
@@ -2169,6 +2188,15 @@ function ScreenWidget:_openModuleSettingsFor(mod)
                 })
                 items[#items + 1] = gap_item
             end
+            -- Column width (bento grid) — same chrome slot for every module.
+            items[#items + 1] = Config.makeBentoWidthItem({
+                get     = function() return Config.getBentoWidth(mod.id, self._pfx) end,
+                set     = function(v)
+                    Config.setBentoWidth(v, mod.id, self._pfx)
+                    screen._enabled_mods_cache = nil
+                end,
+                refresh = ctx_menu.refresh,
+            })
             return SUIWindow.MenuTable{
                 items          = items,
                 inner_w        = ctx.inner_w,
@@ -2308,19 +2336,43 @@ function ScreenWidget:_updatePage(keep_cache, books_only, stats_only)
     local layout_fingerprint = ""
     local pages_by_id = {}
     
+    -- Column widths come from per-module settings (bento grid), not the layout.
+    local mod_col_width = {}
     if layout and type(layout.pages) == "table" then
         for _, page in ipairs(layout.pages) do
             local page_ids = {}
-            for _, mod_id in ipairs(page.modules) do
-                table.insert(page_ids, mod_id)
-                layout_fingerprint = layout_fingerprint .. mod_id .. ","
+            for _, entry in ipairs(page.modules) do
+                -- Accept legacy { id, width } entries and migrate width to settings.
+                local mod_id
+                if type(entry) == "table" then
+                    mod_id = entry.id
+                    if type(entry.width) == "number" and mod_id then
+                        Config.setBentoWidth(entry.width, mod_id, self._pfx)
+                    end
+                else
+                    mod_id = entry
+                end
+                if mod_id then
+                    table.insert(page_ids, mod_id)
+                    local bw = Config.getBentoWidth(mod_id, self._pfx)
+                    mod_col_width[mod_id] = bw
+                    layout_fingerprint = layout_fingerprint .. mod_id .. ":" .. tostring(bw) .. ","
+                end
             end
             layout_fingerprint = layout_fingerprint .. "|"
             table.insert(pages_by_id, page_ids)
         end
     else
         pages_by_id = splitOrderIntoPages(raw_order)
-        layout_fingerprint = table.concat(raw_order, ",")
+        for _, mod_id in ipairs(raw_order) do
+            if mod_id ~= "__page_break__" then
+                local bw = Config.getBentoWidth(mod_id, self._pfx)
+                mod_col_width[mod_id] = bw
+                layout_fingerprint = layout_fingerprint .. mod_id .. ":" .. tostring(bw) .. ","
+            else
+                layout_fingerprint = layout_fingerprint .. "|"
+            end
+        end
     end
 
     if not self._enabled_mods_cache
@@ -2420,10 +2472,6 @@ function ScreenWidget:_updatePage(keep_cache, books_only, stats_only)
 
     local topbar_on = SUISettings:nilOrTrue("simpleui_topbar_enabled")
 
-    self._header_body_idx   = nil
-    self._header_inner_w    = inner_w
-    self._header_body_ref   = body
-    self._header_is_wrapped = false
     self._clock_body_idx    = nil
     self._clock_body_ref    = body
     self._stats_mod_slots   = {}
@@ -2467,251 +2515,247 @@ function ScreenWidget:_updatePage(keep_cache, books_only, stats_only)
     local first_mod      = true
     local page_has_covers = false
 
-    if is_landscape then
-        -- col_w / portrait_inner_w = the scale factor for this layout's
-        -- modules. getSpreadColWidth/getPortraitInnerW are the same
-        -- formulas UI.getLandscapeFactor() uses for callers with no inner_w.
-        local COL_GAP = PAD
-        local col_w   = UI.getSpreadColWidth(inner_w)
-        local portrait_inner_w = UI.getPortraitInnerW()
-        _landscape_factor     = (portrait_inner_w > 0) and (col_w / portrait_inner_w) or 1
-        ctx.landscape_factor  = _landscape_factor
+    -- Bento packing (portrait and landscape):
+    --   • width < 100% → column of that share of the row
+    --   • consecutive modules whose widths fit (sum ≤ 100) sit side by side
+    --   • when a module no longer fits horizontally, it stacks into an
+    --     existing column that has the same width (same % only); otherwise
+    --     a new row starts
+    --   • 100% (default) always takes a full-width row of its own
+    --   • rows whose columns sum to < 100% are centred in the container
+    -- In landscape the same rules apply inside each spread column.
+    do
+        -- Shared horizontal gap: bento columns and landscape page split.
+        local H_COL_GAP = 1
+        mod_col_width = mod_col_width or {}
 
-        -- Stored here for the clock tick path which rebuilds outside _updatePage.
-        self._clock_landscape_factor = _landscape_factor
-
-        -- Spread mode: left = current page, right = next page.
-        -- Solo mode (odd total, last page): split this page's modules in half.
-        local right_page_mods = pages_of_mods[self._current_page + 1]
-        local is_spread       = right_page_mods ~= nil
-
-        local left_col  = {}
-        local right_col = {}
-
-        if is_spread then
-            for _, mod in ipairs(cur_page_mods) do
-                if mod.has_covers then page_has_covers = true end
-                local ok_w, widget = pcall(mod.build, col_w, ctx)
-                if not ok_w or not widget then
-                    logger.warn("simpleui: screen (" .. tostring(self._id) .. "): build failed for "
-                                .. tostring(mod.id) .. ": " .. tostring(widget))
-                else
-                    left_col[#left_col + 1] = { mod = mod, widget = widget }
-                end
-            end
-            for _, mod in ipairs(right_page_mods) do
-                if mod.has_covers then page_has_covers = true end
-                local ok_w, widget = pcall(mod.build, col_w, ctx)
-                if not ok_w or not widget then
-                    logger.warn("simpleui: screen (" .. tostring(self._id) .. "): build failed for "
-                                .. tostring(mod.id) .. ": " .. tostring(widget))
-                else
-                    right_col[#right_col + 1] = { mod = mod, widget = widget }
-                end
-            end
-        else
-            local col_mods = {}
-            for _, mod in ipairs(cur_page_mods) do
-                if mod.has_covers then page_has_covers = true end
-                col_mods[#col_mods + 1] = mod
-            end
-            local n_col    = #col_mods
-            local split_at = math.ceil(n_col / 2)
-            for i, mod in ipairs(col_mods) do
-                local ok_w, widget = pcall(mod.build, col_w, ctx)
-                if not ok_w or not widget then
-                    logger.warn("simpleui: screen (" .. tostring(self._id) .. "): build failed for "
-                                .. tostring(mod.id) .. ": " .. tostring(widget))
-                else
-                    if i <= split_at then
-                        left_col[#left_col + 1]  = { mod = mod, widget = widget }
-                    else
-                        right_col[#right_col + 1] = { mod = mod, widget = widget }
-                    end
-                end
-            end
-        end
-
-        -- Builds a VerticalGroup from a list of {mod, widget} entries.
-        local function _build_col_group(entries)
-            local col_body  = VerticalGroup:new{ align = "left" }
-            local col_first = true
-            for _, entry in ipairs(entries) do
-                local mod    = entry.mod
-                local widget = entry.widget
-                if col_first then
-                    col_first = false
-                    local gap_px = mod_gaps[mod.id] or MOD_GAP
-                    local initial_pad = topbar_on and gap_px or (gap_px + MOD_GAP)
-                    col_body[#col_body+1] = self:_vspan(initial_pad)
-                else
-                    col_body[#col_body+1] = self:_vspan(mod_gaps[mod.id] or MOD_GAP)
-                end
-                if mod.label then
-                    local label_text = (type(mod.label_func) == "function" and mod.label_func(ctx)) or mod.label
-                    col_body[#col_body+1] = sectionLabel(label_text, col_w, labelRightTextFor(mod, ctx), pageNavFor(self, mod, ctx), ctx.landscape_factor)
-                    if mod.is_book_mod then
-                        self._book_mod_label_slots[mod.id] = {
-                            parent = col_body,
-                            index  = #col_body,
-                            mod    = mod,
-                            col_w  = col_w,
-                        }
-                    end
-                end
-                local has_menu   = type(mod.getMenuItems) == "function"
-                local entry_widget = has_menu
-                    and self:_makeModWrapper(mod, widget, col_w)
-                    or  widget
-                col_body[#col_body+1] = entry_widget
-                -- Record slot for per-module cover poll (only for cover modules).
-                if mod.has_covers and type(mod.updateCovers) == "function" then
-                    self._cover_mod_slots[mod.id] = {
-                        mod    = mod,
-                        widget = widget,  -- raw widget with _cover_slots attached
-                    }
-                end
-                if mod.is_book_mod then
-                    self._book_mod_slots[mod.id] = {
-                        mod      = mod,
-                        widget   = widget,
-                        parent   = col_body,
-                        index    = #col_body,
-                        col_w    = col_w,
-                        has_menu = has_menu,
-                    }
-                end
-                if type(mod.updateStats) == "function" then
-                    self._stats_mod_slots[mod.id] = { mod = mod, widget = widget }
-                end
-            end
-            return col_body
-        end
-
-        -- Locates the child index of the clock module within a column group
-        -- by replaying the same insertion order used in _build_col_group.
-        local function _locate_clock_idx(col_entries, _col_group)
-            local gi        = 0
-            local col_first = true
-            for _, entry in ipairs(col_entries) do
-                if col_first then col_first = false
-                else gi = gi + 1 end
-                if entry.mod.label then gi = gi + 1 end
-                gi = gi + 1
-                if entry.mod.id == "clock" then
-                    return gi
-                end
-            end
-            return nil
-        end
-
-        if #left_col > 0 or #right_col > 0 then
-            if first_mod then first_mod = false
-            else body[#body+1] = self:_vspan(MOD_GAP) end
-
-            local left_group  = _build_col_group(left_col)
-            local right_group = _build_col_group(right_col)
-
-            local row = HorizontalGroup:new{
-                align = "top",
-                left_group,
-                HorizontalSpan:new{ width = COL_GAP },
-                right_group,
-            }
-            body[#body+1] = row
-
-            local lci = _locate_clock_idx(left_col,  left_group)
-            if lci then
-                self._clock_body_ref   = left_group
-                self._clock_body_idx   = lci
-                for _, e in ipairs(left_col) do
-                    if e.mod.id == "clock" then
-                        self._clock_is_wrapped = type(e.mod.getMenuItems) == "function"
-                        break
-                    end
-                end
-            else
-                local rci = _locate_clock_idx(right_col, right_group)
-                if rci then
-                    self._clock_body_ref = right_group
-                    self._clock_body_idx = rci
-                    for _, e in ipairs(right_col) do
-                        if e.mod.id == "clock" then
-                            self._clock_is_wrapped = type(e.mod.getMenuItems) == "function"
-                            break
-                        end
-                    end
-                end
-            end
-        end
-
-    else
-        -- Portrait single-column layout.
-        self._clock_landscape_factor = nil
-        for _, mod in ipairs(cur_page_mods) do
+        -- Builds label + hold-wrapper cell. Slot registration happens in
+        -- _register_cell once the cell's real parent is known.
+        local function _emit_mod(mod, col_w)
             if mod.has_covers then page_has_covers = true end
-            local ok_w, widget = pcall(mod.build, inner_w, ctx)
+            local ok_w, widget = pcall(mod.build, col_w, ctx)
             if not ok_w then
                 logger.warn("simpleui: screen (" .. tostring(self._id) .. "): build failed for "
                             .. tostring(mod.id) .. ": " .. tostring(widget))
-            elseif widget then
-                if first_mod then
-                    first_mod = false
-                    local gap_px = mod_gaps[mod.id] or MOD_GAP
-                    local initial_pad = topbar_on and gap_px or (gap_px + MOD_GAP)
-                    body[#body+1] = self:_vspan(initial_pad)
-                else
-                    local gap_px = mod_gaps[mod.id] or MOD_GAP
-                    body[#body+1] = self:_vspan(gap_px)
-                end
-                if mod.label then
-                    local label_text = (type(mod.label_func) == "function" and mod.label_func(ctx)) or mod.label
-                    body[#body+1] = sectionLabel(label_text, inner_w, labelRightTextFor(mod, ctx), pageNavFor(self, mod, ctx), ctx.landscape_factor)
-                    if mod.is_book_mod then
-                        self._book_mod_label_slots[mod.id] = {
-                            parent = body,
-                            index  = #body,
-                            mod    = mod,
-                            col_w  = inner_w,
-                        }
-                    end
-                end
-                local has_menu = type(mod.getMenuItems) == "function"
-                if mod.id == "header" then
-                    self._header_body_idx   = #body + 1
-                    self._header_is_wrapped = has_menu
-                end
-                if mod.id == "clock" then
-                    self._clock_body_idx   = #body + 1
-                    self._clock_body_ref   = body
-                    self._clock_is_wrapped = has_menu
-                end
-                if has_menu then
-                    body[#body+1] = self:_makeModWrapper(mod, widget, inner_w)
-                else
-                    body[#body+1] = widget
-                end
-                -- Record slot for per-module cover poll (only for cover modules).
-                if mod.has_covers and type(mod.updateCovers) == "function" then
-                    self._cover_mod_slots[mod.id] = {
-                        mod    = mod,
-                        widget = widget,
-                    }
-                end
+                return nil
+            end
+            if not widget then return nil end
+
+            local cell = VerticalGroup:new{ align = "left" }
+            if mod.label then
+                local label_text = (type(mod.label_func) == "function" and mod.label_func(ctx)) or mod.label
+                cell[#cell+1] = sectionLabel(label_text, col_w, labelRightTextFor(mod, ctx), pageNavFor(self, mod, ctx), ctx.landscape_factor)
                 if mod.is_book_mod then
-                    self._book_mod_slots[mod.id] = {
-                        mod      = mod,
-                        widget   = widget,
-                        parent   = body,
-                        index    = #body,
-                        col_w    = inner_w,
-                        has_menu = has_menu,
+                    self._book_mod_label_slots[mod.id] = {
+                        parent = cell,
+                        index  = #cell,
+                        mod    = mod,
+                        col_w  = col_w,
                     }
-                end
-                if type(mod.updateStats) == "function" then
-                    self._stats_mod_slots[mod.id] = { mod = mod, widget = widget }
                 end
             end
+            cell[#cell+1] = self:_makeModWrapper(mod, widget, col_w)
+
+            if mod.has_covers and type(mod.updateCovers) == "function" then
+                self._cover_mod_slots[mod.id] = { mod = mod, widget = widget }
+            end
+            if type(mod.updateStats) == "function" then
+                self._stats_mod_slots[mod.id] = { mod = mod, widget = widget }
+            end
+            -- Stash for _register_cell (widget + col_w needed by book slots).
+            cell._sui_mod = mod
+            cell._sui_widget = widget
+            cell._sui_col_w = col_w
+            return cell
+        end
+
+        -- Records clock / book-mod slots against the cell itself.
+        -- Clock tick does body[idx][1] = new_widget with is_wrapped: body must
+        -- be the cell VerticalGroup and idx the wrapper index inside it.
+        local function _register_cell(cell)
+            if not cell or not cell._sui_mod then return end
+            local mod = cell._sui_mod
+            local widget = cell._sui_widget
+            local col_w = cell._sui_col_w
+            if mod.id == "clock" then
+                self._clock_body_ref   = cell
+                self._clock_body_idx   = #cell
+                self._clock_is_wrapped = true
+            end
+            if mod.is_book_mod then
+                self._book_mod_slots[mod.id] = {
+                    mod      = mod,
+                    widget   = widget,
+                    parent   = cell,
+                    index    = #cell,
+                    col_w    = col_w,
+                    has_menu = true,
+                }
+            end
+            cell._sui_mod = nil
+            cell._sui_widget = nil
+            cell._sui_col_w = nil
+        end
+
+        -- Packs mods into parent_body. container_w is the full available
+        -- width for a 100% module. first is a one-element table toggled so
+        -- the first row can apply top-of-page padding.
+        local function _pack_bento(mods, parent_body, container_w, first)
+            local function _flush_row(row_cols)
+                if not row_cols or #row_cols == 0 then return end
+                local lead_mod = row_cols[1].mods[1]
+                local gap_px = mod_gaps[lead_mod.id] or MOD_GAP
+                if first[1] then
+                    first[1] = false
+                    local initial_pad = topbar_on and gap_px or (gap_px + MOD_GAP)
+                    parent_body[#parent_body+1] = self:_vspan(initial_pad)
+                else
+                    parent_body[#parent_body+1] = self:_vspan(gap_px)
+                end
+
+                local n = #row_cols
+                local gaps_w = (n - 1) * H_COL_GAP
+                local avail = math.max(1, container_w - gaps_w)
+
+                local sum_pct = 0
+                for _, col in ipairs(row_cols) do sum_pct = sum_pct + col.width end
+
+                local target = {}
+                local allocated = 0
+                for i, col in ipairs(row_cols) do
+                    if i == n then
+                        local row_pixels = math.max(1, math.floor(avail * sum_pct / 100))
+                        target[i] = math.max(1, row_pixels - allocated)
+                    else
+                        target[i] = math.max(1, math.floor(avail * col.width / 100))
+                        allocated = allocated + target[i]
+                    end
+                end
+
+                local h_row = HorizontalGroup:new{ align = "center" }
+                for i, col in ipairs(row_cols) do
+                    local slot_w = target[i]
+                    local v_col = VerticalGroup:new{ align = "left" }
+                    for mi, mod in ipairs(col.mods) do
+                        if mi > 1 then
+                            v_col[#v_col+1] = self:_vspan(mod_gaps[mod.id] or MOD_GAP)
+                        end
+                        local cell = _emit_mod(mod, slot_w)
+                        if cell then
+                            _register_cell(cell)
+                            v_col[#v_col+1] = cell
+                        end
+                    end
+                    -- Pin the column to the allocated slot width. Without this,
+                    -- VerticalGroup reports content width (which can exceed
+                    -- slot_w); neighbouring columns then overlap the
+                    -- HorizontalSpan and the inter-column gap never changes
+                    -- no matter what H_COL_GAP is set to.
+                    local col_h = v_col:getSize().h
+                    h_row[#h_row+1] = LeftContainer:new{
+                        dimen = Geom:new{ w = slot_w, h = col_h },
+                        v_col,
+                    }
+                    if i < n then
+                        h_row[#h_row+1] = HorizontalSpan:new{ width = H_COL_GAP }
+                    end
+                end
+
+                -- Centre when the row does not consume the full container.
+                local content_w = gaps_w
+                for i = 1, n do content_w = content_w + target[i] end
+                local leftover = container_w - content_w
+                if leftover > 1 then
+                    local left_pad = math.floor(leftover / 2)
+                    parent_body[#parent_body+1] = HorizontalGroup:new{
+                        align = "center",
+                        HorizontalSpan:new{ width = left_pad },
+                        h_row,
+                        HorizontalSpan:new{ width = leftover - left_pad },
+                    }
+                else
+                    parent_body[#parent_body+1] = h_row
+                end
+            end
+
+            local row_cols = {}
+            local row_sum = 0
+            for _, mod in ipairs(mods) do
+                -- Width already clamped by Config.getBentoWidth.
+                local w = mod_col_width[mod.id] or 100
+
+                if w >= 100 then
+                    _flush_row(row_cols)
+                    row_cols, row_sum = {}, 0
+                    _flush_row({ { width = 100, mods = { mod } } })
+                elseif row_sum + w <= 100 then
+                    row_cols[#row_cols+1] = { width = w, mods = { mod } }
+                    row_sum = row_sum + w
+                else
+                    -- Stack only onto a column with the same width %.
+                    local stacked = false
+                    for _, col in ipairs(row_cols) do
+                        if col.width == w then
+                            col.mods[#col.mods+1] = mod
+                            stacked = true
+                            break
+                        end
+                    end
+                    if not stacked then
+                        _flush_row(row_cols)
+                        row_cols = { { width = w, mods = { mod } } }
+                        row_sum = w
+                    end
+                end
+            end
+            _flush_row(row_cols)
+        end
+
+        if is_landscape then
+            local col_w = UI.getSpreadColWidth(inner_w)
+            local portrait_inner_w = UI.getPortraitInnerW()
+            _landscape_factor = (portrait_inner_w > 0) and (col_w / portrait_inner_w) or 1
+            ctx.landscape_factor = _landscape_factor
+            self._clock_landscape_factor = _landscape_factor
+
+            -- Spread: left = current page, right = next page.
+            -- Solo (odd total, last page): split this page's modules in half.
+            local right_page_mods = pages_of_mods[self._current_page + 1]
+            local left_mods, right_mods
+            if right_page_mods then
+                left_mods, right_mods = cur_page_mods, right_page_mods
+            else
+                left_mods, right_mods = {}, {}
+                local split_at = math.ceil(#cur_page_mods / 2)
+                for i, mod in ipairs(cur_page_mods) do
+                    if i <= split_at then
+                        left_mods[#left_mods + 1] = mod
+                    else
+                        right_mods[#right_mods + 1] = mod
+                    end
+                end
+            end
+
+            local left_group  = VerticalGroup:new{ align = "left" }
+            local right_group = VerticalGroup:new{ align = "left" }
+            local left_first, right_first = { true }, { true }
+            _pack_bento(left_mods,  left_group,  col_w, left_first)
+            _pack_bento(right_mods, right_group, col_w, right_first)
+
+            if #left_group > 0 or #right_group > 0 then
+                first_mod = false
+                body[#body+1] = HorizontalGroup:new{
+                    align = "top",
+                    left_group,
+                    HorizontalSpan:new{ width = H_COL_GAP },
+                    right_group,
+                }
+            end
+        else
+            self._clock_landscape_factor = nil
+            local first_state = { true }
+            _pack_bento(cur_page_mods, body, inner_w, first_state)
+            first_mod = first_state[1]
         end
     end
 
@@ -2835,28 +2879,15 @@ function ScreenWidget:_refresh(keep_cache, books_only, stats_only)
 
         if defer_async then
             if self._refresh_scheduled then
-                -- BUGFIX: a deferred refresh is already queued, and its
-                -- stats_only-ness was fixed at schedule time below — the
-                -- callback only ever runs once (gated on _refresh_scheduled)
-                -- and, until this fix, always acted on whatever stats_only
-                -- value its own caller had passed, ignoring anyone who
-                -- called in after it was queued. Two call sites can race
-                -- for this same slot on device resume (SimpleUIPlugin:onResume
-                -- in main.lua wants the full refresh; ScreenWidget:onResume
-                -- right below wants stats_only) — whichever call reaches
-                -- here first silently determined what the single pending
-                -- callback would do, so if the stats_only call scheduled
-                -- first, the full refresh's caller (this branch) just
-                -- returned and its row-cache clear, label-cache invalidation,
-                -- and book-module rebuild (all gated on `not stats_only`
-                -- below) never ran — the paginated book-grid modules (TBR,
-                -- Recent, ...) silently kept whatever page/file-list state
-                -- they had before the still-pending callback fired.
-                --
-                -- Upgrading the pending flag in place — only ever from true
-                -- to false, never the reverse — means the callback always
-                -- ends up doing at least as much work as the strongest
-                -- caller seen before it fires, regardless of arrival order.
+                -- A deferred refresh is already queued and will run once,
+                -- acting on self._refresh_pending_stats_only. Two call sites
+                -- can race for this same slot on device resume
+                -- (SimpleUIPlugin:onResume wants the full refresh;
+                -- ScreenWidget:onResume wants stats_only) — upgrading the
+                -- pending flag in place, only ever from true to false, means
+                -- the callback always does at least as much work as the
+                -- strongest caller seen before it fires, regardless of
+                -- arrival order.
                 if not stats_only then
                     self._refresh_pending_stats_only = false
                 end
@@ -2890,63 +2921,52 @@ function ScreenWidget:_refresh(keep_cache, books_only, stats_only)
                             local show_c = Registry.isEnabled(Registry.get("currently"), self._pfx)
                             local show_r = (mod_r and Registry.isEnabled(mod_r, self._pfx)) or (mod_cd and Registry.isEnabled(mod_cd, self._pfx))
                             -- show_finished removed: each module filters independently at render time.
-                            local new_bs = SH.prefetchBooks(show_c, show_r, 15)
+                            local excl = SUISettings:readSetting(self._pfx .. "recent_exclude_currently")
+                            if excl == nil then excl = true end
+                            local new_bs = SH.prefetchBooks(show_c, show_r, 15, {
+                                exclude_current = excl,
+                            })
                             self._cached_books_state = new_bs
                             self._ctx_cache.prefetched = new_bs.prefetched_data
                             self._ctx_cache.current_fp = new_bs.current_fp
                             self._ctx_cache.recent_fps = new_bs.recent_fps
 
-                            -- BUGFIX: self._ctx_cache is reused (mutated), not
-                            -- rebuilt, on this debounced path, but
-                            -- GridRenderer.build() memoizes each row module's
-                            -- file list into ctx[cache_key] on first build()
-                            -- and never re-reads getFileList() again for that
-                            -- same ctx object (see GridRenderer.build's
-                            -- `local fps = ctx[cache_key]; if not fps then...`
-                            -- guard). Recent Books (and any other
-                            -- GridRenderer.makeModule row without its own
-                            -- updateStats, e.g. New Books/TBR/Collections)
-                            -- has no updateStats, so step 3 below always
-                            -- falls back to calling mod.build() again on this
-                            -- same self._ctx_cache — but without clearing the
-                            -- old ctx._row_fps_recent first, that call just
-                            -- re-serves the file list from BEFORE this
-                            -- prefetchBooks() pass, one full refresh cycle
-                            -- stale, even though ctx.recent_fps above was
-                            -- just updated correctly. Currently Reading is
-                            -- unaffected because module_currently reads
-                            -- ctx.current_fp directly in its own build()/
-                            -- updateStats() with no such intermediate cache.
-                            -- Mirrors the identical fix already applied in
-                            -- _refreshImmediate for the book-hold-dialog's
-                            -- keep_cache=true path. clearRowCaches() also
-                            -- invalidates the section-label header cache
-                            -- (page/npages indicator + chevrons) for the
-                            -- same paginated rows — see its doc comment in
-                            -- sui_book_grid.lua.
+                            -- self._ctx_cache is reused (mutated), not
+                            -- rebuilt, on this debounced path. GridRenderer.
+                            -- build() memoizes each row module's file list
+                            -- into ctx[cache_key] on first build() and never
+                            -- re-reads getFileList() again for that same ctx
+                            -- object, so any row module without its own
+                            -- updateStats (Recent Books, New Books, TBR,
+                            -- Collections, ...) needs its row cache cleared
+                            -- here before the fallback mod.build() call in
+                            -- step 3 below, or it would keep serving the file
+                            -- list from before this prefetchBooks() pass.
+                            -- Currently Reading is unaffected: module_currently
+                            -- reads ctx.current_fp directly with no
+                            -- intermediate cache. Same treatment as
+                            -- _refreshImmediate's keep_cache=true path.
+                            -- clearRowCaches() also invalidates the
+                            -- section-label header cache (page/npages
+                            -- indicator + chevrons) for the same paginated
+                            -- rows — see its doc comment in sui_book_grid.lua.
                             local ok_gr, GR = pcall(require, "engines/sui_book_grid")
                             if ok_gr and GR then GR.clearRowCaches(self._ctx_cache) end
                         end
                     end
 
-                    -- Cold-open fix: onShow() seeds _cached_books_state with a
-                    -- best-effort stub via SH.getStaleBooks() — instant,
-                    -- zero-cost reuse of the last successful prefetchBooks()
-                    -- result (in-memory, or a single lazy disk read on a
-                    -- fresh process) — so the first paint can already show
-                    -- real covers/titles. That stub can still be incomplete
-                    -- or genuinely missing (e.g. the very first run ever,
-                    -- with no cache in memory or on disk), so an is_book_mod
-                    -- module (currently, coverdeck, recent) can still return
-                    -- nil/empty from build() on that first pass and never get
-                    -- a slot in _book_mod_slots. Now that the authoritative
-                    -- prefetchBooks() data has landed above, check for any
-                    -- such module and force a full rebuild so build() runs
-                    -- again with complete data (the in-place updateStats path
-                    -- below only touches slots that already exist, so a
-                    -- module that never got a slot would otherwise stay
-                    -- invisible until the next full _updatePage(false), e.g.
-                    -- a page turn). Cheap to check unconditionally — just an
+                    -- onShow() seeds _cached_books_state with a best-effort
+                    -- stub via SH.getStaleBooks() so the first paint can
+                    -- already show real covers/titles. That stub can be
+                    -- incomplete or missing (e.g. the very first run ever),
+                    -- so an is_book_mod module (currently, coverdeck, recent)
+                    -- can return nil/empty from build() on that first pass
+                    -- and never get a slot in _book_mod_slots. Now that the
+                    -- authoritative prefetchBooks() data has landed above,
+                    -- check for any such module and force a full rebuild so
+                    -- build() runs again with complete data — the in-place
+                    -- updateStats path below only touches slots that already
+                    -- exist. Cheap to check unconditionally: just an
                     -- iteration over the small set of registered modules.
                     do
                         local missing_slot = false
@@ -2987,9 +3007,10 @@ function ScreenWidget:_refresh(keep_cache, books_only, stats_only)
                     end
 
                     local MCD = package.loaded["modules/module_coverdeck"]
-                    if MCD and MCD.fetchBookStatsForCtx and self._ctx_cache.recent_fps then
-                        local saved_center_fp = SUISettings:readSetting(self._pfx .. "flow_recent_fp")
-                        local center_fp = saved_center_fp or self._ctx_cache.recent_fps[1]
+                    if MCD and MCD.fetchBookStatsForCtx
+                            and (self._ctx_cache.current_fp or self._ctx_cache.recent_fps) then
+                        local center_fp = _coverdeckDefaultCenterFp(
+                            self._ctx_cache.current_fp, self._ctx_cache.recent_fps)
                         local pe = center_fp and self._ctx_cache.prefetched and self._ctx_cache.prefetched[center_fp]
                         local md5 = pe and pe.partial_md5_checksum
                         if md5 then
@@ -3001,7 +3022,7 @@ function ScreenWidget:_refresh(keep_cache, books_only, stats_only)
                     end
 
                     -- 3. Update Book Modules
-                    -- Fix 3: try updateStats in-place first (O(1), zero alloc).
+                    -- Try updateStats in-place first (O(1), zero alloc).
                     -- Only rebuilds the full widget if the module doesn't have updateStats
                     -- (fallback for modules that don't support in-place update).
                     if not stats_only then
@@ -3031,19 +3052,15 @@ function ScreenWidget:_refresh(keep_cache, books_only, stats_only)
                                         local wrapper = self._wrapper_pool[id]
                                         if wrapper then
                                             wrapper[1] = new_widget
-                                            -- BUGFIX: slot.widget had to be updated
-                                            -- here too (mirroring _refreshBookModSlot),
-                                            -- otherwise the next updateStats(slot.widget, ctx)
-                                            -- kept operating on the old widget,
-                                            -- already detached from the tree (no visible effect,
-                                            -- just wasted CPU on every following cycle).
+                                            -- Keep slot.widget pointed at the live widget
+                                            -- (mirrors _refreshBookModSlot), so the next
+                                            -- updateStats(slot.widget, ctx) operates on the
+                                            -- widget actually in the tree.
                                             slot.widget = new_widget
                                             UIManager:setDirty(self, function() return "ui", wrapper.dimen, true end)
                                         end
                                     else
                                         slot.parent[slot.index] = new_widget
-                                        -- BUGFIX: see note above — same issue in the
-                                        -- no-menu branch.
                                         slot.widget = new_widget
                                         UIManager:setDirty(self, function() return "ui", new_widget.dimen, true end)
                                     end
@@ -3065,7 +3082,7 @@ function ScreenWidget:_refresh(keep_cache, books_only, stats_only)
 
                     -- 4. Update Stats Modules
                     -- Each slot uses setDirty targeted at its own dimen,
-                    -- avoiding a global repaint of the entire screen (Fix: double-repaint E-ink).
+                    -- avoiding a global repaint of the entire screen.
                     -- updateStats() returns false when _changed flags show none of the
                     -- module's fields were re-fetched — skip setDirty entirely in that case.
                     for _, slot in pairs(self._stats_mod_slots or {}) do
@@ -3117,23 +3134,14 @@ end
 
 -- ---------------------------------------------------------------------------
 -- _refreshBookModSlot — surgical, single-module repaint for is_book_mod
--- modules (currently, coverdeck, recent) that need an immediate full
--- rebuild outside the normal debounced _refresh() cycle — e.g. coverdeck's
--- onTap/onSwipe handlers, which previously called _refreshImmediate(true)
--- and paid for a full-page rebuild (every module on the homescreen,
--- including stats/clock/quote/etc.) plus an UNSCOPED UIManager:setDirty(self,
--- "ui") — that is, a dirty region covering the ENTIRE screen (self.dimen =
--- {w=Screen:getWidth(), h=Screen:getHeight()}, see ScreenWidget:init()),
--- causing a full e-ink screen refresh/flash on every single swipe.
---
--- This mirrors the EXACT same in-place rebuild + scoped setDirty technique
--- already used by the deferred async path inside _refresh() ("Fix 3" /
--- Fallback branch above): rebuild just this module's widget via
--- slot.mod.build(), splice it back into its slot (parent[index] or the
--- has_menu wrapper), and call UIManager:setDirty with the new widget's own
--- `dimen` instead of the whole-screen `self`. UIManager then only refreshes
--- that widget's screen region on the next e-ink update — no other module
--- repaints, no full-screen flash.
+-- modules (currently, coverdeck, recent) that need an immediate rebuild
+-- outside the normal debounced _refresh() cycle — e.g. coverdeck's
+-- onTap/onSwipe handlers. Rebuilds just this module's widget via
+-- slot.mod.build(), splices it back into its slot (parent[index] or the
+-- has_menu wrapper), and calls UIManager:setDirty with the new widget's own
+-- `dimen` instead of the whole-screen `self`, so only that widget's region
+-- refreshes on the next e-ink update — no other module repaints, no
+-- full-screen flash.
 --
 -- Returns true if the slot was found and repainted, false otherwise (caller
 -- should fall back to _refreshImmediate as a safety net — e.g. if the slot
@@ -3141,19 +3149,16 @@ end
 -- ---------------------------------------------------------------------------
 -- _bookModRefreshType(mod_id) — "ui" | "flashui"
 --
--- _refreshBookModSlot always uses a "ui" refresh (non-flashing, by design,
--- so there's no flash on every swipe/tap on a book row or the coverdeck). But
--- "ui", unlike "partial", is NEVER promoted to flashing by
--- UIManager (that promotion only exists for "partial" via FULL_REFRESH_COUNT —
--- see the comment in UIManager:setDirty). Without a periodic flash,
--- repeatedly switching between pages (going back and forth) makes the
--- residue from each non-flashing refresh accumulate (typical e-ink ghosting), and
--- the row appears to not be clearing correctly.
+-- _refreshBookModSlot always uses a "ui" refresh (non-flashing by design, so
+-- there's no flash on every swipe/tap on a book row or the coverdeck). "ui",
+-- unlike "partial", is never promoted to flashing by UIManager (that
+-- promotion only exists for "partial" via FULL_REFRESH_COUNT). Without a
+-- periodic flash, repeated non-flashing refreshes accumulate e-ink ghosting.
 --
--- Replicates here the same promotion that "partial" already has natively, using
--- the same threshold configured by the user (UIManager.FULL_REFRESH_COUNT,
--- 6 by default): every N surgical refreshes of this module, it forces a
--- "flashui" (clears the accumulated ghosting) and resets the count.
+-- Replicates the same promotion "partial" already has natively, using the
+-- same threshold configured by the user (UIManager.FULL_REFRESH_COUNT, 6 by
+-- default): every N surgical refreshes of this module, force a "flashui"
+-- (clears the accumulated ghosting) and reset the count.
 function ScreenWidget:_bookModRefreshType(mod_id)
     local counts = self._book_mod_refresh_n
     if not counts then return "ui" end
@@ -3232,14 +3237,10 @@ function ScreenWidget:_refreshBookModSlot(mod_id)
 
     if slot.has_menu then
         if not (self._wrapper_pool and self._wrapper_pool[mod_id]) then return false end
-        -- Reuses _makeModWrapper (instead of swapping wrapper[1] by hand) to
-        -- ensure wrapper.dimen.w/h get resynced with new_widget's
-        -- real size — just like what happens in a full build. Without this,
-        -- wrapper.dimen stayed frozen at the height of the last full
-        -- build; if the newly-built widget is taller (e.g. a bottom
-        -- label previously absent, now present), the refresh region
-        -- passed to UIManager:setDirty would be too small and the label
-        -- wouldn't be cleared/repainted.
+        -- Reuses _makeModWrapper (instead of swapping wrapper[1] by hand) so
+        -- wrapper.dimen.w/h get resynced with new_widget's real size, just
+        -- like a full build — otherwise a taller widget's refresh region
+        -- would be too small for UIManager:setDirty to fully clear/repaint.
         local wrapper = self:_makeModWrapper(slot.mod, new_widget, slot.col_w)
         slot.widget = new_widget
         local rtype = self:_bookModRefreshType(mod_id)
@@ -3251,40 +3252,29 @@ function ScreenWidget:_refreshBookModSlot(mod_id)
         local rtype = self:_bookModRefreshType(mod_id)
         UIManager:setDirty(self, function() return rtype, new_widget.dimen, true end)
     end
-    -- Keeps the cover-poll slot pointing to the currently
-    -- visible widget — without this, covers still pending extraction on the
-    -- newly-shown page would never be swapped in until the next full
-    -- rebuild (the poll would keep updating the old, orphaned widget).
+    -- Keep the cover-poll slot pointing at the currently visible widget, so
+    -- covers still pending extraction on the newly-shown page get swapped
+    -- into it rather than into the old, now-orphaned widget.
     if self._cover_mod_slots and self._cover_mod_slots[mod_id] then
         self._cover_mod_slots[mod_id].widget = new_widget
     end
 
     -- slot.mod.build() above can have queued brand-new files for cover
     -- extraction (getCoverBB() -> enqueueExtract() for any book not yet in
-    -- BIM's cache — see infra/sui_config.lua). _updatePage() always flushes
-    -- that queue and (re)arms the poll (see the two calls right after the
-    -- mod.build() loop there), but THIS repaint path — swipe pagination on
-    -- a paged=true grid (sui_book_grid.lua's swipe_area:onSwipe) — bypasses
-    -- _updatePage entirely. Without this, a page swiped to here queues its
-    -- covers but nothing ever submits them to BIM or polls for the result:
-    -- Config.cover_extraction_pending sits true forever (or until the next
-    -- full homescreen rebuild), and every book on this page that BIM hasn't
-    -- already indexed keeps its placeholder cover indefinitely — invisible
-    -- on Recent/TBR/Featured Collection/Collections (their paged content is
-    -- almost always already-opened, already-indexed books), but obvious on
-    -- a paged grid over the whole library (module_library.lua), where most
-    -- swiped-to pages are books BIM has never seen.
+    -- BIM's cache — see infra/sui_config.lua). _updatePage() flushes that
+    -- queue and arms the poll on every full rebuild, but this repaint path
+    -- — swipe pagination on a paged=true grid (sui_book_grid.lua's
+    -- swipe_area:onSwipe) — bypasses _updatePage entirely, so it must flush
+    -- and arm the poll itself here too.
     Config.flushCoverQueue()
     if Config.cover_extraction_pending and not self._cover_poll_timer then
         self:_scheduleCoverPoll()
     end
 
-    -- Surgical repaint of the page indicator ("1/2") and its chevrons in
-    -- the section title: slot.mod.build() (above) already updated ctx with
-    -- the current page, but the title lives in a sibling widget, outside
-    -- the tree we just replaced — without this, the number (and which
-    -- chevron is enabled) would stay stale until the next full homescreen
-    -- rebuild.
+    -- Surgical repaint of the page indicator ("1/2") and its chevrons in the
+    -- section title: slot.mod.build() (above) already updated ctx with the
+    -- current page, but the title lives in a sibling widget outside the
+    -- tree just replaced, so it needs its own sync call here.
     self:_syncBookModLabel(mod_id)
 
     return true
@@ -3320,6 +3310,21 @@ function ScreenWidget:_refreshImmediate(keep_cache)
         -- sui_book_grid.lua for why that lives there instead of here.
         local ok_gr, GridRenderer = pcall(require, "engines/sui_book_grid")
         if ok_gr and GridRenderer then GridRenderer.clearRowCaches(self._ctx_cache) end
+        -- Hold-dialog actions (status, reset, ...) write the sidecar but
+        -- leave ctx.prefetched with the pre-action percent/summary. Clear
+        -- just those fields so the next build/getBookData re-reads them
+        -- from DocSettings without a full prefetchBooks (titles/covers/md5
+        -- stay cached). Progress badges on Cover Deck and book-grid modules
+        -- stay accurate after status changes on the homescreen.
+        local prefetched = self._ctx_cache.prefetched
+        if type(prefetched) == "table" then
+            for _, entry in pairs(prefetched) do
+                if type(entry) == "table" then
+                    entry.percent = nil
+                    entry.summary = nil
+                end
+            end
+        end
     end
     if not self._navbar_container then return end
     self:_updatePage(keep_cache or false)
@@ -3457,38 +3462,6 @@ function ScreenWidget:onShow()
         _cold_boot_pending = false
     end
 
-    -- Cold-open path: _cached_books_state is nil, so _buildCtx would call
-    -- prefetchBooks() (sidecar I/O for every recent book) and SP.get() (DB
-    -- queries) synchronously, blocking the first paint. This mirrors the
-    -- EXACT same pattern already used for reading_stats: _defer_stats below
-    -- makes _buildCtx call SP.getStale() — a zero-cost return of the last
-    -- DB query result, falling back to `{}` (zeros/placeholder for one
-    -- frame) when nothing has ever been cached — instead of SP.get(). The
-    -- equivalent here is SH.getStaleBooks(): an instant reference to the
-    -- last successful SH.prefetchBooks() result, now persisted across
-    -- process restarts too (see module_books_shared.lua), with NO
-    -- ReadHistory walk, NO lfs.attributes, NO sidecar cache lookups, NO new
-    -- work of any kind — just a table reference (or a single lazy disk
-    -- read, at most once per process). is_book_mod modules (currently,
-    -- coverdeck, recent) render with the exact same data they last had,
-    -- identical in spirit to how reading_stats never flashes to zero on
-    -- return.
-    --
-    -- getStaleBooks() returns nil only in the genuinely-first-ever-run case
-    -- (no in-memory cache AND no on-disk mirror — e.g. right after install,
-    -- or settings were cleared). Deliberately, NO active resolution (like
-    -- the previous SH.peekRecentBooks() fallback) is attempted in that
-    -- case: this mirrors SP.getStale() exactly, which has no equivalent
-    -- fallback either and simply lets reading_stats render `{}` for that
-    -- one frame. is_book_mod modules fall back to their own "no data yet"
-    -- path (build() returns nil/empty) the same way reading_stats shows
-    -- zeros — a single harmless frame, corrected by the deferred refresh
-    -- moments later, with zero extra work spent avoiding it.
-    --
-    -- need_async stays true regardless, so the full, authoritative
-    -- prefetchBooks() pass still runs ~50ms later via the deferred
-    -- _refresh() and corrects anything the stale data got wrong (book
-    -- finished, new book opened since the cache was built, etc.).
     if not self._cached_books_state then
         if is_app_cold_boot then
             -- App startup: fetch the real book state synchronously instead
@@ -3504,43 +3477,38 @@ function ScreenWidget:onShow()
                 local show_c = Registry.isEnabled(Registry.get("currently"), self._pfx)
                 local show_r = (mod_r and Registry.isEnabled(mod_r, self._pfx))
                     or (mod_cd and Registry.isEnabled(mod_cd, self._pfx))
-                self._cached_books_state = SH.prefetchBooks(show_c, show_r, 15)
+                local excl = SUISettings:readSetting(self._pfx .. "recent_exclude_currently")
+                if excl == nil then excl = true end
+                self._cached_books_state = SH.prefetchBooks(show_c, show_r, 15, {
+                    exclude_current = excl,
+                })
             end
             self._cached_books_state = self._cached_books_state
                 or { current_fp = nil, recent_fps = {}, prefetched_data = {} }
         else
-            -- Cold-open path: _cached_books_state is nil, so _buildCtx would call
-            -- prefetchBooks() (sidecar I/O for every recent book) and SP.get() (DB
-            -- queries) synchronously, blocking the first paint. This mirrors the
-            -- EXACT same pattern already used for reading_stats: _defer_stats below
-            -- makes _buildCtx call SP.getStale() — a zero-cost return of the last
-            -- DB query result, falling back to `{}` (zeros/placeholder for one
-            -- frame) when nothing has ever been cached — instead of SP.get(). The
-            -- equivalent here is SH.getStaleBooks(): an instant reference to the
-            -- last successful SH.prefetchBooks() result, now persisted across
-            -- process restarts too (see module_books_shared.lua), with NO
-            -- ReadHistory walk, NO lfs.attributes, NO sidecar cache lookups, NO new
-            -- work of any kind — just a table reference (or a single lazy disk
-            -- read, at most once per process). is_book_mod modules (currently,
-            -- coverdeck, recent) render with the exact same data they last had,
-            -- identical in spirit to how reading_stats never flashes to zero on
-            -- return.
+            -- Cold-open path: _cached_books_state is nil, so _buildCtx would
+            -- otherwise call prefetchBooks() (sidecar I/O for every recent
+            -- book) and SP.get() (DB queries) synchronously, blocking the
+            -- first paint. Mirrors the pattern already used for
+            -- reading_stats (_defer_stats -> SP.getStale()): SH.getStaleBooks()
+            -- returns an instant reference to the last successful
+            -- SH.prefetchBooks() result, persisted across process restarts
+            -- too (see module_books_shared.lua), with no ReadHistory walk
+            -- and no sidecar lookups. is_book_mod modules (currently,
+            -- coverdeck, recent) render with the exact same data they last
+            -- had.
             --
-            -- getStaleBooks() returns nil only in the genuinely-first-ever-run case
-            -- (no in-memory cache AND no on-disk mirror — e.g. right after install,
-            -- or settings were cleared). Deliberately, NO active resolution (like
-            -- the previous SH.peekRecentBooks() fallback) is attempted in that
-            -- case: this mirrors SP.getStale() exactly, which has no equivalent
-            -- fallback either and simply lets reading_stats render `{}` for that
-            -- one frame. is_book_mod modules fall back to their own "no data yet"
-            -- path (build() returns nil/empty) the same way reading_stats shows
-            -- zeros — a single harmless frame, corrected by the deferred refresh
-            -- moments later, with zero extra work spent avoiding it.
+            -- getStaleBooks() returns nil only on a genuinely first-ever run
+            -- (no in-memory cache and no on-disk mirror). In that case
+            -- is_book_mod modules fall back to their own "no data yet" path
+            -- (build() returns nil/empty) for a single harmless frame,
+            -- corrected by the deferred refresh moments later.
             --
             -- need_async stays true regardless, so the full, authoritative
             -- prefetchBooks() pass still runs ~50ms later via the deferred
-            -- _refresh() and corrects anything the stale data got wrong (book
-            -- finished, new book opened since the cache was built, etc.).
+            -- _refresh() and corrects anything the stale data got wrong
+            -- (book finished, new book opened since the cache was built,
+            -- etc.).
             local SH = _getBookShared()
             local stale = SH and SH.getStaleBooks and SH.getStaleBooks()
             if stale then
@@ -3585,21 +3553,7 @@ function ScreenWidget:onShow()
 
     if self._navbar_container then
         local overlap = self:_initLayout()
-        local old = self._navbar_container[1]
-        if old and old.overlap_offset then
-            overlap.overlap_offset = old.overlap_offset
-        end
-        self._navbar_container[1] = overlap
-        -- Keep _navbar_inner in sync with the live content tree. It is the
-        -- reference sui_bottombar.lua's rewrapAllWidgets() (and other
-        -- rewrap-style callers) read to re-wrap "the current content" with a
-        -- fresh navbar container -- if it's left pointing at `old`, a rewrap
-        -- triggered any time after this swap re-wraps content that was just
-        -- handed to _deferredFreeOldTree() below, silently reverting (or
-        -- outright blanking, once the deferred free runs) whatever this
-        -- rebuild just drew.
-        self._navbar_inner = overlap
-        _deferredFreeOldTree(old)
+        self:_swapLayoutTree(overlap)
 
         -- Only the ordinary cold-open enters deferred-stats mode. On the
         -- app-cold-boot pass, _defer_stats stays falsy so _buildCtx() takes
@@ -3652,24 +3606,13 @@ end
 --
 -- Returning false lets the event propagate to ReaderStatistics as normal.
 --
--- FIX: _db_sync_guard stuck-forever bug.
--- The original code gated the entire tick callback on
---   ScreenEngine._instance == self_ref
--- so if the homescreen instance was replaced between the handler and the
--- callback (e.g. a tab switch during a Kobo sync cycle), _db_sync_guard was
--- never cleared on self_ref.  Because _db_sync_guard is an INSTANCE field,
--- that check is wrong in both directions:
---   • Dead instance (onCloseWidget already ran): clearing is harmless —
---     nobody calls _buildCtx on a dead widget.
---   • Live instance no longer registered as _instance: refusing to clear
---     leaves _db_sync_guard = true permanently.  _buildCtx never opens the
---     DB again for the rest of the session, so Currently Reading and Reading
---     Goals stop updating until KOReader is restarted.
--- Fix: always clear the guard on self_ref; only gate _refresh() on the
--- instance still being the current one (refreshing a dead widget is a no-op
--- at best and a crash at worst).  A scheduleIn(10) fallback provides a
--- second safety net for the edge case where the tick callbacks are never
--- invoked (e.g. UIManager teardown during a hot plugin reload).
+-- _db_sync_guard is an instance field, so clearing it is always safe on
+-- self_ref regardless of whether the instance is still live or has since
+-- been replaced/closed. Only _refresh() itself is gated on the instance
+-- still being the current one (refreshing a dead widget is a no-op at best
+-- and a crash at worst). A scheduleIn(10) fallback provides a second safety
+-- net for the edge case where the tick callbacks are never invoked (e.g.
+-- UIManager teardown during a hot plugin reload).
 function ScreenWidget:onSyncBookStats()
     if self._db_conn then
         pcall(function() self._db_conn:close() end)
@@ -3855,16 +3798,7 @@ function ScreenWidget:onSetRotationMode(mode)
             self._cfg_cache          = nil
             _sset(self._id, "_cfg_cache", nil)
             local overlap = self:_initLayout()
-            local old = self._navbar_container[1]
-            if old and old.overlap_offset then
-                overlap.overlap_offset = old.overlap_offset
-            end
-            self._navbar_container[1] = overlap
-            -- Keep _navbar_inner in sync — see the identical note in onShow()
-            -- above; a stale _navbar_inner here would make a later
-            -- rewrapAllWidgets() re-wrap the tree just freed below.
-            self._navbar_inner = overlap
-            _deferredFreeOldTree(old)
+            self:_swapLayoutTree(overlap)
             self:_updatePage(true)
         end
         UIManager:setDirty(self, "full")
@@ -3932,7 +3866,6 @@ function ScreenWidget:onCloseWidget()
     -- Invalidate debounce token so any scheduled callback becomes a no-op.
     self._pending_refresh_token = {}
     self._refresh_scheduled     = false
-    self._pending_cover_clear   = nil
 
     -- On tab-switch preserve book state and page for the next open;
     -- on real close discard stale data.
@@ -3960,13 +3893,8 @@ function ScreenWidget:onCloseWidget()
     self._total_pages        = nil
     self.page                = nil
     self.page_num            = nil
-    self._header_body_ref    = nil
-    self._header_body_idx    = nil
-    self._header_inner_w     = nil
-    self._header_is_wrapped  = nil
     self._ctx_menu           = nil
     self._ctx_cache          = nil
-    self._shown_once         = nil
     self._stats_need_refresh = nil
     self._body               = nil
     self._overlap            = nil
@@ -4023,36 +3951,29 @@ end
 -- the reader for the whole session — UIManager:show() never closes widgets
 -- already on the stack, so without a handler here the opposite happens.
 --
--- Before this handler existed, ScreenWidget had no ShowingReader handler at
--- all, so opening a book from the Homescreen or a Custom Screen left the
--- *entire* widget (grid, covers, badges, the header clock/quote refresh
--- chain) fully resident and covered for the whole reading session, only
--- torn down in SimpleUIPlugin:onCloseWidget once the book was closed. That
--- version paid for it with a class of bugs where the hidden-but-alive
--- screen kept receiving broadcast events meant for the reader (onResume,
--- rotation, stats sync, ...), and — worse — nothing stopped more than one
--- screen from piling up alive-but-hidden at once (e.g. a Custom Screen
--- left open underneath a Settings Window, on top of the Homescreen
--- underneath *that*). A later revision replaced it with the closing here:
--- the screen is always torn down before the reader takes over, and always
--- rebuilt cold when the reader gives control back — simple and correct,
--- at the cost of a full rebuild (DB reconnect, cover decode, widget tree)
--- on every single reader round-trip.
+-- Without this handler, the screen (grid, covers, badges, the header
+-- clock/quote refresh chain) would stay fully resident and hidden for the
+-- whole reading session, torn down only once the book closed — receiving
+-- broadcast events meant for the reader in the meantime, with no limit on
+-- how many hidden screens could pile up at once. Closing here instead means
+-- the screen is always torn down before the reader takes over, and rebuilt
+-- when the reader gives control back — at the cost of a full rebuild (DB
+-- reconnect, cover decode, widget tree) on every reader round-trip.
 --
--- Soft-park (ScreenEngine.SOFT_PARK_ENABLED) reinstates the "keep it
--- alive" idea while closing the two holes above: it only ever parks the
+-- Soft-park (ScreenEngine.SOFT_PARK_ENABLED) keeps the screen alive across
+-- that round-trip without the downsides above: it only ever parks the
 -- Homescreen (never a Custom Screen), and only when it is the *sole* live
 -- screen at this exact moment — any other live screen is still force-
 -- closed by SimpleUIPlugin:onCloseWidget exactly as today, so at most one
 -- screen is ever hidden-but-alive at a time. The event handlers a parked
 -- screen could still receive (onResume, onSyncBookStats) are guarded to
 -- skip their refresh work while self._parked is set — onSetRotationMode
--- already ignores everything while the reader is open, unrelated to this
--- change. _raiseParkedScreen (infra/sui_patches.lua) promotes the parked
--- instance back to the foreground with a scoped partial refresh instead of
--- a full rebuild; any reader-close path that will not show the Homescreen
--- this time (e.g. "Return to Book Folder") closes the parked instance for
--- real instead of leaving it dangling with increasingly stale data.
+-- already ignores everything while the reader is open, unrelated to this.
+-- _raiseParkedScreen (infra/sui_patches.lua) promotes the parked instance
+-- back to the foreground with a scoped partial refresh instead of a full
+-- rebuild; any reader-close path that will not show the Homescreen this
+-- time (e.g. "Return to Book Folder") closes the parked instance for real
+-- instead of leaving it dangling with increasingly stale data.
 --
 -- _navbar_closing_intentionally makes onCloseWidget (above) treat a real
 -- close like a tab-switch rather than a dismissal, so _cached_books_state /
@@ -4149,8 +4070,7 @@ function ScreenEngine.showCustomScreen(screen_id)
     -- — the exact same callbacks the built-in Homescreen gets via
     -- _showHSCold/_makeQaTap in sui_patches.lua, so any Quick Actions/Action
     -- List module placed on a Custom Screen behaves identically to the same
-    -- module placed on the Homescreen (previously nil, nil here — those
-    -- modules' taps were silently swallowed on a Custom Screen).
+    -- module placed on the Homescreen.
     return ScreenEngine._open({
         id         = screen.id,
         pfx        = screen.pfx,
@@ -4254,16 +4174,9 @@ function ScreenEngine.refresh(keep_cache, books_only, stats_only)
     end
 end
 
-function ScreenEngine.refreshImmediate(keep_cache)
-    if ScreenEngine._instance then
-        ScreenEngine._instance:_refreshImmediate(keep_cache)
-    end
-end
-
 -- Immediately repaints whichever screen(s) are actually live right now —
 -- the built-in Homescreen if open, or a Custom Screen if that's what's open
--- instead. Unlike ScreenEngine.refreshImmediate() above (which only ever
--- touches the flat built-in-Homescreen instance), this is for callers
+-- instead. This is for callers
 -- reacting to state that isn't screen-specific (wifi icon, quick-action
 -- icons, style changes, ...) and so must reach whatever screen is currently
 -- on screen, not assume it's the Homescreen. No-op if nothing is live.
@@ -4312,20 +4225,7 @@ local function _rebuildScreenLayout(id)
     _sset(id, "_cfg_cache", nil)
 
     local overlap = inst:_initLayout()
-    local old = inst._navbar_container[1]
-    if old and old.overlap_offset then
-        overlap.overlap_offset = old.overlap_offset
-    end
-    inst._navbar_container[1] = overlap
-    -- Keep _navbar_inner in sync — see the identical note in onShow() above.
-    -- This is the call site presets/style/wallpaper changes go through
-    -- (ScreenEngine.rebuildLayout() -> rebuildAllLayouts() -> here); leaving
-    -- _navbar_inner stale is exactly what produced the blank-homescreen-
-    -- after-preset-apply bug, since sui_settings_window.lua's preset
-    -- on_apply calls _applyFullLayoutRefresh() -> plugin:_rewrapAllWidgets()
-    -- right after this, which re-wraps whatever _navbar_inner points to.
-    inst._navbar_inner = overlap
-    _deferredFreeOldTree(old)
+    inst:_swapLayoutTree(overlap)
     inst:_updatePage(true)
     UIManager:setDirty(inst, "ui")
 end
@@ -4365,9 +4265,6 @@ local function _liveScreenIds()
     return ids
 end
 
--- Returns every screen id that currently has a live widget instance: the
--- built-in Homescreen (if open) plus every Custom Screen id present in
--- ScreenEngine._cs_state with a non-nil _instance.
 ScreenEngine.liveScreenIds = _liveScreenIds
 
 --- Full layout rebuild for every screen that currently has a live widget

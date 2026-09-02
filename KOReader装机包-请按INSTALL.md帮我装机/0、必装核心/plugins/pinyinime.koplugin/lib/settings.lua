@@ -446,6 +446,10 @@ function Settings:new()
         store:readSetting("personalization_enabled", true))
     local prediction_enabled = enabledByDefault(
         store:readSetting("prediction_enabled", true))
+    -- 自定义补丁(lazy-load): 默认开启, 词库数据延迟到首次拼音击键才载入,
+    -- 弹出词典/搜索等带输入框的窗口不再预载 ~14MB 数据。
+    local deferred_data_load = enabledByDefault(
+        store:readSetting("deferred_data_load", true))
     local instance = {
         settings_file = settings_file,
         store = store,
@@ -460,6 +464,7 @@ function Settings:new()
         lexicon_mode = lexicon_mode,
         personalization_enabled = personalization_enabled,
         prediction_enabled = prediction_enabled,
+        deferred_data_load = deferred_data_load,
         learning_dirty = false,
         learning_generation = 0,
         learning_flush_action = nil,
@@ -778,6 +783,20 @@ end
 
 function Settings:getLexiconMode()
     return self.lexicon_mode
+end
+
+function Settings:isDeferredDataLoadEnabled()
+    return self.deferred_data_load
+end
+
+function Settings:setDeferredDataLoadEnabled(enabled)
+    enabled = enabled ~= false
+    if self.deferred_data_load == enabled then
+        return false
+    end
+    self.deferred_data_load = enabled
+    self.store:saveSetting("deferred_data_load", enabled):flush()
+    return true
 end
 
 function Settings:setLexiconMode(mode)

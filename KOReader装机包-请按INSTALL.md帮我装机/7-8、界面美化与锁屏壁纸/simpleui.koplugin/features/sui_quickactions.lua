@@ -898,6 +898,17 @@ local function _registerBuiltins()
                 end)
             end,
         },
+        {
+            id    = "backup_export",
+            label = _("Backup"),
+            icon  = Config.ICON.backup,
+            is_in_place = true,
+            execute = function(_ctx)
+                -- One-tap export with the last-used scope; shows its own
+                -- result toast (see sui_backup.runQuickExport).
+                require("features/sui_backup").runQuickExport()
+            end,
+        },
         -- ── Browse meta actions ─────────────────────────────────────────────
         {
             id    = "browse_authors",

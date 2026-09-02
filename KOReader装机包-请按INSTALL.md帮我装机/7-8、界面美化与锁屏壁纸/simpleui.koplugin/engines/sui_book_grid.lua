@@ -948,7 +948,8 @@ function GridRenderer.build(w, ctx, opts)
                 face      = pct_face,
                 bold      = true,
                 fgcolor   = _pct_fg,
-                width     = cw,
+                max_width = cw,
+                truncate_with_ellipsis = true,
                 alignment = "center",
             }
             cell[#cell+1] = pct_w

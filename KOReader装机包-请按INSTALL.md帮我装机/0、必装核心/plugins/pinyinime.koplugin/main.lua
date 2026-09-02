@@ -130,6 +130,7 @@ function ChinesePinyin:addToMainMenu(menu_items)
                 text = _("高级设置"),
                 sub_item_table = {
                     Runtime:buildLexiconModeMenuItem(),
+                    Runtime:buildDeferredLoadMenuItem(),
                 },
             },
             {

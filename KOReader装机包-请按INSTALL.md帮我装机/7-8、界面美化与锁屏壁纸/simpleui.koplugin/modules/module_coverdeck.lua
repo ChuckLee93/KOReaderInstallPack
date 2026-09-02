@@ -1,18 +1,19 @@
 -- module_coverdeck.lua
 -- Displays recent or TBR books as a cover-flow carousel.
 
-local Blitbuffer  = require("ffi/blitbuffer")
-local BD             = require("ui/bidi")
-local Device         = require("device")
-local Font           = require("ui/font")
-local FrameContainer = require("ui/widget/container/framecontainer")
-local Geom           = require("ui/geometry")
-local GestureRange   = require("ui/gesturerange")
-local InputContainer = require("ui/widget/container/inputcontainer")
-local OverlapGroup   = require("ui/widget/overlapgroup")
-local TextWidget     = require("ui/widget/textwidget")
-local VerticalGroup  = require("ui/widget/verticalgroup")
-local Screen         = Device.screen
+local Blitbuffer       = require("ffi/blitbuffer")
+local BD               = require("ui/bidi")
+local Device           = require("device")
+local Font             = require("ui/font")
+local CenterContainer  = require("ui/widget/container/centercontainer")
+local FrameContainer   = require("ui/widget/container/framecontainer")
+local Geom             = require("ui/geometry")
+local GestureRange     = require("ui/gesturerange")
+local InputContainer   = require("ui/widget/container/inputcontainer")
+local OverlapGroup     = require("ui/widget/overlapgroup")
+local TextBoxWidget    = require("ui/widget/textboxwidget")
+local VerticalGroup    = require("ui/widget/verticalgroup")
+local Screen           = Device.screen
 local _ = require("infra/sui_i18n").translate
 local N_ = require("infra/sui_i18n").ngettext
 local logger         = require("logger")
@@ -43,48 +44,17 @@ local _REF_INNER_W   = Screen:getWidth() - UI.SIDE_PAD * 2 - PAD * 2
 local _CENTER_W_PCT  = Screen:scaleBySize(140) / _REF_INNER_W
 local _CENTER_W_MIN  = Screen:scaleBySize(60)  -- floor so covers never collapse to unreadable size
 
--- ---------------------------------------------------------------------------
--- UTF-8 aware title truncation
--- ---------------------------------------------------------------------------
--- Counts Unicode codepoints, not bytes, so CJK/Arabic text truncates
--- correctly. Returns s unchanged if it is <= max_chars codepoints, otherwise
--- the first max_chars codepoints followed by "...".
-local function truncateTitle(s, max_chars)
-    if not s then return "" end
-    local count = 0
-    local i = 1
-    local last_safe = 0   -- byte offset of the last complete codepoint boundary
-    while i <= #s do
-        local byte = s:byte(i)
-        local char_len
-        if     byte >= 240 then char_len = 4
-        elseif byte >= 224 then char_len = 3
-        elseif byte >= 192 then char_len = 2
-        else                     char_len = 1
-        end
-        count = count + 1
-        if count == max_chars then
-            last_safe = i + char_len - 1
-        end
-        if count > max_chars then
-            return s:sub(1, last_safe) .. "..."
-        end
-        i = i + char_len
-    end
-    return s  -- fits within max_chars
-end
+-- Title/author/stats text is constrained to covers_block_w (full carousel
+-- footprint including side peeks) via max_width + truncate_with_ellipsis
+-- (same pattern as GridRenderer labels).
 
 -- ---------------------------------------------------------------------------
 -- Author list rendering
 -- ---------------------------------------------------------------------------
 -- Author strings arrive as a single newline-separated string ("A\nB\nC").
--- Aligned with KOReader's actual data format. 
--- _splitAuthors breaks it into names (trimmed, empty tokens dropped). 
--- _formatAuthors renders the result with these rules:
--- 1. empty/whitespace input → "Unknown Author";
--- 2. single author          → returned verbatim;
--- 3. two or more author     → "Name1 et al."
---    only the first name is kept, every other co-author is discarded.
+-- _formatAuthors returns nil when there is no usable name (caller hides the
+-- row, same policy as description), a single name verbatim, or "Name et al."
+-- when there are two or more.
 local function _splitAuthors(s)
     local parts = {}
     if not s or s == "" then return parts end
@@ -99,7 +69,7 @@ end
 
 local function _formatAuthors(authors_str)
     local parts = _splitAuthors(authors_str)
-    if #parts == 0 then return _("Unknown Author") end
+    if #parts == 0 then return nil end
     if #parts == 1 then return parts[1] end
     return parts[1] .. _(" et al.")
 end
@@ -123,6 +93,9 @@ local MAIN_ORDER_KEY        = "coverdeck_main_order"      -- pfx .. this
 -- for the same badge_key ("progress").
 local SETTING_SHOW_PROGRESS_BADGE  = "coverdeck_show_progress_badge"   -- pfx .. this; default OFF
 local SETTING_PROGRESS_BADGE_COLOR = "coverdeck_progress_badge_color"  -- pfx .. this; nil|"dark"|"light"
+-- When progress badge is on: also paint it on right-hand peeks (nil/true)
+-- or only on the centre cover (false). Default on.
+local SETTING_PROGRESS_BADGE_ON_PEEKS = "coverdeck_progress_badge_on_peeks"
 
 -- Source values of the form COLLECTION_PREFIX .. collection_name select a
 -- user collection as the book source.
@@ -165,6 +138,12 @@ end
 -- default on).
 local function showProgressBadge(pfx)
     return SUISettings:readSetting(pfx .. SETTING_SHOW_PROGRESS_BADGE) == true
+end
+
+-- Right-hand peeks also show the progress badge (default on). Only
+-- meaningful when showProgressBadge is on.
+local function showProgressBadgeOnPeeks(pfx)
+    return SUISettings:nilOrTrue(pfx .. SETTING_PROGRESS_BADGE_ON_PEEKS)
 end
 
 -- nil ("Follow Library") / "dark" / "light" — mirrors
@@ -325,7 +304,12 @@ end
 -- status worth showing (in progress, complete, or abandoned). Returns
 -- `cover_widget` unchanged otherwise — same "not started" convention as
 -- GridRenderer.applyBadges.
-local function applyProgressBadge(cover_widget, bd, cw, ch, pfx)
+-- ref_w/ref_h (optional): centre-cover size. When set (right-hand peeks),
+-- badge edge and right inset follow the full-cover formula scaled by
+-- ch/ref_h — the same height ratio the peek cover uses vs the centre —
+-- so size and margin stay visually consistent instead of shrinking with
+-- the narrow crop width.
+local function applyProgressBadge(cover_widget, bd, cw, ch, pfx, ref_w, ref_h)
     local has_progress = (bd.percent or 0) > 0 or bd.status == "complete" or bd.status == "abandoned"
     if not has_progress then return cover_widget end
 
@@ -338,16 +322,25 @@ local function applyProgressBadge(cover_widget, bd, cw, ch, pfx)
         or "dark"
     local dark = color == "dark"
 
-    local cell_min    = math.min(cw, ch)
-    local edge_margin = math.max(1, math.floor(cell_min * 0.08))
-    local eff_size    = math.max(8, math.floor(cell_min * 0.14))
+    local edge_margin, eff_size
+    if ref_h and ref_h > 0 and ref_w and ref_w > 0 then
+        local scale   = ch / ref_h
+        local ref_min = math.min(ref_w, ref_h)
+        edge_margin   = math.max(1, math.floor(ref_min * 0.08 * scale))
+        eff_size      = math.max(8, math.floor(ref_min * 0.14 * scale))
+    else
+        local cell_min = math.min(cw, ch)
+        edge_margin    = math.max(1, math.floor(cell_min * 0.08))
+        eff_size       = math.max(8, math.floor(cell_min * 0.14))
+    end
 
     local desc = CW.buildProgressBadgeDesc(eff_size, bd.status, bd.percent, SUIStyle.BADGE_BORDER_SZ, dark)
     local wg   = CW.buildProgressBadgeWidget(desc)
     if not wg then return cover_widget end
 
     -- Flush with the top edge, inset from the right — matches the corner
-    -- badges' placement convention in applyBadges.
+    -- badges' placement convention in applyBadges (and the scaled centre
+    -- margin when ref_w/ref_h are set).
     local sz = wg:getSize()
     wg.overlap_offset = { cw - sz.w - edge_margin, 0 }
 
@@ -621,9 +614,12 @@ function M.reset()
     _bstats_cache_count = 0
 end
 
+-- Clears the entire stats cache. Called from main.lua:onCloseDocument as a
+-- fallback when the closed book's md5 could not be resolved; safe since
+-- fetchBookStats() re-populates entries on demand.
 function M.invalidateCache()
-    -- No-op: M.updateStats always force-refreshes the centre book's stats,
-    -- so the cache self-corrects on the next paint.
+    _bstats_cache       = {}
+    _bstats_cache_count = 0
 end
 
 -- Removes only the cache entry for the given md5, leaving all other books
@@ -647,6 +643,46 @@ end
 -- build
 -- ---------------------------------------------------------------------------
 
+-- Empty placeholder when the chosen source has no books (same pattern as
+-- Quick Actions / Featured Collection / Collections).
+-- Uses a wrapping TextBoxWidget rather than the single-line TextWidget
+-- behind makeColoredText, since this message is long enough to need
+-- multiple lines at the module's own width; falls back to a plain
+-- TextBoxWidget when there's no wallpaper to composite over, mirroring
+-- module_currently.lua's own text elements.
+local function _emptyPlaceholder(w, h, has_wallpaper)
+    local face = Font:getFace(SUIStyle.FACE_REGULAR, SUIStyle.FS_BODY)
+    local line_h = math.floor(1.3 * face.size + 0.5)
+    local args = {
+        text      = _("No books to show yet — open a book to see it here."),
+        face      = face,
+        width     = w - PAD * 2,
+        height    = math.max(line_h, h - PAD * 2),
+        height_adjust = true,
+        height_overflow_show_ellipsis = true,
+        alignment = "center",
+        fgcolor   = CLR_TEXT_SUB,
+    }
+
+    local text_w
+    if has_wallpaper then
+        local ok_tbx, tbx = pcall(UI.makeAlphaTextBox, args)
+        if ok_tbx then
+            text_w = tbx
+        else
+            logger.warn("simpleui: module_coverdeck: makeAlphaTextBox failed, falling back to TextBoxWidget: " .. tostring(tbx))
+            text_w = TextBoxWidget:new(args)
+        end
+    else
+        text_w = TextBoxWidget:new(args)
+    end
+
+    return CenterContainer:new{
+        dimen = Geom:new{ w = w, h = h },
+        text_w,
+    }
+end
+
 function M.build(w, ctx)
     local pfx    = ctx.pfx
 
@@ -660,12 +696,14 @@ function M.build(w, ctx)
 
     local fps = getFps(source, ctx)
     if not fps or #fps == 0 then
-        logger.warn(string.format("coverdeck: no books found (source=%s)", tostring(source)))
-        return nil
+        logger.dbg(string.format("coverdeck: no books found (source=%s)", tostring(source)))
+        return _emptyPlaceholder(w, M.getHeight(ctx), ctx.has_wallpaper)
     end
 
     local SH = getSH()
-    if not SH then return nil end
+    if not SH then
+        return _emptyPlaceholder(w, M.getHeight(ctx), ctx.has_wallpaper)
+    end
 
     local CLR_TEXT_EFF     = SUIStyle.COLOR.text_primary
     local CLR_TEXT_SUB_EFF = CLR_TEXT_SUB
@@ -695,7 +733,8 @@ function M.build(w, ctx)
     local show_progress   = vis.progress
     local show_stats      = vis.show_stats
     local stats_order     = vis.stats_order
-    local show_progress_badge = showProgressBadge(pfx)
+    local show_progress_badge         = showProgressBadge(pfx)
+    local show_progress_badge_on_peeks = showProgressBadgeOnPeeks(pfx)
 
     -- Carousel dimensions: center_w is a percentage of inner_w (see
     -- _CENTER_W_PCT above), scaled by cs (raw scale * thumb_scale) on top.
@@ -711,6 +750,10 @@ function M.build(w, ctx)
     local half_cw     = math.floor(center_w / 2)
     local offset_near = math.floor(center_w * 0.35)
     local offset_far  = math.floor(center_w * 0.60)
+    -- Full carousel footprint (left far edge to right far edge), clamped to
+    -- the overlap group width. Title/author/stats max_width uses this so text
+    -- never exceeds the cover block including side peeks.
+    local covers_block_w = math.min(inner_w, center_w + 2 * offset_far)
     local TOP_CLEAR   = 2
     local centerY     = math.floor(center_h / 2) + TOP_CLEAR
 
@@ -731,9 +774,6 @@ function M.build(w, ctx)
     local function buildCover(fp, cw, ch)
         local bd    = SH.getBookData(fp, ctx.prefetched and ctx.prefetched[fp])
         local cover = SH.getBookCover(fp, cw, ch) or SH.coverPlaceholder(bd.title, bd.authors, cw, ch)
-        -- Only the centre cover is large enough for the badge to read
-        -- cleanly — side/far slots are narrow crops meant to look like a
-        -- sliver of book spine, not a full cover.
         if show_progress_badge then
             cover = applyProgressBadge(cover, bd, cw, ch, pfx)
         end
@@ -742,6 +782,13 @@ function M.build(w, ctx)
     local function buildCroppedCover(fp, cw, ch, align)
         local bd    = SH.getBookData(fp, ctx.prefetched and ctx.prefetched[fp])
         local cover = SH.getCroppedBookCover(fp, cw, ch, align) or SH.coverPlaceholder(bd.title, bd.authors, cw, ch)
+        -- Right-hand peeks show the cover's right edge — where the progress
+        -- badge sits — so paint it there too when enabled (optional setting).
+        -- Left peeks crop the left edge (badge would be off-canvas).
+        -- Size/margin scale from centre by ch/center_h (side 0.85, far 0.75).
+        if show_progress_badge and show_progress_badge_on_peeks and align == "right" then
+            cover = applyProgressBadge(cover, bd, cw, ch, pfx, center_w, center_h)
+        end
         return cover
     end
 
@@ -755,7 +802,8 @@ function M.build(w, ctx)
         items[#items+1] = buildCroppedCover(fps[carouselIdx(curIdx, 2, count)], far_w, far_h, "right")
         items[#items].overlap_offset = { math.floor(centerX + half_cw + offset_far - far_w), yTopOf(centerY, far_h) }
         cover_slots[#cover_slots+1] = { fp = fps[carouselIdx(curIdx, 2, count)],  w = far_w,  h = far_h, kind = "crop", align = "right",
-                                        overlap_offset = items[#items].overlap_offset }
+                                        overlap_offset = items[#items].overlap_offset,
+                                        ref_w = center_w, ref_h = center_h }
     end
     if count >= 2 then
         items[#items+1] = buildCroppedCover(fps[carouselIdx(curIdx, -1, count)], side_w, side_h, "left")
@@ -767,7 +815,8 @@ function M.build(w, ctx)
         items[#items+1] = buildCroppedCover(fps[carouselIdx(curIdx, 1, count)], side_w, side_h, "right")
         items[#items].overlap_offset = { math.floor(centerX + half_cw + offset_near - side_w), yTopOf(centerY, side_h) }
         cover_slots[#cover_slots+1] = { fp = fps[carouselIdx(curIdx, 1, count)],  w = side_w, h = side_h, kind = "crop", align = "right",
-                                        overlap_offset = items[#items].overlap_offset }
+                                        overlap_offset = items[#items].overlap_offset,
+                                        ref_w = center_w, ref_h = center_h }
     end
     items[#items+1] = buildCover(fps[curIdx], center_w, center_h)
     items[#items].overlap_offset = { math.floor(centerX - half_cw), yTopOf(centerY, center_h) }
@@ -885,35 +934,43 @@ function M.build(w, ctx)
     local face_title = Font:getFace(SUIStyle.FACE_REGULAR, math.max(8, title_fs))
     local face_info  = Font:getFace(SUIStyle.FACE_REGULAR, math.max(7, info_fs))
 
-    -- Title widget
+    -- Title widget (capped to full cover block including side peeks)
     local title_widget
     if show_title then
         title_widget  = UI.makeColoredText{
-            text      = truncateTitle(bd.title, 30),
-            face      = face_title,
-            bold      = true,
-            fgcolor   = CLR_TEXT_EFF,
-            width     = inner_w,
-            alignment = "center",
+            text                   = bd.title or "",
+            face                   = face_title,
+            bold                   = true,
+            fgcolor                = CLR_TEXT_EFF,
+            max_width              = covers_block_w,
+            truncate_with_ellipsis = true,
+            alignment              = "center",
         }
     end
 
-    -- Author widget
+    -- Author widget (hidden when no usable name, same as description)
     local author_widget
-    if show_author and bd.authors and bd.authors ~= "" then
-        local author_fs   = math.floor(SUIStyle.FS_SUBTITLE * scale * lbl_scale)
-        local face_author = Font:getFace(SUIStyle.FACE_REGULAR, math.max(8, author_fs))
-        author_widget = UI.makeColoredText{
-            text            = _formatAuthors(bd.authors),
-            face            = face_author,
-            fgcolor         = CLR_TEXT_SUB_EFF,
-            width           = inner_w,
-            alignment       = "center",
-            truncation_char = "…",
-        }
+    if show_author then
+        local author_text = _formatAuthors(bd.authors)
+        if author_text then
+            local author_fs   = math.floor(SUIStyle.FS_SUBTITLE * scale * lbl_scale)
+            local face_author = Font:getFace(SUIStyle.FACE_REGULAR, math.max(8, author_fs))
+            author_widget = UI.makeColoredText{
+                text                   = author_text,
+                face                   = face_author,
+                fgcolor                = CLR_TEXT_SUB_EFF,
+                max_width              = covers_block_w,
+                truncate_with_ellipsis = true,
+                alignment              = "center",
+            }
+        end
     end
 
-    local _cd_update_funcs = {}
+    -- Closures used by updateStats for in-place refresh.
+    -- _cd_update_funcs: DB-backed stats text (needs bstats).
+    -- _cd_bd_only_funcs: progress bar (needs only book data).
+    local _cd_update_funcs  = {}
+    local _cd_bd_only_funcs = {}
     local function _updateColoredText(wgt, txt, fg)
         if wgt._inner and wgt._inner.setText then
             wgt._inner:setText(txt)
@@ -925,28 +982,38 @@ function M.build(w, ctx)
         end
     end
 
-    -- Progress bar widget
+    -- Progress bar: wrapped in a single-child container so updateStats can
+    -- replace the bar without touching the surrounding VerticalGroup.
     local progress_widget
     if show_progress then
-        progress_widget = UI.progressBar(center_w, bd.percent, bar_h)
+        local _bar_w = center_w
+        local _bar_h = bar_h
+        local _init_bar = UI.progressBar(_bar_w, bd.percent, _bar_h)
+        local bar_container = OverlapGroup:new{
+            dimen = _init_bar:getSize(),
+            _init_bar,
+        }
+        local function _update_bar(_nb, nd)
+            bar_container[1] = UI.progressBar(_bar_w, (nd and nd.percent or 0), _bar_h)
+        end
+        table.insert(_cd_bd_only_funcs, _update_bar)
+        progress_widget = bar_container
     end
 
-    -- Stats widget
+    -- Stats: single compact line rebuilt from the arranged stats order.
     local stats_widget
     local has_any_stats = show_stats and vis.has_stat
 
     if has_any_stats then
         local bstats
         if vis.has_stat then
-            -- Fast path: use stats pre-computed by _buildCtx() when the centre cover
-            -- matches the pre-fetched entry (common case on first render).
+            -- Fast path: stats pre-computed by _buildCtx() for this centre book.
             local pre = ctx.coverdeck_center_stats
             if pre and pre.fp == fps[curIdx] then
                 bstats = pre.stats
             else
-                -- Slow path: no pre-computed stats for this centre book.
-                -- Result lands in _bstats_cache so subsequent carousel
-                -- navigations are instant.
+                -- Slow path: query once; result lands in _bstats_cache for
+                -- subsequent carousel navigations.
                 local prefetched_entry = ctx.prefetched and ctx.prefetched[fps[curIdx]]
                 local md5 = _resolveMd5(fps[curIdx], prefetched_entry)
                 if md5 then
@@ -956,11 +1023,12 @@ function M.build(w, ctx)
         end
 
         local stats_w = UI.makeColoredText{
-            text      = "",
-            face      = face_info,
-            fgcolor   = CLR_TEXT_SUB_EFF,
-            width     = inner_w,
-            alignment = "center",
+            text                   = "",
+            face                   = face_info,
+            fgcolor                = CLR_TEXT_SUB_EFF,
+            max_width              = covers_block_w,
+            truncate_with_ellipsis = true,
+            alignment              = "center",
         }
         local function _update(nb, nd)
             local stats_parts = {}
@@ -1042,16 +1110,19 @@ function M.build(w, ctx)
         bordersize = 0, padding = PAD, padding_top = PAD, padding_bottom = 0,
         final_vg,
     }
-    result._cover_slots = cover_slots
+    result._cover_slots     = cover_slots
     result._cd_update_funcs = _cd_update_funcs
-    result._center_fp = fps[curIdx]
+    result._cd_bd_only_funcs = _cd_bd_only_funcs
+    result._center_fp       = fps[curIdx]
     return result
 end
 
-function M.updateCovers(widget, _ctx)
+function M.updateCovers(widget, ctx)
     if not widget or not widget._cover_slots then return true end
     local SH = getSH()
     if not SH then return true end
+    local pfx = (ctx and ctx.pfx) or ""
+    local show_badge = showProgressBadge(pfx)
     local all_done = true
     for _, slot in ipairs(widget._cover_slots) do
         -- Crop slots (side/far "peek" covers) carry their left/right
@@ -1061,6 +1132,16 @@ function M.updateCovers(widget, _ctx)
             and SH.getCroppedBookCover(slot.fp, slot.w, slot.h, slot.align)
             or SH.getBookCover(slot.fp, slot.w, slot.h)
         if new_cover then
+            -- Re-apply progress badge after a late cover load (build() already
+            -- did this for centre + right peeks; the poll would otherwise
+            -- strip it).
+            local on_peeks = showProgressBadgeOnPeeks(pfx)
+            local apply = show_badge and (slot.kind ~= "crop"
+                or (on_peeks and slot.align == "right"))
+            if apply then
+                local bd = SH.getBookData(slot.fp, ctx and ctx.prefetched and ctx.prefetched[slot.fp])
+                new_cover = applyProgressBadge(new_cover, bd, slot.w, slot.h, pfx, slot.ref_w, slot.ref_h)
+            end
             -- Use the overlap_offset recorded at build() time — the current
             -- widget at slot.idx may be a placeholder with no overlap_offset.
             new_cover.overlap_offset = slot.overlap_offset
@@ -1073,18 +1154,19 @@ function M.updateCovers(widget, _ctx)
 end
 
 function M.updateStats(widget, ctx)
-    local actual_widget = (widget._cd_update_funcs) and widget
-                          or (widget[1] and widget[1]._cd_update_funcs and widget[1])
-    if not actual_widget or not actual_widget._cd_update_funcs then return false end
-    
+    local actual_widget = (widget._cd_update_funcs or widget._cd_bd_only_funcs) and widget
+                          or (widget[1] and (widget[1]._cd_update_funcs or widget[1]._cd_bd_only_funcs) and widget[1])
+    if not actual_widget then return false end
+    if not actual_widget._cd_update_funcs and not actual_widget._cd_bd_only_funcs then
+        return false
+    end
+
     local fp = actual_widget._center_fp
     if not fp then return false end
 
-    -- The widget only carries data for the carousel's centre book at build
-    -- time (_center_fp). The underlying list/order can change between
-    -- renders (book closed, "show finished" toggled, TBR list changed), so
-    -- recompute the centre fp build() would currently produce and bail on
-    -- any mismatch, to avoid patching the wrong book's stats.
+    -- Widget is bound to the centre book at build time. Recompute the centre
+    -- fp build() would produce and bail on mismatch so we never patch the
+    -- wrong book's numbers (list/order can change between renders).
     do
         local c        = ctx.cfg and ctx.cfg.coverdeck
         local source   = c and c.source or getSource(ctx.pfx)
@@ -1096,12 +1178,18 @@ function M.updateStats(widget, ctx)
         if expected_center_fp ~= fp then return false end
     end
 
+    -- Progress badge is composited into the cover widget tree at build time.
+    -- Percent/status changes on the badge require a full rebuild — same
+    -- contract as GridRenderer.updateStats for progress_style "badge".
+    local pfx = (ctx and ctx.pfx) or ""
+    if showProgressBadge(pfx) then return false end
+
     local bstats
     local pre = ctx.coverdeck_center_stats
     if pre and pre.fp == fp then
         bstats = pre.stats
     end
-    
+
     local prefetched_entry = ctx.prefetched and ctx.prefetched[fp]
     if not bstats then
         local md5 = _resolveMd5(fp, prefetched_entry)
@@ -1110,11 +1198,19 @@ function M.updateStats(widget, ctx)
         end
     end
 
-    if bstats then
-        local SH = getSH()
-        local bd = SH.getBookData(fp, prefetched_entry)
+    local SH = getSH()
+    if not SH then return true end
+    local bd = SH.getBookData(fp, prefetched_entry)
+
+    if bstats and actual_widget._cd_update_funcs then
         for _, fn in ipairs(actual_widget._cd_update_funcs) do
             fn(bstats, bd)
+        end
+    end
+    -- Progress bar only needs bd; update even when there is no SQLite history.
+    if actual_widget._cd_bd_only_funcs then
+        for _, fn in ipairs(actual_widget._cd_bd_only_funcs) do
+            fn(nil, bd)
         end
     end
     return true
@@ -1578,6 +1674,17 @@ function M.getMenuItems(ctx_menu)
                 keep_menu_open = true,
                 callback       = function()
                     SUISettings:saveSetting(pfx .. SETTING_SHOW_PROGRESS_BADGE, not showProgressBadge(pfx))
+                    refresh()
+                end,
+            },
+            {
+                text           = _lc("On side covers too"),
+                enabled_func   = function() return showProgressBadge(pfx) end,
+                checked_func   = function() return showProgressBadgeOnPeeks(pfx) end,
+                keep_menu_open = true,
+                callback       = function()
+                    SUISettings:saveSetting(pfx .. SETTING_PROGRESS_BADGE_ON_PEEKS,
+                        not showProgressBadgeOnPeeks(pfx))
                     refresh()
                 end,
             },

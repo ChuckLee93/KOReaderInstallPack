@@ -2152,27 +2152,36 @@ SimpleUIPlugin.addToMainMenu = function(self, menu_items)
         local function makeModuleSettingsMenu()
             local items    = {}
             local qa_items = {}
+            local function _moduleSettingsItems(_mod)
+                local list = type(_mod.getMenuItems) == "function" and (_mod.getMenuItems(ctx_menu) or {}) or {}
+                list[#list + 1] = Config.makeBentoWidthItem({
+                    get     = function() return Config.getBentoWidth(_mod.id, ctx.pfx) end,
+                    set     = function(v) Config.setBentoWidth(v, _mod.id, ctx.pfx) end,
+                    refresh = ctx_menu.refresh,
+                })
+                return list
+            end
             for _loop_, mod in ipairs(Registry.list()) do
-                if type(mod.getMenuItems) == "function" then
-                    local _mod = mod
-                    local text_fn = function()
-                        local count_lbl = type(_mod.getCountLabel) == "function"
-                            and _mod.getCountLabel(ctx.pfx)
-                        return count_lbl
-                            and (_(_mod.name) .. "  " .. count_lbl) -- FIX: Force translation
-                            or   _(_mod.name)                      -- FIX: Force translation
-                    end
-                    if _mod.id:match("_row_") then
-                        qa_items[#qa_items + 1] = {
-                            text_func           = text_fn,
-                            sub_item_table_func = function() return _mod.getMenuItems(ctx_menu) end,
-                        }
-                    else
-                        items[#items + 1] = {
-                            text_func           = text_fn,
-                            sub_item_table_func = function() return _mod.getMenuItems(ctx_menu) end,
-                        }
-                    end
+                -- Every module gets a settings entry so Column width is reachable
+                -- from the global menu as well as from long-press on the homescreen.
+                local _mod = mod
+                local text_fn = function()
+                    local count_lbl = type(_mod.getCountLabel) == "function"
+                        and _mod.getCountLabel(ctx.pfx)
+                    return count_lbl
+                        and (_(_mod.name) .. "  " .. count_lbl)
+                        or   _(_mod.name)
+                end
+                if _mod.id:match("_row_") then
+                    qa_items[#qa_items + 1] = {
+                        text_func           = text_fn,
+                        sub_item_table_func = function() return _moduleSettingsItems(_mod) end,
+                    }
+                else
+                    items[#items + 1] = {
+                        text_func           = text_fn,
+                        sub_item_table_func = function() return _moduleSettingsItems(_mod) end,
+                    }
                 end
             end
             if #qa_items > 0 then
@@ -2712,22 +2721,22 @@ SimpleUIPlugin.addToMainMenu = function(self, menu_items)
             },
         }
 
-        -- PocketBook only: the hardware Home key natively closes the reader
-        -- straight into the file manager. This lets it open the Home Screen
-        -- instead, matching the "Go to Homescreen" gesture/dispatcher action.
-        -- Hidden on other platforms, where the Home key already behaves as
-        -- expected and this setting would have nothing to act on.
-        if Device:isPocketBook() then
+        -- Shown only when the device maps a key to KOReader's "Home" name
+        -- (PocketBook, reMarkable, Cervantes, Sony, some Kindles, …). Natively
+        -- the Home key closes the reader into the file manager (or navigates
+        -- the FM to home_dir); this option redirects both paths to the
+        -- SimpleUI Home Screen, matching the "Go to Homescreen" gesture.
+        if Config.deviceHasHomeKey() then
             table.insert(items, 3, {
-                text           = _("PocketBook Home Button Opens Home Screen"),
-                help_text      = _("Makes the device's physical Home button always open the SimpleUI Home Screen — while reading and while browsing files — instead of KOReader's native Home behaviour."),
+                text           = _("Home Button Opens Home Screen"),
+                help_text      = _("Makes the device's Home button always open the SimpleUI Home Screen — while reading and while browsing files — instead of KOReader's native Home behaviour."),
                 checked_func   = function()
-                    return SUISettings:isTrue("simpleui_pb_home_opens_hs")
+                    return SUISettings:isTrue("simpleui_home_key_opens_hs")
                 end,
                 keep_menu_open = true,
                 callback       = function()
-                    local on = SUISettings:isTrue("simpleui_pb_home_opens_hs")
-                    SUISettings:saveSetting("simpleui_pb_home_opens_hs", not on)
+                    local on = SUISettings:isTrue("simpleui_home_key_opens_hs")
+                    SUISettings:saveSetting("simpleui_home_key_opens_hs", not on)
                 end,
             })
         end
@@ -3981,10 +3990,17 @@ SimpleUIPlugin.addToMainMenu = function(self, menu_items)
                                     end,
                                     callback = function()
                                         if not IP then return end
-                                        if IP.apply(_name, QA2) then
+                                        -- Applying an icon preset touches every live screen
+                                        -- (titlebar, pagination, navbars, folder covers), so
+                                        -- this runs under the same shared "Applying preset…"
+                                        -- notice used for homescreen presets — see
+                                        -- infra/sui_core.lua's applyPresetWithNotice().
+                                        local ok = require("infra/sui_core").applyPresetWithNotice(function()
+                                            if not IP.apply(_name, QA2) then return false end
                                             SUISettings:set("simpleui_icon_active_preset", _name)
-                                            _reapplyAll()
-                                        else
+                                            return true
+                                        end, _reapplyAll)
+                                        if not ok then
                                             UIManager:show(InfoMessage():new{
                                                 text    = string.format(_("Preset \"%s\" not found."), _name),
                                                 timeout = 2,
@@ -4457,6 +4473,15 @@ SimpleUIPlugin.addToMainMenu = function(self, menu_items)
                         return
                     end
                     Updater.checkForUpdates()
+                end,
+            },
+            {
+                text                = _("Backup & Restore"),
+                -- Built lazily so the scope chooser closures are only allocated
+                -- when the user actually opens this submenu (same OPT-H pattern
+                -- as every other sub_item_table_func above).
+                sub_item_table_func = function()
+                    return require("features/sui_backup").makeMenuItems(ctx_menu)
                 end,
             },
             {

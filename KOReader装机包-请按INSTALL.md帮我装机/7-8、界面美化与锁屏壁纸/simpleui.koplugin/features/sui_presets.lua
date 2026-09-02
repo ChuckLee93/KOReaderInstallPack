@@ -152,8 +152,13 @@ local BUILTIN_PRESETS = {
         settings = {
             simpleui_hs_clock_scale = 100,
             simpleui_hide_label_clock = false,
-            simpleui_hs_quote_source = "quotes",
-            simpleui_hs_quote_align = "center",
+            -- module_quote.lua's SETTING_SOURCE/SETTING_ALIGN constants
+            -- already carry a "simpleui_" prefix of their own, on top of
+            -- the pfx ("simpleui_hs_") every setter/getter concatenates in
+            -- front of them — unlike module_clock's bare "clock_align"
+            -- suffix. The resulting on-disk key really is double-prefixed.
+            simpleui_hs_simpleui_quote_source = "quotes",
+            simpleui_hs_simpleui_quote_align = "center",
             -- "currently" is deliberately left unconfigured here — it renders
             -- with whatever sui_config.lua's applyFirstRunDefaults() (or the
             -- user's own customization, if any) currently defines.
@@ -202,6 +207,41 @@ local BUILTIN_PRESETS = {
             simpleui_hs_recent_show_frame = false,
             simpleui_hs_recent_solid_bg = false,
             simpleui_hide_label_recent = false,
+        }
+    },
+    {
+        id = "builtin_dashboard",
+        name = _("Dashboard"),
+        desc = _("Clock") .. ", " .. _("Quote of the Day") .. ", " .. _("Currently Reading") .. ", "
+            .. _("Reading Goals") .. ", " .. _("Reading Stats"),
+        layout = { pages = { { id = 1, modules = { "clock", "quote", "currently", "reading_goals", "reading_stats" } } } },
+        settings = {
+            simpleui_hs_clock_scale       = 70,
+            simpleui_hs_clock_align       = "left",
+            simpleui_hs_bento_width_clock = 40,
+
+            simpleui_hs_quote_scale             = 80,
+            simpleui_hs_simpleui_quote_align    = "right",  -- see note on the double prefix above
+            simpleui_hs_bento_width_quote       = 60,
+
+            -- "currently" is deliberately left unconfigured here — it renders
+            -- with whatever sui_config.lua's applyFirstRunDefaults() (or the
+            -- user's own customization, if any) currently defines.
+
+            -- simpleui_reading_goal is deliberately left unconfigured here —
+            -- it uses the module's own default annual goal (12 books/year).
+            simpleui_reading_goals_layout              = "rings",
+            simpleui_hs_bento_width_reading_goals      = 35,
+            simpleui_hide_label_reading_goals          = true,
+            simpleui_hs_reading_goals_ring_content     = "outside",  -- "Detail Below Ring"
+            simpleui_hs_reading_goals_scale            = 90,
+            simpleui_hs_reading_goals_item_label_scale = 130,
+
+            -- Scale is left unconfigured so the module renders at its default
+            -- text size. Only "Today — Time" and "Streak" are shown.
+            simpleui_hs_reading_stats_type        = "list",
+            simpleui_hs_bento_width_reading_stats = 65,
+            simpleui_hs_reading_stats_items       = { "today_time", "streak" },
         }
     }
 }
@@ -286,16 +326,24 @@ function SUIPresets.applyBuiltin(id)
     SUISettings:set("simpleui_layout", bp.layout)
 
     local active_set = {}
+    local function entry_id(entry)
+        if type(entry) == "table" then return entry.id end
+        return entry
+    end
     for _, page in ipairs(bp.layout.pages) do
-        for _, mod_id in ipairs(page.modules) do
-            active_set[mod_id] = true
+        for _, entry in ipairs(page.modules) do
+            local mod_id = entry_id(entry)
+            if mod_id then active_set[mod_id] = true end
         end
     end
 
     local Registry = require("modules/moduleregistry")
     local flat_order = {}
     for _, page in ipairs(bp.layout.pages) do
-        for _, mod_id in ipairs(page.modules) do table.insert(flat_order, mod_id) end
+        for _, entry in ipairs(page.modules) do
+            local mod_id = entry_id(entry)
+            if mod_id then table.insert(flat_order, mod_id) end
+        end
     end
     for _, mod in ipairs(Registry.list()) do
         if not active_set[mod.id] then table.insert(flat_order, mod.id) end
@@ -635,6 +683,23 @@ function SUIPresets.makeMenuItems(opts)
         unlock_overlay()
     end
 
+    -- Applies a homescreen preset with visible feedback for the blocking
+    -- window: shows an "Applying preset…" notice, flushed to the e-ink
+    -- screen immediately so it's visible before apply_fn (the settings-
+    -- snapshot swap) runs, then closes it once the deferred homescreen
+    -- rebuild (on_apply, scheduled via nextTick like every call site
+    -- already does) has actually finished. Mirrors
+    -- screens/sui_stats_windows.lua's showLoadingNotice() for the same
+    -- "otherwise the screen just sits frozen for a few seconds" problem.
+    --
+    -- Thin wrapper around infra/sui_core.lua's applyPresetWithNotice(),
+    -- the single shared implementation used by every preset-apply flow
+    -- in the plugin (Homescreen presets here, Icon presets in
+    -- screens/sui_menu.lua).
+    local function _applyPresetWithNotice(apply_fn, sync_repaint)
+        return require("infra/sui_core").applyPresetWithNotice(apply_fn, on_apply, sync_repaint)
+    end
+
     local items = {}
     local names = SUIPresets.listNames()
 
@@ -648,9 +713,11 @@ function SUIPresets.makeMenuItems(opts)
             radio        = true,
             checked_func = function() return SUISettings:get("simpleui_hs_active_preset") == _bp.id end,
             callback = function()
-                SUIPresets.applyBuiltin(_bp.id)
-                SUISettings:set("simpleui_hs_active_preset", _bp.id)
-                UIManager:nextTick(on_apply)
+                _applyPresetWithNotice(function()
+                    SUIPresets.applyBuiltin(_bp.id)
+                    SUISettings:set("simpleui_hs_active_preset", _bp.id)
+                    return true
+                end)
             end,
         }
     end
@@ -668,10 +735,12 @@ function SUIPresets.makeMenuItems(opts)
                 return SUISettings:get("simpleui_hs_active_preset") == _name
             end,
             callback = function()
-                if SUIPresets.apply(_name) then
+                local ok = _applyPresetWithNotice(function()
+                    if not SUIPresets.apply(_name) then return false end
                     SUISettings:set("simpleui_hs_active_preset", _name)
-                    UIManager:nextTick(on_apply)
-                else
+                    return true
+                end)
+                if not ok then
                     showDialog(InfoMessage():new{
                         text    = string.format(_("Preset \"%s\" not found."), _name),
                         timeout = 2,
@@ -714,10 +783,11 @@ function SUIPresets.makeMenuItems(opts)
                                                 radio    = true,
                                                 checked  = (SUISettings:get("simpleui_hs_active_preset") == bp.id),
                                                 on_tap   = function()
-                                                    SUIPresets.applyBuiltin(bp.id)
-                                                    SUISettings:set("simpleui_hs_active_preset", bp.id)
-                                                    ctx2.repaint()
-                                                    UIManager:nextTick(on_apply)
+                                                    _applyPresetWithNotice(function()
+                                                        SUIPresets.applyBuiltin(bp.id)
+                                                        SUISettings:set("simpleui_hs_active_preset", bp.id)
+                                                        return true
+                                                    end, ctx2.repaint)
                                                 end,
                                             }
                                         end
@@ -746,11 +816,12 @@ function SUIPresets.makeMenuItems(opts)
                                                 radio   = true,
                                                 checked = (SUISettings:get("simpleui_hs_active_preset") == _name),
                                                 on_tap  = function()
-                                                    if SUIPresets.apply(_name) then
+                                                    local ok = _applyPresetWithNotice(function()
+                                                        if not SUIPresets.apply(_name) then return false end
                                                         SUISettings:set("simpleui_hs_active_preset", _name)
-                                                        ctx2.repaint()
-                                                        UIManager:nextTick(on_apply)
-                                                    else
+                                                        return true
+                                                    end, ctx2.repaint)
+                                                    if not ok then
                                                         showDialog(InfoMessage():new{ text = string.format(_("Preset \"%s\" not found."), _name), timeout = 2 })
                                                     end
                                                 end,

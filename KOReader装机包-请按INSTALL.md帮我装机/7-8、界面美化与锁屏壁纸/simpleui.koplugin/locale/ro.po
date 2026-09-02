@@ -4445,11 +4445,10 @@ msgstr "media zilnică (7 zile)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "zi în serie"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "zile în serie"
+msgid_plural "days streak"
+msgstr[0] "zi în serie"
+msgstr[1] "zile în serie"
+msgstr[2] ""
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

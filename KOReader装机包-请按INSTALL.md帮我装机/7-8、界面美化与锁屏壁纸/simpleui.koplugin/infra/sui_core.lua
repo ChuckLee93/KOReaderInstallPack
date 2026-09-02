@@ -1005,4 +1005,48 @@ function M.BarInjection.allIds()
     return result
 end
 
+-- ---------------------------------------------------------------------------
+-- Shared "Applying preset…" blocking notice.
+--
+-- Single implementation for any preset-apply flow (Homescreen presets,
+-- Icon presets, and any future preset type) that needs visible feedback
+-- while it runs: shows a notice, flushes it to the e-ink screen
+-- immediately so it's visible before apply_fn runs, then closes it once
+-- any deferred follow-up work has finished.
+-- ---------------------------------------------------------------------------
+
+--- Runs apply_fn under a blocking "Applying preset…" notice.
+---
+--- apply_fn must return a truthy value on success; on failure the notice
+--- is closed immediately and false is returned so the caller can show its
+--- own error dialog. sync_repaint (optional) runs right after a
+--- successful apply_fn, before on_applied — for callers that need to
+--- repaint their own preset list (e.g. a radio checkmark) immediately
+--- rather than waiting a tick. on_applied (optional) is deferred via
+--- nextTick alongside closing the notice, so any screen rebuild it
+--- triggers has a chance to finish before the notice disappears.
+function M.applyPresetWithNotice(apply_fn, on_applied, sync_repaint)
+    local UIManager   = require("ui/uimanager")
+    local InfoMessage = require("ui/widget/infomessage")
+    local _ = require("infra/sui_i18n").translate
+
+    local notice = InfoMessage:new{
+        text    = _("Applying preset…"),
+        timeout = 0.0,
+    }
+    UIManager:show(notice)
+    UIManager:forceRePaint()
+
+    if not apply_fn() then
+        UIManager:close(notice)
+        return false
+    end
+    if sync_repaint then sync_repaint() end
+    UIManager:nextTick(function()
+        if on_applied then on_applied() end
+        UIManager:close(notice)
+    end)
+    return true
+end
+
 return M

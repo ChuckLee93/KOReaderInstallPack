@@ -4553,11 +4553,9 @@ msgstr "Media diaria (7 días)"
 
 #: desktop_modules/module_reading_stats.lua:95
 msgid "day streak"
-msgstr "días consecutivos"
-
-#: desktop_modules/module_reading_stats.lua:95
-msgid "days streak"
-msgstr "días consecutivos"
+msgid_plural "days streak"
+msgstr[0] "días consecutivos"
+msgstr[1] "días consecutivos"
 
 #: sui_stats_windows.lua:418
 #: sui_stats_windows.lua:1430

@@ -4438,11 +4438,9 @@ msgstr "⌀ (7 Tage)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "Tage-Serie"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "Tage-Serie"
+msgid_plural "days streak"
+msgstr[0] "Tage-Serie"
+msgstr[1] "Tage-Serie"
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

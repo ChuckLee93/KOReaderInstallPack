@@ -1,4 +1,4 @@
--- 诊断探针 (Diag Probe) v1.0 —— ChuckLee93 原创，随装机包分发
+-- 诊断探针 (Diag Probe) v1.0 —— KeZi 原创，随装机包分发
 -- 用途：把设备状态汇总写到 koreader/diag_report.txt，供 AI 助手在用户求助时
 --       通过 FilebrowserPlus API（GET /api/raw/mnt/us/koreader/diag_report.txt）
 --       或 USB 拷贝远程读取、快速排障。

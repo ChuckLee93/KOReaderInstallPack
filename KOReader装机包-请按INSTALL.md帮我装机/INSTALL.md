@@ -258,7 +258,8 @@ KOReader 启动后 FilebrowserPlus 自动开始服务（已设开机自启）。
 0、必装核心/plugins/pinyinime.koplugin           → /mnt/us/koreader/plugins/pinyinime.koplugin
 0、必装核心/plugins/vocabbuilder.koplugin        → /mnt/us/koreader/plugins/vocabbuilder.koplugin
 ```
-（`pinyinime` 是拼音输入法（作者 Merpyzf，v1.2.0，全拼/混拼/双拼，含约 170MB
+（`pinyinime` 是拼音输入法（作者 Merpyzf，v1.2.0-lazy 自改版：词库延迟到首次
+打字时才加载，省内存防卡顿，全拼/混拼/双拼，含约 170MB
 万象词库），属于核心输入体验，必装。**注意**：若对方设备上已装有旧的
 `pinyin_enhancement.koplugin`，必须先删除该旧目录再装本插件——两者同时启用
 会冲突闪退（删除前如对方要求保留，可先改名备份）。

@@ -4435,11 +4435,9 @@ msgstr "moy./jour (7 jours)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "jour de suite"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "jours de suite"
+msgid_plural "days streak"
+msgstr[0] "jour de suite"
+msgstr[1] "jours de suite"
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

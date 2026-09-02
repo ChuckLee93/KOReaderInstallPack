@@ -4447,11 +4447,9 @@ msgstr "ср. дневно (7 дни)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "поредни дни"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "поредни дни"
+msgid_plural "days streak"
+msgstr[0] "поредни дни"
+msgstr[1] "поредни дни"
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

@@ -131,7 +131,7 @@ end
 -- Fixed-height setting helpers
 -- ---------------------------------------------------------------------------
 local function isFixedHeight(pfx)
-    return SUISettings:readSetting((pfx or "") .. SETTING_FIXED_H) == true
+    return SUISettings:nilOrTrue((pfx or "") .. SETTING_FIXED_H)
 end
 
 local function setFixedHeight(pfx, val)

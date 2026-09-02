@@ -4427,11 +4427,10 @@ msgstr "denní průměr (7 dní)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "den v řadě"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "dny v řadě"
+msgid_plural "days streak"
+msgstr[0] "den v řadě"
+msgstr[1] "dny v řadě"
+msgstr[2] ""
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

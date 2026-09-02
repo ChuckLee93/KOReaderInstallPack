@@ -4435,11 +4435,10 @@ msgstr "średnia dzienna (7 dni)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "dzień z rzędu"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "dni z rzędu"
+msgid_plural "days streak"
+msgstr[0] "dzień z rzędu"
+msgstr[1] "dni z rzędu"
+msgstr[2] ""
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

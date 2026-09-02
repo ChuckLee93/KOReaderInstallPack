@@ -1,5 +1,5 @@
 -- module_clock.lua — Simple UI
--- Clock module: clock always visible, with optional date and battery toggles.
+-- Clock module with ordered, show/hide items (clock, date, battery).
 -- Supports "digital", "word" and "analogue" clock styles.
 
 local Blitbuffer      = require("ffi/blitbuffer")
@@ -70,60 +70,81 @@ local function _localDate()
 end
 
 -- ---------------------------------------------------------------------------
--- Pixel constants — base values at 100% scale; scaled at render time.
+-- Clock size model
 -- ---------------------------------------------------------------------------
+-- span = target width of the clock block (centred in the column):
+--   • Full-width row (bento 100%): 35% of inner_w
+--   • Bento column (< 100%):       100% of the column, capped at the full-row
+--     35% span (never larger than the default full-width size)
+--
+-- Face size is derived from span so a full-width row yields the previous
+-- default (~75 px), not span itself as a font size (which filled the screen).
+-- Date / battery / word-clock / gaps are fixed ratios of that face size.
+-- ---------------------------------------------------------------------------
+local _CLOCK_FRAC_FULL  = 0.35
+local _CLOCK_FRAC_BENTO = 1.0
+local _CLOCK_FACE_FULL  = 75   -- digital face size at full-row 35% span, scale 1
+local _CLOCK_SIZE_MIN   = 10
 
-local _BASE_CLOCK_W       = Screen:scaleBySize(70)
-local _BASE_CLOCK_FS      = 75  -- display clock — intentionally oversized, not part of type scale
-local _BASE_DATE_H        = Screen:scaleBySize(17)
-local _BASE_DATE_GAP      = Screen:scaleBySize(19)
-local _BASE_DATE_FS       = SUIStyle.FS_SUBTITLE  -- 20: date text
-local _BASE_BATT_FS       = SUIStyle.FS_BODY      -- 18: battery text
-local _BASE_BATT_H        = Screen:scaleBySize(15)
-local _BASE_BATT_GAP      = Screen:scaleBySize(19)
+local _REF_FULL_INNER_W = Screen:getWidth() - UI.SIDE_PAD * 2 - PAD * 2
+local _REF_FULL_SPAN    = _REF_FULL_INNER_W * _CLOCK_FRAC_FULL
+
+-- Ratios relative to digital face size.
+local _WORD_FS_RATIO  = 50 / 75
+local _DATE_FS_RATIO  = 20 / 75
+local _BATT_FS_RATIO  = 18 / 75
+local _DATE_H_RATIO   = 17 / 75
+local _BATT_H_RATIO   = 15 / 75
+
 local _BASE_BOT_PAD_EXTRA = Screen:scaleBySize(4)
 
--- Word clock: font size for the hour line (minutes line inherits same size).
--- Smaller than the digital clock because two lines need to fit in the same
--- vertical budget (_BASE_CLOCK_W × 2, one line each).
-local _BASE_WORD_FS       = 50  -- intentionally oversized; scaled at render time
+-- Gap between visible items (clock/date/battery), scaled the same way as
+-- every other module's inter-element spacing (base px * module scale),
+-- rather than tied to the clock face font size.
+local _BASE_ITEM_GAP = Screen:scaleBySize(25)
 
--- ---------------------------------------------------------------------------
--- Base clock size, as a percentage of inner_w (mirrors
--- GridRenderer.computeAutoFitCell's convention: 100% scale = fitted to
--- available width, not a fixed physical/point constant). Only the headline
--- elements (digital clock, word clock, and their row-height box) move to
--- this convention — date/battery keep using SUIStyle's shared type scale
--- (FS_SUBTITLE/FS_BODY), same as every other module, since they aren't
--- "the module's own size".
---
--- The percentages are derived once from the previous fixed constants
--- against a reference full-width single column, so existing single-column
--- Homescreen layouts keep the same default look; narrower columns
--- (multi-column Custom Screens, landscape spread) now shrink proportionally
--- instead of staying pinned to the old absolute size.
--- ---------------------------------------------------------------------------
-local _REF_INNER_W  = Screen:getWidth() - UI.SIDE_PAD * 2 - PAD * 2
-local _CLOCK_FS_PCT = _BASE_CLOCK_FS / _REF_INNER_W
-local _WORD_FS_PCT  = _BASE_WORD_FS  / _REF_INNER_W
-local _CLOCK_W_PCT  = _BASE_CLOCK_W  / _REF_INNER_W
-local _CLOCK_FS_MIN = 10
-local _WORD_FS_MIN  = 10
+-- Returns span (target block width) and face size (digital font / line height).
+local function _clockMetrics(inner_w, pfx, raw_scale, clock_elem)
+    raw_scale  = raw_scale or 1
+    clock_elem = clock_elem or 1
+    local scale_m = raw_scale * clock_elem
+    local max_span = math.max(_CLOCK_SIZE_MIN, math.floor(_REF_FULL_SPAN * scale_m))
+    local frac = (Config.getBentoWidth("clock", pfx or "") < 100)
+                 and _CLOCK_FRAC_BENTO or _CLOCK_FRAC_FULL
+    local span = math.max(_CLOCK_SIZE_MIN, math.floor(inner_w * frac * scale_m))
+    if span > max_span then span = max_span end
+    -- Map span → face: full-row span yields _CLOCK_FACE_FULL at scale 1.
+    local face = math.max(_CLOCK_SIZE_MIN,
+        math.floor(span / math.max(1, _REF_FULL_SPAN) * _CLOCK_FACE_FULL))
+    return span, face
+end
 
 -- ---------------------------------------------------------------------------
 -- Settings keys
 -- ---------------------------------------------------------------------------
 
-local SETTING_ON        = "clock_enabled"    -- pfx .. "clock_enabled"
-local SETTING_DATE      = "clock_date"       -- pfx .. "clock_date"      (default ON)
-local SETTING_BATTERY   = "clock_battery"    -- pfx .. "clock_battery"   (default ON)
-local SETTING_DATE_GAP  = "clock_date_gap"   -- pfx .. "clock_date_gap"  (integer %, default 100)
-local SETTING_BATT_GAP  = "clock_batt_gap"   -- pfx .. "clock_batt_gap"  (integer %, default 100)
-local SETTING_ALIGN     = "clock_align"      -- pfx .. "clock_align"     (default "center")
-local SETTING_STYLE     = "clock_style"      -- pfx .. "clock_style"     ("digital"|"word", default "digital")
+local SETTING_ON        = "clock_enabled"     -- pfx .. "clock_enabled"
+local SETTING_DATE      = "clock_date"        -- pfx .. "clock_date"      (default ON)
+local SETTING_BATTERY   = "clock_battery"     -- pfx .. "clock_battery"   (default ON)
+local SETTING_ORDER     = "clock_order"       -- pfx .. "clock_order"     (array of item keys)
+local SETTING_ITEM_GAP  = "clock_item_gap"    -- pfx .. "clock_item_gap"  (integer %, default 100)
+-- Legacy gap keys kept for one-time migration into SETTING_ITEM_GAP.
+local SETTING_DATE_GAP  = "clock_date_gap"
+local SETTING_BATT_GAP  = "clock_batt_gap"
+local SETTING_ALIGN     = "clock_align"       -- pfx .. "clock_align"     (default "center")
+local SETTING_STYLE     = "clock_style"       -- pfx .. "clock_style"     ("digital"|"word"|"analogue")
 
 local ALIGN_VALUES = { "left", "center", "right" }
 local STYLE_VALUES = { "digital", "word", "analogue" }
+
+-- Fixed item keys, in the default top-to-bottom order.
+local DEFAULT_ORDER = { "clock", "date", "battery" }
+
+local ITEM_VIS_KEY = {
+    clock   = SETTING_ON,
+    date    = SETTING_DATE,
+    battery = SETTING_BATTERY,
+}
 
 -- Reads a setting and validates it against a fixed list of allowed values,
 -- falling back to `default` for unset or corrupted entries.
@@ -155,28 +176,32 @@ local function setClockStyle(pfx, val)
     SUISettings:saveSetting(pfx .. SETTING_STYLE, val)
 end
 
-local ELEM_GAP_MIN  = 0
-local ELEM_GAP_MAX  = 300
-local ELEM_GAP_STEP = 10
-local ELEM_GAP_DEF  = 100
+local ITEM_GAP_MIN  = 0
+local ITEM_GAP_MAX  = 300
+local ITEM_GAP_STEP = 10
+local ITEM_GAP_DEF  = 100
 
-local function _clampElemGap(n)
-    return math.max(ELEM_GAP_MIN, math.min(ELEM_GAP_MAX, math.floor(n)))
+local function _clampItemGap(n)
+    return math.max(ITEM_GAP_MIN, math.min(ITEM_GAP_MAX, math.floor(n)))
 end
 
--- Reads a vertical-spacing setting as a clamped percentage, defaulting to
--- ELEM_GAP_DEF when unset or non-numeric.
-local function _getGapPct(pfx, key)
-    local n = tonumber(SUISettings:readSetting(pfx .. key))
-    return n and _clampElemGap(n) or ELEM_GAP_DEF
+-- Single inter-item spacing (%). Migrates from the older per-element gap
+-- keys the first time it is read so existing setups keep their value.
+local function getItemGapPct(pfx)
+    local n = tonumber(SUISettings:readSetting(pfx .. SETTING_ITEM_GAP))
+    if n then return _clampItemGap(n) end
+    local legacy = tonumber(SUISettings:readSetting(pfx .. SETTING_DATE_GAP))
+                or tonumber(SUISettings:readSetting(pfx .. SETTING_BATT_GAP))
+    if legacy then
+        local v = _clampItemGap(legacy)
+        SUISettings:saveSetting(pfx .. SETTING_ITEM_GAP, v)
+        return v
+    end
+    return ITEM_GAP_DEF
 end
 
-local function getDateGapPct(pfx)
-    return _getGapPct(pfx, SETTING_DATE_GAP)
-end
-
-local function getBattGapPct(pfx)
-    return _getGapPct(pfx, SETTING_BATT_GAP)
+local function setItemGapPct(pfx, n)
+    SUISettings:saveSetting(pfx .. SETTING_ITEM_GAP, _clampItemGap(n))
 end
 
 -- Reads a boolean visibility setting, defaulting to ON (unset means true;
@@ -195,6 +220,58 @@ end
 
 local function isBattEnabled(pfx)
     return _isVisible(pfx, SETTING_BATTERY)
+end
+
+local function isItemVisible(pfx, item_key)
+    local sk = ITEM_VIS_KEY[item_key]
+    return sk and _isVisible(pfx, sk) or false
+end
+
+local function setItemVisible(pfx, item_key, visible)
+    local sk = ITEM_VIS_KEY[item_key]
+    if not sk then return end
+    SUISettings:saveSetting(pfx .. sk, visible and true or false)
+end
+
+local function itemLabel(item_key, _lc)
+    if item_key == "clock"   then return _lc("Clock") end
+    if item_key == "date"    then return _lc("Date") end
+    if item_key == "battery" then return _lc("Battery") end
+    return item_key
+end
+
+-- Manual arrangement order of the three fixed items. Unknown or missing
+-- keys are appended in DEFAULT_ORDER so the list always covers every item.
+local function getItemOrder(pfx)
+    local raw = SUISettings:readSetting(pfx .. SETTING_ORDER)
+    local known = { clock = true, date = true, battery = true }
+    local order = {}
+    local seen  = {}
+    if type(raw) == "table" then
+        for _, k in ipairs(raw) do
+            if known[k] and not seen[k] then
+                order[#order + 1] = k
+                seen[k] = true
+            end
+        end
+    end
+    for _, k in ipairs(DEFAULT_ORDER) do
+        if not seen[k] then order[#order + 1] = k end
+    end
+    return order
+end
+
+local function saveItemOrder(pfx, order)
+    SUISettings:saveSetting(pfx .. SETTING_ORDER, order)
+end
+
+-- Visible items in the current manual order (the sequence the layout uses).
+local function getVisibleItems(pfx)
+    local out = {}
+    for _, k in ipairs(getItemOrder(pfx)) do
+        if isItemVisible(pfx, k) then out[#out + 1] = k end
+    end
+    return out
 end
 
 -- ---------------------------------------------------------------------------
@@ -538,46 +615,35 @@ local function _vspan(px, pool)
     return VerticalSpan:new{ width = px }
 end
 
--- landscape_factor (optional): scale multiplier; defaults to 1.
+-- landscape_factor is accepted for API compatibility; size uses raw module
+-- scale only. inner_w is already the column width in landscape spread, so
+-- applying lf again would shrink twice (same convention as GridRenderer).
 local function build(w, pfx, vspan_pool, landscape_factor)
     local lf    = landscape_factor or 1
     local scale = Config.getModuleScale("clock", pfx) * lf
-
     local inner_w = w - PAD * 2
 
-    -- clock_w/clock_fs/word_fs are a percentage of inner_w (see
-    -- _CLOCK_*_PCT above), using the RAW module scale (no `lf`): inner_w is
-    -- already narrowed for landscape upstream (w = col_w in spread mode —
-    -- see sui_screen_engine.lua), so applying `lf` again here would narrow
-    -- twice — same convention as GridRenderer.build's `cs`. date/batt below
-    -- keep the lf-scaled `scale`, since they're fixed-pixel elements from
-    -- the shared type scale, not width-derived.
     local raw_scale  = Config.getModuleScaleRaw("clock", pfx)
     local clock_elem = Config.getElemScale("clock", "clock", pfx)
     local date_elem  = Config.getElemScale("clock", "date",  pfx)
     local batt_elem  = Config.getElemScale("clock", "batt",  pfx)
 
-    local clock_w   = math.floor(inner_w * _CLOCK_W_PCT * raw_scale * clock_elem)
-    local clock_fs  = math.max(_CLOCK_FS_MIN, math.floor(inner_w * _CLOCK_FS_PCT * raw_scale * clock_elem))
-    local word_fs   = math.max(_WORD_FS_MIN,  math.floor(inner_w * _WORD_FS_PCT  * raw_scale * clock_elem))
+    local clock_span, clock_fs = _clockMetrics(inner_w, pfx, raw_scale, clock_elem)
+    local clock_w  = clock_fs
+    local word_fs  = math.max(_CLOCK_SIZE_MIN, math.floor(clock_fs * _WORD_FS_RATIO))
 
-    -- Scale remaining dimensions from base values (fixed-pixel, lf-scaled),
-    -- each further scaled by its own element size on top of the module scale.
-    local date_h        = math.max(8,  math.floor(_BASE_DATE_H    * scale * date_elem))
-    local date_gap      = math.max(0,  math.floor(_BASE_DATE_GAP  * scale * getDateGapPct(pfx) / 100))
-    local batt_gap      = math.max(0,  math.floor(_BASE_BATT_GAP  * scale * getBattGapPct(pfx) / 100))
-    local date_fs       = math.max(8,  math.floor(_BASE_DATE_FS   * scale * date_elem))
-    local batt_fs       = math.max(7,  math.floor(_BASE_BATT_FS   * scale * batt_elem))
-    local batt_h        = math.max(7,  math.floor(_BASE_BATT_H    * scale * batt_elem))
+    local date_fs  = math.max(8, math.floor(clock_fs * _DATE_FS_RATIO * date_elem))
+    local batt_fs  = math.max(7, math.floor(clock_fs * _BATT_FS_RATIO * batt_elem))
+    local date_h   = math.max(8, math.floor(clock_fs * _DATE_H_RATIO  * date_elem))
+    local batt_h   = math.max(7, math.floor(clock_fs * _BATT_H_RATIO  * batt_elem))
+    local item_gap = math.max(0, math.floor(_BASE_ITEM_GAP * scale * getItemGapPct(pfx) / 100))
 
     local bot_pad_extra = math.floor(_BASE_BOT_PAD_EXTRA * scale)
 
-    local show_clock  = isClockEnabled(pfx)
-    local show_date   = isDateEnabled(pfx)
-    local show_batt   = isBattEnabled(pfx)
+    local visible     = getVisibleItems(pfx)
     local clock_style = getClockStyle(pfx)
 
-    local sub_fg           = CLR_TEXT_SUB
+    local sub_fg = CLR_TEXT_SUB
 
     local align = getAlignment(pfx)
     local ContainerClass = CenterContainer
@@ -591,22 +657,15 @@ local function build(w, pfx, vspan_pool, landscape_factor)
         return wgt
     end
 
-    -- Clock
-    if show_clock then
+    local function appendClock()
         if clock_style == "word" then
-            -- Word clock: two lines of text, each sized word_fs.
             local is_12h = G_reader_settings:isTrue("twelve_hour_clock")
             local t      = os.date("*t", os.time())
             local wc_text = timeToWords(t.hour, t.min, is_12h)
-            local face    = Font:getFace(SUIStyle.FACE_REGULAR, word_fs)
-            -- Two lines × line_h each; use clock_w × 2 as the container budget.
-            local wc_widget = _buildWordClockWidget(wc_text, face, inner_w, align)
-            vg[#vg+1] = wc_widget
+            vg[#vg+1] = _buildWordClockWidget(wc_text, Font:getFace(SUIStyle.FACE_REGULAR, word_fs), inner_w, align)
         elseif clock_style == "analogue" then
-            -- Analogue face: square, sized to the same clock_w × 2 budget the
-            -- word style uses (see getHeight below), capped to inner_w so a
-            -- narrow column never clips it.
-            local diameter = math.min(clock_w * 2, inner_w)
+            local diameter = math.min(clock_span, inner_w)
+            if diameter % 2 == 1 then diameter = diameter - 1 end
             local face_widget = _buildAnalogueClockWidget(diameter, SUIStyle.COLOR.text_primary)
             if face_widget then
                 vg[#vg+1] = ContainerClass:new{
@@ -615,7 +674,6 @@ local function build(w, pfx, vspan_pool, landscape_factor)
                 }
             end
         else
-            -- Digital clock (original behaviour).
             vg[#vg+1] = ContainerClass:new{
                 dimen = Geom:new{ w = inner_w, h = clock_w },
                 wrapText(UI.makeColoredText{
@@ -627,8 +685,7 @@ local function build(w, pfx, vspan_pool, landscape_factor)
         end
     end
 
-    if show_date then
-        if #vg > 0 then vg[#vg+1] = _vspan(date_gap, vspan_pool) end
+    local function appendDate()
         vg[#vg+1] = ContainerClass:new{
             dimen = Geom:new{ w = inner_w, h = date_h },
             wrapText(UI.makeColoredText{
@@ -639,8 +696,7 @@ local function build(w, pfx, vspan_pool, landscape_factor)
         }
     end
 
-    if show_batt then
-        if #vg > 0 then vg[#vg+1] = _vspan(batt_gap, vspan_pool) end
+    local function appendBattery()
         local lvl, charging = _battInfo()
         vg[#vg+1] = ContainerClass:new{
             dimen = Geom:new{ w = inner_w, h = batt_h },
@@ -650,6 +706,18 @@ local function build(w, pfx, vspan_pool, landscape_factor)
                 fgcolor = sub_fg,
             }),
         }
+    end
+
+    local appenders = {
+        clock   = appendClock,
+        date    = appendDate,
+        battery = appendBattery,
+    }
+
+    for _, key in ipairs(visible) do
+        if #vg > 0 then vg[#vg+1] = _vspan(item_gap, vspan_pool) end
+        local append = appenders[key]
+        if append then append() end
     end
 
     if #vg == 0 then return nil end
@@ -774,14 +842,22 @@ local function _tick()
                                         screen._vspan_pool, lf)
 
         if ok_w and new_widget then
+            local target
             if is_wrapped then
                 -- The clock was wrapped in an InputContainer for hold-to-settings.
                 -- Replace the inner slot [1] to keep the gesture handler alive.
                 body[idx][1] = new_widget
+                target = body[idx]
             else
                 body[idx] = new_widget
+                target = new_widget
             end
-            UIManager:setDirty(screen, "ui")
+            -- Scope the e-ink refresh to the clock's own region instead of the
+            -- whole screen, the same convention used for other in-place widget
+            -- swaps (see ScreenWidget:_refreshBookModSlot). The dimen is read
+            -- lazily via the callback, after the paint pass has positioned
+            -- `target`, so it reflects the widget's real on-screen coordinates.
+            UIManager:setDirty(screen, function() return "ui", target.dimen end)
             swapped = true
         end
     end
@@ -866,53 +942,45 @@ function M.build(w, ctx)
 end
 
 function M.getHeight(ctx)
-    local scale     = Config.getModuleScale("clock", ctx.pfx) * (ctx.landscape_factor or 1)
+    local raw_scale  = Config.getModuleScaleRaw("clock", ctx.pfx)
+    local clock_elem = Config.getElemScale("clock", "clock", ctx.pfx)
+    local date_elem  = Config.getElemScale("clock", "date",  ctx.pfx)
+    local batt_elem  = Config.getElemScale("clock", "batt",  ctx.pfx)
+    local w_estimate = ctx.col_w or ctx.inner_w or (Screen:getWidth() - UI.SIDE_PAD * 2)
+    local inner_w_estimate = w_estimate - PAD * 2
 
-    -- clock_w mirrors build(): a percentage of inner_w, using the RAW
-    -- module scale (no landscape_factor) since ctx.col_w is already
-    -- narrowed for landscape — see the note in build(). getHeight has no
-    -- real widget width to work with, so estimate one the same way
-    -- module_quick_actions.lua does.
-    -- Fallback here mirrors GridRenderer.getHeight's own fallback (a raw
-    -- column-width estimate, not _REF_INNER_W above — that constant already
-    -- has PAD*2 subtracted out, for calibrating the _*_PCT constants).
-    local raw_scale        = Config.getModuleScaleRaw("clock", ctx.pfx)
-    local clock_elem        = Config.getElemScale("clock", "clock", ctx.pfx)
-    local date_elem         = Config.getElemScale("clock", "date",  ctx.pfx)
-    local batt_elem         = Config.getElemScale("clock", "batt",  ctx.pfx)
-    local w_estimate        = ctx.col_w or ctx.inner_w or (Screen:getWidth() - UI.SIDE_PAD * 2)
-    local inner_w_estimate  = w_estimate - PAD * 2
-    local clock_w   = math.floor(inner_w_estimate * _CLOCK_W_PCT * raw_scale * clock_elem)
-    local date_h    = math.max(8, math.floor(_BASE_DATE_H   * scale * date_elem))
-    local date_gap  = math.max(0, math.floor(_BASE_DATE_GAP * scale * getDateGapPct(ctx.pfx) / 100))
-    local batt_gap  = math.max(0, math.floor(_BASE_BATT_GAP * scale * getBattGapPct(ctx.pfx) / 100))
-    local batt_h    = math.max(7, math.floor(_BASE_BATT_H   * scale * batt_elem))
+    -- Same scale basis as build(): module scale * landscape factor.
+    local scale = Config.getModuleScale("clock", ctx.pfx) * (ctx.landscape_factor or 1)
 
-    local h_base      = PAD * 2 + PAD2
-    local show_clock  = isClockEnabled(ctx.pfx)
-    local show_date   = isDateEnabled(ctx.pfx)
-    local show_batt   = isBattEnabled(ctx.pfx)
+    local clock_span, clock_fs = _clockMetrics(inner_w_estimate, ctx.pfx, raw_scale, clock_elem)
+    local date_h   = math.max(8, math.floor(clock_fs * _DATE_H_RATIO  * date_elem))
+    local batt_h   = math.max(7, math.floor(clock_fs * _BATT_H_RATIO  * batt_elem))
+    local item_gap = math.max(0, math.floor(_BASE_ITEM_GAP * scale * getItemGapPct(ctx.pfx) / 100))
 
-    -- Word and analogue styles both occupy approximately two digital-clock
-    -- lines of height (word: two stacked text lines; analogue: a square
-    -- face). Use 2 × clock_w as the budget so getHeight() stays stable
-    -- regardless of whether font metrics are available at estimation time.
+    local h_base  = PAD * 2 + PAD2
+    local visible = getVisibleItems(ctx.pfx)
+    local style   = getClockStyle(ctx.pfx)
+
     local clock_h
-    if show_clock and (getClockStyle(ctx.pfx) == "word" or getClockStyle(ctx.pfx) == "analogue") then
-        clock_h = clock_w * 2
+    if style == "analogue" then
+        clock_h = math.min(clock_span, inner_w_estimate)
+    elseif style == "word" then
+        local word_fs = math.max(_CLOCK_SIZE_MIN, math.floor(clock_fs * _WORD_FS_RATIO))
+        clock_h = math.floor(word_fs * 2.2)
     else
-        clock_h = clock_w
+        clock_h = clock_fs
     end
+
+    local heights = {
+        clock   = clock_h,
+        date    = date_h,
+        battery = batt_h,
+    }
 
     local h = h_base
-    if show_clock then h = h + clock_h end
-    if show_date  then
-        h = h + date_h
-        if show_clock then h = h + date_gap end
-    end
-    if show_batt  then
-        h = h + batt_h
-        if show_clock or show_date then h = h + batt_gap end
+    for i, key in ipairs(visible) do
+        if i > 1 then h = h + item_gap end
+        h = h + (heights[key] or 0)
     end
     return h
 end
@@ -969,153 +1037,216 @@ function M.getMenuItems(ctx_menu)
         refresh      = refresh,
     }
 
-    return {
+    local items = {
         {
-            text_func      = function() return _lc("Visibility") end,
-            sub_item_table = {
-                {
-                    text           = _lc("Show Clock"),
-                    checked_func   = function() return isClockEnabled(pfx) end,
-                    keep_menu_open = true,
-                    callback       = function() toggle(SETTING_ON, isClockEnabled(pfx)) end,
-                },
-                {
-                    text           = _lc("Show Date"),
-                    checked_func   = function() return isDateEnabled(pfx) end,
-                    keep_menu_open = true,
-                    callback       = function() toggle(SETTING_DATE, isDateEnabled(pfx)) end,
-                },
-                {
-                    text           = _lc("Show Battery"),
-                    checked_func   = function() return isBattEnabled(pfx) end,
-                    keep_menu_open = true,
-                    callback       = function() toggle(SETTING_BATTERY, isBattEnabled(pfx)) end,
-                },
-            },
-        },
-        {
-            text_func      = function() return _lc("Size") end,
-            sub_item_table = size_group,
-        },
-        {
-            -- Clock Style submenu: Digital / Word / Analogue
-            text_func  = function() return _lc("Clock Style") end,
-            value_func = function()
-                local style = getClockStyle(pfx)
-                if style == "word" then return _lc("Word") end
-                if style == "analogue" then return _lc("Analogue") end
-                return _lc("Digital")
+            -- Items row: manual order + show/hide, same Arrange pattern as
+            -- collections / quick_actions (SUI ArrangeList with eye toggle;
+            -- classic SortWidget for reorder plus checklist rows).
+            text = _lc("Items"),
+            keep_menu_open = true,
+            callback = function()
+                local order = getItemOrder(pfx)
+                if #order < 2 then return end
+                local sort_items = {}
+                for _, key in ipairs(order) do
+                    sort_items[#sort_items + 1] = {
+                        text      = itemLabel(key, _lc),
+                        orig_item = key,
+                    }
+                end
+                local function on_save()
+                    local new_order = {}
+                    for _, item in ipairs(sort_items) do
+                        new_order[#new_order + 1] = item.orig_item
+                    end
+                    saveItemOrder(pfx, new_order)
+                    refresh()
+                end
+                local SortWidget = ctx_menu.SortWidget or require("ui/widget/sortwidget")
+                local uim = ctx_menu.UIManager or UIManager
+                uim:show(SortWidget:new{
+                    title             = _lc("Items"),
+                    item_table        = sort_items,
+                    covers_fullscreen = true,
+                    callback          = on_save,
+                })
             end,
-            sub_item_table = {
-                {
-                    text         = _lc("Digital") .. "  (12:50)",
-                    radio        = true,
-                    checked_func = function() return getClockStyle(pfx) == "digital" end,
-                    keep_menu_open = true,
-                    callback     = function() setClockStyle(pfx, "digital"); refresh() end,
-                },
-                {
-                    text         = _lc("Word") .. "  (Twelve Fifty)",
-                    radio        = true,
-                    checked_func = function() return getClockStyle(pfx) == "word" end,
-                    keep_menu_open = true,
-                    callback     = function() setClockStyle(pfx, "word"); refresh() end,
-                },
-                {
-                    text         = _lc("Analogue"),
-                    radio        = true,
-                    checked_func = function() return getClockStyle(pfx) == "analogue" end,
-                    keep_menu_open = true,
-                    callback     = function() setClockStyle(pfx, "analogue"); refresh() end,
-                },
-            },
-        },
-        {
-            text_func  = function() return _lc("Alignment") end,
-            value_func = function() return alignLabel(getAlignment(pfx), _lc) end,
-            separator      = true,
-            sub_item_table = {
-                {
-                    text           = _lc("Left"),
-                    radio          = true,
-                    checked_func   = function() return getAlignment(pfx) == "left" end,
-                    keep_menu_open = true,
-                    callback       = function() setAlignment(pfx, "left"); refresh() end,
-                },
-                {
-                    text           = _lc("Center"),
-                    radio          = true,
-                    checked_func   = function() return getAlignment(pfx) == "center" end,
-                    keep_menu_open = true,
-                    callback       = function() setAlignment(pfx, "center"); refresh() end,
-                },
-                {
-                    text           = _lc("Right"),
-                    radio          = true,
-                    checked_func   = function() return getAlignment(pfx) == "right" end,
-                    keep_menu_open = true,
-                    callback       = function() setAlignment(pfx, "right"); refresh() end,
-                },
-            },
-        },
-        {
-            text_func      = function() return _lc("Spacing") end,
-            sub_item_table = {
-                {
-                    text_func      = function() return _lc("Date Spacing") end,
-                    value_func     = function() return getDateGapPct(pfx) .. "%" end,
-                    enabled_func   = function() return isDateEnabled(pfx) end,
-                    keep_menu_open = true,
-                    callback       = function()
-                        local SpinWidget = require("ui/widget/spinwidget")
-                        local UIManager_ = require("ui/uimanager")
-                        UIManager_:show(SpinWidget:new{
-                            title_text    = _lc("Date Spacing"),
-                            info_text     = _lc("Vertical space between the clock and the date.\n100% is the default spacing."),
-                            value         = getDateGapPct(pfx),
-                            value_min     = ELEM_GAP_MIN,
-                            value_max     = ELEM_GAP_MAX,
-                            value_step    = ELEM_GAP_STEP,
-                            unit          = "%",
-                            ok_text       = _lc("Apply"),
-                            cancel_text   = _lc("Cancel"),
-                            default_value = ELEM_GAP_DEF,
-                            callback      = function(spin)
-                                SUISettings:saveSetting(pfx .. SETTING_DATE_GAP, _clampElemGap(spin.value))
+            sui_build = ctx_menu.is_sui and function(ctx, _item)
+                local SUIWindow = require("engines/sui_window")
+                return SUIWindow.ListRow{
+                    title        = _lc("Items"),
+                    subtitle     = function()
+                        local vis = getVisibleItems(pfx)
+                        if #vis == 0 then return _lc("No items selected.") end
+                        local names = {}
+                        for _, key in ipairs(vis) do
+                            names[#names + 1] = itemLabel(key, _lc)
+                        end
+                        return table.concat(names, "  ·  ")
+                    end,
+                    inner_w      = ctx.inner_w,
+                    item_count   = function() return #getVisibleItems(pfx) end,
+                    show_chevron = true,
+                    on_tap       = function()
+                        local sort_items = {}
+                        for _, key in ipairs(getItemOrder(pfx)) do
+                            local _key = key
+                            local hidden = not isItemVisible(pfx, _key)
+                            local item = {
+                                text        = itemLabel(_key, _lc),
+                                orig_item   = _key,
+                                dim_row     = hidden or nil,
+                                -- Eye glyph reflects current state: open while
+                                -- visible, closed once hidden.
+                                toggle_icon = hidden and "hide" or "show",
+                            }
+                            item.on_toggle = function()
+                                local now_hidden = not isItemVisible(pfx, _key)
+                                setItemVisible(pfx, _key, now_hidden)
+                                local hidden2 = not isItemVisible(pfx, _key)
+                                item.dim_row     = hidden2 or nil
+                                item.toggle_icon = hidden2 and "hide" or "show"
+                                refresh()
+                                ctx.repaint()
+                            end
+                            sort_items[#sort_items + 1] = item
+                        end
+                        ctx.push("arrange", {
+                            title      = _lc("Items"),
+                            items      = sort_items,
+                            empty_text = _lc("No items."),
+                            on_change  = function(items_to_save)
+                                local new_order = {}
+                                for _, it in ipairs(items_to_save) do
+                                    new_order[#new_order + 1] = it.orig_item
+                                end
+                                saveItemOrder(pfx, new_order)
                                 refresh()
                             end,
                         })
                     end,
-                },
-                {
-                    text_func      = function() return _lc("Battery Spacing") end,
-                    value_func     = function() return getBattGapPct(pfx) .. "%" end,
-                    enabled_func   = function() return isBattEnabled(pfx) end,
-                    keep_menu_open = true,
-                    callback       = function()
-                        local SpinWidget = require("ui/widget/spinwidget")
-                        local UIManager_ = require("ui/uimanager")
-                        UIManager_:show(SpinWidget:new{
-                            title_text    = _lc("Battery Spacing"),
-                            info_text     = _lc("Vertical space between the date (or clock) and the battery.\n100% is the default spacing."),
-                            value         = getBattGapPct(pfx),
-                            value_min     = ELEM_GAP_MIN,
-                            value_max     = ELEM_GAP_MAX,
-                            value_step    = ELEM_GAP_STEP,
-                            unit          = "%",
-                            ok_text       = _lc("Apply"),
-                            cancel_text   = _lc("Cancel"),
-                            default_value = ELEM_GAP_DEF,
-                            callback      = function(spin)
-                                SUISettings:saveSetting(pfx .. SETTING_BATT_GAP, _clampElemGap(spin.value))
-                                refresh()
-                            end,
-                        })
-                    end,
-                },
+                }
+            end or nil,
+        },
+    }
+
+    -- Classic menu only: checklist for show/hide (SUI uses the eye toggle
+    -- on the Arrange screen above).
+    if not ctx_menu.is_sui then
+        items[#items + 1] = {
+            text           = _lc("Show Clock"),
+            checked_func   = function() return isClockEnabled(pfx) end,
+            keep_menu_open = true,
+            callback       = function() toggle(SETTING_ON, isClockEnabled(pfx)) end,
+        }
+        items[#items + 1] = {
+            text           = _lc("Show Date"),
+            checked_func   = function() return isDateEnabled(pfx) end,
+            keep_menu_open = true,
+            callback       = function() toggle(SETTING_DATE, isDateEnabled(pfx)) end,
+        }
+        items[#items + 1] = {
+            text           = _lc("Show Battery"),
+            checked_func   = function() return isBattEnabled(pfx) end,
+            keep_menu_open = true,
+            callback       = function() toggle(SETTING_BATTERY, isBattEnabled(pfx)) end,
+        }
+    end
+
+    items[#items + 1] = {
+        text_func      = function() return _lc("Size") end,
+        sub_item_table = size_group,
+    }
+    items[#items + 1] = {
+        text_func  = function() return _lc("Clock Style") end,
+        value_func = function()
+            local style = getClockStyle(pfx)
+            if style == "word" then return _lc("Word") end
+            if style == "analogue" then return _lc("Analogue") end
+            return _lc("Digital")
+        end,
+        sub_item_table = {
+            {
+                text         = _lc("Digital") .. "  (12:50)",
+                radio        = true,
+                checked_func = function() return getClockStyle(pfx) == "digital" end,
+                keep_menu_open = true,
+                callback     = function() setClockStyle(pfx, "digital"); refresh() end,
+            },
+            {
+                text         = _lc("Word") .. "  (Twelve Fifty)",
+                radio        = true,
+                checked_func = function() return getClockStyle(pfx) == "word" end,
+                keep_menu_open = true,
+                callback     = function() setClockStyle(pfx, "word"); refresh() end,
+            },
+            {
+                text         = _lc("Analogue"),
+                radio        = true,
+                checked_func = function() return getClockStyle(pfx) == "analogue" end,
+                keep_menu_open = true,
+                callback     = function() setClockStyle(pfx, "analogue"); refresh() end,
             },
         },
     }
+    items[#items + 1] = {
+        text_func  = function() return _lc("Alignment") end,
+        value_func = function() return alignLabel(getAlignment(pfx), _lc) end,
+        separator      = true,
+        sub_item_table = {
+            {
+                text           = _lc("Left"),
+                radio          = true,
+                checked_func   = function() return getAlignment(pfx) == "left" end,
+                keep_menu_open = true,
+                callback       = function() setAlignment(pfx, "left"); refresh() end,
+            },
+            {
+                text           = _lc("Center"),
+                radio          = true,
+                checked_func   = function() return getAlignment(pfx) == "center" end,
+                keep_menu_open = true,
+                callback       = function() setAlignment(pfx, "center"); refresh() end,
+            },
+            {
+                text           = _lc("Right"),
+                radio          = true,
+                checked_func   = function() return getAlignment(pfx) == "right" end,
+                keep_menu_open = true,
+                callback       = function() setAlignment(pfx, "right"); refresh() end,
+            },
+        },
+    }
+
+    if #getVisibleItems(pfx) > 1 then
+        items[#items + 1] = {
+            text_func  = function() return _lc("Spacing") end,
+            value_func = function() return getItemGapPct(pfx) .. "%" end,
+            keep_menu_open = true,
+            callback = function()
+                local SpinWidget = require("ui/widget/spinwidget")
+                local UIManager_ = require("ui/uimanager")
+                UIManager_:show(SpinWidget:new{
+                    title_text    = _lc("Spacing"),
+                    info_text     = _lc("Vertical space between items.\n100% is the default spacing."),
+                    value         = getItemGapPct(pfx),
+                    value_min     = ITEM_GAP_MIN,
+                    value_max     = ITEM_GAP_MAX,
+                    value_step    = ITEM_GAP_STEP,
+                    unit          = "%",
+                    ok_text       = _lc("Apply"),
+                    cancel_text   = _lc("Cancel"),
+                    default_value = ITEM_GAP_DEF,
+                    callback      = function(spin)
+                        setItemGapPct(pfx, spin.value)
+                        refresh()
+                    end,
+                })
+            end,
+        }
+    end
+
+    return items
 end
 
 return M

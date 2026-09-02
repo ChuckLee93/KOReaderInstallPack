@@ -2235,7 +2235,28 @@ function PinyinIME:processCharacter(char)
     return output
 end
 
+-- Deferred data hook (custom lazy-load patch): the runtime may create this
+-- engine before the heavy lexicon/code-map files are read (e.g. a dictionary
+-- popup opens a keyboard). Composition can only start through processText,
+-- so this is the single point where the data must become available; every
+-- other method works unchanged on the idle empty engine.
+function PinyinIME:_ensureDataReady()
+    local ensure = self.ensure_data
+    if not ensure then
+        return
+    end
+    self.ensure_data = nil
+    local ok, err = xpcall(ensure, debug.traceback, self)
+    if not ok then
+        self:_reportError("deferred data loading failed: " .. tostring(err),
+            self.inputbox and self.inputbox.keyboard)
+    end
+end
+
 function PinyinIME:processText(text)
+    if self.ensure_data then
+        self:_ensureDataReady()
+    end
     if isSingleUtf8Character(text) then
         return self:processCharacter(text)
     end

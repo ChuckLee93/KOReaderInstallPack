@@ -267,7 +267,7 @@ function SettingsMenu.getMenu(CONFIGURATION, on_change_callback)
       },
       {
         text_func = function()
-          return _("精读模式 (KOAI): ") .. (CONFIGURATION.power_mode and _("开启") or _("关闭"))
+          return _("精读模式: ") .. (CONFIGURATION.power_mode and _("开启") or _("关闭"))
         end,
         checked_func = function()
           return CONFIGURATION.power_mode == true

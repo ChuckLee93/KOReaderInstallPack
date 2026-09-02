@@ -8,6 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: modules/module_reading_goals.lua:853
 msgid "  Set Goal  (%d hr/month)"
@@ -4429,11 +4430,9 @@ msgstr "trung bình hàng ngày (7 ngày)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "chuỗi ngày"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "chuỗi ngày"
+msgid_plural "days streak"
+msgstr[0] "chuỗi ngày"
+msgstr[1] "chuỗi ngày"
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

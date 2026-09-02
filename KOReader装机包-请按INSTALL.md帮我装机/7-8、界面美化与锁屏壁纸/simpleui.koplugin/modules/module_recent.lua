@@ -25,11 +25,15 @@ local recent_module = GridRenderer.makeModule{
 
     getFileList = function(ctx) return ctx.recent_fps end,
 
-    -- Excludes finished books, unless "Show finished books" is
-    -- enabled (module's own setting, independent from the recency logic
-    -- that produced ctx.recent_fps).
+    -- Filters finished books (unless "Show finished books") and optionally
+    -- the Currently Reading book (default ON via recent_exclude_currently).
     filterItem = function(fp, ctx)
         local pfx = ctx.pfx or ""
+        local excl = SUISettings:readSetting(pfx .. "recent_exclude_currently")
+        if excl == nil then excl = true end
+        if excl and ctx.current_fp and fp == ctx.current_fp then
+            return false
+        end
         if SUISettings:readSetting(pfx .. "recent_show_finished") == true then return true end
         local pd  = ctx.prefetched and ctx.prefetched[fp]
         local pct = pd and pd.percent or 0
@@ -49,6 +53,36 @@ local recent_module = GridRenderer.makeModule{
     extra_settings = {
         { key = "show_finished", label = _("Show finished books"), default = false },
     },
+
+    -- Only listed when Currently Reading is enabled on this screen.
+    extra_menu_items_after = function(ctx_menu)
+        local pfx = ctx_menu.pfx or ""
+        local Registry = require("modules/moduleregistry")
+        local currently = Registry.get("currently")
+        if not (currently and Registry.isEnabled(currently, pfx)) then
+            return {}
+        end
+        local skey = pfx .. "recent_exclude_currently"
+        local refresh = ctx_menu.refresh
+        local _lc = ctx_menu._
+        return {
+            {
+                text = _lc("Hide Currently Reading book"),
+                checked_func = function()
+                    local v = SUISettings:readSetting(skey)
+                    if v == nil then return true end
+                    return v == true
+                end,
+                keep_menu_open = true,
+                callback = function()
+                    local cur = SUISettings:readSetting(skey)
+                    if cur == nil then cur = true end
+                    SUISettings:saveSetting(skey, not cur)
+                    refresh()
+                end,
+            },
+        }
+    end,
 
     reset = function() GridRenderer.reset() end,
 }

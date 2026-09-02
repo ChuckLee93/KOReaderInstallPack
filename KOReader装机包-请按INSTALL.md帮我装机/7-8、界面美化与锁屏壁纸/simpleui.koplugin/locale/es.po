@@ -4425,11 +4425,9 @@ msgstr "media diaria (7 días)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "día de racha"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "días de racha"
+msgid_plural "days streak"
+msgstr[0] "día de racha"
+msgstr[1] "días de racha"
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

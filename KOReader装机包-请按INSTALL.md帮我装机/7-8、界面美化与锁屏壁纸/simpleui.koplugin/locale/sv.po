@@ -4437,11 +4437,9 @@ msgstr "dagligt snitt (7 dagar)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "dag i rad"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "dagar i rad"
+msgid_plural "days streak"
+msgstr[0] "dag i rad"
+msgstr[1] "dagar i rad"
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

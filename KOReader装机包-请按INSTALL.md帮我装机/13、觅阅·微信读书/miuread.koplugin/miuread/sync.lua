@@ -240,6 +240,23 @@ local function choose_remote_progress(web,agent,threshold)
     return selected
 end
 
+-- [DiagSlim] 2026-09-01: strip embedded .sources snapshot chains before persisting.
+-- choose_remote_progress() attaches sources={web=web,agent=agent} (self-referencing
+-- when selected==web/agent), and Store:save_session deep-merges recursively, which
+-- grows one nesting level per Sync:remote() round (~0.5MB/day, bloated settings to 4MB).
+-- Nothing in the codebase reads the stored chains (verified by grep), so drop them
+-- at the persistence boundary only; in-memory/callback values stay untouched.
+local function strip_progress_sources(t)
+    if type(t)=="table" and rawget(t,"sources")~=nil then
+        local o={}
+        for k,v in pairs(t) do
+            if k~="sources" then o[k]=v end
+        end
+        return o
+    end
+    return t
+end
+
 local function positions_match(submitted,remote,threshold)
     submitted=type(submitted)=="table" and submitted or {}
     remote=type(remote)=="table" and remote or {}
@@ -1591,8 +1608,8 @@ function Sync:remote(book_id, callback, options)
         if not detached then self.last_error=nil end
         if self.host.on_auth_channel_ok then pcall(self.host.on_auth_channel_ok,self.host,"progress") end
         self.store:save_session(book_id,{
-            remote=remote,
-            remote_sources={web=web,agent=agent},
+            remote=strip_progress_sources(remote),
+            remote_sources={web=strip_progress_sources(web),agent=strip_progress_sources(agent)},
             remote_checked_at=os.time(),
             remote_web_error=value.web_error,
             remote_agent_error=value.agent_error,
@@ -2891,7 +2908,11 @@ function Sync:_persist_daemon_session(force, explicit_book_id)
     local book_id = explicit_book_id or (daemon and (daemon.book_id or daemon.final_book_id))
     if not book_id or not daemon then return end
     local now = os.time()
-    if not force and now - (tonumber(self.daemon_last_persist) or 0) < 300 then return end
+    -- [DiagSlim] exit-only persist: periodic 300s throttle disabled. Disk writes
+    -- now happen only on forced paths (exit/stop/final_flush/error-recovery) plus
+    -- KOReader's own onFlushSettings hook (fires on exit AND suspend).
+    -- Rollback: restore -> if not force and now - (tonumber(self.daemon_last_persist) or 0) < 300 then return end
+    if not force then return end
     self.daemon_last_persist = now
     local patch={
         last_attempt = self.last_attempt,
@@ -3005,7 +3026,7 @@ function Sync:_import_daemon_status(force)
         -- beta.24 never persists report carry. Older status files may still
         -- advertise carry_consumed after OTA, but they are normalized to zero.
         if status.carry_consumed == true then
-            self.store:save_session(status_book_id,{pending_report_seconds=0})
+            self.store:save_session(status_book_id,{pending_report_seconds=0}, false)
         end
     end
     if status.state == "service_waiting" or status.state == "inactive" then
@@ -3065,7 +3086,7 @@ function Sync:_import_daemon_status(force)
                 last_upload=self.last_upload,
                 last_elapsed=tonumber(status.elapsed_seconds),
                 last_report_reason=final_flush and tostring(status.flush_reason or "stop") or "interval",
-            })
+            }, false)
         end
         if not final_flush and self.host.on_read_report_interval_success then
             pcall(self.host.on_read_report_interval_success,self.host,status)
@@ -3106,7 +3127,7 @@ function Sync:_import_daemon_status(force)
                 consecutive_failures=0,
                 report_state="unconfirmed",
                 report_recovery_state=status.context_refresh_requested==true and "refreshing_context" or nil,
-            })
+            }, false)
             self:_clear_noncontext_repair_flag(status_book_id,saved,"daemon_unconfirmed")
         end
         if final_flush then
@@ -3139,7 +3160,7 @@ function Sync:_import_daemon_status(force)
                     last_error=self.last_error,last_error_kind=error_kind,
                     last_response_summary=status.response_summary or status.error,
                     report_state="time_only_failed",
-                })
+                }, false)
             else
                 repair_required=self:_record_report_issue(status_book_id,error_kind,self.last_error,{suppress_prompt=false})
             end

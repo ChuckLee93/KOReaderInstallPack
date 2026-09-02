@@ -1,0 +1,43 @@
+个人设置同步（从 Kindle PW4 实机导出于 2026-09-02）
+====================================================
+
+一、内容清单
+----------
+1. settings.reader.lua —— KOReader 全局主设置（排版、菜单、手势、显示等）
+2. settings/ 目录 —— 各插件与功能的设置文件：
+   - KOAI_settings.json —— AI 伴读的提示词与模型配置
+   - battery_stats.lua —— 电池统计
+   - bookends_presets/basic_bookends.lua —— 章首章尾样式预设
+   - chinesepinyin.lua —— 中文拼音查词设置
+   - customisablesleepscreen.lua / _presets.lua —— 自定义锁屏壁纸设置
+   - directory_defaults.lua —— 目录默认排序设置
+   - gestures.lua —— 手势设置（书内/书库两套）
+   - simpleui/sui_settings.lua + sui_wallpapers/ —— simpleUI 主页设置与壁纸
+   - zlibrary.lua —— Z-Library 搜索偏好
+
+二、已清除的敏感信息（恢复后需重新登录）
+------------------------------------
+- settings.reader.lua：companion_api_key（AI 伴读 API 密钥）→ 已置空
+- zlibrary.lua：账号、密码、user_id、user_key → 已置空（保留了镜像地址、下载目录、搜索偏好）
+
+三、未包含的个人数据（按用户要求移除，装机后从零开始）
+--------------------------------------------------
+书单（collection.lua）、AI 对话记录（KOAI_history.json）、阅读统计
+（statistics.sqlite3）、查词历史（lookup_history.lua）、生词本
+（vocabulary_builder.sqlite3）、觅阅·微信读书的书架/进度缓存（miuread.lua）。
+→ 觅阅装机后首次打开需扫码重新登录，书架自动重新拉取。
+
+四、恢复方法
+----------
+1. 确保 KOReader 已完全退出（不在阅读或主界面运行）。
+2. 将 settings.reader.lua 复制到 KOReader 安装根目录（/mnt/us/koreader/）。
+3. 将 settings/ 目录内的全部内容合并复制到 /mnt/us/koreader/settings/。
+4. 重新打开 KOReader，去以下位置重新登录/填入：
+   - 觅阅·微信读书（扫码登录）
+   - Z-Library（账号密码）
+   - AI 伴读（填入自己的 API key）
+
+五、注意事项
+----------
+- 机上的 .old 备份文件、17MB 的 bookinfo_cache.sqlite3（可自动重建的元数据缓存）未包含在内。
+- 覆盖设置前建议先备份设备上的同名文件。

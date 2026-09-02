@@ -117,7 +117,10 @@ local STAT_MAP = {
     total_time  = { display_label = _("All time — Time"),   value = function(s) return fmtTime(s.total_secs) end,   label = _("of reading, all time") },
     total_books = { display_label = _("All time — Books"),  value = function(s) return tostring(s.total_books) end, label = _("books finished") },
     streak      = { display_label = _("Streak"),            value = function(s) return s.streak > 0 and tostring(s.streak) or "—" end,
-                    label_fn = function(s) return s.streak == 1 and _("day streak") or (s.streak == 0 and _("no streak") or _("days streak")) end },
+                    label_fn = function(s)
+                        if s.streak == 0 then return _("no streak") end
+                        return N_("day streak", "days streak", s.streak)
+                    end },
     -- No "Status — Finished" card: it would near-duplicate "All time — Books"
     -- (both count summary.status == "complete") with only edge-case
     -- differences, showing two near-identical numbers with no clear reason
@@ -788,12 +791,7 @@ function M.getMenuItems(ctx_menu)
         },
         _makeScaleItem(ctx_menu),
         Config.makeScaleItem({
-            text_func     = function()
-                local pct = Config.getRSTextScalePct()
-                return pct == Config.RS_TEXT_SCALE_DEF
-                    and _lc("Text Size")
-                    or  string.format(_lc("Text Size — %d%%"), pct)
-            end,
+            text_func     = function() return _lc("Text Size") end,
             title         = _lc("Text Size"),
             info          = _lc("Size of the text inside the stat cards.\nDoes not affect card size or padding.\n100% is the default size."),
             get           = function() return Config.getRSTextScalePct() end,

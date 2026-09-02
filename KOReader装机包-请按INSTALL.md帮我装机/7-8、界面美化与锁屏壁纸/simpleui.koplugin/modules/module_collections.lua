@@ -58,11 +58,9 @@ local LineWidget      = require("ui/widget/linewidget")
 local OverlapGroup    = require("ui/widget/overlapgroup")
 local Size            = require("ui/size")
 local TextWidget      = require("ui/widget/textwidget")
-local TextBoxWidget   = require("ui/widget/textboxwidget")
 local VerticalGroup   = require("ui/widget/verticalgroup")
 local VerticalSpan    = require("ui/widget/verticalspan")
 local Screen          = Device.screen
-local logger          = require("logger")
 local lfs             = require("libs/libkoreader-lfs")
 local _ = require("infra/sui_i18n").translate
 local N_ = require("infra/sui_i18n").ngettext
@@ -156,13 +154,10 @@ local function getDims(scale, thumb_scale, lbl_scale, cw, hide_spine, badge_scal
     -- Label text and gaps scale only with `scale`, not thumb_scale.
     local label_gap    = math.max(1, math.floor(_BASE_LABEL_GAP    * scale))
     local stack_extra  = 2 * edge_thick + 2 * edge_margin
-    -- Font size for collection label — computed here so coll_cell_h can use the
-    -- same line-height formula as TextBoxWidget (1.3 × font_size), keeping the
-    -- reserved cell height perfectly in sync with the widget's actual height.
+    -- Font size for collection label — reserved height uses a single-line
+    -- estimate matching TextWidget metrics (same idea as GridRenderer labels).
     local coll_lbl_fs  = math.max(6, math.floor(_BASE_COLL_LBL_FS * scale * lbl_scale))
-    -- TextBoxWidget internal line_height_px = math.floor(1.3 * font_size + 0.5).
-    -- We must use this exact formula for both the widget height and coll_cell_h.
-    local tbw_line_h   = math.floor(1.3 * coll_lbl_fs + 0.5)
+    local label_h      = math.max(1, math.floor(1.3 * coll_lbl_fs + 0.5))
 
     local left_margin = hide_spine and 0 or stack_extra
     local coll_w = math.max(1, cw - left_margin)
@@ -178,7 +173,7 @@ local function getDims(scale, thumb_scale, lbl_scale, cw, hide_spine, badge_scal
         coll_w       = coll_w,
         coll_h       = coll_h,
         accent_h     = accent_h,
-        tbw_line_h   = tbw_line_h,
+        label_h      = label_h,
         label_gap    = label_gap,
         badge_sz       = badge_sz,
         badge_margin   = badge_margin,
@@ -189,7 +184,7 @@ local function getDims(scale, thumb_scale, lbl_scale, cw, hide_spine, badge_scal
         left_margin  = left_margin,
         stack_cell_w = coll_w + left_margin,   -- == cw, always
         cell_h       = coll_h + accent_h,
-        coll_cell_h  = coll_h + accent_h + label_gap + 2 * tbw_line_h,
+        coll_cell_h  = coll_h + accent_h + label_gap + label_h,
         ph_cover_fs  = math.max(7, math.floor(_BASE_PH_COVER_FS * cs)),
         coll_lbl_fs  = coll_lbl_fs,
         badge_fs     = math.floor(badge_sz * (_BASE_BADGE_FS / _BASE_BADGE_SZ)),
@@ -1033,28 +1028,17 @@ local function buildCollectionCell(coll_name, cw, cell_h, ctx)
         display_name = TBR.getDisplayName()
     end
 
-    local label_args = {
-        text      = display_name,
-        face      = Font:getFace(SUIStyle.FACE_REGULAR, d.coll_lbl_fs),
-        bold      = true,
-        fgcolor   = CLR_TEXT_SUB_EFF,
-        width     = d.coll_w,
-        max_lines = 2,
-        alignment = "center",
+    -- Single-line label capped to cover width (same truncation pattern as
+    -- GridRenderer / Recent progress labels).
+    local label_w = UI.makeColoredText{
+        text                   = display_name,
+        face                   = Font:getFace(SUIStyle.FACE_REGULAR, d.coll_lbl_fs),
+        bold                   = true,
+        fgcolor                = CLR_TEXT_SUB_EFF,
+        max_width              = d.coll_w,
+        truncate_with_ellipsis = true,
+        alignment              = "center",
     }
-
-    local label_w
-    if ctx.has_wallpaper then
-        local ok_tbx, tbx = pcall(UI.makeAlphaTextBox, label_args)
-        if ok_tbx then
-            label_w = tbx
-        else
-            logger.warn("simpleui: module_collections: makeAlphaTextBox failed, falling back: " .. tostring(tbx))
-            label_w = TextBoxWidget:new(label_args)
-        end
-    else
-        label_w = TextBoxWidget:new(label_args)
-    end
 
     local label_aligned = HorizontalGroup:new{
         HorizontalSpan:new{ width = d.left_margin },

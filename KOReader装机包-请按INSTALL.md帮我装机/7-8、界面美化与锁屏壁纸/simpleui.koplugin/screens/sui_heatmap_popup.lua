@@ -31,6 +31,7 @@ local HW       = require("engines/sui_heatmap_widgets")
 local WEEKS_PER_BLOCK = 26
 
 local M = {}
+
 -- 修改：适用中文格式
 local function fmtRange(start_t, end_t)
     return os.date("%y.%m.%d", start_t) .. "-" .. os.date("%m.%d", end_t)

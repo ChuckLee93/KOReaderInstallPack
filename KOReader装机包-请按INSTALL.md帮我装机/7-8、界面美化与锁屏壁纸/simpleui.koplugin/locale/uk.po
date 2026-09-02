@@ -4432,11 +4432,10 @@ msgstr "середнє щодня (7 днів)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "день послідовності"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "днів послідовності"
+msgid_plural "days streak"
+msgstr[0] "день послідовності"
+msgstr[1] "днів послідовності"
+msgstr[2] ""
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

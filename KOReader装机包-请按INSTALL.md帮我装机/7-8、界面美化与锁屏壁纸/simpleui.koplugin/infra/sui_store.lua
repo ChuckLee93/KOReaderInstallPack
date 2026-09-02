@@ -66,6 +66,7 @@ local function _getStore()
         logger.warn("simpleui/sui_settings: LuaSettings unavailable, using in-memory fallback")
         local _mem = {}
         _store = {
+            data         = _mem,
             readSetting  = function(_, k)    return _mem[k] end,
             saveSetting  = function(_, k, v) _mem[k] = v end,
             delSetting   = function(_, k)    _mem[k] = nil end,

@@ -295,25 +295,29 @@ function M.patchFileManagerClass(plugin)
     end
 
     -- ---------------------------------------------------------------------
-    -- PocketBook Home Button (class-level, patched once per session).
+    -- Home Button → Homescreen (class-level, patched once per session).
     --
     -- Natively FileManager:onHome() calls file_chooser:goHome()/setHome() —
     -- it navigates the file browser, never the SimpleUI Homescreen. When the
-    -- "PocketBook Home Button" behaviour setting is on, the hardware Home
-    -- key should always land on the Homescreen, whether pressed from inside
-    -- the reader (see wireReaderHomeKey) or from the file manager. This
-    -- mirrors onSimpleUIGoHomescreen's own outside-the-reader branch, so
-    -- behaviour stays identical to using the "Go to Homescreen" gesture.
+    -- "Home Button Opens Home Screen" behaviour setting is on, the Home key
+    -- should always land on the Homescreen, whether pressed from inside the
+    -- reader (see wireReaderHomeKey) or from the file manager. This mirrors
+    -- onSimpleUIGoHomescreen's own outside-the-reader branch, so behaviour
+    -- stays identical to using the "Go to Homescreen" gesture.
+    --
+    -- Gated on Config.deviceHasHomeKey() (event_map contains "Home"), not on
+    -- a single platform — PocketBook, reMarkable, Cervantes, Sony, Kindle
+    -- models with a Home key, and similar devices all share the same path.
     --
     -- Class-level like initGesListener above (FileManager instances are
     -- recreated often); resolves the live plugin via _live_plugin so the
     -- closure never operates on a stale instance.
     -- ---------------------------------------------------------------------
-    if not FileManager._simpleui_home_patched and Device:isPocketBook() then
+    if not FileManager._simpleui_home_patched and Config.deviceHasHomeKey() then
         FileManager._simpleui_home_patched = true
         local orig_onHome = FileManager.onHome
         FileManager.onHome = function(fm_self, ...)
-            if SUISettings:isTrue("simpleui_pb_home_opens_hs") then
+            if SUISettings:isTrue("simpleui_home_key_opens_hs") then
                 local plugin_now = _live_plugin or plugin
                 local tabs = Config.loadTabConfig()
                 plugin_now:_navigate("homescreen", fm_self, tabs, false)
@@ -3241,6 +3245,12 @@ local function _onStatusChanged(file)
     --    stale ctx.stats survives. We must also clear _ctx_cache so that the
     --    next _updatePage() call re-runs _buildCtx() and fetches fresh stats
     --    from the now-invalidated StatsProvider.
+    --
+    --    Also drop _cached_books_state: that table holds prefetched
+    --    percent/summary from the last prefetchBooks(). Clearing only
+    --    _ctx_cache still lets _buildCtx() reuse the stale prefetched_data,
+    --    so progress badges/bars on Cover Deck and book-grid modules keep
+    --    showing the pre-status values after a hold-dialog status change.
     local ok_hs, HS = pcall(require, "screens/sui_homescreen")
     if ok_hs and HS then
         -- Flag for the class-level check in onShow.
@@ -3249,10 +3259,12 @@ local function _onStatusChanged(file)
         -- open behind the FM/library dialog).
         local inst = HS._instance
         if inst then
-            inst._ctx_cache          = nil
-            inst._stats_need_refresh = true
+            inst._ctx_cache           = nil
+            inst._cached_books_state  = nil
+            inst._stats_need_refresh  = true
         end
     end
+
 end
 
 function M.patchStatusButtons(plugin)
@@ -4199,18 +4211,18 @@ end
 -- ---------------------------------------------------------------------------
 -- wireReaderHomeKey
 --
--- PocketBook only. Natively, ReaderUI:registerKeyEvents() binds the hardware
--- Home key to onHome(), which closes the reader straight into the file
--- manager (onClose + showFileManager, no Homescreen). When the "PocketBook
--- Home Button" behaviour setting is on, we redirect that single
--- instance-level entry point to our flash-free reader→Homescreen path
--- instead — the same one used by the "Go to Homescreen" gesture/dispatcher
--- action — so the hardware button matches Start-with-Homescreen users'
--- expectations instead of always dropping into the FM.
+-- Natively, ReaderUI:registerKeyEvents() binds the Home key to onHome(),
+-- which closes the reader straight into the file manager (onClose +
+-- showFileManager, no Homescreen). When the "Home Button Opens Home Screen"
+-- behaviour setting is on, redirect that single instance-level entry point
+-- to our flash-free reader→Homescreen path instead — the same one used by
+-- the "Go to Homescreen" gesture/dispatcher action — so the hardware button
+-- matches Start-with-Homescreen users' expectations instead of always
+-- dropping into the FM.
 --
--- Scoped to PocketBook: on other platforms the physical/software Home key
--- already goes where users expect, and the setting itself is hidden from
--- their menu (see makeBehaviourMenuItems).
+-- Gated on Config.deviceHasHomeKey() (event_map contains "Home"). Devices
+-- without a Home mapping never install the wrapper; the setting is also
+-- hidden from their menu (see makeBehaviourMenuItems).
 --
 -- via_gesture=true: a hardware button press behaves like a gesture, not a
 -- menu tap — no TouchMenu forceRePaint() follows it, so the async nextTick
@@ -4220,13 +4232,13 @@ end
 -- Applied once per ReaderUI instance (guard: _simpleui_home_key_patched).
 -- ---------------------------------------------------------------------------
 function M.wireReaderHomeKey(plugin, readerui)
-    if not (readerui and Device:isPocketBook()) then return end
+    if not (readerui and Config.deviceHasHomeKey()) then return end
     if readerui._simpleui_home_key_patched then return end
     local orig = readerui.onHome
     if type(orig) ~= "function" then return end
 
     readerui.onHome = function(self, ...)
-        if SUISettings:isTrue("simpleui_pb_home_opens_hs") then
+        if SUISettings:isTrue("simpleui_home_key_opens_hs") then
             M.closeReaderToHomescreen(plugin, true)
             return true
         end
@@ -4993,6 +5005,13 @@ function M.installAll(plugin)
     local ok_sg, SG = pcall(require, "features/library/sui_series_grouping")
     if ok_sg and SG then
         pcall(SG.install)
+    end
+    -- External metadata providers (e.g. companion reader plugins storing
+    -- their own document metadata) — installed unconditionally; the patch
+    -- itself is a no-op for any file none of its sources recognizes.
+    local ok_mp, MP = pcall(require, "features/library/sui_metadata_providers")
+    if ok_mp and MP then
+        pcall(MP.install)
     end
     -- Virtual author/series browser — installed only when the feature is enabled
     -- in settings (default: on). When disabled, FileChooser is left unpatched so

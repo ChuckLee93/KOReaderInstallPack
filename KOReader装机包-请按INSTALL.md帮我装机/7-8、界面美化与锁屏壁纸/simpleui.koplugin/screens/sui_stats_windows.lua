@@ -433,6 +433,7 @@ local function _parseDate(val)
     if y and m and d then return { y = y, m = m, d = d } end
     return nil
 end
+
 -- 修改：适用中文格式
 local function _fmtDateRange(start_ts, finish_str)
     local ss = _parseDate(start_ts)

@@ -403,6 +403,29 @@ local function deviceHasWifi()
     return _has_wifi_toggle
 end
 
+-- True when this device maps a key to the KOReader "Home" key name.
+-- Used to show the "Home Button Opens Home Screen" option and to wire
+-- ReaderUI/FileManager onHome handlers. KOReader has no Device:hasHomeKey();
+-- hasKeys() alone is insufficient (registers Home even when the event_map
+-- never emits it). Cache for the process lifetime — event_map is fixed.
+local _has_home_key = nil
+function M.deviceHasHomeKey()
+    if _has_home_key ~= nil then return _has_home_key end
+    _has_home_key = false
+    local ok, result = pcall(function()
+        local dev = getDevice()
+        if not (dev and dev:hasKeys()) then return false end
+        local map = dev.input and dev.input.event_map
+        if type(map) ~= "table" then return false end
+        for _, name in pairs(map) do
+            if name == "Home" then return true end
+        end
+        return false
+    end)
+    if ok and result then _has_home_key = true end
+    return _has_home_key
+end
+
 -- Returns whether Wi-Fi is currently on. Single source of truth for the
 -- wifi_toggle Quick Action's is_active state (see features/sui_quickactions.lua),
 -- which dims the (single) Wi-Fi icon rather than swapping to a distinct
@@ -1075,6 +1098,80 @@ function M.makeGapItem(opts)
     }
 end
 
+
+-- Per-module column width (bento grid). Percent of the homescreen row
+-- this module occupies in portrait. 100 = full width (default). Modules
+-- under 100% whose widths fit side-by-side share a row automatically.
+local BENTO_MIN  = 20
+local BENTO_MAX  = 100
+local BENTO_STEP = 5
+local BENTO_DEF  = 100
+
+local function _bentoKey(mod_id, pfx)
+    return (pfx or "simpleui_hs_") .. "bento_width_" .. (mod_id or "")
+end
+
+local function _clampBento(n)
+    n = math_floor(tonumber(n) or BENTO_DEF)
+    if n < BENTO_MIN then n = BENTO_MIN elseif n > BENTO_MAX then n = BENTO_MAX end
+    -- Snap to step.
+    n = math_floor((n + BENTO_STEP / 2) / BENTO_STEP) * BENTO_STEP
+    if n < BENTO_MIN then n = BENTO_MIN elseif n > BENTO_MAX then n = BENTO_MAX end
+    return n
+end
+
+function M.getBentoWidth(mod_id, pfx)
+    if not mod_id then return BENTO_DEF end
+    local v = SUISettings:get(_bentoKey(mod_id, pfx))
+    if v == nil then
+        -- One-shot migration from the old userpatch key (G_reader_settings).
+        local legacy = _G.G_reader_settings and _G.G_reader_settings:readSetting("simpleui_bento_width_" .. mod_id)
+        if legacy ~= nil then
+            local n = _clampBento(legacy)
+            M.setBentoWidth(n, mod_id, pfx)
+            return n
+        end
+        return BENTO_DEF
+    end
+    return _clampBento(v)
+end
+
+function M.setBentoWidth(pct, mod_id, pfx)
+    if mod_id and pfx then
+        SUISettings:set(_bentoKey(mod_id, pfx), _clampBento(pct))
+    end
+end
+
+function M.makeBentoWidthItem(opts)
+    return {
+        text_func      = opts.text_func or function() return _("Column Width (Bento Grid)") end,
+        separator      = opts.separator or nil,
+        keep_menu_open = true,
+        value_func     = function() return opts.get() .. "%" end,
+        callback       = function()
+            local SpinWidget = require("ui/widget/spinwidget")
+            local UIManager  = require("ui/uimanager")
+            UIManager:show(SpinWidget:new{
+                title_text    = opts.title or _("Column Width (Bento Grid)"),
+                info_text     = opts.info or _("Share of the row this module occupies.\n100% = full width. Modules under 100% share a row when their widths fit (bento grid)."),
+                value         = opts.get(),
+                value_min     = BENTO_MIN,
+                value_max     = BENTO_MAX,
+                value_step    = BENTO_STEP,
+                unit          = "%",
+                ok_text       = _("Apply"),
+                cancel_text   = _("Cancel"),
+                default_value = BENTO_DEF,
+                callback      = function(spin)
+                    opts.set(spin.value)
+                    opts.refresh()
+                end,
+            })
+        end,
+    }
+end
+
+
 -- Module Labels (Section Title) Toggle
 local function _labelHideKey(mod_id)
     return "simpleui_hide_label_" .. (mod_id or "")
@@ -1691,16 +1788,36 @@ function M.flushCoverQueue()
     end
     local files = {}
     for _, fp in ipairs(queue) do
-        if _lfsMode(fp) == "file" then
-            files[#files + 1] = { filepath = fp, cover_specs = M._cover_extract_specs[fp] }
-        else
-            M._cover_extract_pending[fp] = nil
-        end
+        local specs = M._cover_extract_specs[fp]
         M._cover_extract_specs[fp] = nil
+        if _lfsMode(fp) ~= "file" then
+            M._cover_extract_pending[fp] = nil
+        else
+            -- Skip files that already have a usable cached cover: avoids
+            -- re-queuing (and wiping) complete rows when only one new file
+            -- needs extraction. extractInBackground applies the same filter.
+            local skip = false
+            local ok_bi, bi = pcall(bim.getBookInfo, bim, fp, false)
+            if ok_bi and bi and bi.cover_fetched then
+                local invalid = bi.has_cover and specs
+                    and type(bim.isCachedCoverInvalid) == "function"
+                    and bim.isCachedCoverInvalid(bi, specs)
+                if not invalid then
+                    skip = true
+                    M._cover_extract_pending[fp] = nil
+                end
+            end
+            if not skip then
+                files[#files + 1] = { filepath = fp, cover_specs = specs }
+            end
+        end
     end
+    if #files == 0 then return end
     local ok = pcall(bim.extractInBackground, bim, files)
     if not ok then
-        for _, fp in ipairs(queue) do M._cover_extract_pending[fp] = nil end
+        for _, entry in ipairs(files) do
+            M._cover_extract_pending[entry.filepath] = nil
+        end
     end
 end
 
@@ -1949,6 +2066,16 @@ function M.applyFirstRunDefaults()
         M.saveTopbarConfig({ side = { clock = "left", battery = "right", wifi = "right" }, order_left = { "clock" }, order_right = { "wifi", "battery" } })
     end
 
+    -- Home key → Homescreen (was PocketBook-only simpleui_pb_home_opens_hs).
+    -- Migrate once when the new key is absent; leave the old key in place so
+    -- older plugin versions reading the same settings file still work.
+    if SUISettings:get("simpleui_home_key_opens_hs") == nil
+            and SUISettings:get("simpleui_pb_home_opens_hs") ~= nil then
+        SUISettings:set("simpleui_home_key_opens_hs",
+            SUISettings:isTrue("simpleui_pb_home_opens_hs"))
+    end
+    def("simpleui_home_key_opens_hs", true)
+
     -- Homescreen modules (default preset)
     local PFX = "simpleui_hs_"
     def(PFX .. "quote_enabled",           false)
@@ -2050,7 +2177,7 @@ end
 function M.reset()
     _tabs_cache, _navbar_mode_cache, M.wifi_optimistic = nil, nil, nil
     M.cover_extraction_pending, M._cover_extract_queue, M._cover_extract_pending, M._cover_extract_specs = false, {}, {}, {}
-    _Device, _NetworkMgr, _has_wifi_toggle, _topbar_item_labels, _SQ3, _lfs_mod, _BookInfoManager, _topbar_cfg_menu_cache, _ReadCollection = nil, nil, nil, nil, nil, nil, nil, nil, nil
+    _Device, _NetworkMgr, _has_wifi_toggle, _has_home_key, _topbar_item_labels, _SQ3, _lfs_mod, _BookInfoManager, _topbar_cfg_menu_cache, _ReadCollection = nil, nil, nil, nil, nil, nil, nil, nil, nil
     _QA_lazy().clearQAKeyCache()
     M.clearCoverCache()
 end

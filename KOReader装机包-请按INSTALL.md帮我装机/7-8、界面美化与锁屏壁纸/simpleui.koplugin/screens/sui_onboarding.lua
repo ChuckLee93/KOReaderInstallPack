@@ -79,17 +79,18 @@ function Onboarding.show(on_finish)
         local rows = {}
         local builtins = SUIPresets.getBuiltinPresets and SUIPresets.getBuiltinPresets() or {}
 
-        table.insert(rows, VerticalSpan:new{ width = ctx.SZ(Screen:scaleBySize(30)) })
+        table.insert(rows, VerticalSpan:new{ width = ctx.SZ(Screen:scaleBySize(14)) })
 
         local preset_rows_args = { align = "left" }
-        for _, bp in ipairs(builtins) do
+        for i, bp in ipairs(builtins) do
             table.insert(preset_rows_args, SUI.ListRow{
-                title    = bp.name,
-                subtitle = bp.desc,
-                inner_w  = iw - ctx.SZ(Screen:scaleBySize(40)),
-                radio    = true,
-                checked  = (st.selected_preset == bp.id),
-                on_tap   = function()
+                title     = bp.name,
+                subtitle  = bp.desc,
+                inner_w   = iw - ctx.SZ(Screen:scaleBySize(40)),
+                radio     = true,
+                checked   = (st.selected_preset == bp.id),
+                separator = (i < #builtins),
+                on_tap    = function()
                     st.selected_preset = bp.id
                     if SUIPresets.applyBuiltin then SUIPresets.applyBuiltin(st.selected_preset) end
                     SUISettings:set("simpleui_hs_active_preset", st.selected_preset)
@@ -153,7 +154,7 @@ function Onboarding.show(on_finish)
         local vpad    = ctx.SZ(Screen:scaleBySize(16))
         local rows    = {}
 
-        table.insert(rows, VerticalSpan:new{ width = ctx.SZ(Screen:scaleBySize(30)) })
+        table.insert(rows, VerticalSpan:new{ width = ctx.SZ(Screen:scaleBySize(14)) })
 
         local tips = {
             {

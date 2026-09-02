@@ -5,12 +5,16 @@
 仿 Kindle "生字注音" 功能: 在中文页面每个汉字上方(或下方)叠加拼音,
 并可按"常用度等级"控制只给较生僻的字注音。
 
+v6.5.1 修正: 繁体三表(trad_data/polyphone_trad/fix_trad)改为「首次开启
+  繁体模式才加载」的惰性设计, 简体模式(默认)下不再随 KOReader 启动常驻
+  ~0.4MB, 内存足迹与 v6.3 完全一致; 简体查表路径零改动。
 v6.5 新增(繁体书模式, 与简体通道完全同构的纯查表设计):
   * 菜单「繁体书模式: 开/关」(默认关, 读繁体书时打开)。
   * 繁体数据表(gen_trad_data.py 自动生成, 一对多歧义在生成期由 OpenCC
-    词组级转换解析): trad_data.lua(繁体字→拼音|rank, 启动即载)、
+    词组级转换解析): trad_data.lua(繁体字→拼音|rank)、
     polyphone_trad.lua(繁体多音字索引)、fix_trad.lua(繁体读音修正)、
-    phrase_trad.lua(繁体键词组辨音表, 惰性加载, 仅繁体模式才读入)。
+    phrase_trad.lua(繁体键词组辨音表)。
+    v6.5.1 起四张繁体表全部惰性: 仅繁体模式开启后首次查表才 require。
   * 简体模式行为完全不变: 繁体表不参与查表(简体路径零改动),
     phrase_trad 文件不加载。繁体模式: 单字查 trad_data→pinyin_data,
     辨音窗口用页面原字(繁体)查 phrase_trad, 生词本联动原文匹配不变。
@@ -61,16 +65,23 @@ local ok_fix, DefaultFix = pcall(require, "default_fix")
 if not ok_fix or type(DefaultFix) ~= "table" then DefaultFix = {} end
 
 -- v6.5 繁体书模式数据表(均自动生成, 详见 gen_trad_data.py):
---   trad_data.lua:      繁体字→拼音|rank(启动即载, 仅繁体模式查询)
---   polyphone_trad.lua: 繁体多音字索引(小, 启动即载)
---   fix_trad.lua:       繁体键默认读音修正表(小, 启动即载)
---   phrase_trad.lua:    繁体键词组辨音表(约 320KB, 惰性加载, 仅繁体模式)
-local ok_trad, TradData = pcall(require, "trad_data")
-if not ok_trad or type(TradData) ~= "table" then TradData = {} end
-local ok_pidxt, PolyIdxTrad = pcall(require, "polyphone_trad")
-if not ok_pidxt or type(PolyIdxTrad) ~= "table" then PolyIdxTrad = {} end
-local ok_ftrad, FixTrad = pcall(require, "fix_trad")
-if not ok_ftrad or type(FixTrad) ~= "table" then FixTrad = {} end
+--   trad_data.lua:      繁体字→拼音|rank(仅繁体模式查询)
+--   polyphone_trad.lua: 繁体多音字索引(小)
+--   fix_trad.lua:       繁体键默认读音修正表(小)
+--   phrase_trad.lua:    繁体键词组辨音表(约 320KB)
+-- v6.5.1: 四表均惰性加载 —— 首次开启繁体模式查表时才 require, 简体模式
+-- (默认)不读入任何繁体数据, 启动内存足迹与 v6.3 完全一致。
+-- 加载失败置 false(空表语义, 不再重试), 查表自动回退简体表。
+local TradData, PolyIdxTrad, FixTrad  -- nil=未加载, false=加载失败, table=已加载
+local function getTradTables()
+    if TradData ~= nil then return end
+    local ok_trad, td = pcall(require, "trad_data")
+    local ok_pidxt, pit = pcall(require, "polyphone_trad")
+    local ok_ftrad, ft = pcall(require, "fix_trad")
+    TradData = (ok_trad and type(td) == "table") and td or false
+    PolyIdxTrad = (ok_pidxt and type(pit) == "table") and pit or false
+    FixTrad = (ok_ftrad and type(ft) == "table") and ft or false
+end
 
 -- 插件配置(config.lua): 两项高级开关, 默认均为关闭。修改后需重启 KOReader 生效。
 local ok_cfg, PinyinConfig = pcall(require, "config")
@@ -102,7 +113,7 @@ local LOOKAHEAD = 5       -- 辨音右窗(字后最多取 5 个字, 配合左窗
 local MAX_WORD_LEN = 6    -- 词组匹配最大长度(字)
 local MAX_ANNOT = 30      -- 单页注音上限(保险丝): 收满即停, 扫描与绘制都省
 
--- 插件版本(对外显示 v2.1; 内部开发迭代号 6.5, 仅记录于 README/日志)
+-- 插件版本(对外显示 v2.1; 内部开发迭代号 6.5.1, 仅记录于 README/日志)
 local VERSION = "2.1"
 
 local Pinyin = WidgetContainer:extend{
@@ -129,21 +140,31 @@ end
 -- ---------------------------------------------------------------------------
 -- v6.5 模式感知查表入口: 简体模式=原通道(繁体表不参与, 简体路径零改动);
 -- 繁体模式=先查繁体表, 未命中(简繁同形字/混排简体字)回退简体表。
--- 两条通道均为一次哈希查表, 速度同构。
+-- 两条通道均为一次哈希查表, 速度同构。v6.5.1: 繁体表惰性加载,
+-- 繁体模式下首次查表触发 require(一次性 ~0.4MB), 之后纯哈希查表。
 -- ---------------------------------------------------------------------------
 function Pinyin:_entry(ch)
     if self.trad then
-        return TradData[ch] or PinyinData.data[ch]
+        if TradData == nil then getTradTables() end
+        return (TradData and TradData[ch]) or PinyinData.data[ch]
     end
     return PinyinData.data[ch]
 end
 
 function Pinyin:_polyIdx()
-    return self.trad and PolyIdxTrad or PolyIdx
+    if self.trad then
+        if PolyIdxTrad == nil then getTradTables() end
+        return PolyIdxTrad or PolyIdx
+    end
+    return PolyIdx
 end
 
 function Pinyin:_fix()
-    return self.trad and FixTrad or DefaultFix
+    if self.trad then
+        if FixTrad == nil then getTradTables() end
+        return FixTrad or DefaultFix
+    end
+    return DefaultFix
 end
 
 function Pinyin:init()

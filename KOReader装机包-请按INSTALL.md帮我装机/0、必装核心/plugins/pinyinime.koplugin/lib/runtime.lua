@@ -835,7 +835,9 @@ function Runtime:ensureDataLoaded()
     local started = os.clock()
     local memory_before = collectgarbage("count")
     local ok, err = pcall(function()
-        self.PinyinIME = dofile(self.root .. "/lib/pinyinime.lua")
+        if not self.PinyinIME then
+            self.PinyinIME = dofile(self.root .. "/lib/pinyinime.lua")
+        end
         self.code_map = dofile(self.root .. "/data/pinyin_data.lua")
         self:_initializeLexicon()
         local corrections = dofile(self.root .. "/data/pinyin_corrections.lua")
@@ -843,8 +845,12 @@ function Runtime:ensureDataLoaded()
         self.correction_metadata = corrections.metadata or {}
         local resources = self:_prepareInputSchemeResources(self.settings:getInputScheme())
         self:_activateInputSchemeResources(resources)
-        self.CandidateBar = dofile(self.root .. "/widgets/candidatebar.lua")
-        self.CandidatePanel = dofile(self.root .. "/widgets/candidatepanel.lua")
+        if not self.CandidateBar then
+            self.CandidateBar = dofile(self.root .. "/widgets/candidatebar.lua")
+        end
+        if not self.CandidatePanel then
+            self.CandidatePanel = dofile(self.root .. "/widgets/candidatepanel.lua")
+        end
         self.sorted_codes = {}
         for code in pairs(self.code_map) do
             self.sorted_codes[#self.sorted_codes + 1] = code
@@ -865,10 +871,59 @@ function Runtime:ensureDataLoaded()
     return true
 end
 
+-- Deferred data hook (custom lazy-load patch): invoked by the engine on its
+-- first composition keystroke. Loads the heavy data files and retro-fills an
+-- engine that was created before the data became available.
+function Runtime:_loadDeferredEngineData(engine)
+    local ok, err = self:ensureDataLoaded()
+    if not ok then
+        return false, err
+    end
+    self:_populateEngineData(engine)
+    return true
+end
+
+-- Copy the freshly loaded data maps into a deferred engine; the existing
+-- _updateEngineLexicon refresh invalidates its candidate caches.
+function Runtime:_populateEngineData(engine)
+    engine.code_map = self.code_map
+    engine.sorted_codes = self.sorted_codes
+    engine.correction_full = self.correction_full
+    engine.correction_shuangpin = self.correction_shuangpin
+    engine.shuangpin_decoder = self.shuangpin_decoder
+    if self.syllable_set then
+        engine.syllables = self.syllable_set
+        local max_len = 0
+        for syllable in pairs(self.syllable_set) do
+            if #syllable > max_len then
+                max_len = #syllable
+            end
+        end
+        engine.max_syllable_length = max_len
+    end
+    self:_updateEngineLexicon(engine, self.lexicon_provider)
+end
+
 function Runtime:newInputMethod()
-    local loaded = self:ensureDataLoaded()
-    if not loaded then
-        return nil
+    if not self.PinyinIME then
+        -- Light module load: engine constructor, key wrappers and candidate
+        -- bar widgets only. The lexicon/code-map data files stay on disk
+        -- until the first composition keystroke (_loadDeferredEngineData).
+        self.PinyinIME = dofile(self.root .. "/lib/pinyinime.lua")
+        self.CandidateBar = dofile(self.root .. "/widgets/candidatebar.lua")
+        self.CandidatePanel = dofile(self.root .. "/widgets/candidatepanel.lua")
+    end
+    -- Custom lazy-load patch: create the engine without the heavy data when
+    -- the setting is on. The engine runs on empty maps (idle state, empty
+    -- candidates) until processText pulls the data in via ensure_data.
+    local deferred = self.settings and self.settings.isDeferredDataLoadEnabled
+        and self.settings:isDeferredDataLoadEnabled()
+        and not self.data_loaded
+    if not deferred then
+        local loaded = self:ensureDataLoaded()
+        if not loaded then
+            return nil
+        end
     end
     local engine = self.PinyinIME:new{
         code_map = self.code_map,
@@ -925,6 +980,9 @@ function Runtime:newInputMethod()
         on_lexicon_error = function(reason)
             self:_fallbackLexicon(reason)
         end,
+        ensure_data = deferred and function(engine)
+            return self:_loadDeferredEngineData(engine)
+        end or nil,
     }
     self.engines[engine] = true
     return engine
@@ -1267,6 +1325,27 @@ function Runtime:buildPredictionMenuItem()
         end,
         callback = function()
             self:setPredictionEnabled(not self:isPredictionEnabled())
+        end,
+    }
+end
+
+function Runtime:buildDeferredLoadMenuItem()
+    return {
+        text = "延迟加载词库数据",
+        help_text = "开启后，词库与拼音数据在第一次敲拼音时才载入："
+            .. "长按查词典、全文搜索等弹出输入窗口时不再预载约 14MB 数据、"
+            .. "不产生 1 秒左右的一次性卡顿；代价是每个会话第一次打拼音时"
+            .. "才付出这次载入。关闭则恢复键盘弹出时预载。"
+            .. "词库已载入后，本开关本次会话不再有变化。",
+        checked_func = function()
+            return self.settings and self.settings.isDeferredDataLoadEnabled
+                and self.settings:isDeferredDataLoadEnabled() or true
+        end,
+        callback = function()
+            if self.settings and self.settings.isDeferredDataLoadEnabled then
+                self.settings:setDeferredDataLoadEnabled(
+                    not self.settings:isDeferredDataLoadEnabled())
+            end
         end,
     }
 end

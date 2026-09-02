@@ -114,8 +114,9 @@ local function _collectPagesModules(layout, placed)
     if type(layout) == "table" and type(layout.pages) == "table" then
         for _, page in ipairs(layout.pages) do
             if type(page.modules) == "table" then
-                for _, mod_id in ipairs(page.modules) do
-                    placed[mod_id] = true
+                for _, entry in ipairs(page.modules) do
+                    local mod_id = type(entry) == "table" and entry.id or entry
+                    if mod_id then placed[mod_id] = true end
                 end
             end
         end

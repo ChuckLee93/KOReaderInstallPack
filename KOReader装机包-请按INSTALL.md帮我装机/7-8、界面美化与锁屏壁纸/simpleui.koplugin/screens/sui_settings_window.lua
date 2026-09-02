@@ -72,6 +72,42 @@ local SettingsWindow = {}
 
 local LayoutService = {}
 
+-- Normalize layout module entries to plain ids. Legacy { id, width } tables
+-- (brief experimental schema) migrate width into Config bento settings and
+-- collapse back to a string id so the layout stays a pure order list.
+function LayoutService.entryId(entry)
+    if type(entry) == "table" then return entry.id end
+    return entry
+end
+
+local function _normalizeLayoutModules(layout, pfx)
+    if type(layout) ~= "table" or type(layout.pages) ~= "table" then return layout end
+    local Config = require("infra/sui_config")
+    local changed = false
+    for _, page in ipairs(layout.pages) do
+        if type(page.modules) == "table" then
+            local out = {}
+            for _, entry in ipairs(page.modules) do
+                if type(entry) == "table" and entry.id then
+                    if type(entry.width) == "number" then
+                        Config.setBentoWidth(entry.width, entry.id, pfx)
+                    end
+                    out[#out + 1] = entry.id
+                    changed = true
+                else
+                    out[#out + 1] = entry
+                end
+            end
+            page.modules = out
+        end
+    end
+    if changed then
+        -- Caller (load) persists via layout_key when appropriate.
+    end
+    return layout, changed
+end
+
+
 local _DEFAULT_PFX        = "simpleui_hs_"
 local _DEFAULT_LAYOUT_KEY = "simpleui_layout"
 
@@ -81,6 +117,8 @@ function LayoutService.load(pfx, layout_key)
 
     local saved = SUISettings:readSetting(layout_key)
     if type(saved) == "table" and saved.pages then
+        local _, changed = _normalizeLayoutModules(saved, pfx)
+        if changed then SUISettings:saveSetting(layout_key, saved) end
         return saved
     end
 
@@ -116,9 +154,12 @@ function LayoutService.save(layout, pfx, layout_key, screen_id)
     local active_set = {}
 
     for _, page in ipairs(layout.pages) do
-        for _, mod_id in ipairs(page.modules) do
-            table.insert(flat_order, mod_id)
-            active_set[mod_id] = true
+        for _, entry in ipairs(page.modules) do
+            local mod_id = LayoutService.entryId(entry)
+            if mod_id then
+                table.insert(flat_order, mod_id)
+                active_set[mod_id] = true
+            end
         end
     end
 
@@ -526,8 +567,8 @@ local function buildScreens(st)
             end or nil
 
             local mod_names = {}
-            for _, mod_id in ipairs(page.modules) do
-                table.insert(mod_names, LayoutService.getModuleName(mod_id))
+            for _, entry in ipairs(page.modules) do
+                table.insert(mod_names, LayoutService.getModuleName(LayoutService.entryId(entry)))
             end
             local subtitle = #mod_names > 0
                 and table.concat(mod_names, "  ·  ")
@@ -586,7 +627,8 @@ local function buildScreens(st)
             row_counters[mid] = { idx = idx, kind = "spacer" }
         end
 
-        for m_idx, mod_id in ipairs(page.modules) do
+        for m_idx, entry in ipairs(page.modules) do
+            local mod_id       = LayoutService.entryId(entry)
             local mod_name     = LayoutService.getModuleName(mod_id)
             local mod_subtitle = nil
 
@@ -643,7 +685,7 @@ local function buildScreens(st)
                         text        = _("Delete") .. " " .. mod_name .. "?",
                         ok_callback = function()
                             for i, m in ipairs(page.modules) do
-                                if m == mod_id then
+                                if LayoutService.entryId(m) == mod_id then
                                     table.remove(page.modules, i)
                                     break
                                 end
@@ -674,7 +716,7 @@ local function buildScreens(st)
                                         on_tap = function(picker_ctx)
                                             local actual_idx
                                             for i, m in ipairs(page.modules) do
-                                                if m == mod_id then
+                                                if LayoutService.entryId(m) == mod_id then
                                                     actual_idx = i
                                                     break
                                                 end
@@ -726,7 +768,10 @@ local function buildScreens(st)
         local active_set = {}
 
         for _, page in ipairs(st.layout.pages) do
-            for _, m in ipairs(page.modules) do active_set[m] = true end
+            for _, m in ipairs(page.modules) do
+                local id = LayoutService.entryId(m)
+                if id then active_set[id] = true end
+            end
         end
 
         local all_mods = Registry.list()
@@ -834,7 +879,25 @@ local function buildScreens(st)
         ctx_menu.show_arrange = function(params) ctx.push("arrange", params) end
         ctx_menu.ConfirmBox  = require("ui/widget/confirmbox")
 
-        local menu_items = mod.getMenuItems(ctx_menu)
+        local menu_items = mod.getMenuItems(ctx_menu) or {}
+        -- Column width (bento grid) — same chrome as long-press module settings.
+        local Cfg = require("infra/sui_config")
+        menu_items[#menu_items + 1] = Cfg.makeBentoWidthItem({
+            get     = function() return Cfg.getBentoWidth(mod.id, st.pfx) end,
+            set     = function(v)
+                Cfg.setBentoWidth(v, mod.id, st.pfx)
+                -- Invalidate the live screen's module-list cache (bento fingerprint).
+                local SE = package.loaded["engines/sui_screen_engine"]
+                    or package.loaded["screens/sui_homescreen"]
+                if SE and SE.getInstance then
+                    local live = SE.getInstance(st.screen_id or "hs")
+                    if live then live._enabled_mods_cache = nil end
+                elseif SE and SE._instance then
+                    SE._instance._enabled_mods_cache = nil
+                end
+            end,
+            refresh = ctx_menu.refresh,
+        })
         return makeMenuTable(ctx, menu_items)
     end
 
@@ -1144,7 +1207,10 @@ function SettingsWindow:show(on_close)
             page_edit = function(ctx)
                 local active_set = {}
                 for _, page in ipairs(st.layout.pages) do
-                    for _, m in ipairs(page.modules) do active_set[m] = true end
+                    for _, m in ipairs(page.modules) do
+                        local id = LayoutService.entryId(m)
+                        if id then active_set[id] = true end
+                    end
                 end
 
                 local all_mods = Registry.list()

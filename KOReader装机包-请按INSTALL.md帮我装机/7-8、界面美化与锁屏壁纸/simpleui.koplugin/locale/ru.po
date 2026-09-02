@@ -4435,11 +4435,10 @@ msgstr "в среднем за день (7 дней)"
 
 #: modules/module_reading_stats.lua:122
 msgid "day streak"
-msgstr "день подряд"
-
-#: modules/module_reading_stats.lua:122
-msgid "days streak"
-msgstr "дней подряд"
+msgid_plural "days streak"
+msgstr[0] "день подряд"
+msgstr[1] "дней подряд"
+msgstr[2] ""
 
 #: screens/sui_stats_windows.lua:417 screens/sui_stats_windows.lua:1434
 msgid "dec"

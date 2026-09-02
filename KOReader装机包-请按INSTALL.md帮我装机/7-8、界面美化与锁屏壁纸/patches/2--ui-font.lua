@@ -1,4 +1,7 @@
 -- NAME IT "2--ui-font.lua": it NEEDS to be the 1st user patch to be executed
+-- Modified 2026-08-31: menu label "UI字体"; font list shows localized (Chinese)
+-- font names via FontList:getLocalizedFontName, same as the in-book font menu.
+-- Fonts without a Chinese name fall back to their raw family name.
 
 local Font = require("ui/font")
 local Version = require("version")
@@ -32,6 +35,16 @@ local UIFont = {
 function UIFont:getSetting() return G_reader_settings:readSetting(self.setting.name, self.setting.default) end
 function UIFont:setSetting(value) G_reader_settings:saveSetting(self.setting.name, value) end
 
+-- Localized display name (same mechanism as the in-book font menu); fallback to raw name.
+function UIFont:getDisplayName(name)
+    local font = self.fonts and self.fonts[name]
+    if font and font.regular and font.face_index ~= nil then
+        local ok, localized = pcall(FontList.getLocalizedFontName, FontList, font.regular, font.face_index)
+        if ok and localized and localized ~= "" then return localized end
+    end
+    return name
+end
+
 function UIFont:init()
     local path_exists = {}
     -- stylua: ignore
@@ -40,11 +53,11 @@ function UIFont:init()
     self.font_list = {}
     self.fonts = {}
     for _, name in ipairs(cre.getFontFaces()) do
-        local path_regular = cre.getFontFaceFilenameAndFaceIndex(name)
+        local path_regular, face_index = cre.getFontFaceFilenameAndFaceIndex(name)
         local path_bold = get_bold_path(path_regular)
         if path_exists[path_regular] and path_exists[path_bold] then
             table.insert(self.font_list, name)
-            self.fonts[name] = { regular = path_regular, bold = path_bold }
+            self.fonts[name] = { regular = path_regular, bold = path_bold, face_index = face_index }
         end
     end
 
@@ -73,12 +86,12 @@ end
 
 function UIFont:menu()
     return {
-        text_func = function() return T(_("UI font: %1"), self:getSetting()) end,
+        text_func = function() return T(_("UI字体: %1"), self:getDisplayName(self:getSetting())) end,
         sub_item_table_func = function()
             local items = {}
             for i, name in ipairs(self.font_list) do
                 table.insert(items, {
-                    text = name,
+                    text = self:getDisplayName(name),
                     enabled_func = function() return name ~= self:getSetting() end,
                     font_func = function(size) return Font:getFace(self.fonts[name].regular, size) end,
                     callback = function()

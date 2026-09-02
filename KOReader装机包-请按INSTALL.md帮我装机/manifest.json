@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-02T10:50:19.849Z",
-  "file_count": 763,
+  "generated": "2026-09-02T12:01:25.960Z",
+  "file_count": 764,
   "files": [
     {
       "path": "0、必装核心/defaults.custom.lua",
@@ -258,11 +258,6 @@
       "md5": "12f12538fa4464d1146d8519b757467f"
     },
     {
-      "path": "0、必装核心/patches/2-diag-probe.lua",
-      "size": 6199,
-      "md5": "90d2c250cc2dba382196a90477b32ff5"
-    },
-    {
       "path": "0、必装核心/patches/2-disable-wikipedia.lua",
       "size": 3236,
       "md5": "51201dcf7b602915f43a8ed9c8e6b394"
@@ -271,6 +266,11 @@
       "path": "0、必装核心/patches/2-menu-activation-split.lua",
       "size": 2644,
       "md5": "a8ed6acfecb4a95fa986df337c82445b"
+    },
+    {
+      "path": "0、必装核心/patches/2-pageturn-perf.lua",
+      "size": 4003,
+      "md5": "3bad1ae3a3f01712f7f31104d78ab2ab"
     },
     {
       "path": "0、必装核心/patches/2-quick-settings-v9.lua",
@@ -293,9 +293,14 @@
       "md5": "39eb36d6ab8bf990abbba06916acb7e6"
     },
     {
-      "path": "0、必装核心/patches/2-restart-diag.lua",
-      "size": 2397,
-      "md5": "9f9f1f2e25b5982407e000649461890d"
+      "path": "0、必装核心/patches/2-reload-diag.lua",
+      "size": 1806,
+      "md5": "234579bd9a2550c9ac34cdce95040193"
+    },
+    {
+      "path": "0、必装核心/patches/2-task-perf.lua",
+      "size": 2947,
+      "md5": "e6acf24f7024c07e2ebb87b4e349171e"
     },
     {
       "path": "0、必装核心/plugins/keepalive.koplugin/_meta.lua",
@@ -859,8 +864,8 @@
     },
     {
       "path": "0、必装核心/settings/gestures.lua",
-      "size": 5629,
-      "md5": "d6ae7d6004e27e5d087ba4babff59a34"
+      "size": 5551,
+      "md5": "66442afdb26d119fdb0a1e6f67551256"
     },
     {
       "path": "0、必装核心/settings/settings-preset-core.lua",
@@ -2919,8 +2924,8 @@
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/patches/2--ui-font.lua",
-      "size": 4185,
-      "md5": "1a9ba3b1ee3735585dc6e6060c362e55"
+      "size": 4945,
+      "md5": "032564a37077bd0635cf69e10b242ab6"
     },
     {
       "path": "7-8、界面美化与锁屏壁纸/patches/2--visual-overhaul-v68-可选隐藏标题作者及美化文件夹封面（三选一）.lua",
@@ -3629,18 +3634,18 @@
     },
     {
       "path": "INSTALL.md",
-      "size": 52337,
-      "md5": "4eed2f96b0987eb5ca4dcd1552aa3580"
+      "size": 54903,
+      "md5": "676eb405f394a2af892ec43dfed2491e"
     },
     {
       "path": "README.md",
-      "size": 8826,
-      "md5": "b263d89250f290f7867d25eceaae5325"
+      "size": 8897,
+      "md5": "b9c345163733a74bab459f33d4736981"
     },
     {
       "path": "使用说明.txt",
-      "size": 8079,
-      "md5": "a591f173bd0af5b3e40f5d51b7888881"
+      "size": 8527,
+      "md5": "6582ee64929aa3317dfa839c5375d11c"
     },
     {
       "path": "备用组件/cover-setter/CoverSetter/bin/set1.sh",
@@ -3779,8 +3784,8 @@
     },
     {
       "path": "备用组件/个人设置同步/恢复说明.txt",
-      "size": 2348,
-      "md5": "6a07618333bf2632da5e70e5212e02ba"
+      "size": 2685,
+      "md5": "557ba079abce2d6f674ac83494cf429d"
     },
     {
       "path": "推荐必装·无线传书/filebrowserplus.koplugin/_meta.lua",
@@ -3799,13 +3804,13 @@
     },
     {
       "path": "文档/manual-steps.md",
-      "size": 5178,
-      "md5": "20878bb0db889b9fa41b02856a4a5665"
+      "size": 5296,
+      "md5": "20c2355341a6c589efa0d1330261ad7a"
     },
     {
       "path": "文档/plugin-credits.md",
-      "size": 4198,
-      "md5": "68b993a2d6e6e67d74b9874c1266f409"
+      "size": 4417,
+      "md5": "00b30e04c136b34fb24eb8fe94e87810"
     },
     {
       "path": "文档/rollback.md",
@@ -3814,8 +3819,8 @@
     },
     {
       "path": "装机包完整介绍.md",
-      "size": 14476,
-      "md5": "589080dd3cba190030fdbc0ad9a0f70a"
+      "size": 14756,
+      "md5": "24b4b6a46c25e0fcf3bad21385016a8c"
     }
   ]
 }

@@ -176,8 +176,5 @@ return {
         ["spread_gesture"] = {
             ["simpleui_go_homescreen"] = true,
         },
-        ["tap_left_bottom_corner"] = {
-            ["toc"] = true,
-        },
     },
 }

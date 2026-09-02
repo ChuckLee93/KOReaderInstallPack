@@ -25,8 +25,9 @@
 |---|---|---|
 | 阅读小票（胶片版）2-book-receipt-shortcut-and-lockscreen.lua | [omer-faruq](https://github.com/omer-faruq/koreader-user-patches)（原始代码出自 Reddit 用户 hundredpercentcocoa，GPLv3） | 原版收录（未改动） |
 | 低内存保护（defaults.custom.lua，页面缓存预算压至 0.15） | 觅阅 miuread（[miumiupy98-art](https://github.com/miumiupy98-art/miuread-koreader)）自带的推荐配置 | 原样收录；装机时询问是否启用（老机型 KPW4 及更早推荐，新机型不推荐）；独立生效，不装觅阅也可启用 |
-| 诊断探针 2-diag-probe.lua（定期生成 diag_report.txt 供远程排障） | **KeZi**（原创） | KeZi 自研 |
-| 重启抓栈探针 2-restart-diag.lua（KOReader 退出/重启瞬间把发起方调用栈写入 crash.log） | **KeZi**（原创） | KeZi 自研 |
+| 重载溯源探针 2-reload-diag.lua（界面重建瞬间把发起方调用栈写入 crash.log，搜 [ReloadDiag]） | **KeZi**（原创） | KeZi 自研 |
+| 翻页计时探针 2-pageturn-perf.lua（UI 主循环各阶段计时，≥300ms 记录耗时与调用栈，搜 [PageTurnPerf]） | **KeZi**（原创） | KeZi 自研 |
+| 任务计时探针 2-task-perf.lua（每条定时任务单独计时，≥300ms 记模块名和行号，搜 [TaskPerf]） | **KeZi**（原创） | KeZi 自研 |
 
 ## 三、Kindle 端组件（非 koplugin；均为备用组件——封面入口功能 KOReader/simpleUI 已自带，默认装机流程不安装）
 
